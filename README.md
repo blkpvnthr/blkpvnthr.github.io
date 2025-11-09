@@ -93,7 +93,7 @@ Relevant Coursework: Data Structures, Algorithms, Machine Learning, Computer Sys
 
 ---
 
-🧭 Directory Structure
+## 🧭 Directory Structure
 asmaa_local/
 ├── index.html
 ├── assets/
