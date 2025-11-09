@@ -73,7 +73,7 @@ Relevant Coursework: Data Structures, Algorithms, Machine Learning, Computer Sys
 
 ---
 
-## 🧠 Skills
+## Skills
 
 **Languages:** Python (primary), SQL, JavaScript, PHP, C++, Java  
 **Libraries & Tools:** NumPy, Pandas, Scikit-learn, TensorFlow, PyTorch, Flask, Docker, Git  
