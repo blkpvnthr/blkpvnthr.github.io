@@ -501,6 +501,7 @@ function getInstitutionBadge(name, description) {
           col.className = "col-sm-6 col-md-12 col-lg-6 col-xl-4 mb-3";
           // skip your profile README repository
           if (repo.name.toLowerCase() === "blkpvnthr") return;
+          if (repo.name.toLowerCase() === "blkpvnthr.github.io") return;
           const language = repo.language || "";
           const stars = repo.stargazers_count || 0;
           const forks = repo.forks_count || 0;
