@@ -1,13 +1,13 @@
-# Asmaa Abdul-Amin — Data Science & Engineering Portfolio
+# Asmaa Abdul-Amin - Portfolio
 
 🌐 **Live Portfolio:** [https://asmaa.dev](https://asmaa.dev)  
-🐙 **GitHub:** [https://github.com/blkpvnthr](https://github.com/blkpvnthr)  
-📧 **Email:** [asmaaabdulamin@gmail.com](mailto:asmaaabdulamin@gmail.com)  
+ **GitHub:** [https://github.com/blkpvnthr](https://github.com/blkpvnthr)  
+ **Email:** [asmaaabdulamin@gmail.com](mailto:asmaaabdulamin@gmail.com)  
 📍 **Location:** Clarksburg, MD  
 
 ---
 
-## 🧩 About Me
+## 👋🏽 About Me
 
 I’m a **Data Science and Computer Engineering intern** passionate about transforming complex data into actionable insights through applied machine learning, automation, and quantitative modeling.  
 My work spans **research**, **mission-critical web systems**, and **quantum-inspired optimization**, with a focus on efficiency, reproducibility, and secure software design.
@@ -16,15 +16,17 @@ Currently interning at **The Johns Hopkins University Applied Physics Laboratory
 
 ---
 
-## 🚀 Featured Projects
+## Featured Projects
 
-### 🔹 Algo-bot Trading Assistant  
-A Flask + WebSocket-based algorithmic trading system integrating Alpaca API for live portfolio execution and monitoring.  
+### 🔹 AlphaGoat 
+GAN-driven market simulator + reinforcement-learning trader. Generates realistic 1-minute stock data with a conditional **Wasserstein GAN** and trains a DQN agent to trade long/flat/short on live Alpaca feeds, complete with rich technical-indicator conditioning and buy/sell visualizations.
+
+### 🔹 algo-bot 
+A **Flask + WebSocket**-based algorithmic trading system integrating Alpaca API for live portfolio execution and monitoring.  
 **Features:** real-time signal processing, RSI/MACD-based triggers, statistical arbitrage models.
 
-### 🔹 Quantum & Hybrid Portfolio Optimization  
-Applied **Qiskit**, **VQE**, and **QAOA** to optimize risk-adjusted returns across an 8-year, 52-asset dataset.  
-Benchmarked quantum-inspired algorithms vs. classical optimizers (GEKKO, Kelly, Markowitz).
+### 🔹  deepstock 
+A deep learning framework for stock price prediction and forecasting with **LSTMs**, featuring evaluation metrics, residual analysis, volatility indicators, and visualization tools.
 
 ### 🔹 CryoET Object Identification  
 Trained **PyTorch** CNN models for 3D protein structure detection in cryo-electron tomography images, improving recall on high-dimensional biomedical data.
@@ -89,6 +91,27 @@ Relevant Coursework: Data Structures, Algorithms, Machine Learning, Computer Sys
 - **Deployment:** GitHub Pages with custom domain ([asmaa.dev](https://asmaa.dev))
 
 ---
+
+🧭 Directory Structure
+asmaa_local/
+├── index.html
+├── assets/
+│   ├── css/
+│   │   ├── styles.css
+│   │   ├── bootstrap-icons.css
+│   │   └── animate.min.css
+│   ├── images/
+│   │   ├── Layer2.png
+│   │   ├── apl_icon.png
+│   │   └── mc_icon.png
+│   └── js/
+│       └── main.js
+├── includes/
+│   └── jquery-3.7.1.min.js
+└── README.md
+
+---
+
 🪪 License
 
 © 2025 Asmaa Abdul-Amin.
