@@ -94,21 +94,22 @@ Relevant Coursework: Data Structures, Algorithms, Machine Learning, Computer Sys
 ---
 
 ## 🧭 Directory Structure
+
 asmaa_local/
 ├── index.html
 ├── assets/
-│   ├── css/
-│   │   ├── styles.css
-│   │   ├── bootstrap-icons.css
-│   │   └── animate.min.css
-│   ├── images/
-│   │   ├── Layer2.png
-│   │   ├── apl_icon.png
-│   │   └── mc_icon.png
-│   └── js/
-│       └── main.js
+│ ├── css/
+│ │ ├── styles.css
+│ │ ├── bootstrap-icons.css
+│ │ └── animate.min.css
+│ ├── images/
+│ │ ├── Layer2.png
+│ │ ├── apl_icon.png
+│ │ └── mc_icon.png
+│ └── js/
+│ └── main.js
 ├── includes/
-│   └── jquery-3.7.1.min.js
+│ └── jquery-3.7.1.min.js
 └── README.md
 
 ---
