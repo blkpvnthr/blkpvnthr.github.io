@@ -1,4 +1,4 @@
-# Asmaa Abdul-Amin - Portfolio
+# My Portfolio
 
 🌐 **Live Portfolio:** [https://asmaa.dev](https://asmaa.dev)  
  **GitHub:** [https://github.com/blkpvnthr](https://github.com/blkpvnthr)  
