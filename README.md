@@ -12,7 +12,7 @@
 I’m a **Data Science and Computer Engineering intern** passionate about transforming complex data into actionable insights through applied machine learning, automation, and quantitative modeling.  
 My work spans **research**, **mission-critical web systems**, and **quantum-inspired optimization**, with a focus on efficiency, reproducibility, and secure software design.
 
-Currently interning at **The Johns Hopkins University Applied Physics Laboratory (JHU/APL)** in the **Space Exploration Sector**, where I develop web, API, and data infrastructure supporting NASA missions.
+Currently interning at **The Johns Hopkins University Applied Physics Laboratory (JHU/APL)** in the **Space Exploration Sector**, where I develop mission critical infrastructure supporting NASA missions.
 
 ---
 
