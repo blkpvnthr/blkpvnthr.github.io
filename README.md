@@ -38,22 +38,22 @@ Built a Python **NLP + time-series** pipeline combining SerpAPI, FRED, and Huggi
 
 ## 🛰️ Experience
 
-**💼 Computer Science / Computer Engineering Intern – Pathways Program**  
+**Computer Science / Computer Engineering Intern – Pathways Program**  
 *Johns Hopkins Applied Physics Laboratory – Space Exploration Sector (SES)*  
-📅 *May 2025 – Present*  
+*May 2025 – Present*  
 - Fortified Space Sector web infrastructure, boosting reliability by ~30% across 15+ NASA mission platforms.  
 - Automated Python + SQL data pipelines, cutting processing time by 40%.  
 - Partnered with engineering, compliance, and comms teams to deliver scalable, secure systems.
 
-**💻 Software & Web Infrastructure Intern – ATLAS Program**  
+**Software & Web Infrastructure Intern – ATLAS Program**  
 *Johns Hopkins APL – SES*  
-📅 *May 2024 – May 2025*  
+*May 2024 – May 2025*  
 - Enhanced web security and backend performance across enterprise mission platforms.  
 - Built RESTful APIs and automated ETL pipelines increasing dataset accessibility for 100+ engineers.  
 
-**🔬 Undergraduate Research Intern – CIRCUIT Program**  
+**Undergraduate Research Intern – CIRCUIT Program**  
 *Johns Hopkins APL – Research & Exploratory Development Department*  
-📅 *Mar 2023 – May 2024*  
+*Mar 2023 – May 2024*  
 - Designed and deployed internal NASA Dragonfly mission web tools improving collaboration efficiency.  
 - Conducted public policy data analysis using machine learning to interpret COVID-19 outcomes.
 
@@ -62,10 +62,11 @@ Built a Python **NLP + time-series** pipeline combining SerpAPI, FRED, and Huggi
 ## 🎓 Education
 
 **A.A. Computer Science** – *Montgomery College*  
-📅 *Expected Dec 2025*  
+*Expected Dec 2025*  
 Relevant Coursework: Data Structures, Algorithms, Machine Learning, Computer Systems  
 
-**Certifications**  
+**Certifications** 
+- Johns Hopkins Applied Physics Laboratory*Advanced Python Programming II* (2025) 
 - University of Chicago – *Quantum Computing Systems Design I* (2024)  
 - IBM – *Machine Learning with Python* (2023)  
 - Harvard – *CS50: Introduction to Computer Science* (2022)
