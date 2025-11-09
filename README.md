@@ -1,7 +1,5 @@
 # Asmaa Abdul-Amin – Data Science & Computer Engineering Intern
 
-[![Portfolio Banner](assets/images/Layer2.png)](https://asmaa.dev)
-
 **Live Portfolio:** [https://asmaa.dev](https://asmaa.dev)  
  **GitHub:** [https://github.com/blkpvnthr](https://github.com/blkpvnthr)  
  **Email:** [asmaaabdulamin@gmail.com](mailto:asmaaabdulamin@gmail.com)  
