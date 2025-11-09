@@ -92,9 +92,10 @@ Relevant Coursework: Data Structures, Algorithms, Machine Learning, Computer Sys
 - **Deployment:** GitHub Pages with custom domain ([asmaa.dev](https://asmaa.dev))
 
 ---
+<details>
+<summary>🧭 Directory Structure</summary>
 
-## 🧭 Directory Structure
-
+    ```plaintext  
 asmaa_local/
 ├── index.html
 ├── assets/
@@ -111,6 +112,8 @@ asmaa_local/
 ├── includes/
 │ └── jquery-3.7.1.min.js
 └── README.md
+````
+</details>
 
 ---
 
