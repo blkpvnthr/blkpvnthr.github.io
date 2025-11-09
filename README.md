@@ -89,3 +89,8 @@ Relevant Coursework: Data Structures, Algorithms, Machine Learning, Computer Sys
 - **Deployment:** GitHub Pages with custom domain ([asmaa.dev](https://asmaa.dev))
 
 ---
+🪪 License
+
+© 2025 Asmaa Abdul-Amin.
+This project is open source under the MIT License
+.
