@@ -1,6 +1,6 @@
 # Asmaa Abdul-Amin – Data Science & Computer Engineering Intern
 
-**Live Portfolio:** [https://asmaa.dev](https://asmaa.dev)  
+**Live Portfolio:** [blkpvnthr.github.io](https://blkpvnthr.github.io/)  
  **GitHub:** [https://github.com/blkpvnthr](https://github.com/blkpvnthr)  
  **Email:** [asmaaabdulamin@gmail.com](mailto:asmaaabdulamin@gmail.com)  
 **Location:** Clarksburg, MD  
