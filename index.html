@@ -211,123 +211,142 @@
         text-decoration: none;
       }
       /* Give the whole top section a little more breathing room */
-.container-lg {
-  max-width: 980px;
-  margin: 56px auto 80px;  /* was 40px */
-  padding: 0 16px;
-}
+  .container-lg {
+    max-width: 980px;
+    margin: 56px auto 80px;  /* was 40px */
+    padding: 0 16px;
+  }
 
-/* Center and tighten social icons row a bit */
-.d-flex.flex-wrap.flex-items-start.flex-justify-center.mt-1.mt-md-3 {
-  margin-top: 12px;
-  gap: 16px;          /* space between icons */
-}
+  /* Center and tighten social icons row a bit */
+  .d-flex.flex-wrap.flex-items-start.flex-justify-center.mt-1.mt-md-3 {
+    margin-top: 12px;
+    gap: 16px;          /* space between icons */
+  }
 
-.d-flex.flex-wrap.flex-items-start.flex-justify-center.mt-1.mt-md-3 a {
-  color: #6a737d;
-  text-decoration: none;
-}
+  .d-flex.flex-wrap.flex-items-start.flex-justify-center.mt-1.mt-md-3 a {
+    color: #6a737d;
+    text-decoration: none;
+  }
 
-.d-flex.flex-wrap.flex-items-start.flex-justify-center.mt-1.mt-md-3 a:hover {
-  color: #24292e;
-}
-.my-6 {
-  margin-top: 32px;
-}
+  .d-flex.flex-wrap.flex-items-start.flex-justify-center.mt-1.mt-md-3 a:hover {
+    color: #24292e;
+  }
+  .my-6 {
+    margin-top: 32px;
+  }
 
-.my-6 h2 {
-  font-size: 24px;
-  font-weight: 600;
-  margin-bottom: 4px;
-}
+  .my-6 h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
 
-.my-6 .text-gray {
-  margin-top: 4px;
-}
-/* Grid gutters */
-.d-sm-flex.flex-wrap.gutter-condensed.mb-4 {
-  margin-left: -12px;
-  margin-right: -12px;
-}
+  .my-6 .text-gray {
+    margin-top: 4px;
+  }
+  /* Grid gutters */
+  .d-sm-flex.flex-wrap.gutter-condensed.mb-4 {
+    margin-left: -12px;
+    margin-right: -12px;
+  }
 
-.col-sm-6.col-md-12.col-lg-6.col-xl-4.mb-3 {
-  padding-left: 12px;
-  padding-right: 12px;
-}
+  .col-sm-6.col-md-12.col-lg-6.col-xl-4.mb-3 {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
 
-/* Card look */
-.github-component {
-  border: 1px solid #e1e4e8;
-  border-radius: 6px;
-  background-color: #ffffff;
-  box-shadow: 0 1px 3px rgba(27, 31, 35, 0.12);
-  font-size: 14px;
-}
+  /* Card look */
+  .github-component {
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(27, 31, 35, 0.12);
+    font-size: 14px;
+  }
 
-/* Bottom meta row: language + stars + forks */
-.github-component .d-flex.f6 {
-  margin-top: 10px;
-  align-items: center;
-  font-size: 12px;
-  color: #586069;
-}
+  /* Bottom meta row: language + stars + forks */
+  .github-component .d-flex.f6 {
+    margin-top: 10px;
+    align-items: center;
+    font-size: 12px;
+    color: #586069;
+  }
+    .interest-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    background: #fff;
+  }
 
-.github-component .d-flex.f6 > span,
-.github-component .d-flex.f6 > a {
-  display: inline-flex;
-  align-items: center;
-  margin-right: 12px;      /* spacing between language / star / fork */
-}
+  .interest-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  }
 
-.github-component .d-flex.f6 svg {
-  margin-right: 4px;       /* space between icon and number */
-}
-h1.lh-condensed {
-  font-weight: 600;
-  font-size: 34px;   /* was 32 */
-}
-h1.lh-condensed {
-  font-weight: 600;
-  font-size: 34px;   /* was 32 */
-}
-/* Force all repo cards to have equal height */
-.d-sm-flex.flex-wrap.gutter-condensed.mb-4 {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
+  .interest-icon {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 10px;
+  }
 
-.col-sm-6.col-md-12.col-lg-6.col-xl-4.mb-3 {
-  display: flex;
-}
+  .github-component .d-flex.f6 > span,
+  .github-component .d-flex.f6 > a {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 12px;      /* spacing between language / star / fork */
+  }
 
-.github-component {
-  flex: 1 1 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 230px; /* tweak this to your liking */
-}
-/* Center the social icons properly under the header */
-.social-icons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 18px;
-  margin-top: 8px;
-  margin-bottom: 16px;
-}
+  .github-component .d-flex.f6 svg {
+    margin-right: 4px;       /* space between icon and number */
+  }
+  h1.lh-condensed {
+    font-weight: 600;
+    font-size: 34px;   /* was 32 */
+  }
+  h1.lh-condensed {
+    font-weight: 600;
+    font-size: 34px;   /* was 32 */
+  }
+  /* Force all repo cards to have equal height */
+  .d-sm-flex.flex-wrap.gutter-condensed.mb-4 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
-.social-icons a {
-  color: #6a737d;
-  font-size: 18px;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
+  .col-sm-6.col-md-12.col-lg-6.col-xl-4.mb-3 {
+    display: flex;
+  }
 
-.social-icons a:hover {
-  color: #24292e;
-}
+  .github-component {
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 230px; /* tweak this to your liking */
+  }
+  /* Center the social icons properly under the header */
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+  }
+
+  .social-icons a {
+    color: #6a737d;
+    font-size: 18px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .social-icons a:hover {
+    color: #24292e;
+  }
 
     </style>
 
