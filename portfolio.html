@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en" class="min-height-full">
+  <head>
+    <meta charset="utf-8" />
+    <title>Asmaa Abdul-Amin</title>
+
+    <meta name="description" content="Just here learning 📚" />
+    <meta property="og:title" content="Asmaa Abdul-Amin" />
+    <meta property="og:image" content="assets/images/Layer2.png" />
+    <meta property="og:description" content="Just here learning 📚" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- 1) Bootstrap first: grid + base styles -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <!-- 2) Your mirrored styles (override Bootstrap where needed) -->
+    <link href="assets/css/styles.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="assets/css/bootstrap-icons.css" />
+    <link rel="stylesheet" href="assets/css/animate.min.css" />
+    <!-- Optional: <link rel="stylesheet" href="assets/css/build.css" /> -->
+
+    <!-- 3) Small custom tweaks to mimic asmaa.dev -->
+        <style>
+      /* Page base */
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background-color: #ffffff;
+        color: #24292e;
+      }
+
+      /* Main container matches GitHub profile width & spacing */
+      .container-lg {
+        max-width: 980px;
+        margin: 40px auto 80px;
+        padding: 0 16px;
+      }
+
+      /* Avatar */
+      .circle {
+        width: 160px;
+        height: 160px;
+        object-fit: cover;
+        border-radius: 50%;
+        box-shadow: 0 0 0 4px #fff, 0 8px 20px rgba(27, 31, 35, 0.15);
+        margin-bottom: 16px;
+      }
+
+      /* Name + tagline */
+      h1.lh-condensed {
+        font-weight: 600;
+        font-size: 32px;
+        margin-bottom: 8px;
+      }
+
+      .f4.text-gray {
+        color: #586069;
+        font-size: 16px;
+      }
+
+      /* Row with GitHub handle + location + socials */
+      .f4.mb-6 {
+        margin-top: 16px;
+        font-size: 14px;
+        color: #586069;
+      }
+
+      .f4.mb-6 .d-md-inline-block {
+        color: #586069;
+      }
+
+      .f4.mb-6 a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+
+      .f4.mb-6 a:hover {
+        text-decoration: underline;
+      }
+
+      .f4.mb-6 svg {
+        vertical-align: middle;
+      }
+
+      .d-flex.flex-wrap.flex-items-start.flex-justify-center.mt-1.mt-md-3
+        svg {
+        fill: #6a737d;
+      }
+
+      .d-flex.flex-wrap.flex-items-start.flex-justify-center.mt-1.mt-md-3
+        a {
+        color: #6a737d;
+      }
+
+      /* Green "Available for hire" pill */
+      .hire-badge {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        border-radius: 5px;
+        background-color: #2da44e;
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 500;
+        margin-top: 12px;
+      }
+
+      /* Section heading “My Projects” */
+      .my-6 h2 {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+      .interest-card {
+      border: 1px solid #e5e7eb;          /* light gray */
+      border-radius: 12px;
+      box-shadow: 0 1px 2px rgba(0,0,0,.04);
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+
+    .interest-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,.08);
+    }
+
+    .interest-icon {
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+
+      .my-6 .text-gray {
+        color: #586069;
+        font-size: 14px;
+      }
+
+      /* Grid of repo cards */
+      .d-sm-flex.flex-wrap.gutter-condensed.mb-4 {
+        margin-left: -8px;
+        margin-right: -8px;
+      }
+
+      .col-sm-6.col-md-12.col-lg-6.col-xl-4.mb-3 {
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+
+      .github-component {
+        border: 1px solid #e1e4e8;
+        border-radius: 6px;
+        background-color: #ffffff;
+        box-shadow: 0 1px 3px rgba(27, 31, 35, 0.12);
+        font-size: 14px;
+      }
+
+      .github-component .text-gray {
+        color: #586069;
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .github-component h1.f4 {
+        font-size: 16px;
+        margin-bottom: 4px;
+      }
+
+      .github-component h1.f4 a {
+        font-weight: 600;
+        color: #0366d6;
+        text-decoration: none;
+      }
+
+      .github-component h1.f4 a:hover {
+        text-decoration: underline;
+      }
+
+      .github-component .d-flex.f6 {
+        margin-top: 8px;
+        align-items: center;
+        font-size: 12px;
+        color: #586069;
+      }
+
+      .repo-language-color {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      .github-component .link-gray {
+        color: #586069;
+        text-decoration: none;
+      }
+
+      .github-component .link-gray:hover {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      /* Give the whole top section a little more breathing room */
+  .container-lg {
+    max-width: 980px;
+    margin: 56px auto 80px;  /* was 40px */
+    padding: 0 16px;
+  }
+
+  /* Center and tighten social icons row a bit */
+  .d-flex.flex-wrap.flex-items-start.flex-justify-center.mt-1.mt-md-3 {
+    margin-top: 12px;
+    gap: 16px;          /* space between icons */
+  }
+
+  .d-flex.flex-wrap.flex-items-start.flex-justify-center.mt-1.mt-md-3 a {
+    color: #6a737d;
+    text-decoration: none;
+  }
+
+  .d-flex.flex-wrap.flex-items-start.flex-justify-center.mt-1.mt-md-3 a:hover {
+    color: #24292e;
+  }
+  .my-6 {
+    margin-top: 32px;
+  }
+
+  .my-6 h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .my-6 .text-gray {
+    margin-top: 4px;
+  }
+  /* Grid gutters */
+  .d-sm-flex.flex-wrap.gutter-condensed.mb-4 {
+    margin-left: -12px;
+    margin-right: -12px;
+  }
+
+  .col-sm-6.col-md-12.col-lg-6.col-xl-4.mb-3 {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  /* Card look */
+  .github-component {
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(27, 31, 35, 0.12);
+    font-size: 14px;
+  }
+
+  /* Bottom meta row: language + stars + forks */
+  .github-component .d-flex.f6 {
+    margin-top: 10px;
+    align-items: center;
+    font-size: 12px;
+    color: #586069;
+  }
+    .interest-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    background: #fff;
+  }
+
+  .interest-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .interest-icon {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 10px;
+  }
+
+  .github-component .d-flex.f6 > span,
+  .github-component .d-flex.f6 > a {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 12px;      /* spacing between language / star / fork */
+  }
+
+  .github-component .d-flex.f6 svg {
+    margin-right: 4px;       /* space between icon and number */
+  }
+  h1.lh-condensed {
+    font-weight: 600;
+    font-size: 34px;   /* was 32 */
+  }
+  h1.lh-condensed {
+    font-weight: 600;
+    font-size: 34px;   /* was 32 */
+  }
+  /* Force all repo cards to have equal height */
+  .d-sm-flex.flex-wrap.gutter-condensed.mb-4 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+.nav-link{
+  font-weight: 200;
+  color: #1f1e1e !important;
+  padding-bottom: 4px;
+}
+.nav-link.active {
+  font-weight: 200;
+  color: #000000 !important;
+  border-bottom: 2px solid #000000 !important;
+  padding-bottom: 4px;
+}
+.nav-link:hover {
+  font-weight: 200;
+  color: #000000 !important;
+  padding-bottom: 4px;
+}
+  .col-sm-6.col-md-12.col-lg-6.col-xl-4.mb-3 {
+    display: flex;
+  }
+
+  .github-component {
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 230px; /* tweak this to your liking */
+  }
+  /* Center the social icons properly under the header */
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+  }
+
+  .social-icons a {
+    color: #6a737d;
+    font-size: 18px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .social-icons a:hover {
+    color: #24292e;
+  }
+
+    </style>
+
+
+    <!-- 4) Local JS -->
+    <script src="includes/jquery-3.7.1.min.js" defer></script>
+    <script src="js/main.js" defer></script>
+
+    <!-- 5) Favicon -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/gif" />
+  </head>
+
+
+  <body class="bg-white min-height-full">
+    <!-- 🌐 Sticky Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top py-2">
+  <div class="container">
+    <!-- Brand / Logo -->
+    <a class="navbar-brand fw-semibold" href="index.html">
+      BLKPVNTHR
+    </a>
+
+    <!-- Hamburger Menu -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarContent" aria-controls="navbarContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navigation Links -->
+    <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link" aria-current="page" href="portfolio.html">Portfolio</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/blkpvnthr" target="_blank">
+            GitHub
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+    <!-- Main Container -->
+    <div class="container-lg py-6 p-responsive text-center">
+      <img
+        src="assets/images/Layer2.png"
+        class="circle mb-3 rounded-circle shadow"
+        style="max-width: 150px;" />
+      <h1 class="mb-2 lh-condensed">Asmaa Abdul-Amin</h1>
+      <p class="mb-3 f4 text-gray">Just here learning 📚</p>
+
+      <div class="f4 mb-6">
+        <div class="d-md-inline-block mx-3 mb-1 mb-md-0">
+          <svg
+            height="20"
+            class="octicon octicon-mark-github mr-2 v-align-middle"
+            fill="#24292e"
+            aria-label="GitHub"
+            viewBox="0 0 16 16"
+            version="1.1"
+            width="20"
+            role="img">
+            <path
+              fill-rule="evenodd"
+              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+          </svg>
+          <a href="https://github.com/blkpvnthr">@blkpvnthr</a>
+        </div>
+
+        <div class="d-md-inline-block mx-3 mb-1 mb-md-0">
+          <svg
+            height="20"
+            class="octicon octicon-location mr-2 v-align-middle"
+            fill="#24292e"
+            aria-label="Location"
+            viewBox="0 0 16 16"
+            version="1.1"
+            width="20"
+            role="img">
+            <path
+              fill-rule="evenodd"
+              d="M11.536 3.464a5 5 0 010 7.072L8 14.07l-3.536-3.535a5 5 0 117.072-7.072v.001zm1.06 8.132a6.5 6.5 0 10-9.192 0l3.535 3.536a1.5 1.5 0 002.122 0l3.535-3.536zM8 9a2 2 0 100-4 2 2 0 000 4z"></path>
+          </svg>
+          Washington, DC
+        </div>
+
+        <div class="social-row d-flex flex-wrap flex-items-start flex-justify-center mt-1 mt-md-3">
+          <div class="mr-3 mb-3">
+            <a
+              href="https://www.linkedin.com/in/blkpvnthr/"
+              class="tooltipped tooltipped-se"
+              aria-label="LinkedIn: blkpvnthr/">
+              <svg height="20" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 19 18">
+                <path
+                  d="M3.94 2A2 2 0 1 1 2 0a2 2 0 0 1 1.94 2zM4 5.48H0V18h4zm6.32 0H6.34V18h3.94v-6.57c0-3.66 4.77-4 4.77 0V18H19v-7.93c0-6.17-7.06-5.94-8.72-2.91z"
+                  fill="#959da5" />
+              </svg>
+              <span class="d-none">LinkedIn</span>
+            </a>
+          </div>
+
+          <div class="mr-3 mb-3">
+            <a
+              href="https://stackoverflow.com/u/blkpvnthr"
+              class="tooltipped tooltipped-se"
+              aria-label="Stack Overflow: blkpvnthr">
+              <svg
+                height="24"
+                fill="#959da5"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 120 120">
+                <path
+                  class="st0"
+                  d="M84.4 93.8V70.6h7.7v30.9H22.6V70.6h7.7v23.2z"></path>
+                <path
+                  class="st1"
+                  d="M38.8 68.4l37.8 7.9 1.6-7.6-37.8-7.9-1.6 7.6zm5-18l35 16.3 3.2-7-35-16.4-3.2 7.1zm9.7-17.2l29.7 24.7 4.9-5.9-29.7-24.7-4.9 5.9zm19.2-18.3l-6.2 4.6 23 31 6.2-4.6-23-31zM38 86h38.6v-7.7H38V86z"></path>
+              </svg>
+              <span class="d-none">Stack Overflow</span>
+            </a>
+          </div>
+
+          <div class="mb-3">
+            <a
+              href="https://www.twitter.com/blkpvnthr"
+              class="tooltipped tooltipped-se"
+              aria-label="Twitter: blkpvnthr">
+              <svg
+                height="20"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 273.5 222.3">
+                <path
+                  d="M273.5 26.3a109.77 109.77 0 0 1-32.2 8.8 56.07 56.07 0 0 0 24.7-31 113.39 113.39 0 0 1-35.7 13.6 56.1 56.1 0 0 0-97 38.4 54 54 0 0 0 1.5 12.8A159.68 159.68 0 0 1 19.1 10.3a56.12 56.12 0 0 0 17.4 74.9 56.06 56.06 0 0 1-25.4-7v.7a56.11 56.11 0 0 0 45 55 55.65 55.65 0 0 1-14.8 2 62.39 62.39 0 0 1-10.6-1 56.24 56.24 0 0 0 52.4 39 112.87 112.87 0 0 1-69.7 24 119 119 0 0 1-13.4-.8 158.83 158.83 0 0 0 86 25.2c103.2 0 159.6-85.5 159.6-159.6 0-2.4-.1-4.9-.2-7.3a114.25 114.25 0 0 0 28.1-29.1"
+                  fill="#959da5"></path>
+              </svg>
+              <span class="d-none">Twitter</span>
+            </a>
+          </div>
+        </div>
+
+        <a
+          href="https://drive.google.com/file/d/1cCxAUMIkQI4s4RRBMO95NXOZJFJPKn5T/view?usp=sharing">
+          <span class="hire-badge" title="Hire me">Available for hire</span>
+        </a>
+
+      </div>
+
+      <!-- Dynamic Projects Section -->
+      <div class="my-6">
+        <h2>My Projects</h2>
+        <p class="f4 mb-4 text-gray">Repositories that I've built.</p>
+        <div id="projects"
+          class="d-sm-flex flex-wrap gutter-condensed mb-4"></div>
+      </div>
+    </div>
+
+    <!-- Script: load repos from GitHub and render cards like original -->
+    <script>
+  const languageColors = {
+    "Python": "#3572A5",
+    "Swift": "#ffac45",
+    "Jupyter Notebook": "#DA5B0B",
+    "Java": "#b07219",
+    "JavaScript": "#f1e05a",
+    "TypeScript": "#3178c6",
+    "HTML": "#e34c26",
+    "CSS": "#563d7c",
+    "C++": "#f34b7d",
+    "C": "#555555",
+    "Go": "#00ADD8",
+    "Rust": "#dea584"
+  };
+// 🏷️ Decide which institution badge (if any) belongs on this repo
+// 🏷️ Institution badge generator with logo images
+function getInstitutionBadge(name, description) {
+  const text = `${name} ${description || ""}`.toLowerCase();
+
+  // APL / JHUAPL / BYTES
+  if (text.includes("apl") || text.includes("jhuapl") || text.includes("bytes")) {
+    return `
+      <span class="institution-badge" title="Johns Hopkins University Applied Physics Laboratory">
+        <img src="assets/images/apl--logo.png" alt="APL" class="institution-logo" />
+      </span>`;
+  }
+
+  // Montgomery College
+  if (
+    text.includes("the-cost-of-democracy") ||
+    text.includes("mc") ||
+    text.includes("diamond_hands") ||
+    text.includes("cmsc206") ||
+    text.includes("cmsc203")
+  ) {
+    return `
+      <span class="institution-badge" title="Montgomery College">
+        <img src="assets/images/mc-icon.png" alt="MC" class="institution-logo" />
+      </span>`;
+  }
+
+  return "";
+}
+
+
+  async function loadRepos() {
+    try {
+      const res = await fetch(
+        "https://api.github.com/users/blkpvnthr/repos?sort=updated&per_page=100"
+      );
+      const repos = await res.json();
+
+      const container = document.getElementById("projects");
+      container.innerHTML = "";
+
+      repos
+        .filter(repo => !repo.fork) // skip forks
+        .forEach(repo => {
+          const col = document.createElement("div");
+          col.className = "col-sm-6 col-md-12 col-lg-6 col-xl-4 mb-3";
+          // skip your profile README repository
+          if (repo.name.toLowerCase() === "blkpvnthr") return;
+          if (repo.name.toLowerCase() === "blkpvnthr.github.io") return;
+          if (repo.name.toLowerCase() === "ts-mui-nextjs-starter") return;
+          if (repo.name === "CMSC203_Lab3") return;
+          if (repo.name === "CMSC203") return;
+          if (repo.name.toLowerCase() === "nodetest") return;
+          const language = repo.language || "";
+          const stars = repo.stargazers_count || 0;
+          const forks = repo.forks_count || 0;
+          const langColor = languageColors[language] || "#e1e4e8"; // default gray
+          // 🔹 NEW: compute the badge for this repo
+          const badge = getInstitutionBadge(repo.name, repo.description);
+
+          col.innerHTML = `
+            <div class="github-component d-flex flex-column flex-justify-between height-full text-left border border-gray-light bg-white rounded-1 p-3">
+              <div>
+                <div class="d-flex flex-justify-between flex-items-start mb-1">
+                  <h1 class="f4 lh-condensed mb-1">
+                    <a href="${repo.html_url}">
+                      <svg height="20" class="octicon octicon-repo mr-1 v-align-middle" fill="#586069" aria-label="repo" viewBox="0 0 16 16" version="1.1" width="20" role="img">
+                        <path fill-rule="evenodd" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"></path>
+                      </svg>
+                      ${repo.name}
+                    </a>
+                  </h1>
+                </div>
+                <div class="text-gray mb-2 ws-normal">
+                  ${repo.description ? repo.description : ""}
+                </div>
+              </div>
+
+              <!-- footer -->
+              <div class="d-flex f6 align-items-center">
+                ${
+                  language
+                    ? `
+                <span class="repo-language-color ml-0 mr-1" style="background-color:${langColor}"></span>
+                <span class="mr-3" itemprop="programmingLanguage">${language}</span>
+                `
+                    : ""
+                }
+                <a href="${repo.html_url}/stargazers" class="d-inline-block link-gray mr-4">
+                  <svg class="octicon octicon-star mr-1" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"></path>
+                  </svg>${stars}
+                </a>
+                <a href="${repo.html_url}/network/members" class="d-inline-block link-gray mr-4">
+                  <svg class="octicon octicon-git-branch mr-1" viewBox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M10 5c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v.3c-.02.52-.23.98-.63 1.38-.4.4-.86.61-1.38.63-.83.02-1.48.16-2 .45V4.72a1.993 1.993 0 0 0-1-3.72C.88 1 0 1.89 0 3a2 2 0 0 0 1 1.72v6.56c-.59.35-1 .99-1 1.72 0 1.11.89 2 2 2 1.11 0 2-.89 2-2 0-.53-.2-1-.53-1.36.09-.06.48-.41.59-.47.25-.11.56-.17.94-.17 1.05-.05 1.95-.45 2.75-1.25S8.95 7.77 9 6.73h-.02C9.59 6.37 10 5.73 10 5zM2 1.8c.66 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2C1.35 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2zm0 12.41c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"></path>
+                  </svg>${forks}
+                </a>
+
+                ${badge}
+              </div>
+            </div>
+          `;
+
+          container.appendChild(col);
+        });
+    } catch (err) {
+      console.error("Failed to load repos:", err);
+      document.getElementById("projects").innerHTML =
+        "<p class='text-danger'>Could not load projects.</p>";
+    }
+  }
+
+  loadRepos();
+</script>
+
+    <!-- Bootstrap JS bundle -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <section class="py-5">
+  <div class="text-center mb-4">
+    <h2 class="fw-semibold mb-2">My Interests</h2>
+    <p class="text-muted mb-0">Topics that I want to learn more about.</p>
+  </div>
+
+  <div class="container">
+    <div class="row g-4">
+
+      <!-- 1 -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card interest-card h-100 text-center">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <img src="https://user-images.githubusercontent.com/7336481/133036451-e1f2f12b-9e96-4a0f-8c69-4f630bb8ded3.gif" 
+                 class="interest-icon mx-auto mb-3" alt="Quantitative Finance">
+            <h3 class="h6 fw-semibold mb-0">
+              <a href="https://github.com/topics/quantitative-finance" 
+                 class="stretched-link text-decoration-none">Quantitative Finance</a>
+            </h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card interest-card h-100 text-center">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <img src="https://i.pinimg.com/originals/cf/d1/28/cfd128e9bdc5e0f3ffe23564f56e3aad.gif"
+                 class="interest-icon mx-auto mb-3" alt="Web Design">
+            <h3 class="h6 fw-semibold mb-0">
+              <a href="https://github.com/topics/php" class="stretched-link text-decoration-none">Web Design</a>
+            </h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card interest-card h-100 text-center">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <img src="https://scitechdaily.com/images/Animated-Illustration-Atom.gif" width="64" height="64" class="mx-auto rounded-1 mb-3" alt="Quantum Computing">
+            <h3 class="h6 fw-semibold mb-0">
+              <a href="https://github.com/topics/quantum-machine-learning"
+                 class="stretched-link text-decoration-none">Quantum Computing</a>
+            </h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card interest-card h-100 text-center">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <img src="https://media.licdn.com/dms/image/v2/C4D12AQHeek1XA-HYwQ/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1616559535106?e=2147483647&amp;v=beta&amp;t=G4sPqcdEAvo6ToKpP1b68zh_1S94-rHjl5jN8i9JYHQ" width="64" height="64" class="mx-auto rounded-1 mb-3" alt="Machine Learning">
+            <h3 class="h6 fw-semibold mb-0">
+              <a href="https://github.com/topics/machine-learning" 
+                 class="stretched-link text-decoration-none">Machine Learning</a>
+            </h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card interest-card h-100 text-center">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1cc5e3ff-37e5-4b9c-abf4-92304fafa4c9/deekqx1-20d6363f-185e-4f8d-a748-f5b3f3b8fdde.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzFjYzVlM2ZmLTM3ZTUtNGI5Yy1hYmY0LTkyMzA0ZmFmYTRjOVwvZGVla3F4MS0yMGQ2MzYzZi0xODVlLTRmOGQtYTc0OC1mNWIzZjNiOGZkZGUuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.bQwR0OGahVNiMtiHhvn95SFiuAZKxapsWSr_AbMK_Oc" width="64" height="64" class="mx-auto rounded-1 mb-3" alt="Data Science">
+            <h3 class="h6 fw-semibold mb-0">
+              <a href="https://github.com/topics/data-science" 
+                 class="stretched-link text-decoration-none">Data Science</a>
+            </h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card interest-card h-100 text-center">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <img src="https://i.pinimg.com/originals/d7/41/5b/d7415bfddb6f42a8272b80b2c8be311d.gif"
+                 class="interest-icon mx-auto mb-3" alt="iOS Development">
+            <h3 class="h6 fw-semibold mb-0">
+              <a href="https://github.com/topics/ios" 
+                 class="stretched-link text-decoration-none">iOS Development</a>
+            </h3>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<footer class="bg-white py-4 mt-5 text-center">
+  <div class="container">
+
+    <!-- Divider -->
+    <div class="w-100 mb-3">
+      <div style="border-bottom:1px solid #e1e1e1;"></div>
+    </div>
+
+    <!-- Text -->
+    <div class="text-center" style="color:#434343; font-weight:300;">
+      © <span id="year">2025</span> BLKPVNTHR — All rights reserved.
+    </div>
+
+  </div>
+</footer>
+
+<script>
+  // Auto-update year
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+    </body>
+</html>

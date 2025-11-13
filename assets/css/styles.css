@@ -134,10 +134,21 @@ h1.lh-condensed {
 .institution-logo.umgc {
   height: 18px; /* slightly shorter for UMGC logo */
 }
+.nav-link{
+  font-weight: 200;
+  color: #ffffffb8 !important;
+  padding-bottom: 4px;
+}
 .nav-link.active {
-  font-weight: 600;
-  color: #000 !important;
-  border-bottom: 2px solid #000;
+  font-weight: 200;
+  color: #fff !important;
+  border-bottom: 2px solid #fff;
+  padding-bottom: 4px;
+}
+.nav-link:hover {
+  font-weight: 00;
+  color: #fff !important;
+  border-bottom: 2px solid #fff;
   padding-bottom: 4px;
 }
 .interest-icon {
@@ -154,4 +165,339 @@ h1.lh-condensed {
 }
 .card.interest-card:hover {
   box-shadow: 0 4px 12px rgba(27, 31, 35, 0.15);
+}
+.about-hero {
+  position: relative;
+  width: 100%;
+  min-height: 970px;
+  background-image: url("/assets/images/about-banner.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color: #ffffff;
+}
+
+.about-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.55),
+    rgba(0, 0, 0, 0.75)
+  );
+}
+
+.about-hero-content {
+  max-width: 1420px;
+  padding: 3rem 1.5rem;
+}
+
+.about-hero-title {
+  font-size: 10rem;
+  font-weight: 300;
+  text-wrap: none;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.75rem;
+}
+
+.about-hero-subtitle {
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: #d0d7de;
+  line-height: 1.6;
+  margin: 0 auto;
+}
+/* Split Section */
+.split-section {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+.split-image {
+  flex: 1;
+  background-image: url("/assets/images/toot.PNG");
+  background-size: contain;
+  background-position: center;
+
+}
+
+.split-content {
+  flex: 1;
+  background: #000; /* pure black */
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem;
+}
+
+.split-title {
+  font-size: 3rem;
+  font-weight: 200;
+  margin-bottom: 1.5rem;
+}
+
+.split-text {
+  font-size: 1.1rem;
+
+  font-weight: 100;
+  line-height: 1.7;
+  color: #d1d1d1;
+  max-width: 500px;
+}
+.about-nutshell {
+  background: #000;
+  color: #fff;
+  padding: 6rem 0 7rem;
+}
+
+.about-nutshell-inner {
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+.about-nutshell-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #b14bf9; /* violet accent */
+  margin-bottom: 1.5rem;
+}
+
+.about-nutshell-text {
+  font-size: clamp(1.9rem, 3vw, 3rem);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* optional: tighten on small screens */
+@media (max-width: 576px) {
+  .about-nutshell {
+    padding: 4rem 1.5rem 5rem;
+  }
+}
+.about-backstory {
+  background: #000;
+  color: #f5f5f5;
+  padding: 5rem 0 6rem;
+}
+
+.about-backstory-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 2fr);
+  column-gap: 4rem;
+  align-items: flex-start;
+}
+
+.about-backstory-title h2 {
+  font-size: clamp(2.3rem, 3vw, 3rem);
+  font-weight: 200;
+  color: #ffffff;
+  margin: 0;
+}
+
+.about-backstory-content {
+  max-width: 40rem;
+  font-weight: 100;
+}
+
+.about-backstory-content p {
+  font-size: 0.98rem;
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+  color: #dcdcdc;
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 768px) {
+  .about-backstory-inner {
+    grid-template-columns: 1fr;
+    row-gap: 2.5rem;
+  }
+
+  .about-backstory-title {
+    text-align: left;
+  }
+}
+/* Full-width Tumblr section */
+.tumblr-fullwidth-section {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  font-weight: 100;
+  padding: 3rem 0 0 0;
+}
+
+/* Make the wrapper span the entire viewport width */
+.tumblr-embed-wrapper-full {
+  width: 100vw;
+  height: 90vh;
+  margin-left: calc(50% - 50vw); /* removes container centering */
+  margin-right: calc(50% - 50vw);
+  overflow: hidden;
+  border-top: 1px solid #222;
+  border-bottom: 1px solid #222;
+}
+
+/* Full-width iframe */
+.tumblr-embed-wrapper-full iframe {
+  width: 100%;
+  height: 85%;
+  border: none;
+}
+.otherside-nutshell {
+  background: #000;
+  color: #fff;
+  padding: 6rem 0 7rem;
+}
+
+.otherside-nutshell-inner {
+  max-width: 52rem;
+  margin: 0 auto;
+}
+
+.otherside-nutshell-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #b14bf9; /* violet accent */
+  margin-bottom: 1.5rem;
+}
+
+.otherside-nutshell-text {
+  font-size: clamp(1.9rem, 3vw, 3rem);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* optional: tighten on small screens */
+@media (max-width: 576px) {
+  .otherside-nutshell {
+    padding: 4rem 1.5rem 5rem;
+  }
+}
+.socials-footer {
+  background: #000;
+  color: #a152f5; /* warm gold like the reference */
+  font-family: 'Inter', sans-serif;
+  padding: 60px 0;
+}
+
+.contact-info .footer-link {
+  color: #b14bf9;;
+  text-decoration: none;
+  border-bottom: 1px solid #b14bf9;;
+  font-size: 1rem;
+}
+
+.contact-info .footer-link:hover {
+  opacity: 0.75;
+}
+
+.footer-initials span {
+  color: #fff;
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+  font-weight: 300;
+}
+
+.social-icons .footer-icon {
+  color: #b14bf9;;
+  font-size: 1.4rem;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+.social-icons .footer-icon:hover {
+  opacity: 0.7;
+}
+.socials-footer .container {
+  max-width: 1100px;
+}
+.tumblr-fullwidth-section {
+  background: #000;        /* match the rest of your About page */
+  color: #fff;
+}
+
+.about-nutshell-label {
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+  color: #d4d4d4;
+}
+
+.tumblr-embed-wrapper-full {
+  width: 100%;
+  height: 80vh;             /* adjust to taste */
+  overflow: hidden;         /* hides Tumblr scrollbars */
+  position: relative;
+}
+
+.tumblr-embed-wrapper-full iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+.tumblr-embed-wrapper-full iframe {
+  transform: scale(1.03);
+  transform-origin: top center;
+}
+.tumblr-gallery {
+  background: #000;
+  color: #fff;
+  padding: 60px 0;
+}
+
+.tumblr-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.tumblr-grid img {
+  width: 100%;
+  display: block;
+  border-radius: 4px;
+  object-fit: cover;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tumblr-grid a:hover img {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.6);
+}
+
+.btn-ghost {
+  border: 1px solid #f5c27b;
+  padding: 10px 22px;
+  color: #f5c27b;
+  text-decoration: none;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+}
+
+.btn-ghost:hover {
+  background: #f5c27b;
+  color: #000;
+}
+.tumblr-strip {
+  background:#111;
+  color:#f5f5f5;
+  padding:12px 24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:0.9rem;
+}
+
+.tumblr-strip a {
+  color:#f5c27b;
+  text-decoration:none;
+}
+
+.tumblr-strip a:hover {
+  text-decoration:underline;
 }
