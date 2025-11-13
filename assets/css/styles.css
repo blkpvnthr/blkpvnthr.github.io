@@ -403,7 +403,7 @@ h1.lh-condensed {
 }
 
 .social-icons .footer-icon {
-  color: #b14bf9;;
+  color: #b14bf9;
   font-size: 1.4rem;
   margin-left: 20px;
   text-decoration: none;
@@ -471,16 +471,16 @@ h1.lh-condensed {
 }
 
 .btn-ghost {
-  border: 1px solid #f5c27b;
+  border: 1px solid #b14bf9;;
   padding: 10px 22px;
-  color: #f5c27b;
+  color: #b14bf9;;
   text-decoration: none;
   letter-spacing: 1px;
   font-size: 0.85rem;
 }
 
 .btn-ghost:hover {
-  background: #f5c27b;
+  background: #b14bf9;;
   color: #000;
 }
 .tumblr-strip {
@@ -494,7 +494,7 @@ h1.lh-condensed {
 }
 
 .tumblr-strip a {
-  color:#f5c27b;
+  color:#b14bf9;;
   text-decoration:none;
 }
 
