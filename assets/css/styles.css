@@ -134,3 +134,24 @@ h1.lh-condensed {
 .institution-logo.umgc {
   height: 18px; /* slightly shorter for UMGC logo */
 }
+.nav-link.active {
+  font-weight: 600;
+  color: #000 !important;
+  border-bottom: 2px solid #000;
+  padding-bottom: 4px;
+}
+.interest-icon {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.card.interest-card {
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(27, 31, 35, 0.12);
+  transition: box-shadow 0.15s ease;
+}
+.card.interest-card:hover {
+  box-shadow: 0 4px 12px rgba(27, 31, 35, 0.15);
+}

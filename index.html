@@ -108,7 +108,7 @@
       .hire-badge {
         display: inline-block;
         padding: 0.25rem 0.75rem;
-        border-radius: 9999px;
+        border-radius: 5px;
         background-color: #2da44e;
         color: #ffffff;
         font-size: 14px;
@@ -361,6 +361,44 @@
 
 
   <body class="bg-white min-height-full">
+    <!-- 🌐 Sticky Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top py-2">
+  <div class="container">
+    <!-- Brand / Logo -->
+    <a class="navbar-brand fw-semibold" href="index.html">
+      Asmaa.dev
+    </a>
+
+    <!-- Hamburger Menu -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarContent" aria-controls="navbarContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navigation Links -->
+    <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/blkpvnthr" target="_blank">
+            GitHub
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+    <!-- Main Container -->
     <div class="container-lg py-6 p-responsive text-center">
       <img
         src="assets/images/Layer2.png"
@@ -541,7 +579,8 @@ function getInstitutionBadge(name, description) {
           if (repo.name.toLowerCase() === "blkpvnthr") return;
           if (repo.name.toLowerCase() === "blkpvnthr.github.io") return;
           if (repo.name.toLowerCase() === "ts-mui-nextjs-starter") return;
-          if (repo.name.toLowerCase() === "CMSC203_Lab3") return;
+          if (repo.name === "CMSC203_Lab3") return;
+          if (repo.name === "CMSC203") return;
           if (repo.name.toLowerCase() === "nodetest") return;
           const language = repo.language || "";
           const stars = repo.stargazers_count || 0;
@@ -702,6 +741,26 @@ function getInstitutionBadge(name, description) {
     </div>
   </div>
 </section>
+<footer class="bg-white py-4 mt-5 text-center">
+  <div class="container">
+
+    <!-- Divider -->
+    <div class="w-100 mb-3">
+      <div style="border-bottom:1px solid #e1e1e1;"></div>
+    </div>
+
+    <!-- Text -->
+    <div class="text-center" style="color:#434343; font-weight:300;">
+      © <span id="year">2025</span> BLKPVNTHR — All rights reserved.
+    </div>
+
+  </div>
+</footer>
+
+<script>
+  // Auto-update year
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
     </body>
 </html>
