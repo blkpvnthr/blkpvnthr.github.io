@@ -652,3 +652,79 @@ h1.lh-condensed {
     margin-right: 12px;
   }
 }
+.random-photo {
+  text-align: center;
+  background-color: #000;
+}
+/* Default (desktop/tablet) */
+.random-gallery img {
+  max-width: 260px;   /* or whatever you like */
+  height: 500px;
+  display: block;  /* space below the image */
+  object-fit: cover;
+}
+
+/* Make the photo much larger on mobile */
+@media (max-width: 768px) {
+  .random-gallery img {
+    max-width: 80vw;  /* 80% of the viewport width */
+    height: 500px;
+    display: block;
+    margin: 0 auto 1.5rem;  /* center it with some breathing room */
+    object-fit: cover;
+  }
+}
+/* Backstory photo container */
+.about-backstory-photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* The image itself */
+.about-backstory-photo img {
+  width: 260px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #b14bf9; /* same accent violet */
+  margin-bottom: 2rem;
+}
+
+/* ⬆️ Place this inside about-backstory grid */
+.about-backstory-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+  grid-template-areas:
+    "title photo"
+    "content content";
+  column-gap: 3rem;
+}
+
+.about-backstory-title {
+  grid-area: title;
+}
+
+.about-backstory-photo {
+  grid-area: photo;
+}
+
+.about-backstory-content {
+  grid-area: content;
+}
+
+/* 📱 Mobile: stack vertically */
+@media (max-width: 768px) {
+  .about-backstory-inner {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "title"
+      "photo"
+      "content";
+  }
+
+  .about-backstory-photo img {
+    width: 200px;
+    height: 200px;
+  }
+}
