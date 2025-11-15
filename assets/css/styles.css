@@ -1,6 +1,155 @@
-@import url(url(../images/build.css));.highlight{width:100%;overflow:auto;background:#ffffff}.highlight .c{color:#999988;font-style:italic}.highlight .err{color:#a61717;background-color:#e3d2d2}.highlight .k{font-weight:bold}.highlight .o{font-weight:bold}.highlight .cm{color:#999988;font-style:italic}.highlight .cp{color:#999999;font-weight:bold}.highlight .c1{color:#999988;font-style:italic}.highlight .cs{color:#999999;font-weight:bold;font-style:italic}.highlight .gd{color:#000000;background-color:#fdd}.highlight .gd .x{color:#000000;background-color:#faa}.highlight .ge{font-style:italic}.highlight .gr{color:#a00}.highlight .gh{color:#999}.highlight .gi{color:#000000;background-color:#dfd}.highlight .gi .x{color:#000000;background-color:#afa}.highlight .go{color:#888}.highlight .gp{color:#555}.highlight .gs{font-weight:bold}.highlight .gu{color:#aaa}.highlight .gt{color:#a00}.highlight .kc{font-weight:bold}.highlight .kd{font-weight:bold}.highlight .kp{font-weight:bold}.highlight .kr{font-weight:bold}.highlight .kt{color:#445588;font-weight:bold}.highlight .m{color:#099}.highlight .s{color:#d14}.highlight .na{color:teal}.highlight .nb{color:#0086B3}.highlight .nc{color:#445588;font-weight:bold}.highlight .no{color:teal}.highlight .ni{color:purple}.highlight .ne{color:#990000;font-weight:bold}.highlight .nf{color:#990000;font-weight:bold}.highlight .nn{color:#555}.highlight .nt{color:navy}.highlight .nv{color:teal}.highlight .ow{font-weight:bold}.highlight .w{color:#bbb}.highlight .mf{color:#099}.highlight .mh{color:#099}.highlight .mi{color:#099}.highlight .mo{color:#099}.highlight .sb{color:#d14}.highlight .sc{color:#d14}.highlight .sd{color:#d14}.highlight .s2{color:#d14}.highlight .se{color:#d14}.highlight .sh{color:#d14}.highlight .si{color:#d14}.highlight .sx{color:#d14}.highlight .sr{color:#009926}.highlight .s1{color:#d14}.highlight .ss{color:#990073}.highlight .bp{color:#999}.highlight .vc{color:teal}.highlight .vg{color:teal}.highlight .vi{color:teal}.highlight .il{color:#099}.highlight .lineno{-webkit-user-select:none;-moz-user-select:none;-o-user-select:none}.lineno::-moz-selection{background-color:transparent}.lineno::selection{background-color:transparent}.github-component{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol !important}.repo-language-color{filter:brightness(125%) !important;border-radius:50%;display:inline-block;height:12px;position:relative;top:2px;width:12px}.emoji{width:18px;height:auto;vertical-align:middle}.article h1,.article h2,.article h3,.article h4,.article .highlight{margin-bottom:16px}.article blockquote{color:#6a737d;border-left:2px solid #959da5;padding-left:16px;margin-bottom:16px}.article ul,.article ol{padding-left:32px;margin-bottom:16px}.article li ul,.article li ol{padding-left:16px;margin-bottom:0px}.min-height-full{min-height:100vh}
+/* ---------------------------------------------------
+   Base / Syntax Highlighting
+--------------------------------------------------- */
 
-/* ---- Header spacing & alignment tweaks ---- */
+/* If you still need build.css, include it from HTML:
+   <link rel="stylesheet" href="assets/css/build.css">
+*/
+
+.highlight {
+  width: 100%;
+  overflow: auto;
+  background: #ffffff;
+}
+
+/* Pygments-style token colors */
+.highlight .c,
+.highlight .cm,
+.highlight .c1 {
+  color: #999988;
+  font-style: italic;
+}
+.highlight .cp,
+.highlight .cs {
+  color: #999999;
+  font-weight: bold;
+}
+.highlight .cs { font-style: italic; }
+.highlight .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+.highlight .k,
+.highlight .o,
+.highlight .kc,
+.highlight .kd,
+.highlight .kp,
+.highlight .kr,
+.highlight .ow,
+.highlight .gs {
+  font-weight: bold;
+}
+.highlight .kt,
+.highlight .nc {
+  color: #445588;
+  font-weight: bold;
+}
+.highlight .m,
+.highlight .mf,
+.highlight .mh,
+.highlight .mi,
+.highlight .mo,
+.highlight .il { color: #099; }
+.highlight .s,
+.highlight .sb,
+.highlight .sc,
+highlight .sd,
+.highlight .s1,
+.highlight .s2,
+.highlight .se,
+.highlight .sh,
+.highlight .si,
+.highlight .sx { color: #d14; }
+.highlight .sr { color: #009926; }
+.highlight .ss { color: #990073; }
+.highlight .na,
+.highlight .no,
+.highlight .nv,
+.highlight .vc,
+.highlight .vg,
+.highlight .vi { color: teal; }
+.highlight .nb { color: #0086b3; }
+.highlight .ni { color: purple; }
+.highlight .ne,
+.highlight .nf { color: #990000; font-weight: bold; }
+.highlight .nn { color: #555; }
+.highlight .nt { color: navy; }
+.highlight .bp { color: #999; }
+.highlight .w { color: #bbb; }
+.highlight .gd { color: #000; background-color: #fdd; }
+.highlight .gd .x { background-color: #faa; }
+.highlight .gi { color: #000; background-color: #dfd; }
+.highlight .gi .x { background-color: #afa; }
+.highlight .gh,
+.highlight .gu { color: #aaa; }
+.highlight .gr,
+.highlight .gt { color: #a00; }
+.highlight .go { color: #888; }
+.highlight .gp { color: #555; }
+.highlight .ge { font-style: italic; }
+
+.highlight .lineno {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+}
+.highlight .lineno::-moz-selection,
+.highlight .lineno::selection {
+  background-color: transparent;
+}
+
+.github-component {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+}
+
+.repo-language-color {
+  filter: brightness(125%) !important;
+  border-radius: 50%;
+  display: inline-block;
+  height: 12px;
+  width: 12px;
+  position: relative;
+  top: 2px;
+}
+
+.emoji {
+  width: 18px;
+  height: auto;
+  vertical-align: middle;
+}
+
+.article h1,
+.article h2,
+.article h3,
+.article h4,
+.article .highlight {
+  margin-bottom: 16px;
+}
+.article blockquote {
+  color: #6a737d;
+  border-left: 2px solid #959da5;
+  padding-left: 16px;
+  margin-bottom: 16px;
+}
+.article ul,
+.article ol {
+  padding-left: 32px;
+  margin-bottom: 16px;
+}
+.article li ul,
+.article li ol {
+  padding-left: 16px;
+  margin-bottom: 0;
+}
+
+.min-height-full {
+  min-height: 100vh;
+}
+
+/* ---------------------------------------------------
+   Layout / Header / Social Row
+--------------------------------------------------- */
 
 .container-lg {
   max-width: 980px;
@@ -8,13 +157,12 @@
   padding: 0 16px;
 }
 
-/* Name title like original */
 h1.lh-condensed {
   font-weight: 600;
   font-size: 34px;
 }
 
-/* Social row alignment under the header */
+/* Centered social icons row */
 .social-row {
   display: flex;
   justify-content: center;
@@ -24,12 +172,10 @@ h1.lh-condensed {
   margin-bottom: 16px;
 }
 
-/* Normalize spacing on each icon wrapper */
 .social-row > div {
-  margin: 0;             /* cancel Bootstrap mr-3/mb-3 */
+  margin: 0;
 }
 
-/* Make SVG icons nicely centered and clickable */
 .social-row a {
   display: inline-flex;
   align-items: center;
@@ -43,7 +189,7 @@ h1.lh-condensed {
   color: #24292e;
 }
 
-/* Hire badge like the live site */
+/* Hire badge */
 .hire-badge {
   display: inline-block;
   font-size: 13px;
@@ -54,7 +200,9 @@ h1.lh-condensed {
   margin-top: 12px;
 }
 
-/* ---- Card layout: equal height & cleaner grid ---- */
+/* ---------------------------------------------------
+   Project Cards (GitHub grid)
+--------------------------------------------------- */
 
 .d-sm-flex.flex-wrap.gutter-condensed.mb-4 {
   display: flex;
@@ -67,7 +215,7 @@ h1.lh-condensed {
 .col-sm-6.col-md-12.col-lg-6.col-xl-4.mb-3 {
   padding-left: 12px;
   padding-right: 12px;
-  display: flex;                 /* let cards stretch evenly */
+  display: flex;
 }
 
 .github-component {
@@ -75,14 +223,14 @@ h1.lh-condensed {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 230px;             /* adjust if you want taller/shorter */
+  min-height: 230px;
   border-radius: 6px;
   border: 1px solid #e1e4e8;
   background-color: #ffffff;
   box-shadow: 0 1px 3px rgba(27, 31, 35, 0.12);
 }
 
-/* Bottom meta row (language / stars / forks) */
+/* Card footer (language / stars / forks / institution) */
 .github-component .d-flex.f6 {
   margin-top: 10px;
   align-items: center;
@@ -98,31 +246,20 @@ h1.lh-condensed {
 }
 
 .github-component .d-flex.f6 svg {
-  margin-right: 14px;
-}
-.institution-badge {
-  background-color:transparent;
-  font-weight: 600;
-  text-transform: uppercase;
-  border-radius: 10px;
-  padding: 2px 8px;
+  margin-right: 4px;
 }
 
-/* color variants – optional */
-.institution-badge.apl  { background-color: #0057b8; }
-.institution-badge.nasa { background-color: #e41b13; }
-.institution-badge.umgc { background-color: #ffb81c; color: #222; }
-.institution-badge.mc   { background-color: #006747; }
-
-/* 🏷️ Institution badge container */
+/* Institution badge / logo */
 .institution-badge {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: auto; /* push right edge */
+  margin-left: auto;
+  background-color: transparent;
+  border-radius: 10px;
+  padding: 2px 8px;
 }
 
-/* 🖼️ Logo style */
 .institution-logo {
   height: 30px;
   width: auto;
@@ -131,45 +268,58 @@ h1.lh-condensed {
   background: transparent;
   padding: 2px;
 }
+
 .institution-logo.umgc {
-  height: 18px; /* slightly shorter for UMGC logo */
+  height: 18px;
 }
-.nav-link{
+
+/* ---------------------------------------------------
+   Nav
+--------------------------------------------------- */
+
+.nav-link {
   font-weight: 200;
   color: #ffffffb8 !important;
   padding-bottom: 4px;
 }
-.nav-link.active {
-  font-weight: 200;
-  color: #fff !important;
-  border-bottom: 2px solid #fff;
-  padding-bottom: 4px;
-}
+
+.nav-link.active,
 .nav-link:hover {
-  font-weight: 00;
   color: #fff !important;
   border-bottom: 2px solid #fff;
   padding-bottom: 4px;
 }
+
+/* ---------------------------------------------------
+   Interests grid
+--------------------------------------------------- */
+
 .interest-icon {
   width: 64px;
   height: 64px;
   object-fit: cover;
   border-radius: 8px;
 }
+
 .card.interest-card {
   border: 1px solid #e1e4e8;
   border-radius: 6px;
   box-shadow: 0 1px 3px rgba(27, 31, 35, 0.12);
   transition: box-shadow 0.15s ease;
 }
+
 .card.interest-card:hover {
   box-shadow: 0 4px 12px rgba(27, 31, 35, 0.15);
 }
+
+/* ---------------------------------------------------
+   About Hero
+--------------------------------------------------- */
+
 .about-hero {
   position: relative;
   width: 100%;
-  min-height: 970px;
+  min-height: 70vh;
   background-image: url("/assets/images/about-banner.jpg");
   background-size: cover;
   background-position: center center;
@@ -188,14 +338,16 @@ h1.lh-condensed {
 }
 
 .about-hero-content {
+  position: relative;
   max-width: 1420px;
+  margin: 0 auto;
   padding: 3rem 1.5rem;
 }
 
 .about-hero-title {
-  font-size: 10rem;
+  font-size: 6rem;
   font-weight: 300;
-  text-wrap: none;
+  white-space: nowrap;
   letter-spacing: 0.03em;
   margin-bottom: 0.75rem;
 }
@@ -205,13 +357,40 @@ h1.lh-condensed {
   font-weight: 400;
   color: #d0d7de;
   line-height: 1.6;
-  margin: 0 auto;
+  max-width: 40rem;
 }
-/* Split Section */
+
+/* Hero responsiveness */
+@media (max-width: 992px) {
+  .about-hero-title {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero {
+    min-height: 60vh;
+    background-position: center top;
+  }
+
+  .about-hero-title {
+    font-size: 2.8rem;
+    white-space: normal;
+  }
+
+  .about-hero-subtitle {
+    font-size: 0.95rem;
+  }
+}
+
+/* ---------------------------------------------------
+   Split Section (image + text)
+--------------------------------------------------- */
+
 .split-section {
   display: flex;
-  height: 100vh;
   width: 100%;
+  min-height: 80vh;
 }
 
 .split-image {
@@ -219,12 +398,12 @@ h1.lh-condensed {
   background-image: url("/assets/images/toot.PNG");
   background-size: contain;
   background-position: center;
-
+  background-repeat: no-repeat;
 }
 
 .split-content {
   flex: 1;
-  background: #000; /* pure black */
+  background: #000;
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -240,43 +419,75 @@ h1.lh-condensed {
 
 .split-text {
   font-size: 1.1rem;
-
   font-weight: 100;
   line-height: 1.7;
   color: #d1d1d1;
   max-width: 500px;
 }
-.about-nutshell {
+
+/* Stack split section on small screens */
+@media (max-width: 768px) {
+  .split-section {
+    flex-direction: column;
+  }
+
+  .split-content {
+    padding: 2.5rem 1.5rem 3rem;
+  }
+
+  .split-title {
+    font-size: 2.2rem;
+  }
+
+  .split-text {
+    font-size: 1rem;
+  }
+}
+
+/* ---------------------------------------------------
+   About – “Nut-shell” sections
+--------------------------------------------------- */
+
+.about-nutshell,
+.otherside-nutshell {
   background: #000;
   color: #fff;
   padding: 6rem 0 7rem;
 }
 
-.about-nutshell-inner {
+.about-nutshell-inner,
+.otherside-nutshell-inner {
   max-width: 60rem;
   margin: 0 auto;
 }
 
-.about-nutshell-label {
+.about-nutshell-label,
+.otherside-nutshell-label {
   font-size: 0.75rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #b14bf9; /* violet accent */
+  color: #b14bf9;
   margin-bottom: 1.5rem;
 }
 
-.about-nutshell-text {
+.about-nutshell-text,
+.otherside-nutshell-text {
   font-size: clamp(1.9rem, 3vw, 3rem);
   line-height: 1.5;
   margin: 0;
 }
 
-/* optional: tighten on small screens */
 @media (max-width: 576px) {
-  .about-nutshell {
+  .about-nutshell,
+  .otherside-nutshell {
     padding: 4rem 1.5rem 5rem;
   }
 }
+
+/* ---------------------------------------------------
+   Backstory (two-column text)
+--------------------------------------------------- */
+
 .about-backstory {
   background: #000;
   color: #f5f5f5;
@@ -284,16 +495,18 @@ h1.lh-condensed {
 }
 
 .about-backstory-inner {
+  max-width: 72rem;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 2fr);
   column-gap: 4rem;
   align-items: flex-start;
+  padding: 0 1.5rem;
 }
 
 .about-backstory-title h2 {
   font-size: clamp(2.3rem, 3vw, 3rem);
   font-weight: 200;
-  color: #ffffff;
   margin: 0;
 }
 
@@ -309,85 +522,97 @@ h1.lh-condensed {
   color: #dcdcdc;
 }
 
-/* Responsive: stack on small screens */
 @media (max-width: 768px) {
   .about-backstory-inner {
     grid-template-columns: 1fr;
     row-gap: 2.5rem;
   }
-
-  .about-backstory-title {
-    text-align: left;
-  }
 }
-/* Full-width Tumblr section */
-.tumblr-fullwidth-section {
+
+/* ---------------------------------------------------
+   Tumblr / “Old Art” gallery (manual thumbs)
+--------------------------------------------------- */
+
+.tumblr-gallery {
   background: #000;
   color: #fff;
-  text-align: center;
-  font-weight: 100;
-  padding: 3rem 0 0 0;
-}
-
-/* Make the wrapper span the entire viewport width */
-.tumblr-embed-wrapper-full {
-  width: 100vw;
-  height: 90vh;
-  margin-left: calc(50% - 50vw); /* removes container centering */
-  margin-right: calc(50% - 50vw);
-  overflow: hidden;
-  border-top: 1px solid #222;
-  border-bottom: 1px solid #222;
-}
-
-/* Full-width iframe */
-.tumblr-embed-wrapper-full iframe {
-  width: 100%;
-  height: 85%;
-  border: none;
-}
-.otherside-nutshell {
-  background: #000;
-  color: #fff;
-  padding: 6rem 0 7rem;
-}
-
-.otherside-nutshell-inner {
-  max-width: 52rem;
-  margin: 0 auto;
-}
-
-.otherside-nutshell-label {
-  font-size: 0.75rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: #b14bf9; /* violet accent */
-  margin-bottom: 1.5rem;
-}
-
-.otherside-nutshell-text {
-  font-size: clamp(1.9rem, 3vw, 3rem);
-  line-height: 1.5;
-  margin: 0;
-}
-
-/* optional: tighten on small screens */
-@media (max-width: 576px) {
-  .otherside-nutshell {
-    padding: 4rem 1.5rem 5rem;
-  }
-}
-.socials-footer {
-  background: #000;
-  color: #a152f5; /* warm gold like the reference */
-  font-family: 'Inter', sans-serif;
   padding: 60px 0;
 }
 
-.contact-info .footer-link {
-  color: #b14bf9;;
+.tumblr-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.tumblr-grid img {
+  width: 100%;
+  display: block;
+  border-radius: 4px;
+  object-fit: cover;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tumblr-grid a:hover img {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
+}
+
+.tumblr-strip {
+  background: #111;
+  color: #f5f5f5;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.tumblr-strip a {
+  color: #b14bf9;
   text-decoration: none;
-  border-bottom: 1px solid #b14bf9;;
+}
+
+.tumblr-strip a:hover {
+  text-decoration: underline;
+}
+
+.btn-ghost {
+  border: 1px solid #b14bf9;
+  padding: 10px 22px;
+  color: #b14bf9;
+  text-decoration: none;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+}
+
+.btn-ghost:hover {
+  background: #b14bf9;
+  color: #000;
+}
+
+/* ---------------------------------------------------
+   Social Footer
+--------------------------------------------------- */
+
+.socials-footer {
+  background: #000;
+  color: #a152f5;
+  padding: 60px 0;
+}
+
+.socials-footer .container {
+  max-width: 1100px;
+  padding: 0 1.5rem;
+}
+
+.contact-info .footer-link {
+  color: #b14bf9;
+  text-decoration: none;
+  border-bottom: 1px solid #b14bf9;
   font-size: 1rem;
 }
 
@@ -412,92 +637,18 @@ h1.lh-condensed {
 .social-icons .footer-icon:hover {
   opacity: 0.7;
 }
-.socials-footer .container {
-  max-width: 1100px;
-}
-.tumblr-fullwidth-section {
-  background: #000;        /* match the rest of your About page */
-  color: #fff;
-}
 
-.about-nutshell-label {
-  letter-spacing: 2px;
-  font-size: 0.9rem;
-  color: #d4d4d4;
-}
+@media (max-width: 768px) {
+  .socials-footer .row {
+    text-align: center;
+  }
 
-.tumblr-embed-wrapper-full {
-  width: 100%;
-  height: 80vh;             /* adjust to taste */
-  overflow: hidden;         /* hides Tumblr scrollbars */
-  position: relative;
-}
+  .social-icons {
+    margin-top: 16px;
+  }
 
-.tumblr-embed-wrapper-full iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-  display: block;
-}
-.tumblr-embed-wrapper-full iframe {
-  transform: scale(1.03);
-  transform-origin: top center;
-}
-.tumblr-gallery {
-  background: #000;
-  color: #fff;
-  padding: 60px 0;
-}
-
-.tumblr-grid {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
-}
-
-.tumblr-grid img {
-  width: 100%;
-  display: block;
-  border-radius: 4px;
-  object-fit: cover;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.tumblr-grid a:hover img {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.6);
-}
-
-.btn-ghost {
-  border: 1px solid #b14bf9;;
-  padding: 10px 22px;
-  color: #b14bf9;;
-  text-decoration: none;
-  letter-spacing: 1px;
-  font-size: 0.85rem;
-}
-
-.btn-ghost:hover {
-  background: #b14bf9;;
-  color: #000;
-}
-.tumblr-strip {
-  background:#111;
-  color:#f5f5f5;
-  padding:12px 24px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  font-size:0.9rem;
-}
-
-.tumblr-strip a {
-  color:#b14bf9;;
-  text-decoration:none;
-}
-
-.tumblr-strip a:hover {
-  text-decoration:underline;
+  .social-icons .footer-icon {
+    margin-left: 12px;
+    margin-right: 12px;
+  }
 }
