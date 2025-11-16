@@ -381,6 +381,67 @@
 .site-navbar .navbar-nav .nav-item.active {
   color: #9eb5cf;
 }
+/* --- Back Story: mobile-first clean layout --- */
+
+.about-backstory-inner {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  display: block;           /* kill old grid on small screens */
+}
+
+/* Heading stays left-aligned */
+.about-backstory-title h2 {
+  font-size: clamp(2.3rem, 3vw, 3rem);
+  font-weight: 200;
+  margin: 0 0 1.5rem;
+  text-align: left;
+}
+
+/* Center the portrait only */
+.about-backstory-photo {
+  display: flex;
+  justify-content: center;
+  margin: 1.8rem 0 2.4rem;
+}
+
+.about-backstory-photo img {
+  width: min(260px, 70vw);  /* scale nicely on phones */
+  height: auto;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Body text stays left and readable */
+.about-backstory-content {
+  max-width: 40rem;
+  font-weight: 100;
+}
+
+.about-backstory-content p {
+  font-size: 0.98rem !important;
+  line-height: 1.8 !important;
+  margin-bottom: 1.2rem !important;
+  color: #dcdcdc !important;
+}
+
+/* Optional: re-introduce grid only on larger screens */
+@media (min-width: 900px) {
+  .about-backstory-inner {
+    display: grid !important;
+    grid-template-columns: 1fr !important;     /* still single column for text */
+  }
+
+  .about-backstory-photo {
+    justify-content: center !important;        /* still centered on desktop */
+  }
+  
+  .about-backstory-photo img {
+    width: 320px;
+    margin-left: 50%;
+  }
+}
+
 
 /* Optional: keep body content from hiding under the nav */
 body {
@@ -446,29 +507,31 @@ body {
     </p>-->
             </div>
         </section>
-<section class="random-facts-section">
+<section class="random-facts">
   <div class="random-facts-inner">
-
-    <!-- LEFT: IMAGE -->
-    <div class="random-facts-photo">
-      <img src="/assets/images/bck-stry.JPG" alt="Random Facts Photo">
+    
+    <!-- Left: photo -->
+    <div class="random-facts-media space-between mb-6 mb-md-0">
+      <img src="/assets/images/toot.PNG" alt="My cat supervising my desk" />
     </div>
 
-    <!-- RIGHT: TEXT -->
-    <div class="random-facts-text">
-      <h2 class="random-facts-title">Random Facts.</h2>
-      <p>
-        My name is Asmaa. I have a passion for building fish tanks. 
-        I have two cats and two leopard geckos. My favorite number is 4. 
-        I love to travel. I speak Arabic fluently. My favorite cartoon is 
-        Courage the Cowardly Dog. I play guitar, piano, and bass. 
-        I love journaling / scrapbooking. I enjoy going fishing and my 
-        favorite food is crab legs.
-      </p>
-    </div>
+    <!-- Right: heading + text -->
+    <div class="random-facts-copy">
+  <h2 class="random-facts-title">Random Facts.</h2>
+
+  <p class="random-facts-text">
+    My name is Asmaa. I have a passion for building fish tanks. I have
+    two cats and two leopard geckos. My favorite number is 4. I love
+    to travel. I speak Arabic fluently. My favorite cartoon is Courage
+    the Cowardly Dog. I play guitar, piano, and bass. I love journaling /
+    scrapbooking. I enjoy going fishing and my favorite food is crab legs.
+  </p>
+</div>
+
 
   </div>
 </section>
+
 
         <!-- Me in a nutshell section -->
 <section class="about-nutshell">
@@ -483,21 +546,24 @@ body {
   </div>
 </section>
   <!-- About Me Section -->
-<section class="about-backstory">
-  <div class="container about-backstory-inner">
 
-    <!-- Title -->
+    <!-- Title 
+    <div class="about-backstory-title">
+      <h2>Back Story.</h2>
+    </div>--><!-- OPTIONAL IMAGE BLOCK -->
+    <!--div class="about-backstory-photo">
+      <img src="/assets/images/toot.PNG" alt="About Me Photo">
+    </div>
+--> 
+    <!-- Text Content -->
+    <section class="about-backstory">
+  <div class="about-backstory-inner">
+
     <div class="about-backstory-title">
       <h2>Back Story.</h2>
     </div>
 
-    <!-- OPTIONAL IMAGE BLOCK -->
-    <div class="about-backstory-photo">
-      <img src="/assets/images/toot.PNG" alt="About Me Photo">
-    </div>
-
-    <!-- Text Content -->
-    <div class="about-backstory-content">
+    <div class="about-backstory-content justify-content-center ">
       <p>
         Long before I wrote code, I was creating things in every medium I could get my hands on. 
         I grew up playing piano, guitar, and bass entirely by ear — listening, imitating, 
@@ -538,7 +604,14 @@ body {
       </p>
     </div>
 
+ <!--  PHOTO SLOT ON THE RIGHT SIDE  -->
+    <div class="about-backstory-photo mb-6 mb-4">
+      <img src="/assets/images/bck-stry.JPG" alt="Asmaa working" />
+    </div>
+
   </div>
+</section>
+<!-- Portfolio Gallery Section -->
 </section>
   <section class="tumblr-gallery">
   <p class="about-nutshell-label mb-1 text-center">WEB DEVELOPMENT PORTFOLIO</p>
@@ -569,7 +642,7 @@ body {
   </div>
 
   <div class="text-center mt-4" style="border-bottom: none;">
-    <a href="https://blkpvnthr.github.io/" target="_blank" rel="noopener" class="btn-ghost">
+    <a href="https://www.tumblr.com/blkpvnthr" target="_blank" rel="noopener" class="btn-ghost">
       View full Tumblr archive →
     </a>
   </div>
