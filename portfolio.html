@@ -565,6 +565,7 @@ function getInstitutionBadge(name, description) {
     text.includes("mc") ||
     text.includes("diamond_hands") ||
     text.includes("cmsc206") ||
+    text.includes("cmsc203")
   ) {
     return `
       <span class="institution-badge" title="Montgomery College">
@@ -597,12 +598,11 @@ function getInstitutionBadge(name, description) {
           if (repo.name.toLowerCase() === "ts-mui-nextjs-starter") return;
           if (repo.name === "CMSC203_Lab3") return;
           if (repo.name === "CMSC203") return;
-          if (repo.name === "ai-dino") return;
+          if (repo.name === "Slot-Machine-Game") return;
+          if (repo.name === "Recipe-List-App") return;
           if (repo.name === "asmaa.dev") return;
           if (repo.name === "asmaa.dev-2") return;
-          if (repo.name === "Recipe List App") return;
-          if (repo.name === "Slot-Machine-Game") return;
-          if (repo.name === "cmsc203") return;
+          if (repo.name === "ai-dino") return;
           if (repo.name.toLowerCase() === "nodetest") return;
           const language = repo.language || "";
           const stars = repo.stargazers_count || 0;
