@@ -483,7 +483,7 @@ h1.lh-condensed {
 @media (max-width: 576px) {
   .about-nutshell,
   .otherside-nutshell {
-    padding: 4rem 1.5rem 5rem;
+    padding: 2rem 1.5rem 1rem !important;
   }
 }
 
@@ -1032,6 +1032,7 @@ html, body {
 @media (max-width: 900px) {
   .about-backstory-inner {
     grid-template-columns: 1fr;
+    margin-left: 2%;
   }
   .about-backstory-photo img {
   width: 250px;
@@ -1043,16 +1044,37 @@ html, body {
 .about-backstory-content{
   text-align: left;
   justify-content: center;
-  margin-left: 2%;
   margin-bottom: 0;
-
+  padding-left: 1%;
+  padding-right: 1%;
+  font-size: x-small !important;
 }
   .about-backstory-photo {
     max-width: 80%;
     margin: 2rem auto 0;
     margin-bottom: 0%;
   }
+  .about-backstory{
+    padding-bottom: 0rem !important;
+    margin-bottom: 0rem !important;
+    margin-top: 2rem !important;
+  }
+
+.tumblr-gallery {
+  margin-top: 0 !important;
+  padding-top: 2rem !important;
 }
-
-
-/* Lightbox specific styles *
+.random-facts {
+    background: #000;
+    color: #fff;
+    padding: 3rem 0 4rem;
+}
+{
+    .about-backstory-content {
+      margin: 5px !important;
+      font-size: 0.75rem !important;
+      padding-right: 10px !important;
+      padding-left: 10px !important;
+      margin-bottom: 0 !important;
+      padding-bottom: 0 !important;
+}
