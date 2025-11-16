@@ -646,8 +646,35 @@
 
 <!-- Duplicate placeholder removed: PROJECT_GALLERIES is defined later in the file and the modal logic is kept below. -->
 
-<!-- Your existing gallery modal markup should be on the page -->
-<!-- Example structure: -->
+
+<!-- One Bootstrap bundle include is enough -->
+ <!-- CATEGORY FILTER -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const pills = document.querySelectorAll(".filter-pill");
+    const cards = document.querySelectorAll(".gallery-card");
+
+    pills.forEach(pill => {
+      pill.addEventListener("click", () => {
+        const filter = pill.dataset.filter;
+
+        pills.forEach(p => p.classList.remove("active"));
+        pill.classList.add("active");
+
+        cards.forEach(card => {
+          const category = card.dataset.category;
+          if (filter === "all" || category === filter) {
+            card.classList.remove("hidden");
+          } else {
+            card.classList.add("hidden");
+          }
+        });
+      });
+    });
+  });
+</script>
+
+<!-- GALLERY MODAL MARKUP -->
 <div id="gallery-modal" class="gallery-modal" hidden>
   <div class="gallery-modal-backdrop"></div>
   <div class="gallery-modal-dialog">
@@ -665,11 +692,10 @@
   </div>
 </div>
 
-
-<!-- One Bootstrap bundle include is enough -->
-  <script>
-  // 1) Define images per project
-  //    Key must match data-gallery-id on the thumbnail button
+<!-- PROJECT GALLERIES + MODAL LOGIC -->
+<script>
+  // Keys must match data-gallery-id values in your HTML:
+  // dragonfly, ezie, icegiants, uranus-art, parker-kit, portfolio-demo, lac, logic
   const PROJECT_GALLERIES = {
     dragonfly: [
       {
@@ -683,65 +709,13 @@
         alt: "Dragonfly portal resources page",
         title: "Dragonfly Internal Team Site",
         description: "Resources and quick links for internal collaboration tools."
-      },
-      {
-        src: "/assets/images/dragonfly-2.png",
-        alt: "Dragonfly portal dashboard overview",
-        title: "Dragonfly Internal Team Site",
-        description: "Main dashboard view with newsletter, events calendar, and database links."
-      },
-      {
-        src: "/assets/images/dragonfly-3.png",
-        alt: "Dragonfly portal resources page",
-        title: "Dragonfly Internal Team Site",
-        description: "Resources and quick links for internal collaboration tools."
-      },
-      {
-        src: "/assets/images/dragonfly-4.png",
-        alt: "Dragonfly portal dashboard overview",
-        title: "Dragonfly Internal Team Site",
-        description: "Main dashboard view with newsletter, events calendar, and database links."
-      },
-      {
-        src: "/assets/images/dragonfly-5.png",
-        alt: "Dragonfly portal resources page",
-        title: "Dragonfly Internal Team Site",
-        description: "Resources and quick links for internal collaboration tools."
-      },
-      {
-        src: "/assets/images/dragonfly-6.png",
-        alt: "Dragonfly portal dashboard overview",
-        title: "Dragonfly Internal Team Site",
-        description: "Main dashboard view with newsletter, events calendar, and database links."
-      },
-      {
-        src: "/assets/images/dragonfly-7.png",
-        alt: "Dragonfly portal resources page",
-        title: "Dragonfly Internal Team Site",
-        description: "Resources and quick links for internal collaboration tools."
-      },{
-        src: "/assets/images/dragonfly-10.png",
-        alt: "Dragonfly portal dashboard overview",
-        title: "Dragonfly Internal Team Site",
-        description: "Main dashboard view with newsletter, events calendar, and database links."
-      },
-      {
-        src: "/assets/images/dragonfly-11.png",
-        alt: "Dragonfly portal resources page",
-        title: "Dragonfly Internal Team Site",
-        description: "Resources and quick links for internal collaboration tools."
       }
-      // add more if you want
+      // …add more dragonfly shots if you want
     ],
+
     ezie: [
-    {
-        src: "/assets/images/ezie.png",
-        alt: "EZIE homepage hero",
-        title: "EZIE – Electrojet Zeeman Imaging Explorer",
-        description: "Public-facing mission site hero section."
-      },
       {
-        src: "/assets/images/ezie-2.png",
+        src: "/assets/images/ezie.png",
         alt: "EZIE homepage hero",
         title: "EZIE – Electrojet Zeeman Imaging Explorer",
         description: "Public-facing mission site hero section."
@@ -751,128 +725,10 @@
         alt: "EZIE media gallery",
         title: "EZIE – Electrojet Zeeman Imaging Explorer",
         description: "Media gallery layout highlighting graphics, photos, and videos."
-      },
-      {
-        src: "/assets/images/ezie-4.png",
-        alt: "EZIE homepage hero",
-        title: "EZIE – Electrojet Zeeman Imaging Explorer",
-        description: "Public-facing mission site hero section."
-      },
-      {
-        src: "/assets/images/ezie-5.png",
-        alt: "EZIE media gallery",
-        title: "EZIE – Electrojet Zeeman Imaging Explorer",
-        description: "Media gallery layout highlighting graphics, photos, and videos."
-      },
-      {
-        src: "/assets/images/ezie-gallery-5.png",
-        alt: "EZIE homepage hero",
-        title: "EZIE – Electrojet Zeeman Imaging Explorer",
-        description: "Public-facing mission site hero section."
-      },
-      {
-        src: "/assets/images/ezie-gallery-2.png",
-        alt: "EZIE media gallery",
-        title: "EZIE – Electrojet Zeeman Imaging Explorer",
-        description: "Media gallery layout highlighting graphics, photos, and videos."
-      },
-      {
-        src: "/assets/images/ezie-gallery-3.png",
-        alt: "EZIE homepage hero",
-        title: "EZIE – Electrojet Zeeman Imaging Explorer",
-        description: "Public-facing mission site hero section."
-      },
-      {
-        src: "/assets/images/ezie-gallery-3.png",
-        alt: "EZIE media gallery",
-        title: "EZIE – Electrojet Zeeman Imaging Explorer",
-        description: "Media gallery layout highlighting graphics, photos, and videos."
-      },
-      {
-        src: "/assets/images/ezie-gallery-4.png",
-        alt: "EZIE homepage hero",
-        title: "EZIE – Electrojet Zeeman Imaging Explorer",
-        description: "Public-facing mission site hero section."
-      },
-      {
-        src: "/assets/images/ezie-gallery.png",
-        alt: "EZIE media gallery",
-        title: "EZIE – Electrojet Zeeman Imaging Explorer",
-        description: "Media gallery layout highlighting graphics, photos, and videos."
-      },
-      {
-        src: "/assets/images/ezie-earth-space.png",
-        alt: "EZIE homepage hero",
-        title: "EZIE – Electrojet Zeeman Imaging Explorer",
-        description: "Public-facing mission site hero section."
-      },
-      {
-        src: "/assets/images/ezie-atmosphere.png",
-        alt: "EZIE media gallery",
-        title: "EZIE – Electrojet Zeeman Imaging Explorer",
-        description: "Media gallery layout highlighting graphics, photos, and videos."
-      },
-      {
-        src: "/assets/images/ezie-electrojets.png",
-        alt: "EZIE media gallery",
-        title: "EZIE – Electrojet Zeeman Imaging Explorer",
-        description: "Media gallery layout highlighting graphics, photos, and videos."
-      },
-      {
-        src: "/assets/images/ezie-news.png",
-        alt: "EZIE homepage hero",
-        title: "EZIE – Electrojet Zeeman Imaging Explorer",
-        description: "Public-facing mission site hero section."
-      },
-      {
-        src: "/assets/images/ezie-outreach.png",
-        alt: "EZIE media gallery",
-        title: "EZIE – Electrojet Zeeman Imaging Explorer",
-        description: "Media gallery layout highlighting graphics, photos, and videos."
-      },
-      {
-        src: "/assets/images/ezie-solar-wind.png",
-        alt: "EZIE media gallery",
-        title: "EZIE – Electrojet Zeeman Imaging Explorer",
-        description: "Media gallery layout highlighting graphics, photos, and videos."
-      },
-      {
-        src: "/assets/images/ezie-spacecraft.png",
-        alt: "EZIE homepage hero",
-        title: "EZIE – Electrojet Zeeman Imaging Explorer",
-        description: "Public-facing mission site hero section."
-      },
-      {
-        src: "/assets/images/ezie-team.png",
-        alt: "EZIE media gallery",
-        title: "EZIE – Electrojet Zeeman Imaging Explorer",
-        description: "Media gallery layout highlighting graphics, photos, and videos."
-      },
-      {
-        src: "/assets/images/ezie-workshops.png",
-        alt: "EZIE media gallery",
-        title: "EZIE – Electrojet Zeeman Imaging Explorer",
-        description: "Media gallery layout highlighting graphics, photos, and videos."
-      },
-      {
-        src: "/assets/images/ezie-zeeman.png",
-        alt: "EZIE homepage hero",
-        title: "EZIE – Electrojet Zeeman Imaging Explorer",
-        description: "Public-facing mission site hero section."
-      },
-      {
-        src: "/assets/images/ezie.png",
-        alt: "EZIE media gallery",
-        title: "EZIE – Electrojet Zeeman Imaging Explorer",
-        description: "Media gallery layout highlighting graphics, photos, and videos."
-      },
-      {
-        src: "/assets/images/ezie-auroral-electrojets.png",
-        alt: "EZIE media gallery",
-        title: "EZIE – Electrojet Zeeman Imaging Explorer",
-        description: "Media gallery layout highlighting graphics, photos, and videos."
       }
+      // …etc
     ],
+
     icegiants: [
       {
         src: "/assets/images/ice-giants/admin/ice-giants.png",
@@ -885,162 +741,63 @@
         alt: "Ice Giants data page",
         title: "Ice Giants",
         description: "Data/mission highlights page with custom background art."
-      },
+      }
+      // …etc
+    ],
+
+    "uranus-art": [
       {
-        src: "/assets/images/ice-giants/admin/ice-giants-3.png",
-        alt: "Ice Giants hero layout",
-        title: "Ice Giants",
-        description: "Hero section and navigation for the Ice Giants concept study."
-      },
-      {
-        src: "/assets/images/ice-giants/admin/ice-giants-4.png",
-        alt: "Ice Giants data page",
-        title: "Ice Giants",
-        description: "Data/mission highlights page with custom background art."
-      },
-      {
-        src: "/assets/images/ice-giants/admin/ice-giants-5.png",
-        alt: "Ice Giants hero layout",
-        title: "Ice Giants",
-        description: "Hero section and navigation for the Ice Giants concept study."
-      },
-      {
-        src: "/assets/images/ice-giants/admin/ice-giants-6.png",
-        alt: "Ice Giants data page",
-        title: "Ice Giants",
-        description: "Data/mission highlights page with custom background art."
-      },
-      {
-        src: "/assets/images/ice-giants/admin/ice-giants-7.png",
-        alt: "Ice Giants hero layout",
-        title: "Ice Giants",
-        description: "Hero section and navigation for the Ice Giants concept study."
-      },
-      {
-        src: "/assets/images/ice-giants/admin/ice-giants-8.png",
-        alt: "Ice Giants data page",
-        title: "Ice Giants",
-        description: "Data/mission highlights page with custom background art."
-      },
-      {
-        src: "/assets/images/ice-giants/admin/ice-giants-9.png",
-        alt: "Ice Giants hero layout",
-        title: "Ice Giants",
-        description: "Hero section and navigation for the Ice Giants concept study."
-      },
-      {
-        src: "/assets/images/ice-giants/ice-giants-10.png",
-        alt: "Ice Giants data page",
-        title: "Ice Giants",
-        description: "Data/mission highlights page with custom background art."
+        src: "/assets/images/gallery/uranus-art.png",
+        alt: "Uranus concept art",
+        title: "Ice Giants Internal Portal Artwork",
+        description: "Layered composite with ring glow, cloud bands, and atmospheric halo."
       }
     ],
-    "ice-giants-admin": [
+
+    "parker-kit": [
       {
-        src: "/assets/images/ice-giants/admin/ice-giants.png",
-        alt: "Ice Giants hero layout",
-        title: "Ice Giants",
-        description: "Hero section and navigation for the Ice Giants concept study."
-      },
-      {
-        src: "/assets/images/ice-giants/admin/ice-giants-2.png",
-        alt: "Ice Giants data page",
-        title: "Ice Giants",
-        description: "Data/mission highlights page with custom background art."
-      },
-      {
-        src: "/assets/images/ice-giants/admin/ice-giants-3.png",
-        alt: "Ice Giants hero layout",
-        title: "Ice Giants",
-        description: "Hero section and navigation for the Ice Giants concept study."
-      },
-      {
-        src: "/assets/images/ice-giants/admin/ice-giants-4.png",
-        alt: "Ice Giants data page",
-        title: "Ice Giants",
-        description: "Data/mission highlights page with custom background art."
-      },
-      {
-        src: "/assets/images/ice-giants/admin/ice-giants-5.png",
-        alt: "Ice Giants hero layout",
-        title: "Ice Giants",
-        description: "Hero section and navigation for the Ice Giants concept study."
-      },
-      {
-        src: "/assets/images/ice-giants/admin/ice-giants-6.png",
-        alt: "Ice Giants data page",
-        title: "Ice Giants",
-        description: "Data/mission highlights page with custom background art."
-      },
-      {
-        src: "/assets/images/ice-giants/admin/ice-giants-7.png",
-        alt: "Ice Giants hero layout",
-        title: "Ice Giants",
-        description: "Hero section and navigation for the Ice Giants concept study."
-      },
-      {
-        src: "/assets/images/ice-giants/admin/ice-giants-8.png",
-        alt: "Ice Giants data page",
-        title: "Ice Giants",
-        description: "Data/mission highlights page with custom background art."
-      },
-      {
-        src: "/assets/images/ice-giants/admin/ice-giants-9.png",
-        alt: "Ice Giants hero layout",
-        title: "Ice Giants",
-        description: "Hero section and navigation for the Ice Giants concept study."
-      },
-      {
-        src: "/assets/images/ice-giants/admin/ice-giants-10.png",
-        alt: "Ice Giants data page",
-        title: "Ice Giants",
-        description: "Data/mission highlights page with custom background art."
+        src: "/assets/images/parker-kit/parker-kit.png",
+        alt: "Parker Solar Probe celebration kit",
+        title: "PSP Closest Approach Celebration Kit",
+        description: "DIY celebration kit for Parker Solar Probe’s closest approach."
       }
     ],
-    logic: [
-    {
-      src: "/assets/images/LOGIC/logic-manage-clock-2.png",
-      alt: "LOGIC manage clock admin page",
-      title: "LOGIC – Lunar Operating Guidelines for Infrastructure Consortium",
-      description: "Admin interface for managing meeting clocks and timelines."
-    },
-    {
-      src: "/assets/images/LOGIC/logic-faqs.png",
-      alt: "LOGIC FAQs page",
-      title: "LOGIC – Lunar Operating Guidelines for Infrastructure Consortium",
-      description: "Public-facing FAQ page wired to the admin-managed content."
-    }
-    // add more LOGIC screenshots if you want
-  ],
+
+    "portfolio-demo": [
+      {
+        src: "/assets/images/gallery/portfolio-demo-thumb.png",
+        alt: "Portfolio walkthrough still",
+        title: "Portfolio Walkthrough Reel",
+        description: "Frames from the BLKPVNTHR portfolio walkthrough video."
+      }
+    ],
+
     lac: [
-    {
-      src: "/assets/images/LAC-3.png",
-      alt: "LAC FAQ page",
-      title: "Lunar Autonomy Challenge",
-      description: "Public-facing FAQ page with searchable, sortable Q&A."
-    },
-    {
-      src: "/assets/images/LAC-1.png",
-      alt: "LAC admin FAQ management page",
-      title: "Lunar Autonomy Challenge",
-      description: "Admin interface for managing FAQs using a simple form."
-    },
-    {
-      src: "/assets/images/LAC-2.png",
-      alt: "LAC FAQ page",
-      title: "Lunar Autonomy Challenge",
-      description: "Public-facing FAQ page with searchable, sortable Q&A."
-    },
-    {
-      src: "/assets/images/LAC-4.png",
-      alt: "LAC admin FAQ management page",
-      title: "Lunar Autonomy Challenge",
-      description: "Admin interface for managing FAQs using a simple form."
-    }
-    // add more projects here...
+      {
+        src: "/assets/images/LAC-3.png",
+        alt: "Lunar Autonomy Challenge FAQs page",
+        title: "Lunar Autonomy Challenge",
+        description: "DataTables-driven FAQ interface wired to admin tools."
+      }
+    ],
+
+    logic: [
+      {
+        src: "/assets/images/LOGIC/logic-manage-clock-2.png",
+        alt: "LOGIC manage clock admin page",
+        title: "LOGIC – Lunar Operating Guidelines for Infrastructure Consortium",
+        description: "Admin interface for managing FAQs and meeting clocks."
+      },
+      {
+        src: "/assets/images/LOGIC/logic-faqs.png",
+        alt: "LOGIC public FAQs page",
+        title: "LOGIC – Lunar Operating Guidelines for Infrastructure Consortium",
+        description: "Public-facing FAQ page served from the managed content."
+      }
+      // add more LOGIC shots if you have them
+    ]
   };
 
-  // 2) Modal logic
   (function () {
     const modal = document.getElementById("gallery-modal");
     const imgEl = document.getElementById("gallery-modal-image");
@@ -1064,9 +821,8 @@
       imgEl.alt = item.alt || "";
       titleEl.textContent = item.title || "";
       descEl.textContent = item.description || "";
-      counterEl.textContent = currentGallery.length > 1
-        ? `${currentIndex + 1} / ${currentGallery.length}`
-        : "";
+      counterEl.textContent =
+        currentGallery.length > 1 ? `${currentIndex + 1} / ${currentGallery.length}` : "";
     }
 
     function openGallery(galleryId) {
@@ -1089,7 +845,7 @@
       imgEl.src = "";
     }
 
-    // Hook up card thumbnails
+    // Attach handlers to all project thumb buttons
     document.querySelectorAll(".js-open-gallery").forEach(btn => {
       btn.addEventListener("click", () => {
         const id = btn.dataset.galleryId;
@@ -1097,13 +853,11 @@
       });
     });
 
-    // Navigation + close buttons
     btnPrev.addEventListener("click", () => showImage(currentIndex - 1));
     btnNext.addEventListener("click", () => showImage(currentIndex + 1));
     btnClose.addEventListener("click", closeGallery);
     backdrop.addEventListener("click", closeGallery);
 
-    // Keyboard support
     document.addEventListener("keydown", (e) => {
       if (modal.hidden) return;
       if (e.key === "Escape") closeGallery();
@@ -1112,6 +866,10 @@
     });
   })();
 </script>
+
+<!-- Bootstrap JS (once) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 
 <!-- Lightbox markup (place near the end of <body>) -->
 <div id="lightbox" class="lightbox" aria-hidden="true">
