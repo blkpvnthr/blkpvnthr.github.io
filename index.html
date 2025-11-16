@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="assets/css/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/css/animate.min.css">
     <!-- Optional: <link rel="stylesheet" href="assets/css/build.css" /> -->
-    <! -- Font Awesome for social icons -->
+    <!-- Font Awesome for social icons -->
     <script src="https://kit.fontawesome.com/aef4f8d92e.js" crossorigin="anonymous"></script>
     <!-- 3) Small custom tweaks to mimic asmaa.dev -->
         <style>
@@ -448,10 +448,162 @@ body {
   padding-top: 72px; /* tweak if your nav is taller/shorter */
 }
 
-        </style>
+.about-hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-image: url(/assets/images/about-banner.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    color: #ffffff;
+}
+
+.random-facts {
+    background: #000;
+    color: #fff;
+    padding: 4rem;
+}
+
+/* --- Lightbox / pop-up gallery --- */
+
+.gallery-modal[hidden] {
+  display: none;
+}
+
+.gallery-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.gallery-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(17, 24, 39, 0.8), rgba(0, 0, 0, 0.96));
+  backdrop-filter: blur(6px);
+}
+
+.gallery-modal-content {
+  position: relative;
+  z-index: 1;
+  max-width: min(1000px, 92vw);
+  max-height: 86vh;
+  background: #050508;
+  border-radius: 14px;
+  border: 1px solid rgba(177, 75, 249, 0.5);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.9);
+  padding: 1.25rem 3rem;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: 0.75rem;
+  pointer-events: auto;
+}
+
+.gallery-modal-image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 60vh;
+}
+
+.gallery-modal-image-wrapper img {
+  max-width: 100%;
+  max-height: 60vh;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+.gallery-modal-caption {
+  color: #e5e7eb;
+  font-size: 0.9rem;
+}
+
+.gallery-modal-caption h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.gallery-modal-caption p {
+  margin: 0 0 0.35rem;
+  color: #9ca3af;
+}
+
+.gallery-modal-counter {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.gallery-modal-close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.8rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  background: rgba(15, 23, 42, 0.9);
+  color: #f9fafb;
+  width: 28px;
+  height: 28px;
+  font-size: 1.1rem;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.gallery-modal-close:hover {
+  background: rgba(148, 163, 184, 0.25);
+}
+
+.gallery-modal-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  background: rgba(15, 23, 42, 0.9);
+  color: #f9fafb;
+  width: 32px;
+  height: 32px;
+  font-size: 1.3rem;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.gallery-modal-nav.prev {
+  left: 0.8rem;
+}
+
+.gallery-modal-nav.next {
+  right: 0.8rem;
+}
+
+.gallery-modal-nav:hover {
+  background: rgba(148, 163, 184, 0.25);
+}
+
+@media (max-width: 640px) {
+  .gallery-modal-content {
+    padding: 1rem 1.25rem 1.1rem;
+  }
+  .gallery-modal-nav.prev {
+    left: 0.4rem;
+  }
+  .gallery-modal-nav.next {
+    right: 0.4rem;
+  }
+}
+
+</style>
     </head>
 
-    <body class="bg-white min-height-full">
+    <body class="bg-black min-height-full">
 
        
         <!-- Page Content -->
@@ -483,6 +635,10 @@ body {
           <a class="nav-link active" aria-current="page" href="index.html">Home</a>
         </li>
 
+         <li class="nav-item">
+          <a class="nav-link" href="images.html">Gallery</a>
+        </li>
+        
         <li class="nav-item">
           <a class="nav-link" href="portfolio.html">Portfolio</a>
         </li>
@@ -651,14 +807,6 @@ body {
   </div>
 </section>
 
-<!-- Lightbox markup (place near the end of <body>) -->
-<div id="lightbox" class="lightbox" aria-hidden="true">
-  <button class="lightbox-close" aria-label="Close">&times;</button>
-  <button class="lightbox-prev" aria-label="Previous">&#10094;</button>
-  <img class="lightbox-image" src="" alt="">
-  <button class="lightbox-next" aria-label="Next">&#10095;</button>
-</div>
-
 
 
 <!-- Me in a nutshell section -->
@@ -803,6 +951,28 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("year").textContent = new Date().getFullYear();
   
 </script>
+<!-- Lightbox / pop-up gallery -->
+<div id="gallery-modal" class="gallery-modal" hidden>
+  <div class="gallery-modal-backdrop"></div>
+
+  <div class="gallery-modal-content">
+    <button class="gallery-modal-close" type="button" aria-label="Close gallery">×</button>
+
+    <div class="gallery-modal-image-wrapper">
+      <img id="gallery-modal-image" src="" alt="" />
+    </div>
+
+    <div class="gallery-modal-caption">
+      <h3 id="gallery-modal-title"></h3>
+      <p id="gallery-modal-description"></p>
+      <div class="gallery-modal-counter" id="gallery-modal-counter"></div>
+    </div>
+
+    <button class="gallery-modal-nav prev" type="button" aria-label="Previous image">‹</button>
+    <button class="gallery-modal-nav next" type="button" aria-label="Next image">›</button>
+  </div>
+</div>
+
         <!-- Bootstrap JS -->
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

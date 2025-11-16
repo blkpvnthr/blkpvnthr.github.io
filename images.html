@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en" class="min-height-full">
+  <head>
+    <meta charset="utf-8">
+    <title>BLKPVNTHR - Media Gallery</title>
+
+    <meta name="description" content="Just here learning 📚">
+    <meta property="og:title" content="Asmaa Abdul-Amin">
+    <meta property="og:image" content="assets/images/Layer2.png">
+    <meta property="og:description" content="Just here learning 📚">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- 1) Bootstrap first: grid + base styles -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- 2) Your mirrored styles (override Bootstrap where needed) -->
+    <link href="assets/css/styles.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="assets/css/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <!-- Optional: <link rel="stylesheet" href="assets/css/build.css" /> -->
+    <!-- Font Awesome for social icons -->
+    <script src="https://kit.fontawesome.com/aef4f8d92e.js" crossorigin="anonymous"></script>
+
+  <style>
+    :root {
+      --accent: #b14bf9;
+      --accent-soft: rgba(177, 75, 249, 0.12);
+      --bg: #000;
+      --bg-card: #050508;
+      --text-main: #f5f5f5;
+      --text-muted: #9ca3af;
+      --border-subtle: #1f2933;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* --- Layout shell --- */
+    main.gallery-page {
+      min-height: 100vh;
+      padding-top: 5rem; /* leave room for your existing nav */
+      padding-bottom: 4rem;
+    }
+
+    .gallery-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* --- Hero bar --- */
+    .gallery-hero {
+      background: #050508;
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 1.75rem 0;
+      margin-bottom: 2rem;
+    }
+
+    .gallery-hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .gallery-title {
+      font-size: clamp(2rem, 3vw, 2.6rem);
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .gallery-subtitle {
+      max-width: 34rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      font-weight: 100;
+    }
+
+    /* --- Filter pills --- */
+    .gallery-filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .filter-pill {
+      font-size: 0.85rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      color: var(--accent);
+      font-weight: 100;
+      background: transparent;
+      list-style: none;
+      cursor: pointer;
+      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease,
+        transform 0.1s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      white-space: nowrap;
+    }
+
+    .filter-pill span.dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: currentColor;
+    }
+
+    .filter-pill:hover {
+      background: var(--accent-soft);
+      background-color: #b04bf94f;
+      transform: translateY(-1px);
+      color: #ffffff;
+      border-radius: 5px !important;
+    }
+
+    .filter-pill.active {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      border-radius: 5px !important;
+      border-width: 0.5px !important;
+      color: #9ca3af;
+    }
+
+    /* --- Grid --- */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+    }
+
+    @media (min-width: 640px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .gallery-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    /* --- Card --- */
+    .gallery-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--bg-card);
+      border-radius: 10px;
+      border: 1px solid var(--border-subtle);
+      padding: 0.75rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.7);
+      border-color: rgba(177, 75, 249, 0.6);
+    }
+
+    .gallery-thumb-wrapper {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+      background: radial-gradient(circle at top, #1f2933, #020308);
+    }
+
+    .gallery-thumb {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transform: scale(1.02);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-card:hover .gallery-thumb {
+      transform: scale(1.06);
+    }
+
+    .gallery-badge {
+      position: absolute;
+      left: 0.7rem;
+      bottom: 0.7rem;
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: rgba(0, 0, 0, 0.72);
+      color: #e5e7eb;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .gallery-card-body {
+      padding: 0.8rem 0.2rem 0.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      flex: 1;
+    }
+
+    .gallery-card-title {
+      font-size: 1rem;
+      font-weight: 300;
+      color: #f9fafb;
+      margin-bottom: 0.15rem;
+    }
+
+    .gallery-card-text {
+      font-size: 0.75rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+      flex: 1;
+    }
+
+    .gallery-card-meta {
+      font-size: 0.78rem;
+      color: #6b7280;
+    }
+
+    .gallery-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.35rem;
+      font-size: 0.8rem;
+    }
+
+    .gallery-link {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .gallery-link svg {
+      width: 11px;
+      height: 11px;
+    }
+
+    .gallery-link:hover {
+      color: #e5d3ff;
+    }
+
+    /* Hidden state for filtered cards */
+    .gallery-card.hidden {
+      display: none;
+    }
+
+    .about-hero {
+    position: relative;
+    width: 100%;
+    min-height: 25vh;
+    background-image: url(/assets/images/ezie-images/ezie_.png);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    top: -90% !important;
+    bottom: 30% !important;
+    color: #ffffff;
+}
+
+    .about-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75));
+  }
+  </style>
+</head>
+<body>
+ <section
+            class="about-hero d-flex align-items-center justify-content-center text-center">
+            <div class="about-hero-overlay"> <!-- Include Navbar -->
+        <!-- 🌐 Sticky Navbar -->
+        <nav
+            class="d-flex navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky py-2" style="background-color: transparent !important;border-bottom: 0.5px solid #ffffff">
+            <div class="container" style="color: transparent !important;">
+                <!-- Brand / Logo -->
+                <a class="navbar-brand fw-semibold" href="index.html" style="color: #ffffff;">
+                    BLKPVNTHR
+                </a>
+
+                <!-- Hamburger Menu -->
+                <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarContent"
+                    aria-controls="navbarContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="index.html">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" href="images.html">Gallery</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="portfolio.html">Portfolio</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/blkpvnthr" target="_blank">
+            GitHub
+          </a>
+        </li>
+
+      </ul>
+    </div>
+                
+            </div>
+        </nav>
+</div>
+
+           
+        </section>
+  <!-- TODO: include your existing site navbar here -->
+
+  <main class="gallery-page">
+
+  <!-- Hero -->
+  <section class="gallery-hero">
+    <div class="gallery-hero-inner">
+      <h1 class="gallery-title">Media Gallery</h1>
+      <p class="gallery-subtitle">
+        A mix of mission visuals, web experiments, concept art, and random side projects.
+        Click any tile to open a project gallery. “View site” goes to the live site.
+      </p>
+    </div>
+  </section>
+
+  <div class="gallery-container">
+
+    <!-- Filter pills -->
+    <div class="gallery-filter-row">
+      <button class="filter-pill active" data-filter="all">All</button>
+      <button class="filter-pill" data-filter="web">Web</button>
+      <button class="filter-pill" data-filter="graphics">Graphics</button>
+      <button class="filter-pill" data-filter="photos">Photos</button>
+      <button class="filter-pill" data-filter="video">Video / Animations</button>
+    </div>
+
+    <!-- Grid -->
+    <section class="gallery-grid">
+
+      <!-- CARD -1 – Web -->
+      <article class="gallery-card" data-category="web">
+        <button class="gallery-thumb-wrapper js-open-gallery"
+                type="button"
+                data-gallery-id="dragonfly">
+          <div class="gallery-thumb"
+               style="background-image:url('/assets/images/dgf/dgf.png');"></div>
+          <span class="gallery-badge">Web · APL</span>
+        </button>
+
+        <div class="gallery-card-body">
+          <h3 class="gallery-card-title">Dragonfly Internal Team Site</h3>
+          <p class="gallery-card-text">
+            Responsive mission portal layout for the Uranus &amp; Neptune concept study —
+            hero, data pages, and internal tools wired into APL infrastructure.
+          </p>
+          <div class="gallery-card-meta">
+            Design &amp; build · HTML / CSS / JS
+          </div>
+          <div class="gallery-card-footer">
+            <a href="https://example.com/dragonfly" target="_blank" class="gallery-link">
+              View site
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
+                <path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 0 – Web -->
+      <article class="gallery-card" data-category="web">
+        <button class="gallery-thumb-wrapper js-open-gallery"
+                type="button"
+                data-gallery-id="ezie">
+          <div class="gallery-thumb"
+               style="background-image:url('/assets/images/ezie-images/ezie.png');"></div>
+          <span class="gallery-badge">Web · APL</span>
+        </button>
+
+        <div class="gallery-card-body">
+          <h3 class="gallery-card-title">EZIE – Electrojet Zeeman Imaging Explorer</h3>
+          <p class="gallery-card-text">
+            Responsive mission portal layout for NASA’s EZIE mission — hero, media gallery,
+            and internal tools wired into APL infrastructure.
+          </p>
+          <div class="gallery-card-meta">
+            Design &amp; build · HTML / CSS / JS
+          </div>
+          <div class="gallery-card-footer">
+            <a href="https://ezie.jhuapl.edu/" target="_blank" class="gallery-link">
+              View site
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
+                <path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 1 – Web -->
+      <article class="gallery-card" data-category="web">
+        <button class="gallery-thumb-wrapper js-open-gallery"
+                type="button"
+                data-gallery-id="icegiants">
+          <div class="gallery-thumb"
+               style="background-image:url('/assets/images/ice-giants/ice-giants.png');"></div>
+          <span class="gallery-badge">Web · APL</span>
+        </button>
+
+        <div class="gallery-card-body">
+          <h3 class="gallery-card-title">Ice Giants</h3>
+          <p class="gallery-card-text">
+            Responsive mission portal layout for the Uranus &amp; Neptune concept study —
+            immersive hero, science highlights, and internal tooling.
+          </p>
+          <div class="gallery-card-meta">
+            Design &amp; build · HTML / CSS / JS
+          </div>
+          <div class="gallery-card-footer">
+            <a href="https://icegiants.jhuapl.edu/" target="_blank" class="gallery-link">
+              View site
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
+                <path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 2 – Graphics -->
+      <article class="gallery-card" data-category="graphics">
+        <button class="gallery-thumb-wrapper js-open-gallery"
+                type="button"
+                data-gallery-id="uranus-art">
+          <div class="gallery-thumb"
+               style="background-image:url('/assets/images/ice-giants/admin/ice-giants-admin.png');"></div>
+          <span class="gallery-badge">Graphics · Space</span>
+        </button>
+
+        <div class="gallery-card-body">
+          <h3 class="gallery-card-title">Ice Giants Admin Site</h3>
+          <p class="gallery-card-text">
+            Layered composite built from scratch: ring glow, cloud bands, and a
+            soft atmospheric halo tuned to match the mission visual style.
+          </p>
+          <div class="gallery-card-meta">
+            Procreate / Photoshop · 3840×2160
+          </div>
+          <div class="gallery-card-footer">
+            <a href="https://icegiants.jhuapl.edu/admin/index.php" target="_blank" class="gallery-link">
+              View site
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
+                <path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 3 – Photos -->
+      <article class="gallery-card" data-category="photos">
+        <button class="gallery-thumb-wrapper js-open-gallery"
+                type="button"
+                data-gallery-id="parker-kit">
+          <div class="gallery-thumb"
+              style="background-image:url('/assets/images/parker-kit/parker-kit.png');"></div>
+          <span class="gallery-badge">Photo · Home Lab</span>
+        </button>
+
+        <div class="gallery-card-body">
+          <h3 class="gallery-card-title">PSP Closest Approach Celebration Kit</h3>
+          <p class="gallery-card-text">
+            DIY celebration kit for Parker Solar Probe’s closest approach —
+            custom graphics, prints, and desk setup.
+          </p>
+          <div class="gallery-card-meta">
+            Shot on iPhone · ambient violet lighting
+          </div>
+          <div class="gallery-card-footer">
+            <a href="https://parkersolarprobe.jhuapl.edu/parker-kit/" target="_blank" class="gallery-link">
+              View site
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
+                <path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 4 – Video 
+      <article class="gallery-card" data-category="video">
+        <button class="gallery-thumb-wrapper js-open-gallery"
+                type="button"
+                data-gallery-id="portfolio-demo">
+          <div class="gallery-thumb"
+              style="background-image:url('/assets/images/gallery/portfolio-demo-thumb.png');"></div>
+          <span class="gallery-badge">Video · Demo</span>
+        </button>
+
+        <div class="gallery-card-body">
+          <h3 class="gallery-card-title">Portfolio Walkthrough Reel</h3>
+          <p class="gallery-card-text">
+            Quick tour of the BLKPVNTHR site, showing the about page, news scrapers,
+            and a few of the more complex internal tools.
+          </p>
+          <div class="gallery-card-meta">
+            Edited in DaVinci Resolve · 1080p
+          </div>
+          <div class="gallery-card-footer">
+            <a href="/assets/videos/portfolio-demo.mp4" target="_blank" class="gallery-link">
+              Watch
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
+                <path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </article>-->
+
+      <!-- CARD 5 – Web / App (LAC) -->
+      <article class="gallery-card" data-category="web">
+        <button class="gallery-thumb-wrapper js-open-gallery"
+                type="button"
+                data-gallery-id="lac">
+          <div class="gallery-thumb"
+              style="background-image:url('/assets/images/LAC-3.png');"></div>
+          <span class="gallery-badge">Web · APL</span>
+        </button>
+
+        <div class="gallery-card-body">
+          <h3 class="gallery-card-title">Lunar Autonomy Challenge</h3>
+          <p class="gallery-card-text">
+            Built an admin area to manage FAQs and a front-facing page using DataTables
+            for searchable, sortable Q&amp;A instead of a static list.
+          </p>
+          <div class="gallery-card-meta">
+            HTML / CSS / JS · DataTables
+          </div>
+          <div class="gallery-card-footer">
+            <a href="https://lac.jhuapl.edu/" target="_blank" class="gallery-link">
+              View site
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
+                <path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 6 – Web / App (LOGIC) -->
+      <article class="gallery-card" data-category="web">
+        <button class="gallery-thumb-wrapper js-open-gallery"
+                type="button"
+                data-gallery-id="logic">
+          <div class="gallery-thumb"
+              style="background-image:url('/assets/images/LOGIC/logic-manage-clock-2.png');"></div>
+          <span class="gallery-badge">Web · APL</span>
+        </button>
+
+        <div class="gallery-card-body">
+          <h3 class="gallery-card-title">LOGIC – Lunar Operating Guidelines for Infrastructure Consortium</h3>
+          <p class="gallery-card-text">
+            Designed a manage-FAQs admin interface and wired it to a public-facing
+            DataTables-driven FAQ page for better readability and search.
+          </p>
+          <div class="gallery-card-meta">
+            HTML / CSS / JS · DataTables
+          </div>
+          <div class="gallery-card-footer">
+            <a href="https://logic.jhuapl.edu/" target="_blank" class="gallery-link">
+              View site
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
+                <path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+    </section>
+  </div>
+</main>
+
+<!-- CATEGORY FILTER -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const pills = document.querySelectorAll(".filter-pill");
+    const cards = document.querySelectorAll(".gallery-card");
+
+    pills.forEach(pill => {
+      pill.addEventListener("click", () => {
+        const filter = pill.dataset.filter;
+
+        pills.forEach(p => p.classList.remove("active"));
+        pill.classList.add("active");
+
+        cards.forEach(card => {
+          const category = card.dataset.category;
+          if (filter === "all" || category === filter) {
+            card.classList.remove("hidden");
+          } else {
+            card.classList.add("hidden");
+          }
+        });
+      });
+    });
+  });
+</script>
+
+<!-- Duplicate placeholder removed: PROJECT_GALLERIES is defined later in the file and the modal logic is kept below. -->
+
+<!-- Your existing gallery modal markup should be on the page -->
+<!-- Example structure: -->
+<div id="gallery-modal" class="gallery-modal" hidden>
+  <div class="gallery-modal-backdrop"></div>
+  <div class="gallery-modal-dialog">
+    <button class="gallery-modal-close" aria-label="Close">&times;</button>
+    <div class="gallery-modal-image-wrapper">
+      <img id="gallery-modal-image" src="" alt="">
+      <button class="gallery-modal-nav prev" aria-label="Previous">&#10094;</button>
+      <button class="gallery-modal-nav next" aria-label="Next">&#10095;</button>
+    </div>
+    <div class="gallery-modal-meta">
+      <h2 id="gallery-modal-title"></h2>
+      <p id="gallery-modal-description"></p>
+      <span id="gallery-modal-counter" class="gallery-modal-counter"></span>
+    </div>
+  </div>
+</div>
+
+
+<!-- One Bootstrap bundle include is enough -->
+  <script>
+  // 1) Define images per project
+  //    Key must match data-gallery-id on the thumbnail button
+  const PROJECT_GALLERIES = {
+    dragonfly: [
+      {
+        src: "/assets/images/dragonfly.png",
+        alt: "Dragonfly portal dashboard overview",
+        title: "Dragonfly Internal Team Site",
+        description: "Main dashboard view with newsletter, events calendar, and database links."
+      },
+      {
+        src: "/assets/images/dragonfly-1.png",
+        alt: "Dragonfly portal resources page",
+        title: "Dragonfly Internal Team Site",
+        description: "Resources and quick links for internal collaboration tools."
+      },
+      {
+        src: "/assets/images/dragonfly-2.png",
+        alt: "Dragonfly portal dashboard overview",
+        title: "Dragonfly Internal Team Site",
+        description: "Main dashboard view with newsletter, events calendar, and database links."
+      },
+      {
+        src: "/assets/images/dragonfly-3.png",
+        alt: "Dragonfly portal resources page",
+        title: "Dragonfly Internal Team Site",
+        description: "Resources and quick links for internal collaboration tools."
+      },
+      {
+        src: "/assets/images/dragonfly-4.png",
+        alt: "Dragonfly portal dashboard overview",
+        title: "Dragonfly Internal Team Site",
+        description: "Main dashboard view with newsletter, events calendar, and database links."
+      },
+      {
+        src: "/assets/images/dragonfly-5.png",
+        alt: "Dragonfly portal resources page",
+        title: "Dragonfly Internal Team Site",
+        description: "Resources and quick links for internal collaboration tools."
+      },
+      {
+        src: "/assets/images/dragonfly-6.png",
+        alt: "Dragonfly portal dashboard overview",
+        title: "Dragonfly Internal Team Site",
+        description: "Main dashboard view with newsletter, events calendar, and database links."
+      },
+      {
+        src: "/assets/images/dragonfly-7.png",
+        alt: "Dragonfly portal resources page",
+        title: "Dragonfly Internal Team Site",
+        description: "Resources and quick links for internal collaboration tools."
+      },{
+        src: "/assets/images/dragonfly-10.png",
+        alt: "Dragonfly portal dashboard overview",
+        title: "Dragonfly Internal Team Site",
+        description: "Main dashboard view with newsletter, events calendar, and database links."
+      },
+      {
+        src: "/assets/images/dragonfly-11.png",
+        alt: "Dragonfly portal resources page",
+        title: "Dragonfly Internal Team Site",
+        description: "Resources and quick links for internal collaboration tools."
+      }
+      // add more if you want
+    ],
+    ezie: [
+    {
+        src: "/assets/images/ezie.png",
+        alt: "EZIE homepage hero",
+        title: "EZIE – Electrojet Zeeman Imaging Explorer",
+        description: "Public-facing mission site hero section."
+      },
+      {
+        src: "/assets/images/ezie-2.png",
+        alt: "EZIE homepage hero",
+        title: "EZIE – Electrojet Zeeman Imaging Explorer",
+        description: "Public-facing mission site hero section."
+      },
+      {
+        src: "/assets/images/ezie-3.png",
+        alt: "EZIE media gallery",
+        title: "EZIE – Electrojet Zeeman Imaging Explorer",
+        description: "Media gallery layout highlighting graphics, photos, and videos."
+      },
+      {
+        src: "/assets/images/ezie-4.png",
+        alt: "EZIE homepage hero",
+        title: "EZIE – Electrojet Zeeman Imaging Explorer",
+        description: "Public-facing mission site hero section."
+      },
+      {
+        src: "/assets/images/ezie-5.png",
+        alt: "EZIE media gallery",
+        title: "EZIE – Electrojet Zeeman Imaging Explorer",
+        description: "Media gallery layout highlighting graphics, photos, and videos."
+      },
+      {
+        src: "/assets/images/ezie-gallery-5.png",
+        alt: "EZIE homepage hero",
+        title: "EZIE – Electrojet Zeeman Imaging Explorer",
+        description: "Public-facing mission site hero section."
+      },
+      {
+        src: "/assets/images/ezie-gallery-2.png",
+        alt: "EZIE media gallery",
+        title: "EZIE – Electrojet Zeeman Imaging Explorer",
+        description: "Media gallery layout highlighting graphics, photos, and videos."
+      },
+      {
+        src: "/assets/images/ezie-gallery-3.png",
+        alt: "EZIE homepage hero",
+        title: "EZIE – Electrojet Zeeman Imaging Explorer",
+        description: "Public-facing mission site hero section."
+      },
+      {
+        src: "/assets/images/ezie-gallery-3.png",
+        alt: "EZIE media gallery",
+        title: "EZIE – Electrojet Zeeman Imaging Explorer",
+        description: "Media gallery layout highlighting graphics, photos, and videos."
+      },
+      {
+        src: "/assets/images/ezie-gallery-4.png",
+        alt: "EZIE homepage hero",
+        title: "EZIE – Electrojet Zeeman Imaging Explorer",
+        description: "Public-facing mission site hero section."
+      },
+      {
+        src: "/assets/images/ezie-gallery.png",
+        alt: "EZIE media gallery",
+        title: "EZIE – Electrojet Zeeman Imaging Explorer",
+        description: "Media gallery layout highlighting graphics, photos, and videos."
+      },
+      {
+        src: "/assets/images/ezie-earth-space.png",
+        alt: "EZIE homepage hero",
+        title: "EZIE – Electrojet Zeeman Imaging Explorer",
+        description: "Public-facing mission site hero section."
+      },
+      {
+        src: "/assets/images/ezie-atmosphere.png",
+        alt: "EZIE media gallery",
+        title: "EZIE – Electrojet Zeeman Imaging Explorer",
+        description: "Media gallery layout highlighting graphics, photos, and videos."
+      },
+      {
+        src: "/assets/images/ezie-electrojets.png",
+        alt: "EZIE media gallery",
+        title: "EZIE – Electrojet Zeeman Imaging Explorer",
+        description: "Media gallery layout highlighting graphics, photos, and videos."
+      },
+      {
+        src: "/assets/images/ezie-news.png",
+        alt: "EZIE homepage hero",
+        title: "EZIE – Electrojet Zeeman Imaging Explorer",
+        description: "Public-facing mission site hero section."
+      },
+      {
+        src: "/assets/images/ezie-outreach.png",
+        alt: "EZIE media gallery",
+        title: "EZIE – Electrojet Zeeman Imaging Explorer",
+        description: "Media gallery layout highlighting graphics, photos, and videos."
+      },
+      {
+        src: "/assets/images/ezie-solar-wind.png",
+        alt: "EZIE media gallery",
+        title: "EZIE – Electrojet Zeeman Imaging Explorer",
+        description: "Media gallery layout highlighting graphics, photos, and videos."
+      },
+      {
+        src: "/assets/images/ezie-spacecraft.png",
+        alt: "EZIE homepage hero",
+        title: "EZIE – Electrojet Zeeman Imaging Explorer",
+        description: "Public-facing mission site hero section."
+      },
+      {
+        src: "/assets/images/ezie-team.png",
+        alt: "EZIE media gallery",
+        title: "EZIE – Electrojet Zeeman Imaging Explorer",
+        description: "Media gallery layout highlighting graphics, photos, and videos."
+      },
+      {
+        src: "/assets/images/ezie-workshops.png",
+        alt: "EZIE media gallery",
+        title: "EZIE – Electrojet Zeeman Imaging Explorer",
+        description: "Media gallery layout highlighting graphics, photos, and videos."
+      },
+      {
+        src: "/assets/images/ezie-zeeman.png",
+        alt: "EZIE homepage hero",
+        title: "EZIE – Electrojet Zeeman Imaging Explorer",
+        description: "Public-facing mission site hero section."
+      },
+      {
+        src: "/assets/images/ezie.png",
+        alt: "EZIE media gallery",
+        title: "EZIE – Electrojet Zeeman Imaging Explorer",
+        description: "Media gallery layout highlighting graphics, photos, and videos."
+      },
+      {
+        src: "/assets/images/ezie-auroral-electrojets.png",
+        alt: "EZIE media gallery",
+        title: "EZIE – Electrojet Zeeman Imaging Explorer",
+        description: "Media gallery layout highlighting graphics, photos, and videos."
+      }
+    ],
+    icegiants: [
+      {
+        src: "/assets/images/ice-giants/admin/ice-giants.png",
+        alt: "Ice Giants hero layout",
+        title: "Ice Giants",
+        description: "Hero section and navigation for the Ice Giants concept study."
+      },
+      {
+        src: "/assets/images/ice-giants/admin/ice-giants-2.png",
+        alt: "Ice Giants data page",
+        title: "Ice Giants",
+        description: "Data/mission highlights page with custom background art."
+      },
+      {
+        src: "/assets/images/ice-giants/admin/ice-giants-3.png",
+        alt: "Ice Giants hero layout",
+        title: "Ice Giants",
+        description: "Hero section and navigation for the Ice Giants concept study."
+      },
+      {
+        src: "/assets/images/ice-giants/admin/ice-giants-4.png",
+        alt: "Ice Giants data page",
+        title: "Ice Giants",
+        description: "Data/mission highlights page with custom background art."
+      },
+      {
+        src: "/assets/images/ice-giants/admin/ice-giants-5.png",
+        alt: "Ice Giants hero layout",
+        title: "Ice Giants",
+        description: "Hero section and navigation for the Ice Giants concept study."
+      },
+      {
+        src: "/assets/images/ice-giants/admin/ice-giants-6.png",
+        alt: "Ice Giants data page",
+        title: "Ice Giants",
+        description: "Data/mission highlights page with custom background art."
+      },
+      {
+        src: "/assets/images/ice-giants/admin/ice-giants-7.png",
+        alt: "Ice Giants hero layout",
+        title: "Ice Giants",
+        description: "Hero section and navigation for the Ice Giants concept study."
+      },
+      {
+        src: "/assets/images/ice-giants/admin/ice-giants-8.png",
+        alt: "Ice Giants data page",
+        title: "Ice Giants",
+        description: "Data/mission highlights page with custom background art."
+      },
+      {
+        src: "/assets/images/ice-giants/admin/ice-giants-9.png",
+        alt: "Ice Giants hero layout",
+        title: "Ice Giants",
+        description: "Hero section and navigation for the Ice Giants concept study."
+      },
+      {
+        src: "/assets/images/ice-giants/ice-giants-10.png",
+        alt: "Ice Giants data page",
+        title: "Ice Giants",
+        description: "Data/mission highlights page with custom background art."
+      }
+    ],
+    "ice-giants-admin": [
+      {
+        src: "/assets/images/ice-giants/admin/ice-giants.png",
+        alt: "Ice Giants hero layout",
+        title: "Ice Giants",
+        description: "Hero section and navigation for the Ice Giants concept study."
+      },
+      {
+        src: "/assets/images/ice-giants/admin/ice-giants-2.png",
+        alt: "Ice Giants data page",
+        title: "Ice Giants",
+        description: "Data/mission highlights page with custom background art."
+      },
+      {
+        src: "/assets/images/ice-giants/admin/ice-giants-3.png",
+        alt: "Ice Giants hero layout",
+        title: "Ice Giants",
+        description: "Hero section and navigation for the Ice Giants concept study."
+      },
+      {
+        src: "/assets/images/ice-giants/admin/ice-giants-4.png",
+        alt: "Ice Giants data page",
+        title: "Ice Giants",
+        description: "Data/mission highlights page with custom background art."
+      },
+      {
+        src: "/assets/images/ice-giants/admin/ice-giants-5.png",
+        alt: "Ice Giants hero layout",
+        title: "Ice Giants",
+        description: "Hero section and navigation for the Ice Giants concept study."
+      },
+      {
+        src: "/assets/images/ice-giants/admin/ice-giants-6.png",
+        alt: "Ice Giants data page",
+        title: "Ice Giants",
+        description: "Data/mission highlights page with custom background art."
+      },
+      {
+        src: "/assets/images/ice-giants/admin/ice-giants-7.png",
+        alt: "Ice Giants hero layout",
+        title: "Ice Giants",
+        description: "Hero section and navigation for the Ice Giants concept study."
+      },
+      {
+        src: "/assets/images/ice-giants/admin/ice-giants-8.png",
+        alt: "Ice Giants data page",
+        title: "Ice Giants",
+        description: "Data/mission highlights page with custom background art."
+      },
+      {
+        src: "/assets/images/ice-giants/admin/ice-giants-9.png",
+        alt: "Ice Giants hero layout",
+        title: "Ice Giants",
+        description: "Hero section and navigation for the Ice Giants concept study."
+      },
+      {
+        src: "/assets/images/ice-giants/admin/ice-giants-10.png",
+        alt: "Ice Giants data page",
+        title: "Ice Giants",
+        description: "Data/mission highlights page with custom background art."
+      }
+    ],
+    logic: [
+    {
+      src: "/assets/images/LOGIC/logic-manage-clock-2.png",
+      alt: "LOGIC manage clock admin page",
+      title: "LOGIC – Lunar Operating Guidelines for Infrastructure Consortium",
+      description: "Admin interface for managing meeting clocks and timelines."
+    },
+    {
+      src: "/assets/images/LOGIC/logic-faqs.png",
+      alt: "LOGIC FAQs page",
+      title: "LOGIC – Lunar Operating Guidelines for Infrastructure Consortium",
+      description: "Public-facing FAQ page wired to the admin-managed content."
+    }
+    // add more LOGIC screenshots if you want
+  ],
+    lac: [
+    {
+      src: "/assets/images/LAC-3.png",
+      alt: "LAC FAQ page",
+      title: "Lunar Autonomy Challenge",
+      description: "Public-facing FAQ page with searchable, sortable Q&A."
+    },
+    {
+      src: "/assets/images/LAC-1.png",
+      alt: "LAC admin FAQ management page",
+      title: "Lunar Autonomy Challenge",
+      description: "Admin interface for managing FAQs using a simple form."
+    },
+    {
+      src: "/assets/images/LAC-2.png",
+      alt: "LAC FAQ page",
+      title: "Lunar Autonomy Challenge",
+      description: "Public-facing FAQ page with searchable, sortable Q&A."
+    },
+    {
+      src: "/assets/images/LAC-4.png",
+      alt: "LAC admin FAQ management page",
+      title: "Lunar Autonomy Challenge",
+      description: "Admin interface for managing FAQs using a simple form."
+    }
+    // add more projects here...
+  };
+
+  // 2) Modal logic
+  (function () {
+    const modal = document.getElementById("gallery-modal");
+    const imgEl = document.getElementById("gallery-modal-image");
+    const titleEl = document.getElementById("gallery-modal-title");
+    const descEl = document.getElementById("gallery-modal-description");
+    const counterEl = document.getElementById("gallery-modal-counter");
+    const btnPrev = modal.querySelector(".gallery-modal-nav.prev");
+    const btnNext = modal.querySelector(".gallery-modal-nav.next");
+    const btnClose = modal.querySelector(".gallery-modal-close");
+    const backdrop = modal.querySelector(".gallery-modal-backdrop");
+
+    let currentGallery = [];
+    let currentIndex = 0;
+
+    function showImage(index) {
+      if (!currentGallery.length) return;
+      currentIndex = (index + currentGallery.length) % currentGallery.length;
+      const item = currentGallery[currentIndex];
+
+      imgEl.src = item.src;
+      imgEl.alt = item.alt || "";
+      titleEl.textContent = item.title || "";
+      descEl.textContent = item.description || "";
+      counterEl.textContent = currentGallery.length > 1
+        ? `${currentIndex + 1} / ${currentGallery.length}`
+        : "";
+    }
+
+    function openGallery(galleryId) {
+      const gallery = PROJECT_GALLERIES[galleryId];
+      if (!gallery || !gallery.length) {
+        console.warn("No gallery defined for", galleryId);
+        return;
+      }
+      currentGallery = gallery;
+      showImage(0);
+      modal.hidden = false;
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeGallery() {
+      modal.hidden = true;
+      document.body.style.overflow = "";
+      currentGallery = [];
+      currentIndex = 0;
+      imgEl.src = "";
+    }
+
+    // Hook up card thumbnails
+    document.querySelectorAll(".js-open-gallery").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const id = btn.dataset.galleryId;
+        openGallery(id);
+      });
+    });
+
+    // Navigation + close buttons
+    btnPrev.addEventListener("click", () => showImage(currentIndex - 1));
+    btnNext.addEventListener("click", () => showImage(currentIndex + 1));
+    btnClose.addEventListener("click", closeGallery);
+    backdrop.addEventListener("click", closeGallery);
+
+    // Keyboard support
+    document.addEventListener("keydown", (e) => {
+      if (modal.hidden) return;
+      if (e.key === "Escape") closeGallery();
+      if (e.key === "ArrowRight") showImage(currentIndex + 1);
+      if (e.key === "ArrowLeft") showImage(currentIndex - 1);
+    });
+  })();
+</script>
+
+<!-- Lightbox markup (place near the end of <body>) -->
+<div id="lightbox" class="lightbox" aria-hidden="true">
+  <button class="lightbox-close" aria-label="Close">&times;</button>
+  <button class="lightbox-prev" aria-label="Previous">&#10094;</button>
+  <img class="lightbox-image" src="" alt="">
+  <button class="lightbox-next" aria-label="Next">&#10095;</button>
+</div>
+
+</body>
+</html>
+
+
