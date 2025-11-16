@@ -446,25 +446,29 @@ body {
     </p>-->
             </div>
         </section>
-<section class="random-gallery bg-black mb-0">
-  <figure class="random-photo bg-black mb-0">
-    <img src="/assets/images/toot.PNG" alt="Cat at desk" />
-    <!--<figcaption>The chaos.</figcaption>-->
-  </figure>
-        <!--section class="split-section">
-            <div class="split-image" style="background-color: #000;"></div>
--->
-            <div class="split-content mt-0">
-                <h2 class="split-title mt-0">Random Facts.</h2>
-                <p class="split-text">
-                    My name is Asmaa. I have a passion for building fish tanks. 
-                    I have two cats and two leopard geckos. My favorite number is 4.
-                    I love to travel.  I speak Arabic fluently.
-                    My favorite cartoon is Courage the Cowardly Dog. I play guitar, piano, and bass. 
-                    I love journaling / scrapbooking. I enjoy going fishing and my favorite food is crab legs. 
-                </p>
-            </div>
-        </section>
+<section class="random-facts-section">
+  <div class="random-facts-inner">
+
+    <!-- LEFT: IMAGE -->
+    <div class="random-facts-photo">
+      <img src="/assets/images/bck-stry.JPG" alt="Random Facts Photo">
+    </div>
+
+    <!-- RIGHT: TEXT -->
+    <div class="random-facts-text">
+      <h2 class="random-facts-title">Random Facts.</h2>
+      <p>
+        My name is Asmaa. I have a passion for building fish tanks. 
+        I have two cats and two leopard geckos. My favorite number is 4. 
+        I love to travel. I speak Arabic fluently. My favorite cartoon is 
+        Courage the Cowardly Dog. I play guitar, piano, and bass. 
+        I love journaling / scrapbooking. I enjoy going fishing and my 
+        favorite food is crab legs.
+      </p>
+    </div>
+
+  </div>
+</section>
 
         <!-- Me in a nutshell section -->
 <section class="about-nutshell">
@@ -477,7 +481,8 @@ body {
       </p>
     </div>
   </div>
-</secti<!-- About Me Section -->
+</section>
+  <!-- About Me Section -->
 <section class="about-backstory">
   <div class="container about-backstory-inner">
 
@@ -488,7 +493,7 @@ body {
 
     <!-- OPTIONAL IMAGE BLOCK -->
     <div class="about-backstory-photo">
-      <img src="/assets/images/bck-stry.JPG" alt="About Me Photo">
+      <img src="/assets/images/toot.PNG" alt="About Me Photo">
     </div>
 
     <!-- Text Content -->
@@ -535,35 +540,49 @@ body {
 
   </div>
 </section>
-  <!-- Tumblr Gallery Section -->
-  <section class="tumblr-gallery about-nutshell-label">
-    <p class="about-nutshell-label mb-1 text-center">WEB DEVELOPMENT PORTFOLIO</p>
-  <p class="text-center about-backstory-content  my-2" style="font-weight: 100;text-align: center;">
-     Some examples of work from my internship at JHU/APL.
-    </p>.
+  <section class="tumblr-gallery">
+  <p class="about-nutshell-label mb-1 text-center">WEB DEVELOPMENT PORTFOLIO</p>
 
-  <div class="tumblr-grid">
-    <a href="https://github.com/blkpvnthr/blkpvnthr.github.io/blob/main/assets/images/IMG/Picture13.png" target="_blank" rel="noopener">
-      <img src="/assets/images/IMG/Picture13.png" alt="Sketch 1">
-    </a>
-    <a href="https://github.com/blkpvnthr/blkpvnthr.github.io/blob/main/assets/images/IMG/parker.png" target="_blank" rel="noopener">
-      <img src="/assets/images/IMG/parker.png" alt="Sketch 2">
-    </a>
-    <a href="https://github.com/blkpvnthr/blkpvnthr.github.io/blob/main/assets/images/IMG/parker2.png" target="_blank" rel="noopener">
-      <img src="/assets/images/IMG/parker2.png" alt="Sketch 2">
-    </a>
-    <a href="https://github.com/blkpvnthr/blkpvnthr.github.io/blob/main/assets/images/IMG/logic.png" target="_blank" rel="noopener">
-      <img src="/assets/images/IMG/logic.png" alt="Sketch 2">
-    </a>
-    <!-- more images... -->
+  <div class="text-center">
+    <p class="text-center about-backstory-content my-2" style="font-weight: 100; margin: 0 auto; max-width: 640px;">
+      Some examples of work from my internship at JHU/APL.
+    </p>
   </div>
 
-  <div class="text-center mt-4">
+  <div class="tumblr-grid" id="portfolio-grid">
+    <a href="/assets/images/IMG/Picture13.png" data-full="/assets/images/IMG/Picture13.png">
+      <img src="/assets/images/IMG/Picture13.png" alt="Ice Giants site">
+    </a>
+
+    <a href="/assets/images/IMG/parker.png" data-full="/assets/images/IMG/parker.png">
+      <img src="/assets/images/IMG/parker.png" alt="Parker Solar Probe site 1">
+    </a>
+
+    <a href="/assets/images/IMG/parker2.png" data-full="/assets/images/IMG/parker2.png">
+      <img src="/assets/images/IMG/parker2.png" alt="Parker Solar Probe site 2">
+    </a>
+
+    <a href="/assets/images/IMG/logic.png" data-full="/assets/images/IMG/logic.png">
+      <img src="/assets/images/IMG/logic.png" alt="Lexicon Database UI">
+    </a>
+    <!-- add more <a>...</a> as needed, same pattern -->
+  </div>
+
+  <div class="text-center mt-4" style="border-bottom: none;">
     <a href="https://blkpvnthr.github.io/" target="_blank" rel="noopener" class="btn-ghost">
       View full Tumblr archive →
     </a>
   </div>
 </section>
+
+<!-- Lightbox markup (place near the end of <body>) -->
+<div id="lightbox" class="lightbox" aria-hidden="true">
+  <button class="lightbox-close" aria-label="Close">&times;</button>
+  <button class="lightbox-prev" aria-label="Previous">&#10094;</button>
+  <img class="lightbox-image" src="" alt="">
+  <button class="lightbox-next" aria-label="Next">&#10095;</button>
+</div>
+
 
 
 <!-- Me in a nutshell section -->
@@ -629,8 +648,81 @@ body {
 
             </div>
         </footer>
+        <!-- Lightbox Script -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const gridLinks = Array.from(
+    document.querySelectorAll("#portfolio-grid a")
+  );
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = lightbox.querySelector(".lightbox-image");
+  const btnClose = lightbox.querySelector(".lightbox-close");
+  const btnPrev = lightbox.querySelector(".lightbox-prev");
+  const btnNext = lightbox.querySelector(".lightbox-next");
 
-        <script>
+  let currentIndex = 0;
+
+  function openLightbox(index) {
+    currentIndex = index;
+    const fullSrc =
+      gridLinks[currentIndex].dataset.full ||
+      gridLinks[currentIndex].getAttribute("href");
+    const altText =
+      gridLinks[currentIndex].querySelector("img")?.alt || "Portfolio image";
+
+    lightboxImg.src = fullSrc;
+    lightboxImg.alt = altText;
+    lightbox.classList.add("open");
+    lightbox.setAttribute("aria-hidden", "false");
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove("open");
+    lightbox.setAttribute("aria-hidden", "true");
+    lightboxImg.src = "";
+  }
+
+  function showNext() {
+    currentIndex = (currentIndex + 1) % gridLinks.length;
+    openLightbox(currentIndex);
+  }
+
+  function showPrev() {
+    currentIndex =
+      (currentIndex - 1 + gridLinks.length) % gridLinks.length;
+    openLightbox(currentIndex);
+  }
+
+  // Click thumbnails
+  gridLinks.forEach((link, index) => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      openLightbox(index);
+    });
+  });
+
+  // Buttons
+  btnClose.addEventListener("click", closeLightbox);
+  btnNext.addEventListener("click", showNext);
+  btnPrev.addEventListener("click", showPrev);
+
+  // Close on background click
+  lightbox.addEventListener("click", function (e) {
+    if (e.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  // Keyboard navigation
+  document.addEventListener("keydown", function (e) {
+    if (!lightbox.classList.contains("open")) return;
+
+    if (e.key === "Escape") closeLightbox();
+    if (e.key === "ArrowRight") showNext();
+    if (e.key === "ArrowLeft") showPrev();
+  });
+});
+
   // Auto-update year
   document.getElementById("year").textContent = new Date().getFullYear();
   
