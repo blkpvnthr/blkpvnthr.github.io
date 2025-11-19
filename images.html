@@ -6,18 +6,17 @@
 
     <meta name="description" content="Just here learning 📚">
     <meta property="og:title" content="Asmaa Abdul-Amin">
-    <meta property="og:image" content="assets/images/Layer2.png">
-    <meta property="og:description" content="Just here learning 📚">
+    <meta property="og:image" content="assets/images/bck-stry.JPG
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- 1) Bootstrap first: grid + base styles -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <!-- 2) Your mirrored styles (override Bootstrap where needed) -->
-    <link href="assets/css/styles.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="assets/css/bootstrap-icons.css">
-    <link rel="stylesheet" href="assets/css/animate.min.css">
-    <!-- Optional: <link rel="stylesheet" href="assets/css/build.css" /> -->
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <!-- Optional: <link rel="stylesheet" href="css/build.css" /> -->
     <!-- Font Awesome for social icons -->
     <script src="https://kit.fontawesome.com/aef4f8d92e.js" crossorigin="anonymous"></script>
 
@@ -292,15 +291,54 @@
     inset: 0;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75));
   }
+  .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5) !important;
+    color: #ffffff !important;
+  }
+  .navbar-toggler-icon {
+    color: #ffffff !important
+  };
+
+
+  /* Sticky Navbar Styles */
+.site-navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1030; /* Ensure it stays above other content */
+  background-color: transparent; /* Dark background for contrast */
+  border-bottom: 1px solid #ffffff; /* Subtle bottom border */
+}
+/* Make sure links are actually visible */
+.site-navbar .navbar-nav .nav-link {
+  color: #ffffff;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+}
+.nav-item {
+    color: #ffffff;
+    font-size: 0.8rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+}
+.site-navbar .navbar-nav .nav-item:hover,
+.site-navbar .navbar-nav .nav-item:focus,
+.site-navbar .navbar-nav .nav-item.active {
+  color: #9eb5cf;
+}
   </style>
+
 </head>
 <body>
- <section
+<section
             class="about-hero d-flex align-items-center justify-content-center text-center">
             <div class="about-hero-overlay"> <!-- Include Navbar -->
         <!-- 🌐 Sticky Navbar -->
         <nav
-            class="d-flex navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky py-2" style="background-color: transparent !important;border-bottom: 0.5px solid #ffffff">
+            class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky py-2" style="background-color: transparent !important;border-bottom: 0.5px solid #ffffff">
             <div class="container" style="color: transparent !important;">
                 <!-- Brand / Logo -->
                 <a class="navbar-brand fw-semibold" href="index.html" style="color: #ffffff;">
@@ -322,7 +360,7 @@
           <a class="nav-link" aria-current="page" href="index.html">Home</a>
         </li>
 
-        <li class="nav-item">
+         <li class="nav-item">
           <a class="nav-link active" href="images.html">Gallery</a>
         </li>
 
@@ -341,6 +379,7 @@
                 
             </div>
         </nav>
+</div>
 </div>
 
            
@@ -371,278 +410,309 @@
       <button class="filter-pill" data-filter="video">Video / Animations</button>
     </div>
 
-    <!-- Grid -->
-    <section class="gallery-grid">
+      <!-- Grid -->
+      <section class="gallery-grid">
 
-      <!-- CARD -1 – Web -->
-      <article class="gallery-card" data-category="web">
-        <button class="gallery-thumb-wrapper js-open-gallery"
-                type="button"
-                data-gallery-id="dragonfly">
-          <div class="gallery-thumb"
-               style="background-image:url('/assets/images/dgf/dgf.png');"></div>
-          <span class="gallery-badge">Web · APL</span>
-        </button>
+        <!-- CARD -1 – Web -->
+        <article class="gallery-card" data-category="web">
+          <button class="gallery-thumb-wrapper js-open-gallery"
+          type="button"
+          data-gallery-id="dragonfly"
+          aria-controls="gallery-modal"
+          aria-expanded="false"
+          aria-label="Open Dragonfly gallery">
+        <img class="gallery-thumb"
+             src="/assets/images/dgf/dgf.png"
+             alt="Dragonfly internal team site thumbnail">
+        <span class="gallery-badge">Web · APL</span>
+          </button>
 
-        <div class="gallery-card-body">
-          <h3 class="gallery-card-title">Dragonfly Internal Team Site</h3>
-          <p class="gallery-card-text">
-            Responsive mission portal layout for the Dragonfly Internal Team Site —
-            data pages and internal tools wired into APL infrastructure.
-          </p>
-          <div class="gallery-card-meta">
+          <div class="gallery-card-body">
+        <h3 class="gallery-card-title">Dragonfly Internal Team Site</h3>
+        <p class="gallery-card-text">
+          Responsive mission portal layout for the Dragonfly Internal Team Site —
+          data pages and internal tools wired into APL infrastructure.
+        </p>
+        <div class="gallery-card-meta">
           HTML / CSS / JS / PHP
-          </div>
-          <!--div class="gallery-card-footer">
-            <a href="https://example.com/dragonfly" target="_blank" class="gallery-link">
-              View site
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
-                <path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z" />
-              </svg>
-            </a>
-          </div-->
         </div>
-      </article>
-
-      <!-- CARD 0 – Web -->
-      <article class="gallery-card" data-category="web">
-        <button class="gallery-thumb-wrapper js-open-gallery"
-                type="button"
-                data-gallery-id="ezie">
-          <div class="gallery-thumb"
-               style="background-image:url('/assets/images/ezie-images/ezie.png');"></div>
-          <span class="gallery-badge">Web · APL</span>
-        </button>
-
-        <div class="gallery-card-body">
-          <h3 class="gallery-card-title">EZIE – Electrojet Zeeman Imaging Explorer</h3>
-          <p class="gallery-card-text">
-            Responsive mission portal layout for NASA’s EZIE mission — hero, media gallery,
-            and internal tools wired into APL infrastructure.
-          </p>
-          <div class="gallery-card-meta">
-            HTML / CSS / JS / PHP
           </div>
-          <div class="gallery-card-footer">
-            <a href="https://ezie.jhuapl.edu/" target="_blank" class="gallery-link">
-              View site
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
-                <path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z" />
-              </svg>
-            </a>
-          </div>
+        </article>
+
+        <!-- CARD 0 – Web -->
+        <article class="gallery-card" data-category="web">
+          <button class="gallery-thumb-wrapper js-open-gallery"
+          type="button"
+          data-gallery-id="ezie"
+          aria-controls="gallery-modal"
+          aria-expanded="false"
+          aria-label="Open EZIE gallery">
+        <img class="gallery-thumb"
+             src="/assets/images/ezie-images/ezie.png"
+             alt="EZIE mission thumbnail">
+        <span class="gallery-badge">Web · APL</span>
+          </button>
+
+          <div class="gallery-card-body">
+        <h3 class="gallery-card-title">EZIE – Electrojet Zeeman Imaging Explorer</h3>
+        <p class="gallery-card-text">
+          Responsive mission portal layout for NASA’s EZIE mission — hero, media gallery,
+          and internal tools wired into APL infrastructure.
+        </p>
+        <div class="gallery-card-meta">
+          HTML / CSS / JS / PHP
         </div>
-      </article>
-
-      <!-- CARD 1 – Web -->
-      <article class="gallery-card" data-category="web">
-        <button class="gallery-thumb-wrapper js-open-gallery"
-                type="button"
-                data-gallery-id="icegiants">
-          <div class="gallery-thumb"
-               style="background-image:url('/assets/images/ice-giants/ice-giants.png');"></div>
-          <span class="gallery-badge">Web · APL</span>
-        </button>
-
-        <div class="gallery-card-body">
-          <h3 class="gallery-card-title">Ice Giants</h3>
-          <p class="gallery-card-text">
-            Responsive mission portal layout for the Uranus &amp; Neptune concept study —
-            immersive hero, science highlights, and internal tooling.
-          </p>
-          <div class="gallery-card-meta">
-            Design &amp; build · HTML / CSS / JS / PHP
-          </div>
-          <div class="gallery-card-footer">
-            <a href="https://icegiants.jhuapl.edu/" target="_blank" class="gallery-link">
-              View site
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
-                <path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z" />
-              </svg>
-            </a>
-          </div>
+        <div class="gallery-card-footer">
+          <a href="https://ezie.jhuapl.edu/" target="_blank" class="gallery-link" rel="noopener">
+            View site
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
+          <path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z"/>
+            </svg>
+          </a>
         </div>
-      </article>
-
-      <article class="gallery-card" data-category="web">
-        <button class="gallery-thumb-wrapper js-open-gallery"
-                type="button"
-                data-gallery-id="icegiants">
-          <div class="gallery-thumb"
-               style="background-image:url('/assets/images/ice-giants/ice-giants.png');"></div>
-          <span class="gallery-badge">Web · APL</span>
-        </button>
-
-        <div class="gallery-card-body">
-          <h3 class="gallery-card-title">Ice Giants Admin Site</h3>
-          <p class="gallery-card-text">
-            Responsive insteral portal layout for the Ice Giants public facing page.
-          <div class="gallery-card-meta">
-            Design &amp; build · HTML / CSS / JS / PHP
           </div>
-          <div class="gallery-card-footer">
-            <a href="https://icegiants.jhuapl.edu/" target="_blank" class="gallery-link">
-              View site
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
-                <path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z" />
-              </svg>
-            </a>
-          </div>
+        </article>
+
+        <!-- CARD 1 – Web -->
+        <article class="gallery-card" data-category="web">
+          <button class="gallery-thumb-wrapper js-open-gallery"
+          type="button"
+          data-gallery-id="icegiants"
+          aria-controls="gallery-modal"
+          aria-expanded="false"
+          aria-label="Open Ice Giants gallery">
+        <img class="gallery-thumb"
+             src="/assets/images/ice-giants/ice-giants.png"
+             alt="Ice Giants thumbnail">
+        <span class="gallery-badge">Web · APL</span>
+          </button>
+
+          <div class="gallery-card-body">
+        <h3 class="gallery-card-title">Ice Giants</h3>
+        <p class="gallery-card-text">
+          Responsive mission portal layout for the Uranus &amp; Neptune concept study —
+          immersive hero, science highlights, and internal tooling.
+        </p>
+        <div class="gallery-card-meta">
+          Design &amp; build · HTML / CSS / JS / PHP
         </div>
-      </article>
-
-      <!-- CARD 2 – Graphics -->
-      <article class="gallery-card" data-category="graphics">
-        <button class="gallery-thumb-wrapper js-open-gallery"
-                type="button"
-                data-gallery-id="uranus-art">
-          <div class="gallery-thumb"
-               style="background-image:url('/assets/images/ice-giants/admin/ice-giants-admin.png');"></div>
-          <span class="gallery-badge">Graphics · Space</span>
-        </button>
-
-        <div class="gallery-card-body">
-          <h3 class="gallery-card-title">Ice Giants Concept Art</h3>
-          <p class="gallery-card-text">
-            Layered composite built from scratch: ring glow, cloud bands, and a
-            soft atmospheric halo tuned to match the mission visual style.
-          </p>
-          <div class="gallery-card-meta">
-            Procreate / Photoshop · 3840×2160
-          </div>
-          <!--div class="gallery-card-footer">
-            <a href="https://icegiants.jhuapl.edu/admin/index.php" target="_blank" class="gallery-link">
-              View site
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
-                <path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z" />
-              </svg>
-            </a>
-          </div>-->
+        <div class="gallery-card-footer">
+          <a href="https://icegiants.jhuapl.edu/" target="_blank" class="gallery-link" rel="noopener">
+            View site
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
+          <path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z"/>
+            </svg>
+          </a>
         </div>
-      </article>
-
-      <!-- CARD 3 – Photos -->
-      <article class="gallery-card" data-category="photos">
-        <button class="gallery-thumb-wrapper js-open-gallery"
-                type="button"
-                data-gallery-id="parker-kit">
-          <div class="gallery-thumb"
-              style="background-image:url('/assets/images/parker-kit/parker-kit.png');"></div>
-          <span class="gallery-badge">Photo · Home Lab</span>
-        </button>
-
-        <div class="gallery-card-body">
-          <h3 class="gallery-card-title">PSP Closest Approach Celebration Kit</h3>
-          <p class="gallery-card-text">
-            Engineered a celebration kit for Parker Solar Probe’s closest approach —
-            custom graphics, prints, and desk setup.
-          </p>
-          <div class="gallery-card-meta">
-            Design &amp; build · HTML / CSS / JS / PHP
           </div>
-          <div class="gallery-card-footer">
-            <a href="https://parkersolarprobe.jhuapl.edu/parker-kit/" target="_blank" class="gallery-link">
-              View site
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
-                <path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z" />
-              </svg>
-            </a>
-          </div>
+        </article>
+
+        <!-- CARD 1b – Ice Giants Admin -->
+        <article class="gallery-card" data-category="web">
+          <button class="gallery-thumb-wrapper js-open-gallery"
+          type="button"
+          data-gallery-id="icegiants"
+          aria-controls="gallery-modal"
+          aria-expanded="false"
+          aria-label="Open Ice Giants admin gallery">
+        <img class="gallery-thumb"
+             src="/assets/images/ice-giants/admin/ice-giants-admin.png"
+             alt="Ice Giants admin thumbnail">
+        <span class="gallery-badge">Web · APL</span>
+          </button>
+
+          <div class="gallery-card-body">
+        <h3 class="gallery-card-title">Ice Giants Admin Site</h3>
+        <p class="gallery-card-text">
+          Responsive internal portal layout for the Ice Giants admin tools.
+        </p>
+        <div class="gallery-card-meta">
+          Design &amp; build · HTML / CSS / JS / PHP
         </div>
-      </article>
-
-      <!-- CARD 4 – Video 
-      <article class="gallery-card" data-category="video">
-        <button class="gallery-thumb-wrapper js-open-gallery"
-                type="button"
-                data-gallery-id="portfolio-demo">
-          <div class="gallery-thumb"
-              style="background-image:url('/assets/images/gallery/portfolio-demo-thumb.png');"></div>
-          <span class="gallery-badge">Video · Demo</span>
-        </button>
-
-        <div class="gallery-card-body">
-          <h3 class="gallery-card-title">Portfolio Walkthrough Reel</h3>
-          <p class="gallery-card-text">
-            Quick tour of the BLKPVNTHR site, showing the about page, news scrapers,
-            and a few of the more complex internal tools.
-          </p>
-          <div class="gallery-card-meta">
-            Edited in DaVinci Resolve · 1080p
+        <!--div class="gallery-card-footer">
+          <a href="https://icegiants.jhuapl.edu/" target="_blank" class="gallery-link" rel="noopener">
+            View site
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
+          <path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z"/>
+            </svg>
+          </a>
+        </div-->
           </div>
-          <div class="gallery-card-footer">
-            <a href="/assets/videos/portfolio-demo.mp4" target="_blank" class="gallery-link">
-              Watch
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
-                <path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z" />
-              </svg>
-            </a>
-          </div>
+        </article>
+
+        <!-- CARD 2 – Graphics -->
+        <article class="gallery-card" data-category="graphics">
+          <button class="gallery-thumb-wrapper js-open-gallery"
+          type="button"
+          data-gallery-id="uranus-art"
+          aria-controls="gallery-modal"
+          aria-expanded="false"
+          aria-label="Open Ice Giants concept art gallery">
+        <img class="gallery-thumb"
+             src="/assets/images/ice-giants/ps-images/new-neptune.png"
+             alt="Ice Giants concept art thumbnail">
+        <span class="gallery-badge">Graphics · Space</span>
+          </button>
+
+          <div class="gallery-card-body">
+        <h3 class="gallery-card-title">Ice Giants Concept Art</h3>
+        <p class="gallery-card-text">
+          Layered composite built from scratch: ring glow, cloud bands, and a
+          soft atmospheric halo tuned to match the mission visual style.
+        </p>
+        <div class="gallery-card-meta">
+          InDesign / Photoshop · 3840×2160
         </div>
-      </article>-->
-
-      <!-- CARD 5 – Web / App (LAC) -->
-      <article class="gallery-card" data-category="web">
-        <button class="gallery-thumb-wrapper js-open-gallery"
-                type="button"
-                data-gallery-id="lac">
-          <div class="gallery-thumb"
-              style="background-image:url('/assets/images/LAC-3.png');"></div>
-          <span class="gallery-badge">Web · APL</span>
-        </button>
-
-        <div class="gallery-card-body">
-          <h3 class="gallery-card-title">Lunar Autonomy Challenge</h3>
-          <p class="gallery-card-text">
-            Built an admin area to manage FAQs and a front-facing page using DataTables
-            for searchable, sortable Q&amp;A instead of a static list.
-          </p>
-          <div class="gallery-card-meta">
-            HTML / CSS / JS · DataTables
           </div>
-          <div class="gallery-card-footer">
-            <a href="https://lac.jhuapl.edu/" target="_blank" class="gallery-link">
-              View site
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
-                <path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z" />
-              </svg>
-            </a>
-          </div>
+        </article>
+
+        <!-- CARD 3 – Photos -->
+        <article class="gallery-card" data-category="photos">
+          <button class="gallery-thumb-wrapper js-open-gallery"
+          type="button"
+          data-gallery-id="parker-kit"
+          aria-controls="gallery-modal"
+          aria-expanded="false"
+          aria-label="Open Parker kit gallery">
+        <img class="gallery-thumb"
+             src="/assets/images/parker-kit/parker-kit.png"
+             alt="Parker kit thumbnail">
+        <span class="gallery-badge">Web · APL</span>
+          </button>
+
+          <div class="gallery-card-body">
+        <h3 class="gallery-card-title">PSP Closest Approach Celebration Kit</h3>
+        <p class="gallery-card-text">
+          Engineered a celebration kit for Parker Solar Probe’s closest approach —
+          custom graphics, prints, and desk setup.
+        </p>
+        <div class="gallery-card-meta">
+          Design &amp; build · HTML / CSS / JS / PHP
         </div>
-      </article>
-
-      <!-- CARD 6 – Web / App (LOGIC) -->
-      <article class="gallery-card" data-category="web">
-        <button class="gallery-thumb-wrapper js-open-gallery"
-                type="button"
-                data-gallery-id="logic">
-          <div class="gallery-thumb"
-              style="background-image:url('/assets/images/LOGIC/logic-manage-clock-2.png');"></div>
-          <span class="gallery-badge">Web · APL</span>
-        </button>
-
-        <div class="gallery-card-body">
-          <h3 class="gallery-card-title">LOGIC – Lunar Operating Guidelines for Infrastructure Consortium</h3>
-          <p class="gallery-card-text">
-            Designed a manage-FAQs admin interface and wired it to a public-facing
-            DataTables-driven FAQ page for better readability and search.
-          </p>
-          <div class="gallery-card-meta">
-            HTML / CSS / JS · DataTables
-          </div>
-          <!--div class="gallery-card-footer">
-            <a href="https://logic.jhuapl.edu/" target="_blank" class="gallery-link">
-              View site
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
-                <path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z" />
-              </svg>
-            </a>
-          </div>-->
+        <div class="gallery-card-footer">
+          <a href="https://parkersolarprobe.jhuapl.edu/parker-kit/" target="_blank" class="gallery-link" rel="noopener">
+            View site
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
+          <path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z"/>
+            </svg>
+          </a>
         </div>
-      </article>
+          </div>
+        </article>
 
-    </section>
-  </div>
+        <!-- CARD 5 – Web / App (LAC) -->
+        <article class="gallery-card" data-category="web">
+          <button class="gallery-thumb-wrapper js-open-gallery"
+          type="button"
+          data-gallery-id="lac"
+          aria-controls="gallery-modal"
+          aria-expanded="false"
+          aria-label="Open LAC gallery">
+        <img class="gallery-thumb"
+             src="/assets/images/LAC-3.png"
+             alt="Lunar Autonomy Challenge thumbnail">
+        <span class="gallery-badge">Web · APL</span>
+          </button>
+
+          <div class="gallery-card-body">
+        <h3 class="gallery-card-title">Lunar Autonomy Challenge</h3>
+        <p class="gallery-card-text">
+          Built an admin area to manage FAQs and a front-facing page using DataTables
+          for searchable, sortable Q&amp;A instead of a static list.
+        </p>
+        <div class="gallery-card-meta">
+          HTML / CSS / JS · DataTables
+        </div>
+        <div class="gallery-card-footer">
+          <a href="https://lac.jhuapl.edu/" target="_blank" class="gallery-link" rel="noopener">
+            View site
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
+          <path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z"/>
+            </svg>
+          </a>
+        </div>
+          </div>
+        </article>
+
+        <!-- CARD 6 – Web / App (LOGIC) -->
+        <article class="gallery-card" data-category="web">
+          <button class="gallery-thumb-wrapper js-open-gallery"
+          type="button"
+          data-gallery-id="logic"
+          aria-controls="gallery-modal"
+          aria-expanded="false"
+          aria-label="Open LOGIC gallery">
+        <img class="gallery-thumb"
+             src="/assets/images/LOGIC/logic-manage-clock-2.png"
+             alt="LOGIC project thumbnail">
+        <span class="gallery-badge">Web · APL</span>
+          </button>
+
+          <div class="gallery-card-body">
+        <h3 class="gallery-card-title">LOGIC – Lunar Operating Guidelines for Infrastructure Consortium</h3>
+        <p class="gallery-card-text">
+          Developed a manage-FAQs admin interface and wired it to a public-facing
+          DataTables-driven FAQ page for better readability and search.
+        </p>
+        <div class="gallery-card-meta">
+          HTML / CSS / JS · DataTables
+        </div>
+          </div>
+        </article>
+
+        <!-- CARD 7 – Web / App (TIMED) -->
+        <article class="gallery-card" data-category="web">
+          <button class="gallery-thumb-wrapper js-open-gallery"
+          type="button"
+          data-gallery-id="logic"
+          aria-controls="gallery-modal"
+          aria-expanded="false"
+          aria-label="Open TIMED gallery">
+        <img class="gallery-thumb"
+             src="/assets/images/TIMED/TIMED.png"
+             alt="LOGIC project thumbnail">
+        <span class="gallery-badge">Web · APL</span>
+          </button>
+
+          <div class="gallery-card-body">
+        <h3 class="gallery-card-title">TIMED – Thermosphere • Ionosphere • Mesosphere • Energetics • Dynamics
+
+        </h3>
+        <p class="gallery-card-text">
+        Re-Designed an updated version of this mission site with a modern look and feel.
+        </p>
+        <div class="gallery-card-meta">
+          HTML / CSS / JS · DataTables
+        </div>
+          </div>
+        </article>
+      </section>
+<div class="text-center mt-4" style="border-bottom: none;">
+          <a href="/portfolio.html" rel="noopener"
+            class="btn-ghost about-nutshell-label" style="font-size: x-small;">
+            View Portifolio →
+          </a>
+        </div>
+      <script>
+        // Small helper: if any non-button wrappers are used later, forward clicks/keyboard to the gallery button.
+        (function () {
+          document.querySelectorAll('.gallery-thumb').forEach(thumb => {
+        thumb.addEventListener('click', (e) => {
+          const btn = thumb.closest('.js-open-gallery');
+          if (btn && btn.tagName !== 'BUTTON') {
+            btn.click();
+          }
+        });
+          });
+
+          // Defensive: prevent accidental form submission if buttons are inside forms
+          document.querySelectorAll('.js-open-gallery').forEach(b => {
+        b.addEventListener('click', (e) => {
+          e.preventDefault && e.preventDefault();
+        });
+          });
+        })();
+      </script>
 </main>
 
 <!-- CATEGORY FILTER -->
@@ -711,7 +781,8 @@
       <button class="gallery-modal-nav prev" aria-label="Previous">&#10094;</button>
       <button class="gallery-modal-nav next" aria-label="Next">&#10095;</button>
     </div>
-    <div class="gallery-modal-meta">
+
+    <div class="gallery-modal-caption">
       <h2 id="gallery-modal-title"></h2>
       <p id="gallery-modal-description"></p>
       <span id="gallery-modal-counter" class="gallery-modal-counter"></span>
@@ -719,110 +790,39 @@
   </div>
 </div>
 
+
+        <!-- Footer -->
+        <footer class="bg-black my-4 mt-0 text-center">
+            <div class="container bg-black py-4">
+
+                <!-- Divider -->
+                <div class="w-100 mb-4">
+                    <div style="border-bottom:1px solid #434343;background-color: #000;"></div>
+                </div>
+
+                <!-- Text -->
+                <div class="text-center"
+                    style="color:#434343; font-weight:300;">
+                    © <span id="year">2025</span> BLKPVNTHR — All rights
+                    reserved.
+                </div>
+
+            </div>
+        </footer>
+
 <!-- PROJECT GALLERIES + MODAL LOGIC -->
 <script>
-  // Keys must match data-gallery-id values in your HTML:
-  // dragonfly, ezie, icegiants, uranus-art, parker-kit, portfolio-demo, lac, logic
+  // Now each key points at an image directory (string).
+  // The modal loader will try to fetch "<dir>/index.json" or handle server listing endpoints.
   const PROJECT_GALLERIES = {
-    dragonfly: [
-      {
-        src: "/assets/images/dragonfly.png",
-        alt: "Dragonfly portal dashboard overview",
-        title: "Dragonfly Internal Team Site",
-        description: "Main dashboard view with newsletter, events calendar, and database links."
-      },
-      {
-        src: "/assets/images/dragonfly-1.png",
-        alt: "Dragonfly portal resources page",
-        title: "Dragonfly Internal Team Site",
-        description: "Resources and quick links for internal collaboration tools."
-      }
-      // …add more dragonfly shots if you want
-    ],
-
-    ezie: [
-      {
-        src: "/assets/images/ezie.png",
-        alt: "EZIE homepage hero",
-        title: "EZIE – Electrojet Zeeman Imaging Explorer",
-        description: "Public-facing mission site hero section."
-      },
-      {
-        src: "/assets/images/ezie-3.png",
-        alt: "EZIE media gallery",
-        title: "EZIE – Electrojet Zeeman Imaging Explorer",
-        description: "Media gallery layout highlighting graphics, photos, and videos."
-      }
-      // …etc
-    ],
-
-    icegiants: [
-      {
-        src: "/assets/images/ice-giants/admin/ice-giants.png",
-        alt: "Ice Giants hero layout",
-        title: "Ice Giants",
-        description: "Hero section and navigation for the Ice Giants concept study."
-      },
-      {
-        src: "/assets/images/ice-giants/admin/ice-giants-2.png",
-        alt: "Ice Giants data page",
-        title: "Ice Giants",
-        description: "Data/mission highlights page with custom background art."
-      }
-      // …etc
-    ],
-
-    "uranus-art": [
-      {
-        src: "/assets/images/gallery/uranus-art.png",
-        alt: "Uranus concept art",
-        title: "Ice Giants Internal Portal Artwork",
-        description: "Layered composite with ring glow, cloud bands, and atmospheric halo."
-      }
-    ],
-
-    "parker-kit": [
-      {
-        src: "/assets/images/parker-kit/parker-kit.png",
-        alt: "Parker Solar Probe celebration kit",
-        title: "PSP Closest Approach Celebration Kit",
-        description: "DIY celebration kit for Parker Solar Probe’s closest approach."
-      }
-    ],
-
-    "portfolio-demo": [
-      {
-        src: "/assets/images/gallery/portfolio-demo-thumb.png",
-        alt: "Portfolio walkthrough still",
-        title: "Portfolio Walkthrough Reel",
-        description: "Frames from the BLKPVNTHR portfolio walkthrough video."
-      }
-    ],
-
-    lac: [
-      {
-        src: "/assets/images/LAC-3.png",
-        alt: "Lunar Autonomy Challenge FAQs page",
-        title: "Lunar Autonomy Challenge",
-        description: "DataTables-driven FAQ interface wired to admin tools."
-      }
-    ],
-
-    logic: [
-      {
-        src: "/assets/images/LOGIC/logic-manage-clock-2.png",
-        alt: "LOGIC manage clock admin page",
-        title: "LOGIC – Lunar Operating Guidelines for Infrastructure Consortium",
-        description: "Admin interface for managing FAQs and meeting clocks."
-      },
-      {
-        src: "/assets/images/LOGIC/logic-faqs.png",
-        alt: "LOGIC public FAQs page",
-        title: "LOGIC – Lunar Operating Guidelines for Infrastructure Consortium",
-        description: "Public-facing FAQ page served from the managed content."
-      }
-      // add more LOGIC shots if you have them
-    ]
+    dragonfly: "/assets/images/dgf",
+    ezie: "/assets/images/ezie-images",
+    icegiants: "/assets/images/ice-giants",
+    "uranus-art": "/assets/images/ice-giants/admin",
+    "parker-kit": "/assets/images/parker-kit",
+    "portfolio-demo": "/assets/images/gallery",
+    lac: "/assets/images/LAC",    // update to the exact folder that contains an index.json or images
+    logic: "/assets/images/LOGIC"
   };
 
   (function () {
@@ -852,10 +852,49 @@
         currentGallery.length > 1 ? `${currentIndex + 1} / ${currentGallery.length}` : "";
     }
 
-    function openGallery(galleryId) {
-      const gallery = PROJECT_GALLERIES[galleryId];
-      if (!gallery || !gallery.length) {
+    async function loadGalleryData(entry) {
+      // entry may be an array (already expanded) or a string URL to index.json or a server listing endpoint
+      if (Array.isArray(entry)) return entry;
+      if (typeof entry !== "string") return [];
+
+      try {
+        // if it points to a server listing endpoint (e.g. list-images.php?dir=...)
+        if (entry.includes('list-images.php')) {
+          const res = await fetch(entry, { cache: "no-store" });
+          if (!res.ok) throw new Error(res.statusText);
+          const data = await res.json();
+          return Array.isArray(data) ? data : [];
+        }
+
+        // fallback: try to fetch "<dir>/index.json"
+        const idxUrl = entry.replace(/\/$/, '') + '/index.json';
+        let res = await fetch(idxUrl, { cache: "no-store" });
+        if (res.ok) {
+          const data = await res.json();
+          return Array.isArray(data) ? data : [];
+        }
+
+        // final fallback: try fetching the entry as JSON directly
+        res = await fetch(entry, { cache: "no-store" });
+        if (res.ok) {
+          const data = await res.json();
+          return Array.isArray(data) ? data : [];
+        }
+      } catch (err) {
+        console.warn('Failed loading gallery:', err);
+      }
+      return [];
+    }
+
+    async function openGallery(galleryId) {
+      const entry = PROJECT_GALLERIES[galleryId];
+      if (!entry) {
         console.warn("No gallery defined for", galleryId);
+        return;
+      }
+      const gallery = await loadGalleryData(entry);
+      if (!gallery || gallery.length === 0) {
+        console.warn("No images found for gallery", galleryId);
         return;
       }
       currentGallery = gallery;
@@ -870,41 +909,44 @@
       currentGallery = [];
       currentIndex = 0;
       imgEl.src = "";
+      titleEl.textContent = "";
+      descEl.textContent = "";
+      counterEl.textContent = "";
     }
 
     // Attach handlers to all project thumb buttons
-    document.querySelectorAll(".js-open-gallery").forEach(btn => {
+    const thumbButtons = document.querySelectorAll(".js-open-gallery");
+    thumbButtons.forEach(btn => {
       btn.addEventListener("click", () => {
-        const id = btn.dataset.galleryId;
-        openGallery(id);
+        const galleryId = btn.dataset.galleryId;
+        openGallery(galleryId);
       });
     });
 
-    btnPrev.addEventListener("click", () => showImage(currentIndex - 1));
-    btnNext.addEventListener("click", () => showImage(currentIndex + 1));
+    btnPrev.addEventListener("click", () => {
+      showImage(currentIndex - 1);
+    });
+
+    btnNext.addEventListener("click", () => {
+      showImage(currentIndex + 1);
+    });
+
     btnClose.addEventListener("click", closeGallery);
     backdrop.addEventListener("click", closeGallery);
 
+    // Close on Escape key
     document.addEventListener("keydown", (e) => {
-      if (modal.hidden) return;
-      if (e.key === "Escape") closeGallery();
-      if (e.key === "ArrowRight") showImage(currentIndex + 1);
-      if (e.key === "ArrowLeft") showImage(currentIndex - 1);
+      if (e.key === "Escape" && !modal.hidden) {
+        closeGallery();
+      }
     });
   })();
 </script>
 
 <!-- Bootstrap JS (once) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-
-<!-- Lightbox markup (place near the end of <body>) -->
-<div id="lightbox" class="lightbox" aria-hidden="true">
-  <button class="lightbox-close" aria-label="Close">&times;</button>
-  <button class="lightbox-prev" aria-label="Previous">&#10094;</button>
-  <img class="lightbox-image" src="" alt="">
-  <button class="lightbox-next" aria-label="Next">&#10095;</button>
 </div>
+
 
 </body>
 </html>

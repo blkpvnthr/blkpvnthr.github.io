@@ -1,0 +1,1080 @@
+/* ---------------------------------------------------
+   Base / Syntax Highlighting
+--------------------------------------------------- */
+
+/* If you still need build.css, include it from HTML:
+   <link rel="stylesheet" href="assets/css/build.css">
+*/
+
+.highlight {
+  width: 100%;
+  overflow: auto;
+  background: #ffffff;
+}
+
+/* Pygments-style token colors */
+.highlight .c,
+.highlight .cm,
+.highlight .c1 {
+  color: #999988;
+  font-style: italic;
+}
+.highlight .cp,
+.highlight .cs {
+  color: #999999;
+  font-weight: bold;
+}
+.highlight .cs { font-style: italic; }
+.highlight .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+.highlight .k,
+.highlight .o,
+.highlight .kc,
+.highlight .kd,
+.highlight .kp,
+.highlight .kr,
+.highlight .ow,
+.highlight .gs {
+  font-weight: bold;
+}
+.highlight .kt,
+.highlight .nc {
+  color: #445588;
+  font-weight: bold;
+}
+.highlight .m,
+.highlight .mf,
+.highlight .mh,
+.highlight .mi,
+.highlight .mo,
+.highlight .il { color: #099; }
+.highlight .s,
+.highlight .sb,
+.highlight .sc,
+highlight .sd,
+.highlight .s1,
+.highlight .s2,
+.highlight .se,
+.highlight .sh,
+.highlight .si,
+.highlight .sx { color: #d14; }
+.highlight .sr { color: #009926; }
+.highlight .ss { color: #990073; }
+.highlight .na,
+.highlight .no,
+.highlight .nv,
+.highlight .vc,
+.highlight .vg,
+.highlight .vi { color: teal; }
+.highlight .nb { color: #0086b3; }
+.highlight .ni { color: purple; }
+.highlight .ne,
+.highlight .nf { color: #990000; font-weight: bold; }
+.highlight .nn { color: #555; }
+.highlight .nt { color: navy; }
+.highlight .bp { color: #999; }
+.highlight .w { color: #bbb; }
+.highlight .gd { color: #000; background-color: #fdd; }
+.highlight .gd .x { background-color: #faa; }
+.highlight .gi { color: #000; background-color: #dfd; }
+.highlight .gi .x { background-color: #afa; }
+.highlight .gh,
+.highlight .gu { color: #aaa; }
+.highlight .gr,
+.highlight .gt { color: #a00; }
+.highlight .go { color: #888; }
+.highlight .gp { color: #555; }
+.highlight .ge { font-style: italic; }
+
+.highlight .lineno {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+}
+.highlight .lineno::-moz-selection,
+.highlight .lineno::selection {
+  background-color: transparent;
+}
+
+.github-component {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+}
+
+.repo-language-color {
+  filter: brightness(125%) !important;
+  border-radius: 50%;
+  display: inline-block;
+  height: 12px;
+  width: 12px;
+  position: relative;
+  top: 2px;
+}
+
+.emoji {
+  width: 18px;
+  height: auto;
+  vertical-align: middle;
+}
+
+.article h1,
+.article h2,
+.article h3,
+.article h4,
+.article .highlight {
+  margin-bottom: 16px;
+}
+.article blockquote {
+  color: #6a737d;
+  border-left: 2px solid #959da5;
+  padding-left: 16px;
+  margin-bottom: 16px;
+}
+.article ul,
+.article ol {
+  padding-left: 32px;
+  margin-bottom: 16px;
+}
+.article li ul,
+.article li ol {
+  padding-left: 16px;
+  margin-bottom: 0;
+}
+
+.min-height-full {
+  min-height: 100vh;
+}
+
+/* ---------------------------------------------------
+   Layout / Header / Social Row
+--------------------------------------------------- */
+section {
+  padding: 4rem 0 ;
+  margin: 0;
+}
+.container-lg {
+  max-width: 980px;
+  margin: 56px auto 80px;
+  padding: 0 16px;
+}
+
+h1.lh-condensed {
+  font-weight: 600;
+  font-size: 34px;
+}
+
+/* Centered social icons row */
+.social-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  margin-top: 12px;
+  margin-bottom: 16px;
+}
+
+.social-row > div {
+  margin: 0;
+}
+
+.social-row a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #6a737d;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.social-row a:hover {
+  color: #24292e;
+}
+
+/* Hire badge */
+.hire-badge {
+  display: inline-block;
+  font-size: 13px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  color: #ffffff;
+  background-color: #28a745;
+  margin-top: 12px;
+}
+
+/* ---------------------------------------------------
+   Project Cards (GitHub grid)
+--------------------------------------------------- */
+
+.d-sm-flex.flex-wrap.gutter-condensed.mb-4 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: -12px;
+  margin-right: -12px;
+}
+
+.col-sm-6.col-md-12.col-lg-6.col-xl-4.mb-3 {
+  padding-left: 12px;
+  padding-right: 12px;
+  display: flex;
+}
+
+.github-component {
+  flex: 1 1 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 230px;
+  border-radius: 6px;
+  border: 1px solid #e1e4e8;
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px rgba(27, 31, 35, 0.12);
+}
+
+/* Card footer (language / stars / forks / institution) */
+.github-component .d-flex.f6 {
+  margin-top: 10px;
+  align-items: center;
+  font-size: 12px;
+  color: #586069;
+}
+
+.github-component .d-flex.f6 > span,
+.github-component .d-flex.f6 > a {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 12px;
+}
+
+.github-component .d-flex.f6 svg {
+  margin-right: 4px;
+}
+
+/* Institution badge / logo */
+.institution-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  background-color: transparent;
+  border-radius: 10px;
+  padding: 2px 8px;
+}
+
+.institution-logo {
+  height: 30px;
+  width: auto;
+  border-radius: 1px;
+  object-fit: contain;
+  background: transparent;
+  padding: 2px;
+}
+
+.institution-logo.umgc {
+  height: 18px;
+}
+
+/* ---------------------------------------------------
+   Nav
+--------------------------------------------------- */
+
+.nav-link {
+  font-weight: 200;
+  color: #ffffffb8 !important;
+  padding-bottom: 4px;
+}
+
+.nav-link.active,
+.nav-link:hover {
+  color: #fff !important;
+  border-bottom: 2px solid #fff;
+  padding-bottom: 4px;
+}
+
+/* ---------------------------------------------------
+   Interests grid
+--------------------------------------------------- */
+
+.interest-icon {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.card.interest-card {
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(27, 31, 35, 0.12);
+  transition: box-shadow 0.15s ease;
+}
+
+.card.interest-card:hover {
+  box-shadow: 0 4px 12px rgba(27, 31, 35, 0.15);
+}
+
+/* ---------------------------------------------------
+   About Hero
+--------------------------------------------------- */
+
+.about-hero {
+  position: relative;
+  width: 100%;
+  min-height: 70vh;
+  background-image: url("/assets/images/about-banner.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color: #ffffff;
+}
+
+.about-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.55),
+    rgba(0, 0, 0, 0.75)
+  );
+}
+
+.about-hero-content {
+  position: relative;
+  max-width: 1420px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+.about-hero-title {
+  font-size: 6rem;
+  font-weight: 300;
+  white-space: nowrap;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.75rem;
+}
+
+.about-hero-subtitle {
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: #d0d7de;
+  line-height: 1.6;
+  max-width: 40rem;
+}
+
+/* Hero responsiveness */
+@media (max-width: 992px) {
+  .about-hero-title {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero {
+    min-height: 60vh;
+    background-position: center top;
+  }
+
+  .about-hero-title {
+    font-size: 2.8rem;
+    white-space: normal;
+  }
+
+  .about-hero-subtitle {
+    font-size: 0.95rem;
+  }
+}
+
+/* ---------------------------------------------------
+   Split Section (image + text)
+--------------------------------------------------- */
+
+.split-section {
+  display: flex;
+  width: 100%;
+  min-height: 80vh;
+}
+
+.split-image {
+  flex: 1;
+  background-image: url("/assets/images/toot.PNG");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.split-content {
+  flex: 1;
+  background: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem;
+}
+
+.split-title {
+  font-size: 3rem;
+  font-weight: 200;
+  margin-bottom: 1.5rem;
+}
+
+.split-text {
+  font-size: 1.1rem;
+  font-weight: 100;
+  line-height: 1.7;
+  color: #d1d1d1;
+  max-width: 500px;
+}
+
+/* Stack split section on small screens */
+@media (max-width: 768px) {
+  .split-section {
+    flex-direction: column;
+  }
+
+  .split-content {
+    padding: 2.5rem 1.5rem 3rem;
+  }
+
+  .split-title {
+    font-size: 2.2rem;
+  }
+
+  .split-text {
+    font-size: 1rem;
+  }
+}
+
+/* ---------------------------------------------------
+   About – “Nut-shell” sections
+--------------------------------------------------- */
+
+.about-nutshell,
+.otherside-nutshell {
+  background: #000;
+  color: #fff;
+  padding: 6rem 0 7rem;
+}
+
+.about-nutshell-inner,
+.otherside-nutshell-inner {
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+.about-nutshell-label,
+.otherside-nutshell-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #b14bf9;
+  margin-bottom: 1.5rem;
+}
+
+.about-nutshell-text,
+.otherside-nutshell-text {
+  font-size: clamp(1.9rem, 3vw, 3rem);
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 576px) {
+  .about-nutshell,
+  .otherside-nutshell {
+    padding: 2rem 1.5rem 1rem !important;
+  }
+}
+
+/* ---------------------------------------------------
+   Backstory (two-column text)
+--------------------------------------------------- */
+
+.about-backstory {
+  background: #000;
+  color: #f5f5f5;
+  padding: 5rem 0 4rem;
+}
+
+.about-backstory-inner {
+  max-width: 72rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 2fr);
+  column-gap: 4rem;
+  align-items: flex-start;
+  padding: 0 1.5rem;
+}
+
+.about-backstory-title h2 {
+  font-size: clamp(2.3rem, 3vw, 3rem);
+  font-weight: 200;
+  margin: 0;
+}
+
+.about-backstory-content {
+  max-width: 40rem;
+  font-weight: 100;
+}
+
+.about-backstory-content p {
+  font-size: 0.98rem;
+  line-height: 1.8;
+  justify-content: left;
+  text-align: left;
+  margin-bottom: 1.2rem;
+  color: #dcdcdc;
+}
+
+@media (max-width: 768px) {
+  .about-backstory-inner {
+    grid-template-columns: 1fr;
+    row-gap: 2.5rem;
+  }
+}
+
+/* ---------------------------------------------------
+   Tumblr / “Old Art” gallery (manual thumbs)
+--------------------------------------------------- */
+
+.tumblr-gallery {
+  background: #000;
+  color: #fff;
+  padding: 60px 0;
+}
+
+.tumblr-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.tumblr-grid img {
+  width: 100%;
+  display: block;
+  border-radius: 4px;
+  object-fit: cover;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tumblr-grid a:hover img {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
+}
+
+.tumblr-strip {
+  background: #111;
+  color: #f5f5f5;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.tumblr-strip a {
+  color: #b14bf9;
+  text-decoration: none;
+}
+
+.tumblr-strip a:hover {
+  text-decoration: underline;
+}
+
+.btn-ghost {
+  border: 1px solid #b14bf9;
+  padding: 10px 22px;
+  color: #b14bf9;
+  text-decoration: none;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+}
+
+.btn-ghost:hover {
+  background: #b14bf9;
+  color: #000;
+}
+
+/* ---------------------------------------------------
+   Social Footer
+--------------------------------------------------- */
+
+.socials-footer {
+  background: #000;
+  color: #a152f5;
+  padding: 60px 0;
+}
+
+.socials-footer .container {
+  max-width: 1100px;
+  padding: 0 1.5rem;
+}
+
+.contact-info .footer-link {
+  color: #b14bf9;
+  text-decoration: none;
+  border-bottom: 1px solid #b14bf9;
+  font-size: 1rem;
+}
+
+.contact-info .footer-link:hover {
+  opacity: 0.75;
+}
+
+.footer-initials span {
+  color: #fff;
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+  font-weight: 300;
+}
+
+.social-icons .footer-icon {
+  color: #b14bf9;
+  font-size: 1.4rem;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+.social-icons .footer-icon:hover {
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  .socials-footer .row {
+    text-align: center;
+  }
+
+  .social-icons {
+    margin-top: 16px;
+  }
+
+  .social-icons .footer-icon {
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+}
+.random-photo {
+  text-align: center;
+  background-color: #000;
+}
+/* Default (desktop/tablet) */
+.random-gallery img {
+  max-width: 260px;   /* or whatever you like */
+  height: 500px;
+}
+
+/* Make the photo much larger on mobile */
+@media (max-width: 768px) {
+  .random-gallery img {
+    max-width: 80vw;  /* 80% of the viewport width */
+    height: 500px;
+    display: block;
+    margin: 0 auto 1.5rem;  /* center it with some breathing room */
+    object-fit: cover;
+  }
+}
+.about-backstory-photo {
+  max-width: 360px;
+  overflow: visible;
+  display: block;
+}
+
+.about-backstory-photo img {
+  width: 320px;       /* adjust size as you prefer */
+  height: auto;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 80%;
+  margin-bottom: 6rem;
+}
+
+.about-backstory-photo {
+  overflow: visible !important;
+}
+
+/* Backstory photo container */
+.about-backstory-photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 350px;
+  overflow-y: auto;
+  padding-right: 1rem;
+  border-radius: 100%;
+}
+
+/* The image itself */
+.about-backstory-photo img {
+  width: 260px;
+  height: 160px;
+  object-fit: cover;
+  position: relative;
+  margin-bottom: 150%;
+  border-radius: 100%;
+  border: none; /* same accent violet */
+  margin-bottom: 2rem;
+}
+
+/* ⬆️ Place this inside about-backstory grid */
+.about-backstory-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: start;      /* keep text + heading LEFT aligned */
+  padding: 3rem 0;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+  grid-template-areas:
+    "title photo"
+    "content content";
+  column-gap: 3rem;
+}
+
+.about-backstory-title {
+  grid-area: title;
+}
+
+.about-backstory-photo {
+  grid-area: photo;
+  width: 100%;
+  display: flex;
+  justify-content: center;   /* centers image horizontally */
+  margin: 2rem 0 3rem;
+}
+
+.about-backstory-content {
+  grid-area: content;
+}
+
+/* 📱 Mobile: stack vertically */
+@media (max-width: 768px) {
+  .about-backstory-inner {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "title"
+      "photo"
+      "content";
+  }
+
+  .about-backstory-photo img {
+     width: 340px;              /* adjust size as needed */
+  height: auto;
+  border-radius: 50%;
+  object-fit: cover;
+  }
+}
+/* Parent section */
+.random-facts-section {
+  background: #000;
+  color: #fff;
+  padding: 6rem 0;
+}
+
+/* Grid layout: 2 columns on desktop */
+.random-facts-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  column-gap: 4rem;
+  align-items: center;
+}
+
+/* Left image */
+.random-facts-photo img {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+  margin: 25px auto;
+  margin-top: 50px;
+}
+
+/* Text area */
+.random-facts-text {
+  font-weight: 200;
+}
+
+.random-facts-title {
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 200;
+  margin-bottom: 1.5rem;
+}
+
+/* 📱 Mobile Responsive */
+@media (max-width: 768px) {
+  .random-facts-inner {
+    grid-template-columns: 1fr;
+    row-gap: 2.5rem;
+    text-align: left;
+  }
+
+  .random-facts-photo img {
+    max-width: 300px;
+  }
+}
+/* Remove the unwanted white gap between Tumblr section + Basically section */
+.basically-section,
+.otherside-nutshell,
+.random-facts-section {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.tumblr-gallery,
+.tumblr-fullwidth-section {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+/* === Lightbox overlay === */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050;
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+/* The full-size image */
+.lightbox-image {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 6px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8);
+}
+
+/* Controls */
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  font-size: 2.2rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0.25rem 0.75rem;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.lightbox-close {
+  top: 20px;
+  right: 26px;
+}
+
+.lightbox-prev {
+  left: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox-next {
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  opacity: 0.8;
+  transform: translateY(-50%) scale(1.05);
+}
+
+.lightbox-close:hover {
+  transform: scale(1.05);
+}
+
+/* Make arrows smaller on mobile */
+@media (max-width: 576px) {
+  .lightbox-prev,
+  .lightbox-next {
+    font-size: 1.8rem;
+    left: 16px;
+    right: 16px;
+  }
+
+  .lightbox-image {
+    max-width: 94vw;
+    max-height: 80vh;
+  }
+}
+/* === Random Facts section === */
+
+.random-facts {
+  background: #000;
+  color: #fff;
+  padding: 5rem 0 6rem;
+}
+
+.random-facts-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 3rem; /* space between image and text */
+}
+
+/* Left column: image */
+.random-facts-media img {
+  display: block;
+  width: 260px;       /* desktop size */
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+}
+
+/* Right column: text */
+.random-facts-copy {
+  flex: 1;
+  font-weight: 100;
+}
+
+.random-facts-title {
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-weight: 200;
+  margin-bottom: 1.5rem;
+}
+
+/* Responsive: stack vertically on small screens */
+@media (max-width: 768px) {
+  .random-facts-inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 0 !important;
+
+  }
+
+  .random-facts-media img {
+    width: 70vw;          /* bigger on mobile */
+    max-width: 380px;
+  }
+}
+.random-facts-copy {
+  flex: 1;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  padding-top: 1rem;
+}
+
+.random-facts-title {
+  margin: 0;
+  padding: 0;
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-weight: 200;
+}
+
+.random-facts-text {
+  margin: 0;
+  padding: 0;
+  max-width: 600px;
+  font-weight: 100;
+  line-height: 1.7;
+  color: #e1e1e1;
+}
+@media (max-width: 768px) {
+  .random-facts-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .random-facts-copy {
+    padding-top: 0;
+  }
+
+}
+html, body {
+  background-color: #000000 !important;
+}
+/* Right-side photo container */
+.about-backstory-photo {
+  display: block;
+  max-width: 360px;
+  justify-self: center;
+}
+
+.about-backstory-photo img {
+  width: 250px;
+  height: 250px;
+  border-radius: 75%;
+  object-fit: cover;
+  float: inline-end;
+  left: -10%;
+  bottom: 30%;
+  top: -70%;
+}
+
+.about-backstory-inner {
+  display: grid;
+  grid-template-columns: 1fr;     /* one column so title + image stack */
+  justify-items: center;          /* centers children horizontally */
+  text-align: center;
+  padding: 3rem 0;
+}
+@media (max-width: 900px) {
+  .about-backstory-inner {
+    grid-template-columns: 1fr;
+    margin-left: 2%;
+  }
+  .about-backstory-photo img {
+  width: 250px;
+  height: 250px;
+  border-radius: 75%;
+  object-fit: cover;
+  margin-right: 0;
+}
+.about-backstory-content{
+  text-align: left;
+  justify-content: center;
+  margin-bottom: 0;
+  padding-left: 1%;
+  padding-right: 1%;
+  font-size: x-small !important;
+}
+  .about-backstory-photo {
+    max-width: 80%;
+    margin: 2rem auto 0;
+    margin-bottom: 0%;
+  }
+  .about-backstory{
+    padding-bottom: 0rem !important;
+    margin-bottom: 0rem !important;
+    margin-top: 2rem !important;
+  }
+
+.tumblr-gallery {
+  margin-top: 0 !important;
+  padding-top: 2rem !important;
+}
+.random-facts {
+    background: #000;
+    color: #fff;
+    padding: 3rem 0 4rem;
+}
+{
+    .about-backstory-content {
+      margin: 5px !important;
+      font-size: 0.75rem !important;
+      padding-right: 10px !important;
+      padding-left: 10px !important;
+      margin-bottom: 0 !important;
+      padding-bottom: 0 !important;
+}

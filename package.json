@@ -4,17 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "get-assets": "./get-assets.sh"
+    "get-assets": "./get-assets.sh",
+    "build": "npm run copy-assets",
+    "copy-assets": "cpx \"node_modules/bootstrap/dist/css/bootstrap.min.css\" public/css/ && cpx \"node_modules/jquery/dist/jquery.min.js\" public/js/ && cpx \"node_modules/animate.css/animate.min.css\" public/css/ && cpx \"node_modules/bootstrap-icons/font/bootstrap-icons.css\" public/css/ && cpx \"node_modules/bootstrap-icons/font/fonts/*\" public/fonts/"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "bootstrap": "^5.3.8",
+    "animate.css": "^4.1.1",
+    "bootstrap": "^5.3.7",
+    "bootstrap-icons": "^1.13.1",
     "jquery": "^3.7.1"
   },
   "devDependencies": {
+    "cpx": "^1.5.0",
     "vite": "^7.2.2"
   }
 }

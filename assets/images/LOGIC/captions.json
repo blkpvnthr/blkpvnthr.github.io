@@ -1,0 +1,12 @@
+{
+  "logic-manage-clock-2.png": {
+    "title": "LOGIC — Manage Clock",
+    "description": "Admin clock view for LOGIC project.",
+    "alt": "LOGIC manage clock admin page"
+  },
+  "logic-faqs.png": {
+    "title": "LOGIC — Public FAQs",
+    "description": "Public-facing DataTables FAQ page.",
+    "alt": "LOGIC public FAQ page"
+  }
+}
