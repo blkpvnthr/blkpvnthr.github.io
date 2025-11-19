@@ -627,6 +627,19 @@ body {
 .site-navbar .navbar-nav .nav-item.active {
   color: #9eb5cf;
 }
+/* Optional: make the modal background dark and the caption more visible */
+.gallery-modal-backdrop {
+  background: radial-gradient(circle at top, rgba(0,0,0,0.85), rgba(0,0,0,0.95));
+  backdrop-filter: blur(8px);
+}
+
+#galleryModal .carousel-caption {
+  background-color: rgba(0,0,0,0.5);
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+}
+
+
 </style>
 
 <section
@@ -810,16 +823,14 @@ body {
         <div class="tumblr-grid" id="portfolio-grid">
           <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal"
             data-bs-target="#galleryModal"
-            data-img="/assets/images/ezie-images/ezie.png"
-            data-alt="Ezie site re-development.">
+            data-img="/assets/images/ezie-images/ezie.png">
             <img src="/assets/images/ezie-images/ezie.png" alt="Ezie site"
               class="gallery-img" alt="Ezie site re-development.">
           </a>
 
           <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal"
             data-bs-target="#galleryModal"
-            data-img="/assets/images/ezie-images/ezie-gallery-4.png"
-            data-alt="Ezie site re-development.">
+            data-img="/assets/images/ezie-images/ezie-gallery-4.png">
             <img src="/assets/images/ezie-images/ezie-gallery-4.png"
               alt="Ezie site"
               class="gallery-img" alt="Ezie site re-development.">
@@ -836,8 +847,7 @@ body {
 
           <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal"
             data-bs-target="#galleryModal"
-            data-img="assets/images/ice-giants/ice-giants-2.png"
-            data-alt="Ice Giants site development.">
+            data-img="assets/images/ice-giants/ice-giants-2.png">
             <img src="/assets/images/ice-giants/ice-giants-2.png"
               class="gallery-img"
               alt="Ice Giants site">
@@ -845,32 +855,28 @@ body {
 
           <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal"
             data-bs-target="#galleryModal"
-            data-img="/assets/images/IMG/parker.png"
-            data-alt="Parker-kit site development.">
+            data-img="/assets/images/IMG/parker.png">
             <img src="/assets/images/IMG/parker.png" class="gallery-img"
               alt="Parker Solar Probe site 1">
           </a>
 
           <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal"
             data-bs-target="#galleryModal"
-            data-img="/assets/images/IMG/parker2.png"
-            data-alt="Parker-kit site development.">
+            data-img="/assets/images/IMG/parker2.png">
             <img src="/assets/images/IMG/parker2.png"
               alt="Parker Solar Probe site 2">
           </a>
 
           <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal"
             data-bs-target="#galleryModal"
-            data-img="/assets/images/TIMED/TIMED-0.png"
-            data-alt="TIMED site re-development.">
+            data-img="/assets/images/TIMED/TIMED-0.png">
             <img src="/assets/images/TIMED/TIMED-0.png"
               alt="TIMED site re-development.">
           </a>
 
           <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal"
             data-bs-target="#galleryModal"
-            data-img="/assets/images/TIMED/TIMED.png"
-            data-alt="TIMED site re-development.">
+            data-img="/assets/images/TIMED/TIMED.png">
             <img src="/assets/images/TIMED/TIMED.png"
               alt="TIMED site re-development.">
           </a>
@@ -931,6 +937,7 @@ body {
   </div>
 </section>
 
+
         <!-- Footer -->
         <footer class="bg-black my-4 mt-0 text-center">
             <div class="container bg-black py-4">
@@ -949,6 +956,65 @@ body {
 
             </div>
         </footer>
+
+        <!-- Gallery Carousel Modal -->
+<div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-body p-0 position-relative">
+        <button type="button" class="btn-close position-absolute top-0 end-0 m-2" 
+                data-bs-dismiss="modal" aria-label="Close"></button>
+
+        <div id="portfolioCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner" id="carouselInner"></div>
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#portfolioCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#portfolioCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const carouselInner = document.getElementById("carouselInner");
+
+    // Gather all gallery items
+    const galleryItems = document.querySelectorAll(".gallery-modal-trigger");
+
+    galleryItems.forEach((link, index) => {
+      const imgSrc = link.getAttribute("data-img");
+      const imgAlt = link.getAttribute("data-alt") || "";
+
+      const carouselItem = document.createElement("div");
+      carouselItem.className = "carousel-item" + (index === 0 ? " active" : "");
+      carouselItem.innerHTML = `
+        <img src="${imgSrc}" class="d-block w-100" alt="${imgAlt}">
+        <div class="carousel-caption d-none d-md-block">
+          <p>${imgAlt}</p>
+        </div>
+      `;
+
+      carouselInner.appendChild(carouselItem);
+
+      // Optional: Clicking the grid opens the carousel at the correct index
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const carousel = new bootstrap.Carousel(document.getElementById("portfolioCarousel"));
+        carousel.to(index);
+      });
+    });
+  });
+</script>
+
+
         <!-- Lightbox Script -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
