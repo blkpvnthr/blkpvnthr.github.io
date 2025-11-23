@@ -349,10 +349,12 @@ h1.lh-condensed {
 
 .about-hero-title {
   font-size: 6rem;
-  font-weight: 300;
+  font-weight: 200;
   white-space: nowrap;
-  letter-spacing: 0.03em;
   margin-bottom: 0.75rem;
+  padding-top: 12rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .about-hero-subtitle {
@@ -1069,7 +1071,7 @@ html, body {
     color: #fff;
     padding: 3rem 0 4rem;
 }
-{
+
     .about-backstory-content {
       margin: 5px !important;
       font-size: 0.75rem !important;
@@ -1077,4 +1079,5 @@ html, body {
       padding-left: 10px !important;
       margin-bottom: 0 !important;
       padding-bottom: 0 !important;
+}
 }

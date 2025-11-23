@@ -7,7 +7,7 @@
 
   <meta name="description" content="Just here learning 📚">
   <meta property="og:title" content="Asmaa Abdul-Amin">
-  <meta property="og:image" content="/images/bck-stry.JPG">
+  <meta property="og:image" content="/assets/images/bck-stry.JPG">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- 1) Bootstrap first: grid + base styles -->
@@ -28,7 +28,7 @@
   <script src="/includes/js/main.js" defer=""></script>
 
   <!-- 5) Favicon -->
-  <link rel="icon" href="/images/favicon.ico" type="image/gif">
+  <link rel="icon" href="/assets/images/favicon.ico" type="image/gif">
   <style>
     /* Page base */
     html,
@@ -440,7 +440,7 @@
       position: relative;
       width: 100%;
       min-height: 100vh;
-      background-image: url(/images/about-banner.jpg);
+      background-image: url(/assets/images/about-banner.jpg);
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
@@ -461,7 +461,23 @@
       padding-bottom: 20px !important;
       padding-top: 10px;
     }
+    @media  (max-width: 640px){
+      .from-black {
+        padding-bottom: 150px !important;
+        padding-top: 250px !important;
+      }
 
+    .bg-gradient-to-t {
+    background-image: linear-gradient(to top, var(--tw-gradient-stops)) !important;
+  }
+  .about-backstory-photo img {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 25% !important;
+}
+    }
     .bg-gradient-to-t {
       background-image: linear-gradient(to top, var(--tw-gradient-stops)) !important;
     }
@@ -501,7 +517,7 @@
     }
 
     div.parallax-secondary {
-      background-image: url('../images/backgrounds/glowing-ice-giant3.png') !important;
+      background-image: url('../assets/images/backgrounds/glowing-ice-giant3.png') !important;
       min-height: 100px !important;
     }
 
@@ -754,7 +770,7 @@
       </nav>
 
       <div class="about-hero-content position-relative">
-        <h1 class="about-hero-title no-wrap">Defined by Detail.</h1>
+        <h1 class="about-hero-title no-wrap">Defined by Detail</h1>
         <!--<p class="about-hero-subtitle mt-4">
     – building things at the intersection of data, automation, and curiosity.
     </p>-->
@@ -778,7 +794,7 @@
 
       <!-- Left: photo -->
       <div class="random-facts-media space-between mb-6 mb-md-0">
-        <img src="/images/toot.PNG" alt="My cat supervising my desk" />
+        <img src="/assets/images/toot.PNG" alt="My cat supervising my desk" />
       </div>
 
       <!-- Right: heading + text -->
@@ -818,7 +834,7 @@
       <h2>Back Story.</h2>
     </div>--><!-- OPTIONAL IMAGE BLOCK -->
   <!--div class="about-backstory-photo">
-      <img src="/images/toot.PNG" alt="About Me Photo">
+      <img src="/assets/images/toot.PNG" alt="About Me Photo">
     </div>
 -->
   <!-- Text Content -->
@@ -832,7 +848,7 @@
 
       <!-- Centered portrait -->
       <div class="about-backstory-photo">
-        <img src="/images/bck-stry.JPG" alt="Asmaa working" />
+        <img src="/assets/images/bck-stry.JPG" alt="Asmaa working" />
       </div>
 
       <!-- Left-aligned text -->
@@ -897,44 +913,44 @@
       </div>
       <div class="tumblr-grid" id="portfolio-grid">
         <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal" data-bs-target="#galleryModal"
-          data-img="/images/ezie-images/ezie.png">
-          <img src="/images/ezie-images/ezie.png" alt="Ezie site" class="gallery-img" alt="Ezie site re-development.">
+          data-img="/assets/images/ezie-images/ezie-1.png">
+          <img src="/assets/images/ezie-images/ezie-1.png" alt="Ezie site" class="gallery-img" alt="Ezie site re-development.">
         </a>
 
         <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal" data-bs-target="#galleryModal"
-          data-img="/images/ezie-images/ezie-gallery-4.png">
-          <img src="/images/ezie-images/ezie-gallery-4.png" alt="Ezie site" class="gallery-img"
+          data-img="/assets/images/ezie-images/ezie-gallery-4.png">
+          <img src="/assets/images/ezie-images/ezie-gallery-4.png" alt="Ezie site" class="gallery-img"
             alt="Ezie site re-development.">
         </a>
 
         <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal" data-bs-target="#galleryModal"
-          data-img="/images/ice-giants/ice-giants-old.png">
-          <img src="/images/ice-giants/ice-giants-old.png" class="gallery-img" alt="Ice Giants site">
+          data-img="/assets/images/ice-giants/ice-giants-old.png">
+          <img src="/assets/images/ice-giants/ice-giants-old.png" class="gallery-img" alt="Ice Giants site">
         </a>
 
         <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal" data-bs-target="#galleryModal"
-          data-img="/images/ice-giants/ice-giants-7.png">
-          <img src="/images/ice-giants/ice-giants-7.png" class="gallery-img" alt="Ice Giants site">
+          data-img="/assets/images/ice-giants/ice-giants-5.png">
+          <img src="/assets/images/ice-giants/ice-giants-5.png" class="gallery-img" alt="Ice Giants site">
         </a>
 
         <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal" data-bs-target="#galleryModal"
-          data-img="/images/IMG/parker.png">
-          <img src="/images/IMG/parker.png" class="gallery-img" alt="Parker Solar Probe site 1">
+          data-img="/assets/images/IMG/parker.png">
+          <img src="/assets/images/IMG/parker.png" class="gallery-img" alt="Parker Solar Probe site 1">
         </a>
 
         <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal" data-bs-target="#galleryModal"
-          data-img="/images/IMG/parker2.png">
-          <img src="/images/IMG/parker2.png" alt="Parker Solar Probe site 2">
+          data-img="/assets/images/IMG/parker2.png">
+          <img src="/assets/images/IMG/parker2.png" alt="Parker Solar Probe site 2">
         </a>
 
         <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal" data-bs-target="#galleryModal"
-          data-img="/images/TIMED/TIMED-0.png">
-          <img src="/images/TIMED/TIMED-0.png" alt="TIMED site re-development.">
+          data-img="/assets/images/TIMED/TIMED-0.png">
+          <img src="/assets/images/TIMED/TIMED-0.png" alt="TIMED site re-development.">
         </a>
 
         <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal" data-bs-target="#galleryModal"
-          data-img="/images/TIMED/TIMED.png">
-          <img src="/images/TIMED/TIMED.png" alt="TIMED site re-development.">
+          data-img="/assets/images/TIMED/TIMED.png">
+          <img src="/assets/images/TIMED/TIMED.png" alt="TIMED site re-development.">
         </a>
       </div>
 
