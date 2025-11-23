@@ -2,6 +2,7 @@
 
 **Live Portfolio:** [blkpvnthr.github.io](https://blkpvnthr.github.io/)  
  **GitHub:** [https://github.com/blkpvnthr](https://github.com/blkpvnthr)  
+ **LinkedIn:** [https://www.linkedin.com/in/blkpvnthr/](https://www.linkedin.com/in/blkpvnthr/)
  **Email:** [asmaaabdulamin@gmail.com](mailto:asmaaabdulamin@gmail.com)  
 **Location:** Clarksburg, MD  
 
