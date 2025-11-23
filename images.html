@@ -6,7 +6,7 @@
 
     <meta name="description" content="Just here learning 📚">
     <meta property="og:title" content="Asmaa Abdul-Amin">
-    <meta property="og:image" content="assets/images/bck-stry.JPG
+    <meta property="og:image" content="/assets/images/bck-stry.JPG
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- 1) Bootstrap first: grid + base styles -->
@@ -482,7 +482,7 @@
           aria-expanded="false"
           aria-label="Open Ice Giants gallery">
         <img class="gallery-thumb"
-             src="/assets/images/ice-giants/ice-giants.png"
+             src="/assets/images/ice-giants/ice-giants-old.png"
              alt="Ice Giants thumbnail">
         <span class="gallery-badge">Web · APL</span>
           </button>
@@ -549,7 +549,7 @@
           aria-expanded="false"
           aria-label="Open Ice Giants concept art gallery">
         <img class="gallery-thumb"
-             src="/assets/images/ice-giants/ps-images/new-neptune.png"
+             src="/assets/images/ice-giants/ps-images/new-new-uranus.png"
              alt="Ice Giants concept art thumbnail">
         <span class="gallery-badge">Graphics · Space</span>
           </button>
@@ -609,7 +609,7 @@
           aria-expanded="false"
           aria-label="Open LAC gallery">
         <img class="gallery-thumb"
-             src="/assets/images/LAC-3.png"
+             src="/assets/images/LAC/LAC-3.png"
              alt="Lunar Autonomy Challenge thumbnail">
         <span class="gallery-badge">Web · APL</span>
           </button>
@@ -777,25 +777,116 @@
   });
 </script>
 
-<!-- GALLERY MODAL MARKUP -->
-<div id="gallery-modal" class="gallery-modal" hidden>
-  <div class="gallery-modal-backdrop"></div>
-  <div class="gallery-modal-dialog">
-    <button class="gallery-modal-close" aria-label="Close">&times;</button>
-    <div class="gallery-modal-image-wrapper">
-      <img id="gallery-modal-image" src="" alt="">
-      <button class="gallery-modal-nav prev" aria-label="Previous">&#10094;</button>
-      <button class="gallery-modal-nav next" aria-label="Next">&#10095;</button>
-    </div>
+<!-- GALLERY MODAL MARKUP (keep your existing modal markup) -->
+<!-- ...keep the #gallery-modal markup you already have... -->
 
-    <div class="gallery-modal-caption">
-      <h2 id="gallery-modal-title"></h2>
-      <p id="gallery-modal-description"></p>
-      <span id="gallery-modal-counter" class="gallery-modal-counter"></span>
-    </div>
-  </div>
-</div>
+<script>
+/* ------------- CONFIG: projects fallback (optional) ------------- */
+const PROJECT_GALLERIES = {
+dragonfly: [
+{ src: "/assets/images/dragonfly.png", alt: "Dragonfly portal dashboard overview", title: "Dragonfly Internal Team Site", description: "Main dashboard view..." },
+{ src: "/assets/images/dragonfly-1.png", alt: "Dragonfly portal resources page", title: "Dragonfly Internal Team Site", description: "Resources and quick links..." }
+],
+// keep any prebuilt galleries you want as objects; they take precedence over directory loading
+};
 
+/* ------------- UTILS ------------- */
+function isImageHref(href) {
+return /\.(jpe?g|png|gif|webp|avif|svg)$/i.test(href);
+}
+
+/* Try to load an index.json file from the directory. Format: ["img1.png","img2.jpg", ...]
+Returns array of items [{src, alt?, title?, description?}, ...] or null on fail */
+async function loadIndexJson(dir) {
+try {
+const url = dir.replace(/\/+$/, "") + "/index.json";
+const res = await fetch(url, { cache: "no-cache" });
+if (!res.ok) return null;
+const list = await res.json();
+if (!Array.isArray(list)) return null;
+return list.map(item => {
+// item can be string or object
+if (typeof item === "string") return { src: dir.replace(/\/+$/, "") + "/" + item, alt: "", title: "", description: "" };
+return {
+src: (item.src && item.src.startsWith("http")) ? item.src : dir.replace(/\/+$/, "") + "/" + (item.src || ""),
+alt: item.alt || "",
+title: item.title || "",
+description: item.description || ""
+};
+});
+} catch (e) {
+return null;
+}
+}
+
+/* Fallback: if directory listing is available (Apache/Nginx), fetch dir and parse <a href="..."> links */
+async function parseDirectoryListing(dir) {
+try {
+const res = await fetch(dir, { cache: "no-cache" });
+if (!res.ok) return null;
+const html = await res.text();
+// Very small, robust-ish parser to grab href values that look like image files
+const parser = new DOMParser();
+const doc = parser.parseFromString(html, "text/html");
+const anchors = Array.from(doc.querySelectorAll("a"));
+const imgs = anchors
+.map(a => a.getAttribute("href"))
+.filter(href => href && isImageHref(href))
+.map(href => {
+// if href is absolute or starts with '/', use it; otherwise join with dir
+const src = href.startsWith("http") || href.startsWith("/") ? href : dir.replace(/\/+$/, "") + "/" + href;
+return { src, alt: "", title: "", description: "" };
+});
+return imgs.length ? imgs : null;
+} catch (e) {
+return null;
+}
+}
+
+/* Given either a gallery ID or directory, return array of gallery items or null */
+async function resolveGallery(targetBtn) {
+const galleryId = targetBtn.dataset.galleryId;
+const galleryDir = targetBtn.dataset.galleryDir;
+
+// 1) If predefined gallery in PROJECT_GALLERIES, return it
+if (galleryId && PROJECT_GALLERIES[galleryId]) {
+return PROJECT_GALLERIES[galleryId];
+}
+
+// 2) If data-gallery-dir provided, attempt loading index.json then directory listing
+if (galleryDir) {
+// normalize dir to ensure trailing slash not required
+const dir = galleryDir;
+// try index.json
+const fromJson = await loadIndexJson(dir);
+if (fromJson && fromJson.length) return fromJson;
+
+// try directory listing parse
+const fromDir = await parseDirectoryListing(dir);
+if (fromDir && fromDir.length) return fromDir;
+
+// last attempt: if developer placed images named sequentially, try a small probe pattern
+// (not recommended — keep index.json on server for reliability)
+console.warn("No index.json or directory listing found for", dir);
+return null;
+}
+
+return null;
+}
+
+/* ------------- MODAL + GALLERY LOGIC ------------- */
+(function () {
+const modal = document.getElementById("gallery-modal");
+if (!modal) {
+console.warn("gallery-modal not found — ensure the modal markup exists with id=gallery-modal");
+return;
+}
+const imgEl = document.getElementById("gallery-modal-image");
+const titleEl = document.getElementById("gallery-modal-title");
+const descEl = document.getElementById("gallery-modal-description");
+const counterEl = document.getElementById("gallery-modal-counter");
+})();
+</script>
 
         <!-- Footer -->
         <footer class="bg-black my-4 mt-0 text-center">
@@ -820,7 +911,8 @@
 <script>
   // Now each key points at an image directory (string).
   // The modal loader will try to fetch "<dir>/index.json" or handle server listing endpoints.
-  const PROJECT_GALLERIES = {
+  // Define additional galleries and merge into any existing PROJECT_GALLERIES to avoid redeclaring the same const.
+  const ADDITIONAL_PROJECT_GALLERIES = {
     dragonfly: "/assets/images/dgf",
     ezie: "/assets/images/ezie-images",
     icegiants: "/assets/images/ice-giants",
@@ -830,6 +922,14 @@
     lac: "/assets/images/LAC",    // update to the exact folder that contains an index.json or images
     logic: "/assets/images/LOGIC"
   };
+
+  if (typeof PROJECT_GALLERIES !== "undefined" && PROJECT_GALLERIES && typeof PROJECT_GALLERIES === "object") {
+    // merge keys into the existing PROJECT_GALLERIES defined earlier
+    Object.assign(PROJECT_GALLERIES, ADDITIONAL_PROJECT_GALLERIES);
+  } else {
+    // if not defined earlier, expose merged mapping on window so code can access it
+    window.PROJECT_GALLERIES = ADDITIONAL_PROJECT_GALLERIES;
+  }
 
   (function () {
     const modal = document.getElementById("gallery-modal");
@@ -956,5 +1056,3 @@
 
 </body>
 </html>
-
-

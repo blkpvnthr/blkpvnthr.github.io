@@ -1,128 +1,138 @@
 <!DOCTYPE html>
 <html lang="en" class="min-height-full">
-  <head>
-    <meta charset="utf-8">
-    <title>BLKPVNTHR - Media Gallery</title>
 
-    <meta name="description" content="Just here learning 📚">
-    <meta property="og:title" content="Asmaa Abdul-Amin">
-    <meta property="og:image" content="assets/images/bck-stry.JPG">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+  <meta charset="utf-8">
+  <title>BLKPVNTHR - Media Gallery</title>
 
-    <!-- 1) Bootstrap first: grid + base styles -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <meta name="description" content="Just here learning 📚">
+  <meta property="og:title" content="Asmaa Abdul-Amin">
+  <meta property="og:image" content="/images/bck-stry.JPG">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- 2) Your mirrored styles (override Bootstrap where needed) -->
-    <link href="css/styles.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="css/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/animate.min.css">
-    <!-- Optional: <link rel="stylesheet" href="css/build.css" /> -->
-    <!-- Font Awesome for social icons -->
-    <script src="https://kit.fontawesome.com/aef4f8d92e.js" crossorigin="anonymous"></script>
-        <style>
-      /* Page base */
-      html,
-      body {
-        height: 100%;
-      }
+  <!-- 1) Bootstrap first: grid + base styles -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        background-color: #ffffff;
-        color: #24292e;
-      }
+  <!-- 2) Your mirrored styles (override Bootstrap where needed) -->
+  <link href="css/styles.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/bootstrap-icons.css">
+  <link rel="stylesheet" href="css/animate.min.css">
+  <!-- Optional: <link rel="stylesheet" href="css/build.css" /> -->
+  <!-- Font Awesome for social icons -->
+  <script src="https://kit.fontawesome.com/aef4f8d92e.js" crossorigin="anonymous"></script>
 
-      /* Main container matches GitHub profile width & spacing */
-      .container-lg {
-        max-width: 980px;
-        margin: 40px auto 80px;
-        padding: 0 16px;
-      }
 
-      /* Avatar */
-      .circle {
-        width: 160px;
-        height: 160px;
-        object-fit: cover;
-        border-radius: 50%;
-        box-shadow: 0 0 0 4px #fff, 0 8px 20px rgba(27, 31, 35, 0.15);
-        margin-bottom: 16px;
-      }
+  <!-- 4) Local JS -->
+  <script src="includes/jquery-3.7.1.min.js" defer=""></script>
+  <script src="/includes/js/main.js" defer=""></script>
 
-      /* Name + tagline */
-      h1.lh-condensed {
-        font-weight: 600;
-        font-size: 32px;
-        margin-bottom: 8px;
-      }
+  <!-- 5) Favicon -->
+  <link rel="icon" href="/images/favicon.ico" type="image/gif">
+  <style>
+    /* Page base */
+    html,
+    body {
+      height: 100%;
+    }
 
-      .f4.text-gray {
-        color: #586069;
-        font-size: 16px;
-      }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: #ffffff;
+      color: #24292e;
+    }
 
-      /* Row with GitHub handle + location + socials */
-      .f4.mb-6 {
-        margin-top: 16px;
-        font-size: 14px;
-        color: #586069;
-      }
+    /* Main container matches GitHub profile width & spacing */
+    .container-lg {
+      max-width: 980px;
+      margin: 40px auto 80px;
+      padding: 0 16px;
+    }
 
-      .f4.mb-6 .d-md-inline-block {
-        color: #586069;
-      }
+    /* Avatar */
+    .circle {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px #fff, 0 8px 20px rgba(27, 31, 35, 0.15);
+      margin-bottom: 16px;
+    }
 
-      .f4.mb-6 a {
-        color: #0366d6;
-        text-decoration: none;
-      }
+    /* Name + tagline */
+    h1.lh-condensed {
+      font-weight: 600;
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
 
-      .f4.mb-6 a:hover {
-        text-decoration: underline;
-      }
+    .f4.text-gray {
+      color: #586069;
+      font-size: 16px;
+    }
 
-      .f4.mb-6 svg {
-        vertical-align: middle;
-      }
+    /* Row with GitHub handle + location + socials */
+    .f4.mb-6 {
+      margin-top: 16px;
+      font-size: 14px;
+      color: #586069;
+    }
 
-      .d-flex.flex-wrap.flex-items-start.flex-justify-center.mt-1.mt-md-3
-        svg {
-        fill: #6a737d;
-      }
+    .f4.mb-6 .d-md-inline-block {
+      color: #586069;
+    }
 
-      .d-flex.flex-wrap.flex-items-start.flex-justify-center.mt-1.mt-md-3
-        a {
-        color: #6a737d;
-      }
+    .f4.mb-6 a {
+      color: #0366d6;
+      text-decoration: none;
+    }
 
-      /* Green "Available for hire" pill */
-      .hire-badge {
-        display: inline-block;
-        padding: 0.25rem 0.75rem;
-        border-radius: 5px;
-        background-color: #2da44e;
-        color: #ffffff;
-        font-size: 14px;
-        font-weight: 500;
-        margin-top: 12px;
-      }
+    .f4.mb-6 a:hover {
+      text-decoration: underline;
+    }
 
-      /* Section heading “My Projects” */
-      .my-6 h2 {
-        font-size: 24px;
-        font-weight: 600;
-        margin-bottom: 4px;
-      }
-      .interest-card {
-      border: 1px solid #e5e7eb;          /* light gray */
+    .f4.mb-6 svg {
+      vertical-align: middle;
+    }
+
+    .d-flex.flex-wrap.flex-items-start.flex-justify-center.mt-1.mt-md-3 svg {
+      fill: #6a737d;
+    }
+
+    .d-flex.flex-wrap.flex-items-start.flex-justify-center.mt-1.mt-md-3 a {
+      color: #6a737d;
+    }
+
+    /* Green "Available for hire" pill */
+    .hire-badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 5px;
+      background-color: #2da44e;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 500;
+      margin-top: 12px;
+    }
+
+    /* Section heading “My Projects” */
+    .my-6 h2 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .interest-card {
+      border: 1px solid #e5e7eb;
+      /* light gray */
       border-radius: 12px;
-      box-shadow: 0 1px 2px rgba(0,0,0,.04);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, .04);
       transition: transform .15s ease, box-shadow .15s ease;
     }
 
     .interest-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(0,0,0,.08);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .08);
     }
 
     .interest-icon {
@@ -133,991 +143,1049 @@
     }
 
 
-      .my-6 .text-gray {
-        color: #586069;
-        font-size: 14px;
-      }
+    .my-6 .text-gray {
+      color: #586069;
+      font-size: 14px;
+    }
 
-      /* Grid of repo cards */
-      .d-sm-flex.flex-wrap.gutter-condensed.mb-4 {
-        margin-left: -8px;
-        margin-right: -8px;
-      }
+    /* Grid of repo cards */
+    .d-sm-flex.flex-wrap.gutter-condensed.mb-4 {
+      margin-left: -8px;
+      margin-right: -8px;
+    }
 
-      .col-sm-6.col-md-12.col-lg-6.col-xl-4.mb-3 {
-        padding-left: 8px;
-        padding-right: 8px;
-      }
+    .col-sm-6.col-md-12.col-lg-6.col-xl-4.mb-3 {
+      padding-left: 8px;
+      padding-right: 8px;
+    }
 
-      .github-component {
-        border: 1px solid #e1e4e8;
-        border-radius: 6px;
-        background-color: #ffffff;
-        box-shadow: 0 1px 3px rgba(27, 31, 35, 0.12);
-        font-size: 14px;
-      }
+    .github-component {
+      border: 1px solid #e1e4e8;
+      border-radius: 6px;
+      background-color: #ffffff;
+      box-shadow: 0 1px 3px rgba(27, 31, 35, 0.12);
+      font-size: 14px;
+    }
 
-      .github-component .text-gray {
-        color: #586069;
-        font-size: 13px;
-        line-height: 1.5;
-      }
+    .github-component .text-gray {
+      color: #586069;
+      font-size: 13px;
+      line-height: 1.5;
+    }
 
-      .github-component h1.f4 {
-        font-size: 16px;
-        margin-bottom: 4px;
-      }
+    .github-component h1.f4 {
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
 
-      .github-component h1.f4 a {
-        font-weight: 600;
-        color: #0366d6;
-        text-decoration: none;
-      }
+    .github-component h1.f4 a {
+      font-weight: 600;
+      color: #0366d6;
+      text-decoration: none;
+    }
 
-      .github-component h1.f4 a:hover {
-        text-decoration: underline;
-      }
+    .github-component h1.f4 a:hover {
+      text-decoration: underline;
+    }
 
-      .github-component .d-flex.f6 {
-        margin-top: 8px;
-        align-items: center;
-        font-size: 12px;
-        color: #586069;
-      }
+    .github-component .d-flex.f6 {
+      margin-top: 8px;
+      align-items: center;
+      font-size: 12px;
+      color: #586069;
+    }
 
-      .repo-language-color {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        display: inline-block;
-      }
+    .repo-language-color {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      display: inline-block;
+    }
 
-      .github-component .link-gray {
-        color: #586069;
-        text-decoration: none;
-      }
+    .github-component .link-gray {
+      color: #586069;
+      text-decoration: none;
+    }
 
-      .github-component .link-gray:hover {
-        color: #0366d6;
-        text-decoration: none;
-      }
-      /* Give the whole top section a little more breathing room */
-  .container-lg {
-    max-width: 980px;
-    margin: 56px auto 80px;  /* was 40px */
-    padding: 0 16px;
-  }
+    .github-component .link-gray:hover {
+      color: #0366d6;
+      text-decoration: none;
+    }
 
-  /* Center and tighten social icons row a bit */
-  .d-flex.flex-wrap.flex-items-start.flex-justify-center.mt-1.mt-md-3 {
-    margin-top: 12px;
-    gap: 16px;          /* space between icons */
-  }
+    /* Give the whole top section a little more breathing room */
+    .container-lg {
+      max-width: 980px;
+      margin: 56px auto 80px;
+      /* was 40px */
+      padding: 0 16px;
+    }
 
-  .d-flex.flex-wrap.flex-items-start.flex-justify-center.mt-1.mt-md-3 a {
-    color: #6a737d;
-    text-decoration: none;
-  }
+    /* Center and tighten social icons row a bit */
+    .d-flex.flex-wrap.flex-items-start.flex-justify-center.mt-1.mt-md-3 {
+      margin-top: 12px;
+      gap: 16px;
+      /* space between icons */
+    }
 
-  .d-flex.flex-wrap.flex-items-start.flex-justify-center.mt-1.mt-md-3 a:hover {
-    color: #24292e;
-  }
-  .my-6 {
-    margin-top: 32px;
-  }
+    .d-flex.flex-wrap.flex-items-start.flex-justify-center.mt-1.mt-md-3 a {
+      color: #6a737d;
+      text-decoration: none;
+    }
 
-  .my-6 h2 {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 4px;
-  }
+    .d-flex.flex-wrap.flex-items-start.flex-justify-center.mt-1.mt-md-3 a:hover {
+      color: #24292e;
+    }
 
-  .my-6 .text-gray {
-    margin-top: 4px;
-  }
-  /* Grid gutters */
-  .d-sm-flex.flex-wrap.gutter-condensed.mb-4 {
-    margin-left: -12px;
-    margin-right: -12px;
-  }
+    .my-6 {
+      margin-top: 32px;
+    }
 
-  .col-sm-6.col-md-12.col-lg-6.col-xl-4.mb-3 {
-    padding-left: 12px;
-    padding-right: 12px;
-  }
+    .my-6 h2 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
 
-  /* Card look */
-  .github-component {
-    border: 1px solid #e1e4e8;
-    border-radius: 6px;
-    background-color: #ffffff;
-    box-shadow: 0 1px 3px rgba(27, 31, 35, 0.12);
-    font-size: 14px;
-  }
+    .my-6 .text-gray {
+      margin-top: 4px;
+    }
 
-  /* Bottom meta row: language + stars + forks */
-  .github-component .d-flex.f6 {
-    margin-top: 10px;
-    align-items: center;
-    font-size: 12px;
-    color: #586069;
-  }
+    /* Grid gutters */
+    .d-sm-flex.flex-wrap.gutter-condensed.mb-4 {
+      margin-left: -12px;
+      margin-right: -12px;
+    }
+
+    .col-sm-6.col-md-12.col-lg-6.col-xl-4.mb-3 {
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+
+    /* Card look */
+    .github-component {
+      border: 1px solid #e1e4e8;
+      border-radius: 6px;
+      background-color: #ffffff;
+      box-shadow: 0 1px 3px rgba(27, 31, 35, 0.12);
+      font-size: 14px;
+    }
+
+    /* Bottom meta row: language + stars + forks */
+    .github-component .d-flex.f6 {
+      margin-top: 10px;
+      align-items: center;
+      font-size: 12px;
+      color: #586069;
+    }
+
     .interest-card {
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
-    transition: all 0.2s ease-in-out;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-    background: #fff;
-  }
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      transition: all 0.2s ease-in-out;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      background: #fff;
+    }
 
-  .interest-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-  }
+    .interest-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    }
 
-  .interest-icon {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-    border-radius: 10px;
-  }
+    .interest-icon {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      border-radius: 10px;
+    }
 
-  .github-component .d-flex.f6 > span,
-  .github-component .d-flex.f6 > a {
-    display: inline-flex;
-    align-items: center;
-    margin-right: 12px;      /* spacing between language / star / fork */
-  }
+    .github-component .d-flex.f6>span,
+    .github-component .d-flex.f6>a {
+      display: inline-flex;
+      align-items: center;
+      margin-right: 12px;
+      /* spacing between language / star / fork */
+    }
 
-  .github-component .d-flex.f6 svg {
-    margin-right: 4px;       /* space between icon and number */
-  }
-  h1.lh-condensed {
-    font-weight: 600;
-    font-size: 34px;   /* was 32 */
-  }
-  h1.lh-condensed {
-    font-weight: 600;
-    font-size: 34px;   /* was 32 */
-  }
-  /* Force all repo cards to have equal height */
-  .d-sm-flex.flex-wrap.gutter-condensed.mb-4 {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+    .github-component .d-flex.f6 svg {
+      margin-right: 4px;
+      /* space between icon and number */
+    }
 
-  .col-sm-6.col-md-12.col-lg-6.col-xl-4.mb-3 {
-    display: flex;
-  }
+    h1.lh-condensed {
+      font-weight: 600;
+      font-size: 34px;
+      /* was 32 */
+    }
 
-  .github-component {
-    flex: 1 1 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 230px; /* tweak this to your liking */
-  }
-  /* Center the social icons properly under the header */
-  .social-icons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 18px;
-    margin-top: 8px;
-    margin-bottom: 16px;
-  }
+    h1.lh-condensed {
+      font-weight: 600;
+      font-size: 34px;
+      /* was 32 */
+    }
 
-  .social-icons a {
-    color: #6a737d;
-    font-size: 18px;
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
+    /* Force all repo cards to have equal height */
+    .d-sm-flex.flex-wrap.gutter-condensed.mb-4 {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 
-  .social-icons a:hover {
-    color: #24292e;
-  }
-  
-    </style>
+    .col-sm-6.col-md-12.col-lg-6.col-xl-4.mb-3 {
+      display: flex;
+    }
 
+    .github-component {
+      flex: 1 1 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 230px;
+      /* tweak this to your liking */
+    }
 
-    <!-- 4) Local JS -->
-    <script src="includes/jquery-3.7.1.min.js" defer=""></script>
-    <script src="js/main.js" defer=""></script>
+    /* Center the social icons properly under the header */
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      margin-top: 8px;
+      margin-bottom: 16px;
+    }
 
-    <!-- 5) Favicon -->
-    <link rel="icon" href="assets/images/favicon.ico" type="image/gif">
-  </head>
-        <style>
-/* Sticky Navbar Styles */
-.site-navbar {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  z-index: 1030; /* Ensure it stays above other content */
-  background-color: transparent; /* Dark background for contrast */
-    border-bottom: 1px solid #ffffff; /* Subtle bottom border */
+    .social-icons a {
+      color: #6a737d;
+      font-size: 18px;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
 
-/* Make sure links are actually visible */
-.site-navbar .navbar-nav .nav-link {
-  color: #ffffff;
-  font-size: 0.8rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  padding: 0.5rem 1rem;
-}
-.nav-item {
-    color: #ffffff;
-    font-size: 0.8rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    padding: 0.5rem 1rem;
-}
-.site-navbar .navbar-nav .nav-item:hover,
-.site-navbar .navbar-nav .nav-item:focus,
-.site-navbar .navbar-nav .nav-item.active {
-  color: #9eb5cf;
-}
-/* --- Back Story: mobile-first clean layout --- */
+    .social-icons a:hover {
+      color: #24292e;
+    }
 
-.about-backstory-inner {
-  max-width: 60rem;
-  margin: 0 auto;
-  padding: 4rem 1.5rem;
-  display: block;           /* kill old grid on small screens */
-}
+    /* Sticky Navbar Styles */
+    /* --- Back Story: mobile-first clean layout --- */
 
-/* Heading stays left-aligned */
-.about-backstory-title h2 {
-  font-size: clamp(2.3rem, 3vw, 3rem);
-  font-weight: 200;
-  margin: 0 0 1.5rem;
-  text-align: left;
-}
+    .about-backstory-inner {
+      max-width: 60rem;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+      display: block;
+      /* no grid on mobile */
+    }
 
-/* Center the portrait only */
-.about-backstory-photo {
-  display: flex;
-  justify-content: center;
-  margin: 1.8rem 0 2.4rem;
-}
+    /* Heading */
+    .about-backstory-title h2 {
+      font-size: clamp(2.3rem, 3vw, 3rem);
+      font-weight: 200;
+      margin: 0 0 1.5rem;
+      text-align: left;
+    }
 
-.about-backstory-photo img {
-  width: min(260px, 70vw);  /* scale nicely on phones */
-  height: auto;
-  border-radius: 50%;
-  object-fit: cover;
-}
+    /* Photo wrapper */
+    .about-backstory-photo {
+      width: 100%;
+      max-width: 360px;
+      margin: 2rem auto 3rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: visible;
+    }
 
-/* Body text stays left and readable */
-.about-backstory-content {
-  max-width: 40rem;
-  font-weight: 100;
-}
+    /* Circular photo */
+    .about-backstory-photo img {
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
 
-.about-backstory-content p {
-  font-size: 0.98rem !important;
-  line-height: 1.8 !important;
-  margin-bottom: 1.2rem !important;
-  color: #dcdcdc !important;
-}
+    /* Section styling */
+    .about-backstory {
+      background: #000;
+      color: #f5f5f5;
+      padding: 5rem 0 4rem;
+    }
 
-/* Optional: re-introduce grid only on larger screens */
-@media (min-width: 900px) {
-  .about-backstory-inner {
-    display: grid !important;
-    grid-template-columns: 1fr !important;     /* still single column for text */
-  }
+    /* Text area */
+    .about-backstory-content {
+      max-width: 40rem;
+      font-weight: 100;
+    }
 
-  .about-backstory-photo {
-    justify-content: center !important;        /* still centered on desktop */
-  }
-  
-  .about-backstory-photo img {
-    width: 320px;
-    margin-left: 50%;
-  }
-}
+    .about-backstory-content p {
+      font-size: 0.98rem !important;
+      line-height: 1.8 !important;
+      margin-bottom: 1.2rem !important;
+      color: #dcdcdc !important;
+    }
+
+    /* --- Larger screens --- */
+    @media (min-width: 900px) {
+      .about-backstory-inner {
+        display: grid;
+      }
+    }
 
 
-/* Optional: keep body content from hiding under the nav */
-body {
-  padding-top: 72px; /* tweak if your nav is taller/shorter */
-}
+    /* Optional: keep body content from hiding under the nav */
+    body {
+      padding-top: none;
+      /* tweak if your nav is taller/shorter */
+    }
 
-.about-hero {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-    background-image: url(/assets/images/about-banner.jpg);
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    color: #ffffff;
-}
+    .about-hero {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      background-image: url(/images/about-banner.jpg);
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      color: #ffffff;
+    }
 
-.random-facts {
-    background: #000;
-    color: #fff;
-    padding: 4rem;
-}
+    .random-facts {
+      background: #000;
+      color: #fff;
+      padding: 4rem;
+    }
 
-/* --- Lightbox / pop-up gallery --- */
+    .from-black {
+      --tw-gradient-from: #000 !important;
+      /*#070c13*/
+      --tw-gradient-to: transparent !important;
+      --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+      padding-bottom: 20px !important;
+      padding-top: 10px;
+    }
 
-.gallery-modal[hidden] {
-  display: none;
-}
+    .bg-gradient-to-t {
+      background-image: linear-gradient(to top, var(--tw-gradient-stops)) !important;
+    }
 
-.gallery-modal {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  display: grid;
-  place-items: center;
-  pointer-events: none;
-}
+    .w-full {
+      width: 100% !important;
+    }
 
-.gallery-modal-backdrop {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at top, rgba(17, 24, 39, 0.8), rgba(0, 0, 0, 0.96));
-  backdrop-filter: blur(6px);
-}
+    .h-24 {
+      height: 6rem !important;
+    }
 
-.gallery-modal-content {
-  position: relative;
-  z-index: 1;
-  max-width: min(1000px, 92vw);
-  max-height: 86vh;
-  background: #050508;
-  border-radius: 14px;
-  border: 1px solid rgba(177, 75, 249, 0.5);
-  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.9);
-  padding: 1.25rem 3rem;
-  display: grid;
-  grid-template-rows: auto minmax(0, 1fr) auto;
-  gap: 0.75rem;
-  pointer-events: auto;
-}
+    .-mb-1 {
+      margin-bottom: -.25rem !important;
+    }
 
-.gallery-modal-image-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-height: 60vh;
-}
+    .bottom-0 {
+      bottom: 0 !important;
+    }
 
-.gallery-modal-image-wrapper img {
-  max-width: 100%;
-  max-height: 60vh;
-  border-radius: 10px;
-  object-fit: contain;
-}
+    .left-0 {
+      left: 0 !important;
+    }
 
-.gallery-modal-caption {
-  color: #e5e7eb;
-  font-size: 0.9rem;
-}
+    .absolute {
+      position: sticky;
+    }
 
-.gallery-modal-caption h3 {
-  margin: 0 0 0.25rem;
-  font-size: 1rem;
-  font-weight: 500;
-}
+    .h-100 {
+      height: 100%;
+    }
 
-.gallery-modal-caption p {
-  margin: 0 0 0.35rem;
-  color: #9ca3af;
-}
+    div #sec_one {
+      margin-bottom: 0 !important;
+      padding-bottom: 0 !important;
+      height: 638.8px !important;
+    }
 
-.gallery-modal-counter {
-  font-size: 0.8rem;
-  color: #6b7280;
-}
+    div.parallax-secondary {
+      background-image: url('../images/backgrounds/glowing-ice-giant3.png') !important;
+      min-height: 100px !important;
+    }
 
-.gallery-modal-close {
-  position: absolute;
-  top: 0.6rem;
-  right: 0.8rem;
-  border-radius: 999px;
-  border: 1px solid rgba(148, 163, 184, 0.6);
-  background: rgba(15, 23, 42, 0.9);
-  color: #f9fafb;
-  width: 28px;
-  height: 28px;
-  font-size: 1.1rem;
-  line-height: 1;
-  display: grid;
-  place-items: center;
-  cursor: pointer;
-}
+    body,
+    html {
+      background-color: #000 !important;
+      color: #fff !important;
+      background-image: none !important;
+      padding-bottom: 0 !important;
+      height: 638.8px !important;
+    }
 
-.gallery-modal-close:hover {
-  background: rgba(148, 163, 184, 0.25);
-}
+    div.container-fluid {
+      height: relative;
+    }
 
-.gallery-modal-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  border-radius: 999px;
-  border: 1px solid rgba(148, 163, 184, 0.6);
-  background: rgba(15, 23, 42, 0.9);
-  color: #f9fafb;
-  width: 32px;
-  height: 32px;
-  font-size: 1.3rem;
-  line-height: 1;
-  display: grid;
-  place-items: center;
-  cursor: pointer;
-}
+    .sub-page.mission-page {
+      margin-top: 0px
+    }
 
-.gallery-modal-nav.prev {
-  left: 0.8rem;
-}
+    /* --- Lightbox / pop-up gallery --- */
 
-.gallery-modal-nav.next {
-  right: 0.8rem;
-}
+    .gallery-modal[hidden] {
+      display: none;
+    }
 
-.gallery-modal-nav:hover {
-  background: rgba(148, 163, 184, 0.25);
-}
+    .gallery-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: grid;
+      place-items: center;
+      pointer-events: none;
+    }
 
-@media (max-width: 640px) {
-  .gallery-modal-content {
-    padding: 1rem 1.25rem 1.1rem;
-  }
-  .gallery-modal-nav.prev {
-    left: 0.4rem;
-  }
-  .gallery-modal-nav.next {
-    right: 0.4rem;
-  }
-}
+    .gallery-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top, rgba(17, 24, 39, 0.8), rgba(0, 0, 0, 0.96));
+      backdrop-filter: blur(6px);
+    }
 
-  /* Sticky Navbar Styles */
-.site-navbar {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  z-index: 1030; /* Ensure it stays above other content */
-  background-color: transparent; /* Dark background for contrast */
-  border-bottom: 1px solid #ffffff; /* Subtle bottom border */
-}
-/* Make sure links are actually visible */
-.site-navbar .navbar-nav .nav-link {
-  color: #ffffff;
-  font-size: 0.8rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  padding: 0.5rem 1rem;
-}
-.nav-item {
-    color: #ffffff;
-    font-size: 0.8rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    padding: 0.5rem 1rem;
-}
-.site-navbar .navbar-nav .nav-item:hover,
-.site-navbar .navbar-nav .nav-item:focus,
-.site-navbar .navbar-nav .nav-item.active {
-  color: #9eb5cf;
-}
-/* Optional: make the modal background dark and the caption more visible */
-.gallery-modal-backdrop {
-  background: radial-gradient(circle at top, rgba(0,0,0,0.85), rgba(0,0,0,0.95));
-  backdrop-filter: blur(8px);
-}
+    .gallery-modal-content {
+      position: relative;
+      z-index: 1;
+      max-width: min(1000px, 92vw);
+      max-height: 86vh;
+      background: #050508;
+      border-radius: 14px;
+      border: 1px solid rgba(177, 75, 249, 0.5);
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.9);
+      padding: 1.25rem 3rem;
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr) auto;
+      gap: 0.75rem;
+      pointer-events: auto;
+    }
 
-#galleryModal .carousel-caption {
-  background-color: rgba(0,0,0,0.5);
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-}
+    .gallery-modal-image-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-height: 60vh;
+    }
 
+    .gallery-modal-image-wrapper img {
+      max-width: 100%;
+      max-height: 60vh;
+      border-radius: 10px;
+      object-fit: contain;
+    }
 
-</style>
+    .gallery-modal-caption {
+      color: #e5e7eb;
+      font-size: 0.9rem;
+    }
 
-<section
-            class="about-hero d-flex align-items-center justify-content-center text-center">
-            <div class="about-hero-overlay"> <!-- Include Navbar -->
-        <!-- 🌐 Sticky Navbar -->
-        <nav
-            class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky py-2" style="background-color: transparent !important;border-bottom: 0.5px solid #ffffff">
-            <div class="container" style="color: transparent !important;">
-                <!-- Brand / Logo -->
-                <a class="navbar-brand fw-semibold" href="index.html" style="color: #ffffff;">
-                    BLKPVNTHR
-                </a>
+    .gallery-modal-caption h3 {
+      margin: 0 0 0.25rem;
+      font-size: 1rem;
+      font-weight: 500;
+    }
 
-                <!-- Hamburger Menu -->
-                <button class="navbar-toggler" type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarContent"
-                    aria-controls="navbarContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
-      <ul class="navbar-nav mb-2 mb-lg-0">
+    .gallery-modal-caption p {
+      margin: 0 0 0.35rem;
+      color: #9ca3af;
+    }
 
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-        </li>
+    .gallery-modal-counter {
+      font-size: 0.8rem;
+      color: #6b7280;
+    }
 
-         <li class="nav-item">
-          <a class="nav-link" href="images.html">Gallery</a>
-        </li>
+    .gallery-modal-close {
+      position: absolute;
+      top: 0.6rem;
+      right: 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.9);
+      color: #f9fafb;
+      width: 28px;
+      height: 28px;
+      font-size: 1.1rem;
+      line-height: 1;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+    }
 
-        <li class="nav-item">
-          <a class="nav-link" href="portfolio.html">Portfolio</a>
-        </li>
+    .gallery-modal-close:hover {
+      background: rgba(148, 163, 184, 0.25);
+    }
 
-        <li class="nav-item">
-          <a class="nav-link" href="https://github.com/blkpvnthr" target="_blank">
-            GitHub
+    .gallery-modal-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.9);
+      color: #f9fafb;
+      width: 32px;
+      height: 32px;
+      font-size: 1.3rem;
+      line-height: 1;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+    }
+
+    .gallery-modal-nav.prev {
+      left: 0.8rem;
+    }
+
+    .gallery-modal-nav.next {
+      right: 0.8rem;
+    }
+
+    .gallery-modal-nav:hover {
+      background: rgba(148, 163, 184, 0.25);
+    }
+
+    @media (max-width: 640px) {
+      .gallery-modal-content {
+        padding: 1rem 1.25rem 1.1rem;
+      }
+
+      .gallery-modal-nav.prev {
+        left: 0.4rem;
+      }
+
+      .gallery-modal-nav.next {
+        right: 0.4rem;
+      }
+    }
+
+    /* Sticky Navbar Styles */
+    .site-navbar {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      z-index: 1030;
+      /* Ensure it stays above other content */
+      background-color: transparent;
+      /* Dark background for contrast */
+      border-bottom: 1px solid #ffffff;
+      /* Subtle bottom border */
+    }
+
+    /* Make sure links are actually visible */
+    .site-navbar .navbar-nav .nav-link {
+      color: #ffffff;
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 0.5rem 1rem;
+    }
+
+    .nav-item {
+      color: #ffffff;
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 0.5rem 1rem;
+    }
+
+    .site-navbar .navbar-nav .nav-item:hover,
+    .site-navbar .navbar-nav .nav-item:focus,
+    .site-navbar .navbar-nav .nav-item.active {
+      color: #9eb5cf;
+    }
+
+    /* Optional: make the modal background dark and the caption more visible */
+    .gallery-modal-backdrop {
+      background: radial-gradient(circle at top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.95));
+      backdrop-filter: blur(8px);
+    }
+
+    #galleryModal .carousel-caption {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 0.5rem 1rem;
+      border-radius: 0.25rem;
+    }
+  </style>
+
+  <section class="about-hero relative d-flex align-items-center justify-content-center text-center">
+
+    <div class="about-hero-overlay">
+
+      <!-- 🌐 Sticky Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky py-2"
+        style="background-color: transparent !important;border-bottom: 0.5px solid #ffffff">
+        <div class="container" style="color: transparent !important;">
+          <!-- Brand / Logo -->
+          <a class="navbar-brand fw-semibold" href="index.html" style="color: #ffffff;">
+            BLKPVNTHR
           </a>
-        </li>
 
-      </ul>
-    </div>
-                
-            </div>
-        </nav>
-</div>
+          <!-- Hamburger Menu -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+            aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
+            <ul class="navbar-nav mb-2 mb-lg-0">
 
-            <div class="about-hero-content position-relative">
-                <h1 class="about-hero-title no-wrap">Defined by Detail.</h1>
-                <!--<p class="about-hero-subtitle mt-4">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="images.html">Gallery</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="portfolio.html">Portfolio</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="https://github.com/blkpvnthr" target="_blank">
+                  GitHub
+                </a>
+              </li>
+
+            </ul>
+          </div>
+
+        </div>
+      </nav>
+
+      <div class="about-hero-content position-relative">
+        <h1 class="about-hero-title no-wrap">Defined by Detail.</h1>
+        <!--<p class="about-hero-subtitle mt-4">
     – building things at the intersection of data, automation, and curiosity.
     </p>-->
-            </div>
-        </section>
-<section class="random-facts">
-  <div class="random-facts-inner">
-    
-    <!-- Left: photo -->
-    <div class="random-facts-media space-between mb-6 mb-md-0">
-      <img src="/assets/images/toot.PNG" alt="My cat supervising my desk" />
+
+      </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <div class="-mb-5 mt-6 mb-0 absolute bg-gradient-to-t bottom-0 from-black h-24 left-0 lg:h-56 w-full"
+        style="top: 75%;margin-bottom: 0px;position: static;bottom: -40%;padding-bottom: 100px !important;padding-top: 105px;">
+      </div>
+  </section>
+
+  <!-- Random Facts Section -->
+  <section class="random-facts relative overflow-hidden py-0 px-0">
+
+    <div class="random-facts-inner">
+
+      <!-- Left: photo -->
+      <div class="random-facts-media space-between mb-6 mb-md-0">
+        <img src="/images/toot.PNG" alt="My cat supervising my desk" />
+      </div>
+
+      <!-- Right: heading + text -->
+      <div class="random-facts-copy" style="margin-left: 10%;margin-top: 15%;">
+        <h2 class="random-facts-title">Random Facts.</h2>
+
+        <p class="random-facts-text">
+          My name is Asmaa. I have a passion for building fish tanks. I have
+          two cats and two leopard geckos. My favorite number is 4. I love
+          to travel. I speak Arabic fluently. My favorite cartoon is Courage
+          the Cowardly Dog. I play guitar, piano, and bass. I love journaling /
+          scrapbooking. I enjoy going fishing and my favorite food is crab legs.
+        </p>
+      </div>
+
+
     </div>
-
-    <!-- Right: heading + text -->
-    <div class="random-facts-copy" style="margin-left: 10%;margin-top: 15%;">
-  <h2 class="random-facts-title">Random Facts.</h2>
-
-  <p class="random-facts-text">
-    My name is Asmaa. I have a passion for building fish tanks. I have
-    two cats and two leopard geckos. My favorite number is 4. I love
-    to travel. I speak Arabic fluently. My favorite cartoon is Courage
-    the Cowardly Dog. I play guitar, piano, and bass. I love journaling /
-    scrapbooking. I enjoy going fishing and my favorite food is crab legs.
-  </p>
-</div>
+  </section>
 
 
-  </div>
-</section>
-
-
-        <!-- Me in a nutshell section -->
-<section class="about-nutshell">
-  <div class="container">
-    <div class="about-nutshell-inner">
-      <p class="about-nutshell-label">Overall</p>
-      <p class="about-nutshell-text">
-        I’m a data-driven engineer, cat person, artist, musician, quantum-curious
-        tinkerer, and quietly ambitious programmer.
-      </p>
+  <!-- Me in a nutshell section -->
+  <section class="about-nutshell">
+    <div class="container">
+      <div class="about-nutshell-inner">
+        <p class="about-nutshell-label">Overall</p>
+        <p class="about-nutshell-text">
+          I’m a data-driven engineer, cat person, artist, musician, quantum-curious
+          tinkerer, and quietly ambitious programmer.
+        </p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
   <!-- About Me Section -->
 
-    <!-- Title 
+  <!-- Title 
     <div class="about-backstory-title">
       <h2>Back Story.</h2>
     </div>--><!-- OPTIONAL IMAGE BLOCK -->
-    <!--div class="about-backstory-photo">
-      <img src="/assets/images/toot.PNG" alt="About Me Photo">
+  <!--div class="about-backstory-photo">
+      <img src="/images/toot.PNG" alt="About Me Photo">
     </div>
---> 
-   <!-- Text Content -->
-<section class="about-backstory my-2">
-  <div class="about-backstory-inner my-0">
+-->
+  <!-- Text Content -->
+  <section class="about-backstory my-2">
+    <div class="about-backstory-inner my-0">
 
-    <!-- Heading -->
-    <div class="about-backstory-title">
-      <h2>Back Story.</h2>
+      <!-- Heading -->
+      <div class="about-backstory-title">
+        <h2>Back Story.</h2>
+      </div>
+
+      <!-- Centered portrait -->
+      <div class="about-backstory-photo">
+        <img src="/images/bck-stry.JPG" alt="Asmaa working" />
+      </div>
+
+      <!-- Left-aligned text -->
+      <div class="about-backstory-content mb-0">
+        <p>
+          Long before I wrote code, I was creating things in every medium I could get my hands on.
+          I grew up playing piano, guitar, and bass entirely by ear — listening, imitating,
+          and building melodies without sheet music. And when I wasn’t making noise,
+          I was painting or drawing, trying to capture whatever I couldn’t put into words.
+          Music taught me patterns. Art taught me composition. Both taught me how to see
+          structure where most people only see chaos.
+        </p>
+
+        <p>
+          Eventually that creative instinct spilled into engineering. The same part of me
+          that used to break down songs or blend colors started breaking down systems —
+          writing late-night Python experiments, rebuilding websites from scratch, and
+          teaching myself the math and logic needed to make data behave. It felt less like
+          switching fields and more like switching instruments.
+        </p>
+
+        <p>
+          Today, I’m a Data Science and Computer Engineering intern focused on applied
+          machine learning, automation pipelines, quantitative modeling, and building systems
+          that are stable, efficient, and intuitive. I still approach engineering the same way
+          I approached art and music: start with intuition, refine with structure, and keep
+          iterating until everything fits.
+        </p>
+
+        <p>
+          I’m currently interning at The Johns Hopkins University Applied Physics Laboratory
+          (JHU/APL) in the Space Exploration Sector, where I help develop mission-critical
+          software and data infrastructure supporting NASA missions. It’s work that requires
+          precision, reliability, and a kind of quiet creativity — engineering that feels
+          more like composition than construction.
+        </p>
+
+        <p>
+          In the end, I’m still creating things — only now the canvas is a codebase, the
+          instruments are models and APIs, and the final product is a system that helps
+          people solve real problems. The medium changed, but the mindset never did.
+        </p>
+      </div>
+
     </div>
+  </section>
 
-    <!-- Centered portrait -->
-    <div class="about-backstory-photo">
-      <img src="/assets/images/bck-stry.JPG" alt="Asmaa working" />
-    </div>
+  <!-- Portfolio Gallery Section -->
+  <section class="my-2">
+    <section class="tumblr-gallery mt-1 mb-4">
 
-    <!-- Left-aligned text -->
-    <div class="about-backstory-content mb-0">
-      <p>
-        Long before I wrote code, I was creating things in every medium I could get my hands on. 
-        I grew up playing piano, guitar, and bass entirely by ear — listening, imitating, 
-        and building melodies without sheet music. And when I wasn’t making noise, 
-        I was painting or drawing, trying to capture whatever I couldn’t put into words. 
-        Music taught me patterns. Art taught me composition. Both taught me how to see 
-        structure where most people only see chaos.
-      </p>
+      <div class="text-center">
+        <h2 class="about-nutshell-label" style="font-weight: 200; margin-bottom: 0.5rem;">
+          Web Development Portfolio
+        </h2>
+      </div>
+      <div class="text-center">
+        <p class="text-center about-backstory-content my-2"
+          style="font-weight: 100; margin: 0 auto; max-width: 1040px;font-size: small;">
+          Some examples of work from my internship at JHU/APL.
+        </p>
+      </div>
+      <div class="tumblr-grid" id="portfolio-grid">
+        <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal" data-bs-target="#galleryModal"
+          data-img="/images/ezie-images/ezie.png">
+          <img src="/images/ezie-images/ezie.png" alt="Ezie site" class="gallery-img" alt="Ezie site re-development.">
+        </a>
 
-      <p>
-        Eventually that creative instinct spilled into engineering. The same part of me 
-        that used to break down songs or blend colors started breaking down systems — 
-        writing late-night Python experiments, rebuilding websites from scratch, and 
-        teaching myself the math and logic needed to make data behave. It felt less like 
-        switching fields and more like switching instruments.
-      </p>
+        <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal" data-bs-target="#galleryModal"
+          data-img="/images/ezie-images/ezie-gallery-4.png">
+          <img src="/images/ezie-images/ezie-gallery-4.png" alt="Ezie site" class="gallery-img"
+            alt="Ezie site re-development.">
+        </a>
 
-      <p>
-        Today, I’m a Data Science and Computer Engineering intern focused on applied 
-        machine learning, automation pipelines, quantitative modeling, and building systems 
-        that are stable, efficient, and intuitive. I still approach engineering the same way 
-        I approached art and music: start with intuition, refine with structure, and keep 
-        iterating until everything fits.
-      </p>
+        <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal" data-bs-target="#galleryModal"
+          data-img="/images/ice-giants/ice-giants-old.png">
+          <img src="/images/ice-giants/ice-giants-old.png" class="gallery-img" alt="Ice Giants site">
+        </a>
 
-      <p>
-        I’m currently interning at The Johns Hopkins University Applied Physics Laboratory 
-        (JHU/APL) in the Space Exploration Sector, where I help develop mission-critical 
-        software and data infrastructure supporting NASA missions. It’s work that requires 
-        precision, reliability, and a kind of quiet creativity — engineering that feels 
-        more like composition than construction.
-      </p>
+        <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal" data-bs-target="#galleryModal"
+          data-img="/images/ice-giants/ice-giants-7.png">
+          <img src="/images/ice-giants/ice-giants-7.png" class="gallery-img" alt="Ice Giants site">
+        </a>
 
-      <p>
-        In the end, I’m still creating things — only now the canvas is a codebase, the 
-        instruments are models and APIs, and the final product is a system that helps 
-        people solve real problems. The medium changed, but the mindset never did.
-      </p>
-    </div>
+        <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal" data-bs-target="#galleryModal"
+          data-img="/images/IMG/parker.png">
+          <img src="/images/IMG/parker.png" class="gallery-img" alt="Parker Solar Probe site 1">
+        </a>
 
-  </div>
-</section>
+        <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal" data-bs-target="#galleryModal"
+          data-img="/images/IMG/parker2.png">
+          <img src="/images/IMG/parker2.png" alt="Parker Solar Probe site 2">
+        </a>
 
-<!-- Portfolio Gallery Section -->
-    <section class="my-2">
-      <section class="tumblr-gallery mt-1 mb-4">
+        <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal" data-bs-target="#galleryModal"
+          data-img="/images/TIMED/TIMED-0.png">
+          <img src="/images/TIMED/TIMED-0.png" alt="TIMED site re-development.">
+        </a>
 
-        <div class="text-center">
-          <h2 class="about-nutshell-label"
-            style="font-weight: 200; margin-bottom: 0.5rem;">
-            Web Development Portfolio
-          </h2>
-          </div>
-          <div class="text-center">
-          <p class="text-center about-backstory-content my-2"
-            style="font-weight: 100; margin: 0 auto; max-width: 1040px;font-size: small;">
-            Some examples of work from my internship at JHU/APL.
+        <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal" data-bs-target="#galleryModal"
+          data-img="/images/TIMED/TIMED.png">
+          <img src="/images/TIMED/TIMED.png" alt="TIMED site re-development.">
+        </a>
+      </div>
+
+      <div class="text-center mt-4" style="border-bottom: none;">
+        <a href="/images.html" rel="noopener" class="btn-ghost about-nutshell-label" style="font-size: x-small;">
+          View full gallery →
+        </a>
+      </div>
+    </section>
+
+
+
+    <!-- Me in a nutshell section -->
+    <section class="about-nutshell mt-6 mb-0">
+      <div class="container">
+        <div class="about-nutshell-inner">
+          <p class="about-nutshell-label mt-4">BASICALLY</p>
+          <p class="about-nutshell-text" style="font-size: 2rem !important;">
+            Outside of my technical work, I’m passionate about QML, automated stock trading systems, and predictive
+            analytics.
+            Creativity has always been the engine behind everything I build.
           </p>
         </div>
-        <div class="tumblr-grid" id="portfolio-grid">
-          <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal"
-            data-bs-target="#galleryModal"
-            data-img="/assets/images/ezie-images/ezie.png">
-            <img src="/assets/images/ezie-images/ezie.png" alt="Ezie site"
-              class="gallery-img" alt="Ezie site re-development.">
-          </a>
+      </div>
+    </section>
 
-          <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal"
-            data-bs-target="#galleryModal"
-            data-img="/assets/images/ezie-images/ezie-gallery-4.png">
-            <img src="/assets/images/ezie-images/ezie-gallery-4.png"
-              alt="Ezie site"
-              class="gallery-img" alt="Ezie site re-development.">
-          </a>
 
-          <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal"
-            data-bs-target="#galleryModal"
-            data-img="/assets/images/Picture13.png">
-            <img src="/assets/images/Picture13.png"
-              class="gallery-img"
-              alt="Ice Giants site">
-          </a>
+    <section class="socials-footer py-5">
+      <div class="container d-flex justify-content-between align-items-center flex-wrap">
 
-          <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal"
-            data-bs-target="#galleryModal"
-            data-img="/assets/images/ice-giants/ice-giants-7.png">
-            <img src="/assets/images/ice-giants/ice-giants-7.png"
-              class="gallery-img"
-              alt="Ice Giants site">
-          </a>
-
-          <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal"
-            data-bs-target="#galleryModal"
-            data-img="/assets/images/IMG/parker.png">
-            <img src="/assets/images/IMG/parker.png" class="gallery-img"
-              alt="Parker Solar Probe site 1">
-          </a>
-
-          <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal"
-            data-bs-target="#galleryModal"
-            data-img="/assets/images/IMG/parker2.png">
-            <img src="/assets/images/IMG/parker2.png"
-              alt="Parker Solar Probe site 2">
-          </a>
-
-          <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal"
-            data-bs-target="#galleryModal"
-            data-img="/assets/images/TIMED/TIMED-0.png">
-            <img src="/assets/images/TIMED/TIMED-0.png"
-              alt="TIMED site re-development.">
-          </a>
-
-          <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal"
-            data-bs-target="#galleryModal"
-            data-img="/assets/images/TIMED/TIMED.png">
-            <img src="/assets/images/TIMED/TIMED.png"
-              alt="TIMED site re-development.">
-          </a>
+        <!-- Left Contact Info -->
+        <div class="contact-info text-start mb-0">
+          <a href="https://blkpvnthr.dev" class="footer-initials mb-0" style="text-decoration: none !important;"><span
+              class="footer-initials mb-3" style="font-size: medium;">BLKPVNTHR</span></a>
+          <p style="text-decoration: none;"><a href="mailto:blkpvnthr@asmaa.dev"
+              class="about-text footer-link my-0 mb-0 mt-0"
+              style="font-size: small;text-decoration: none !important;"><span class="about-text my-0"><i
+                  class="fa-regular fa-envelope" style="text-decoration: none !important;"></i> Contact</span></a>
+            &nbsp;
+            | &nbsp;
+            <a href="tel:+12403082269" class="about-text my-0 mt-0 mb-0 "
+              style="font-size: small;text-decoration: none !important;"><span class="about-text my-0"
+                style="text-decoration: none;color: #a152f5;">(240) 308-2269</span></a>
+          </p>
         </div>
 
-        <div class="text-center mt-4" style="border-bottom: none;">
-          <a href="/images.html" rel="noopener"
-            class="btn-ghost about-nutshell-label" style="font-size: x-small;">
-            View full gallery →
+
+        <!-- Right Social Icons -->
+        <div class="social-icons mb-3">
+          <a href="https://www.instagram.com/blkpvnthr_/" target="_blank" class="footer-icon">
+            <i class="fa-brands fa-instagram"></i>
           </a>
-        </div>
-      </section>
-
-
-
-<!-- Me in a nutshell section -->
-<section class="about-nutshell mt-6 mb-0">
-  <div class="container">
-    <div class="about-nutshell-inner">
-      <p class="about-nutshell-label mt-4">BASICALLY</p>
-      <p class="about-nutshell-text" style="font-size: 2rem !important;">
-        Outside of my technical work, I’m passionate about QML, automated stock trading systems, and predictive analytics.
-        Creativity has always been the engine behind everything I build.
-      </p>
-    </div>
-  </div>
-</section>
-
-
-<section class="socials-footer py-5">
-  <div class="container d-flex justify-content-between align-items-center flex-wrap">
-
-    <!-- Left Contact Info -->
-    <div class="contact-info text-start mb-0">
-      <a href="https://blkpvnthr.dev" class="footer-initials mb-0" style="text-decoration: none !important;"><span class="footer-initials mb-3" style="font-size: medium;">BLKPVNTHR</span></a>
-      <p style="text-decoration: none;"><a href="mailto:blkpvnthr@asmaa.dev" class="about-text footer-link my-0 mb-0 mt-0" style="font-size: small;text-decoration: none !important;"><span class="about-text my-0"><i class="fa-regular fa-envelope" style="text-decoration: none !important;"></i> Contact</span></a>   &nbsp; | &nbsp;
-      <a href="tel:+12403082269" class="about-text my-0 mt-0 mb-0 " style="font-size: small;text-decoration: none !important;"><span class="about-text my-0" style="text-decoration: none;color: #a152f5;">(240) 308-2269</span></a></p>
-    </div>
-
-
-    <!-- Right Social Icons -->
-    <div class="social-icons mb-3">
-      <a href="https://www.instagram.com/blkpvnthr_/" target="_blank" class="footer-icon">
-        <i class="fa-brands fa-instagram"></i>
-      </a>
-      <a href="https://github.com/blkpvnthr" target="_blank" class="footer-icon">
-        <i class="fa-brands fa-github"></i>
-      </a>
-      <a href="https://x.com/blkpvnthr" target="_blank" class="footer-icon">
-        <!--<i class="fa-brands fa-square-x-twitter"></i>-->
-        <i class="fa-brands fa-x-twitter"></i> 
-      </a>
-      <a href="https://www.linkedin.com/in/blkpvnthr/" target="_blank" class="footer-icon">
-        <i class="fa-brands fa-linkedin-in"></i> 
-      </a>
-    </div>
-
-  </div>
-</section>
-
-
-        <!-- Footer -->
-        <footer class="bg-black my-4 mt-0 text-center">
-            <div class="container bg-black py-4">
-
-                <!-- Divider -->
-                <div class="w-100 mb-4">
-                    <div style="border-bottom:1px solid #434343;background-color: #000;"></div>
-                </div>
-
-                <!-- Text -->
-                <div class="text-center"
-                    style="color:#434343; font-weight:300;">
-                    © <span id="year">2025</span> BLKPVNTHR — All rights
-                    reserved.
-                </div>
-
-            </div>
-        </footer>
-
-        <!-- Gallery Carousel Modal -->
-<div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-xl">
-    <div class="modal-content bg-transparent border-0">
-      <div class="modal-body p-0 position-relative">
-        <button type="button" class="btn-close position-absolute top-0 end-0 m-2" 
-                data-bs-dismiss="modal" aria-label="Close"></button>
-
-        <div id="portfolioCarousel" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner" id="carouselInner"></div>
-
-          <button class="carousel-control-prev" type="button" data-bs-target="#portfolioCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#portfolioCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
+          <a href="https://github.com/blkpvnthr" target="_blank" class="footer-icon">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://x.com/blkpvnthr" target="_blank" class="footer-icon">
+            <!--<i class="fa-brands fa-square-x-twitter"></i>-->
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/blkpvnthr/" target="_blank" class="footer-icon">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
         </div>
 
       </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="bg-black my-4 mt-0 text-center">
+      <div class="container bg-black py-4">
+
+        <!-- Divider -->
+        <div class="w-100 mb-4">
+          <div style="border-bottom:1px solid #434343;background-color: #000;"></div>
+        </div>
+
+        <!-- Text -->
+        <div class="text-center" style="color:#434343; font-weight:300;">
+          © <span id="year">2025</span> BLKPVNTHR — All rights
+          reserved.
+        </div>
+
+      </div>
+    </footer>
+
+    <!-- Gallery Carousel Modal -->
+    <div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content bg-transparent border-0">
+          <div class="modal-body p-0 position-relative">
+            <button type="button" class="btn-close position-absolute top-0 end-0 m-2" data-bs-dismiss="modal"
+              aria-label="Close"></button>
+
+            <div id="portfolioCarousel" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner" id="carouselInner"></div>
+
+              <button class="carousel-control-prev" type="button" data-bs-target="#portfolioCarousel"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#portfolioCarousel"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const carouselInner = document.getElementById("carouselInner");
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const carouselInner = document.getElementById("carouselInner");
 
-    // Gather all gallery items
-    const galleryItems = document.querySelectorAll(".gallery-modal-trigger");
+        // Gather all gallery items
+        const galleryItems = document.querySelectorAll(".gallery-modal-trigger");
 
-    galleryItems.forEach((link, index) => {
-      const imgSrc = link.getAttribute("data-img");
-      const imgAlt = link.getAttribute("data-alt") || "";
+        galleryItems.forEach((link, index) => {
+          const imgSrc = link.getAttribute("data-img");
+          const imgAlt = link.getAttribute("data-alt") || "";
 
-      const carouselItem = document.createElement("div");
-      carouselItem.className = "carousel-item" + (index === 0 ? " active" : "");
-      carouselItem.innerHTML = `
+          const carouselItem = document.createElement("div");
+          carouselItem.className = "carousel-item" + (index === 0 ? " active" : "");
+          carouselItem.innerHTML = `
         <img src="${imgSrc}" class="d-block w-100" alt="${imgAlt}">
         <div class="carousel-caption d-none d-md-block">
           <p>${imgAlt}</p>
         </div>
       `;
 
-      carouselInner.appendChild(carouselItem);
+          carouselInner.appendChild(carouselItem);
 
-      // Optional: Clicking the grid opens the carousel at the correct index
-      link.addEventListener("click", (e) => {
-        e.preventDefault();
-        const carousel = new bootstrap.Carousel(document.getElementById("portfolioCarousel"));
-        carousel.to(index);
+          // Optional: Clicking the grid opens the carousel at the correct index
+          link.addEventListener("click", (e) => {
+            e.preventDefault();
+            const carousel = new bootstrap.Carousel(document.getElementById("portfolioCarousel"));
+            carousel.to(index);
+          });
+        });
       });
-    });
-  });
-</script>
+    </script>
 
 
-        <!-- Lightbox Script -->
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const gridLinks = Array.from(
-    document.querySelectorAll("#portfolio-grid a")
-  );
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = lightbox.querySelector(".lightbox-image");
-  const btnClose = lightbox.querySelector(".lightbox-close");
-  const btnPrev = lightbox.querySelector(".lightbox-prev");
-  const btnNext = lightbox.querySelector(".lightbox-next");
+    <!-- Lightbox Script -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const gridLinks = Array.from(
+          document.querySelectorAll("#portfolio-grid a")
+        );
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = lightbox.querySelector(".lightbox-image");
+        const btnClose = lightbox.querySelector(".lightbox-close");
+        const btnPrev = lightbox.querySelector(".lightbox-prev");
+        const btnNext = lightbox.querySelector(".lightbox-next");
 
-  let currentIndex = 0;
+        let currentIndex = 0;
 
-  function openLightbox(index) {
-    currentIndex = index;
-    const fullSrc =
-      gridLinks[currentIndex].dataset.full ||
-      gridLinks[currentIndex].getAttribute("href");
-    const altText =
-      gridLinks[currentIndex].querySelector("img")?.alt || "Portfolio image";
+        function openLightbox(index) {
+          currentIndex = index;
+          const fullSrc =
+            gridLinks[currentIndex].dataset.full ||
+            gridLinks[currentIndex].getAttribute("href");
+          const altText =
+            gridLinks[currentIndex].querySelector("img")?.alt || "Portfolio image";
 
-    lightboxImg.src = fullSrc;
-    lightboxImg.alt = altText;
-    lightbox.classList.add("open");
-    lightbox.setAttribute("aria-hidden", "false");
-  }
+          lightboxImg.src = fullSrc;
+          lightboxImg.alt = altText;
+          lightbox.classList.add("open");
+          lightbox.setAttribute("aria-hidden", "false");
+        }
 
-  function closeLightbox() {
-    lightbox.classList.remove("open");
-    lightbox.setAttribute("aria-hidden", "true");
-    lightboxImg.src = "";
-  }
+        function closeLightbox() {
+          lightbox.classList.remove("open");
+          lightbox.setAttribute("aria-hidden", "true");
+          lightboxImg.src = "";
+        }
 
-  function showNext() {
-    currentIndex = (currentIndex + 1) % gridLinks.length;
-    openLightbox(currentIndex);
-  }
+        function showNext() {
+          currentIndex = (currentIndex + 1) % gridLinks.length;
+          openLightbox(currentIndex);
+        }
 
-  function showPrev() {
-    currentIndex =
-      (currentIndex - 1 + gridLinks.length) % gridLinks.length;
-    openLightbox(currentIndex);
-  }
+        function showPrev() {
+          currentIndex =
+            (currentIndex - 1 + gridLinks.length) % gridLinks.length;
+          openLightbox(currentIndex);
+        }
 
-  // Click thumbnails
-  gridLinks.forEach((link, index) => {
-    link.addEventListener("click", function (e) {
-      e.preventDefault();
-      openLightbox(index);
-    });
-  });
+        // Click thumbnails
+        gridLinks.forEach((link, index) => {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+            openLightbox(index);
+          });
+        });
 
-  // Buttons
-  btnClose.addEventListener("click", closeLightbox);
-  btnNext.addEventListener("click", showNext);
-  btnPrev.addEventListener("click", showPrev);
+        // Buttons
+        btnClose.addEventListener("click", closeLightbox);
+        btnNext.addEventListener("click", showNext);
+        btnPrev.addEventListener("click", showPrev);
 
-  // Close on background click
-  lightbox.addEventListener("click", function (e) {
-    if (e.target === lightbox) {
-      closeLightbox();
-    }
-  });
+        // Close on background click
+        lightbox.addEventListener("click", function (e) {
+          if (e.target === lightbox) {
+            closeLightbox();
+          }
+        });
 
-  // Keyboard navigation
-  document.addEventListener("keydown", function (e) {
-    if (!lightbox.classList.contains("open")) return;
+        // Keyboard navigation
+        document.addEventListener("keydown", function (e) {
+          if (!lightbox.classList.contains("open")) return;
 
-    if (e.key === "Escape") closeLightbox();
-    if (e.key === "ArrowRight") showNext();
-    if (e.key === "ArrowLeft") showPrev();
-  });
-});
+          if (e.key === "Escape") closeLightbox();
+          if (e.key === "ArrowRight") showNext();
+          if (e.key === "ArrowLeft") showPrev();
+        });
+      });
 
-  // Auto-update year
-  document.getElementById("year").textContent = new Date().getFullYear();
-  
-</script>
-<!-- Lightbox / pop-up gallery -->
-<div id="gallery-modal" class="gallery-modal" hidden>
-  <div class="gallery-modal-backdrop"></div>
+      // Auto-update year
+      document.getElementById("year").textContent = new Date().getFullYear();
 
-  <div class="gallery-modal-content">
-    <button class="gallery-modal-close" type="button" aria-label="Close gallery">×</button>
+    </script>
+    <!-- Lightbox / pop-up gallery -->
+    <div id="gallery-modal" class="gallery-modal" hidden>
+      <div class="gallery-modal-backdrop"></div>
 
-    <div class="gallery-modal-image-wrapper">
-      <img id="gallery-modal-image" src="" alt="" />
-    </div>
+      <div class="gallery-modal-content">
+        <button class="gallery-modal-close" type="button" aria-label="Close gallery">×</button>
 
-    <div class="gallery-modal-caption">
-      <h3 id="gallery-modal-title"></h3>
-      <p id="gallery-modal-description"></p>
-      <div class="gallery-modal-counter" id="gallery-modal-counter"></div>
-    </div>
+        <div class="gallery-modal-image-wrapper">
+          <img id="gallery-modal-image" src="" alt="" />
+        </div>
 
-    <button class="gallery-modal-nav prev" type="button" aria-label="Previous image">‹</button>
-    <button class="gallery-modal-nav next" type="button" aria-label="Next image">›</button>
-  </div>
-</div> <!-- .gallery-modal-content -->
-</div> <!-- #gallery-modal -->
+        <div class="gallery-modal-caption">
+          <h3 id="gallery-modal-title"></h3>
+          <p id="gallery-modal-description"></p>
+          <div class="gallery-modal-counter" id="gallery-modal-counter"></div>
+        </div>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <button class="gallery-modal-nav prev" type="button" aria-label="Previous image">‹</button>
+        <button class="gallery-modal-nav next" type="button" aria-label="Next image">›</button>
+      </div>
+    </div> <!-- .gallery-modal-content -->
+    </div> <!-- #gallery-modal -->
 
-</body>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    </body>
+
 </html>
