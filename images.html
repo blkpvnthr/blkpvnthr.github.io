@@ -6,18 +6,14 @@
 
     <meta name="description" content="Just here learning 📚">
     <meta property="og:title" content="Asmaa Abdul-Amin">
-    <meta property="og:image" content="/assets/images/bck-stry.JPG
+    <meta property="og:image" content="/assets/images/bck-stry.JPG">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- 1) Bootstrap first: grid + base styles -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-    <!-- 2) Your mirrored styles (override Bootstrap where needed) -->
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="css/bootstrap-icons.css">
     <link rel="stylesheet" href="css/animate.min.css">
-    <!-- Optional: <link rel="stylesheet" href="css/build.css" /> -->
-    <!-- Font Awesome for social icons -->
     <script src="https://kit.fontawesome.com/aef4f8d92e.js" crossorigin="anonymous"></script>
 
   <style>
@@ -337,17 +333,14 @@
 <body>
 <section
             class="about-hero d-flex align-items-center justify-content-center text-center">
-            <div class="about-hero-overlay"> <!-- Include Navbar -->
-        <!-- 🌐 Sticky Navbar -->
-        <nav
+            <div class="about-hero-overlay"> 
+                <nav
             class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky py-2" style="background-color: transparent !important;border-bottom: 0.5px solid #ffffff">
             <div class="container" style="color: transparent !important;">
-                <!-- Brand / Logo -->
-                <a class="navbar-brand fw-semibold" href="index.html" style="color: #ffffff;">
-                    BLKPVNTHR
-                </a>
+                <a class="navbar-brand fw-semibold" href="index.html" style="color: #ffffff;font-size: 0.8rem;letter-spacing: 0.35em !important;text-transform: uppercase;font-weight: 200 !important;padding: 0.5rem 1rem !important;">
+              Asmaa Abdul-Amin
+            </a>
 
-                <!-- Hamburger Menu -->
                 <button class="navbar-toggler" type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#navbarContent"
@@ -383,15 +376,10 @@
             </div>
         </nav>
 </div>
-</div>
-
            
         </section>
-  <!-- TODO: include your existing site navbar here -->
-
   <main class="gallery-page">
 
-  <!-- Hero -->
   <section class="gallery-hero">
     <div class="gallery-hero-inner">
       <h1 class="gallery-title">Project Gallery</h1>
@@ -404,7 +392,6 @@
 
   <div class="gallery-container">
 
-    <!-- Filter pills -->
     <div class="gallery-filter-row">
       <button class="filter-pill active" data-filter="all">All</button>
       <button class="filter-pill" data-filter="web">Web</button>
@@ -413,14 +400,13 @@
       <button class="filter-pill" data-filter="video">Video / Animations</button>
     </div>
 
-      <!-- Grid -->
       <section class="gallery-grid">
 
-        <!-- CARD -1 – Web -->
         <article class="gallery-card" data-category="web">
           <button class="gallery-thumb-wrapper js-open-gallery"
           type="button"
-          data-gallery-id="dragonfly"
+          data-gallery-dir="/assets/images/dgf/"
+          data-gallery-id="dragonfly" 
           aria-controls="gallery-modal"
           aria-expanded="false"
           aria-label="Open Dragonfly gallery">
@@ -442,10 +428,10 @@
           </div>
         </article>
 
-        <!-- CARD 0 – Web -->
         <article class="gallery-card" data-category="web">
           <button class="gallery-thumb-wrapper js-open-gallery"
           type="button"
+          data-gallery-dir="/assets/images/ezie-images/"
           data-gallery-id="ezie"
           aria-controls="gallery-modal"
           aria-expanded="false"
@@ -476,11 +462,11 @@
           </div>
         </article>
 
-        <!-- CARD 1 – Web -->
         <article class="gallery-card" data-category="web">
           <button class="gallery-thumb-wrapper js-open-gallery"
           type="button"
-          data-gallery-id="icegiants"
+          data-gallery-dir="/assets/images/ice-giants/"
+          data-gallery-id="ice-giants"
           aria-controls="gallery-modal"
           aria-expanded="false"
           aria-label="Open Ice Giants gallery">
@@ -510,11 +496,11 @@
           </div>
         </article>
 
-        <!-- CARD 1b – Ice Giants Admin -->
         <article class="gallery-card" data-category="web">
           <button class="gallery-thumb-wrapper js-open-gallery"
           type="button"
-          data-gallery-id="icegiants"
+          data-gallery-dir="/assets/images/ice-giants/admin/"
+          data-gallery-id="ice-giants-admin"
           aria-controls="gallery-modal"
           aria-expanded="false"
           aria-label="Open Ice Giants admin gallery">
@@ -532,21 +518,13 @@
         <div class="gallery-card-meta">
           Design &amp; build · HTML / CSS / JS / PHP
         </div>
-        <!--div class="gallery-card-footer">
-          <a href="https://icegiants.jhuapl.edu/" target="_blank" class="gallery-link" rel="noopener">
-            View site
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
-          <path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z"/>
-            </svg>
-          </a>
-        </div-->
-          </div>
+        </div>
         </article>
 
-        <!-- CARD 2 – Graphics -->
         <article class="gallery-card" data-category="graphics">
           <button class="gallery-thumb-wrapper js-open-gallery"
           type="button"
+          data-gallery-dir="/assets/images/ice-giants/ps-images/"
           data-gallery-id="uranus-art"
           aria-controls="gallery-modal"
           aria-expanded="false"
@@ -569,10 +547,10 @@
           </div>
         </article>
 
-        <!-- CARD 3 – Photos -->
         <article class="gallery-card" data-category="photos">
           <button class="gallery-thumb-wrapper js-open-gallery"
           type="button"
+          data-gallery-dir="/assets/images/parker-kit/"
           data-gallery-id="parker-kit"
           aria-controls="gallery-modal"
           aria-expanded="false"
@@ -603,10 +581,10 @@
           </div>
         </article>
 
-        <!-- CARD 5 – Web / App (LAC) -->
         <article class="gallery-card" data-category="web">
           <button class="gallery-thumb-wrapper js-open-gallery"
           type="button"
+          data-gallery-dir="/assets/images/LAC/"
           data-gallery-id="lac"
           aria-controls="gallery-modal"
           aria-expanded="false"
@@ -637,10 +615,10 @@
           </div>
         </article>
 
-        <!-- CARD 6 – Web / App (LOGIC) -->
         <article class="gallery-card" data-category="web">
           <button class="gallery-thumb-wrapper js-open-gallery"
           type="button"
+          data-gallery-dir="/assets/images/LOGIC/"
           data-gallery-id="logic"
           aria-controls="gallery-modal"
           aria-expanded="false"
@@ -663,17 +641,17 @@
           </div>
         </article>
 
-        <!-- CARD 7 – Web / App (TIMED) -->
         <article class="gallery-card" data-category="web">
           <button class="gallery-thumb-wrapper js-open-gallery"
           type="button"
-          data-gallery-id="logic"
+          data-gallery-dir="/assets/images/TIMED/"
+          data-gallery-id="timed"
           aria-controls="gallery-modal"
           aria-expanded="false"
           aria-label="Open TIMED gallery">
         <img class="gallery-thumb"
              src="/assets/images/TIMED/TIMED.png"
-             alt="LOGIC project thumbnail">
+             alt="TIMED project thumbnail">
         <span class="gallery-badge">Web · APL</span>
           </button>
 
@@ -724,7 +702,6 @@
       </script>
 </main>
 
-<!-- CATEGORY FILTER -->
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const pills = document.querySelectorAll(".filter-pill");
@@ -750,157 +727,50 @@
   });
 </script>
 
-<!-- Duplicate placeholder removed: PROJECT_GALLERIES is defined later in the file and the modal logic is kept below. -->
+    <section class="socials-footer py-5">
+      <div class="container d-flex justify-content-between align-items-center flex-wrap">
+
+        <div class="contact-info text-start mb-0">
+          <a href="https://blkpvnthr.dev" class="footer-initials mb-0" style="text-decoration: none !important;"><span
+              class="footer-initials mb-3" style="font-size: medium;">BLKPVNTHR</span></a>
+          <p style="text-decoration: none;"><a href="mailto:blkpvnthr@asmaa.dev"
+              class="about-text footer-link my-0 mb-0 mt-0"
+              style="font-size: small;text-decoration: none !important;"><span class="about-text my-0"><i
+                  class="fa-regular fa-envelope" style="text-decoration: none !important;"></i> Contact</span></a>
+            &nbsp;
+            | &nbsp;
+            <a href="tel:+12403082269" class="about-text my-0 mt-0 mb-0 "
+              style="font-size: small;text-decoration: none !important;"><span class="about-text my-0"
+                style="text-decoration: none;color: #a152f5;">(240) 308-2269</span></a>
+          </p>
+        </div>
 
 
-<!-- One Bootstrap bundle include is enough -->
- <!-- CATEGORY FILTER -->
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const pills = document.querySelectorAll(".filter-pill");
-    const cards = document.querySelectorAll(".gallery-card");
+        <div class="social-icons mb-3">
+          <a href="https://www.instagram.com/blkpvnthr_/" target="_blank" class="footer-icon">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://github.com/blkpvnthr" target="_blank" class="footer-icon">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://x.com/blkpvnthr" target="_blank" class="footer-icon">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/blkpvnthr/" target="_blank" class="footer-icon">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+        </div>
 
-    pills.forEach(pill => {
-      pill.addEventListener("click", () => {
-        const filter = pill.dataset.filter;
+      </div>
+    </section>
 
-        pills.forEach(p => p.classList.remove("active"));
-        pill.classList.add("active");
-
-        cards.forEach(card => {
-          const category = card.dataset.category;
-          if (filter === "all" || category === filter) {
-            card.classList.remove("hidden");
-          } else {
-            card.classList.add("hidden");
-          }
-        });
-      });
-    });
-  });
-</script>
-
-<!-- GALLERY MODAL MARKUP (keep your existing modal markup) -->
-<!-- ...keep the #gallery-modal markup you already have... -->
-
-<script>
-/* ------------- CONFIG: projects fallback (optional) ------------- */
-const PROJECT_GALLERIES = {
-dragonfly: [
-{ src: "/assets/images/dragonfly.png", alt: "Dragonfly portal dashboard overview", title: "Dragonfly Internal Team Site", description: "Main dashboard view..." },
-{ src: "/assets/images/dragonfly-1.png", alt: "Dragonfly portal resources page", title: "Dragonfly Internal Team Site", description: "Resources and quick links..." }
-],
-// keep any prebuilt galleries you want as objects; they take precedence over directory loading
-};
-
-/* ------------- UTILS ------------- */
-function isImageHref(href) {
-return /\.(jpe?g|png|gif|webp|avif|svg)$/i.test(href);
-}
-
-/* Try to load an index.json file from the directory. Format: ["img1.png","img2.jpg", ...]
-Returns array of items [{src, alt?, title?, description?}, ...] or null on fail */
-async function loadIndexJson(dir) {
-try {
-const url = dir.replace(/\/+$/, "") + "/index.json";
-const res = await fetch(url, { cache: "no-cache" });
-if (!res.ok) return null;
-const list = await res.json();
-if (!Array.isArray(list)) return null;
-return list.map(item => {
-// item can be string or object
-if (typeof item === "string") return { src: dir.replace(/\/+$/, "") + "/" + item, alt: "", title: "", description: "" };
-return {
-src: (item.src && item.src.startsWith("http")) ? item.src : dir.replace(/\/+$/, "") + "/" + (item.src || ""),
-alt: item.alt || "",
-title: item.title || "",
-description: item.description || ""
-};
-});
-} catch (e) {
-return null;
-}
-}
-
-/* Fallback: if directory listing is available (Apache/Nginx), fetch dir and parse <a href="..."> links */
-async function parseDirectoryListing(dir) {
-try {
-const res = await fetch(dir, { cache: "no-cache" });
-if (!res.ok) return null;
-const html = await res.text();
-// Very small, robust-ish parser to grab href values that look like image files
-const parser = new DOMParser();
-const doc = parser.parseFromString(html, "text/html");
-const anchors = Array.from(doc.querySelectorAll("a"));
-const imgs = anchors
-.map(a => a.getAttribute("href"))
-.filter(href => href && isImageHref(href))
-.map(href => {
-// if href is absolute or starts with '/', use it; otherwise join with dir
-const src = href.startsWith("http") || href.startsWith("/") ? href : dir.replace(/\/+$/, "") + "/" + href;
-return { src, alt: "", title: "", description: "" };
-});
-return imgs.length ? imgs : null;
-} catch (e) {
-return null;
-}
-}
-
-/* Given either a gallery ID or directory, return array of gallery items or null */
-async function resolveGallery(targetBtn) {
-const galleryId = targetBtn.dataset.galleryId;
-const galleryDir = targetBtn.dataset.galleryDir;
-
-// 1) If predefined gallery in PROJECT_GALLERIES, return it
-if (galleryId && PROJECT_GALLERIES[galleryId]) {
-return PROJECT_GALLERIES[galleryId];
-}
-
-// 2) If data-gallery-dir provided, attempt loading index.json then directory listing
-if (galleryDir) {
-// normalize dir to ensure trailing slash not required
-const dir = galleryDir;
-// try index.json
-const fromJson = await loadIndexJson(dir);
-if (fromJson && fromJson.length) return fromJson;
-
-// try directory listing parse
-const fromDir = await parseDirectoryListing(dir);
-if (fromDir && fromDir.length) return fromDir;
-
-// last attempt: if developer placed images named sequentially, try a small probe pattern
-// (not recommended — keep index.json on server for reliability)
-console.warn("No index.json or directory listing found for", dir);
-return null;
-}
-
-return null;
-}
-
-/* ------------- MODAL + GALLERY LOGIC ------------- */
-(function () {
-const modal = document.getElementById("gallery-modal");
-if (!modal) {
-console.warn("gallery-modal not found — ensure the modal markup exists with id=gallery-modal");
-return;
-}
-const imgEl = document.getElementById("gallery-modal-image");
-const titleEl = document.getElementById("gallery-modal-title");
-const descEl = document.getElementById("gallery-modal-description");
-const counterEl = document.getElementById("gallery-modal-counter");
-})();
-</script>
-
-        <!-- Footer -->
         <footer class="bg-black my-4 mt-0 text-center">
             <div class="container bg-black py-4">
 
-                <!-- Divider -->
                 <div class="w-100 mb-4">
                     <div style="border-bottom:1px solid #434343;background-color: #000;"></div>
                 </div>
 
-                <!-- Text -->
                 <div class="text-center"
                     style="color:#434343; font-weight:300;">
                     © <span id="year">2025</span> BLKPVNTHR — All rights
@@ -910,152 +780,205 @@ const counterEl = document.getElementById("gallery-modal-counter");
             </div>
         </footer>
 
-<!-- PROJECT GALLERIES + MODAL LOGIC -->
+<div class="modal fade" id="gallery-modal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content" style="background: var(--bg-card); border-color: var(--border-subtle);">
+      <div class="modal-header border-0">
+        <h5 class="modal-title" id="galleryModalLabel">
+          <span id="gallery-modal-title">Gallery Title</span>
+          <span class="text-muted small ms-2" id="gallery-modal-counter"></span>
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-0">
+        <div class="position-relative">
+          <img id="gallery-modal-image" src="" alt="Gallery image" class="img-fluid" style="display: block; width: 100%; border-radius: 0.5rem;">
+          <button id="gallery-prev" class="btn btn-outline-light position-absolute top-50 start-0 translate-middle-y ms-3" style="z-index: 10;">&lt;</button>
+          <button id="gallery-next" class="btn btn-outline-light position-absolute top-50 end-0 translate-middle-y me-3" style="z-index: 10;">&gt;</button>
+        </div>
+      </div>
+      <div class="modal-footer d-block border-0 pt-0">
+        <p id="gallery-modal-description" class="text-muted small"></p>
+      </div>
+    </div>
+  </div>
+</div>
 <script>
-  // Now each key points at an image directory (string).
-  // The modal loader will try to fetch "<dir>/index.json" or handle server listing endpoints.
-  // Define additional galleries and merge into any existing PROJECT_GALLERIES to avoid redeclaring the same const.
-  const ADDITIONAL_PROJECT_GALLERIES = {
-    dragonfly: "/assets/images/dgf",
-    ezie: "/assets/images/ezie-images",
-    icegiants: "/assets/images/ice-giants",
-    "uranus-art": "/assets/images/ice-giants/admin",
-    "parker-kit": "/assets/images/parker-kit",
-    "portfolio-demo": "/assets/images/gallery",
-    lac: "/assets/images/LAC",    // update to the exact folder that contains an index.json or images
-    logic: "/assets/images/LOGIC"
-  };
+/* ------------- GLOBAL STATE (inside window scope for easy access) ------------- */
+let currentGallery = [];
+let currentIndex = 0;
 
-  if (typeof PROJECT_GALLERIES !== "undefined" && PROJECT_GALLERIES && typeof PROJECT_GALLERIES === "object") {
-    // merge keys into the existing PROJECT_GALLERIES defined earlier
-    Object.assign(PROJECT_GALLERIES, ADDITIONAL_PROJECT_GALLERIES);
-  } else {
-    // if not defined earlier, expose merged mapping on window so code can access it
-    window.PROJECT_GALLERIES = ADDITIONAL_PROJECT_GALLERIES;
-  }
+/* ------------- CONFIG: projects fallback (optional) ------------- */
+const PROJECT_GALLERIES = {
+    // Only keeping the dragonfly example. Delete this whole object if you only use data-gallery-dir
+    dragonfly: [
+        { src: "/assets/images/dgf/dgf.png", alt: "Dragonfly portal dashboard overview", title: "Dragonfly Internal Team Site (1/1)", description: "Main dashboard view..." },
+        { src: "/assets/images/dgf/dgf-1.png", alt: "Dragonfly portal resources page", title: "Dragonfly Internal Team Site (2/2)", description: "Resources and quick links..." }
+    ],
+    // Add other hardcoded galleries here if needed, otherwise rely on directory loading.
+};
 
-  (function () {
+/* ------------- UTILS ------------- */
+function isImageHref(href) {
+    return /\.(jpe?g|png|gif|webp|avif|svg)$/i.test(href);
+}
+
+/* Try to load an index.json file from the directory. */
+async function loadIndexJson(dir) {
+    try {
+        const url = dir.replace(/\/+$/, "") + "/index.json";
+        const res = await fetch(url, { cache: "no-cache" });
+        if (!res.ok) return null;
+        const list = await res.json();
+        if (!Array.isArray(list)) return null;
+        return list.map(item => {
+            // item can be string or object
+            if (typeof item === "string") return { src: dir.replace(/\/+$/, "") + "/" + item, alt: "", title: "", description: "" };
+            return {
+                src: (item.src && item.src.startsWith("http")) ? item.src : dir.replace(/\/+$/, "") + "/" + (item.src || ""),
+                alt: item.alt || "",
+                title: item.title || "",
+                description: item.description || ""
+            };
+        });
+    } catch (e) {
+        return null;
+    }
+}
+
+/* Fallback: if directory listing is available, fetch dir and parse <a href="..."> links */
+async function parseDirectoryListing(dir) {
+    try {
+        const res = await fetch(dir, { cache: "no-cache" });
+        if (!res.ok) return null;
+        const html = await res.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, "text/html");
+        const anchors = Array.from(doc.querySelectorAll("a"));
+        // Filter for common image extensions
+        const imgs = anchors
+            .map(a => a.getAttribute("href"))
+            .filter(href => href && isImageHref(href))
+            .map(href => {
+                // if href is absolute or starts with '/', use it; otherwise join with dir
+                const src = href.startsWith("http") || href.startsWith("/") ? href : dir.replace(/\/+$/, "") + "/" + href;
+                return { src, alt: "", title: "", description: "" };
+            });
+        return imgs.length ? imgs : null;
+    } catch (e) {
+        return null;
+    }
+}
+
+/* Given either a gallery ID or directory, return array of gallery items or null */
+async function resolveGallery(targetBtn) {
+    const galleryId = targetBtn.dataset.galleryId;
+    const galleryDir = targetBtn.dataset.galleryDir;
+
+    // 1) If predefined gallery in PROJECT_GALLERIES, return it
+    if (galleryId && PROJECT_GALLERIES[galleryId]) {
+        return PROJECT_GALLERIES[galleryId];
+    }
+
+    // 2) If data-gallery-dir provided, attempt loading index.json then directory listing
+    if (galleryDir) {
+        const dir = galleryDir;
+        
+        // Try index.json
+        const fromJson = await loadIndexJson(dir);
+        if (fromJson && fromJson.length) return fromJson;
+
+        // Try directory listing parse (only works if the server is configured to allow it)
+        const fromDir = await parseDirectoryListing(dir);
+        if (fromDir && fromDir.length) return fromDir;
+
+        // If all else fails, log warning and return null
+        console.warn("Could not load gallery content. Ensure index.json exists or directory listing is enabled for:", dir);
+        return null;
+    }
+
+    return null;
+}
+
+/* Update Modal Content with current image */
+function updateModalContent() {
+    if (currentGallery.length === 0) return;
+
+    const item = currentGallery[currentIndex];
+    const total = currentGallery.length;
+
+    document.getElementById("gallery-modal-image").src = item.src;
+    document.getElementById("gallery-modal-image").alt = item.alt || item.title;
+    document.getElementById("gallery-modal-title").textContent = item.title || `Image ${currentIndex + 1}`;
+    document.getElementById("gallery-modal-description").textContent = item.description || "";
+    document.getElementById("gallery-modal-counter").textContent = `(${currentIndex + 1} / ${total})`;
+
+    // Toggle navigation buttons
+    document.getElementById("gallery-prev").style.display = currentIndex > 0 ? "block" : "none";
+    document.getElementById("gallery-next").style.display = currentIndex < total - 1 ? "block" : "none";
+}
+
+
+/* ------------- MODAL + GALLERY LOGIC ------------- */
+document.addEventListener("DOMContentLoaded", () => {
     const modal = document.getElementById("gallery-modal");
-    const imgEl = document.getElementById("gallery-modal-image");
-    const titleEl = document.getElementById("gallery-modal-title");
-    const descEl = document.getElementById("gallery-modal-description");
-    const counterEl = document.getElementById("gallery-modal-counter");
-    const btnPrev = modal.querySelector(".gallery-modal-nav.prev");
-    const btnNext = modal.querySelector(".gallery-modal-nav.next");
-    const btnClose = modal.querySelector(".gallery-modal-close");
-    const backdrop = modal.querySelector(".gallery-modal-backdrop");
-
-    let currentGallery = [];
-    let currentIndex = 0;
-
-    function showImage(index) {
-      if (!currentGallery.length) return;
-      currentIndex = (index + currentGallery.length) % currentGallery.length;
-      const item = currentGallery[currentIndex];
-
-      imgEl.src = item.src;
-      imgEl.alt = item.alt || "";
-      titleEl.textContent = item.title || "";
-      descEl.textContent = item.description || "";
-      counterEl.textContent =
-        currentGallery.length > 1 ? `${currentIndex + 1} / ${currentGallery.length}` : "";
-    }
-
-    async function loadGalleryData(entry) {
-      // entry may be an array (already expanded) or a string URL to index.json or a server listing endpoint
-      if (Array.isArray(entry)) return entry;
-      if (typeof entry !== "string") return [];
-
-      try {
-        // if it points to a server listing endpoint (e.g. list-images.php?dir=...)
-        if (entry.includes('list-images.php')) {
-          const res = await fetch(entry, { cache: "no-store" });
-          if (!res.ok) throw new Error(res.statusText);
-          const data = await res.json();
-          return Array.isArray(data) ? data : [];
-        }
-
-        // fallback: try to fetch "<dir>/index.json"
-        const idxUrl = entry.replace(/\/$/, '') + '/index.json';
-        let res = await fetch(idxUrl, { cache: "no-store" });
-        if (res.ok) {
-          const data = await res.json();
-          return Array.isArray(data) ? data : [];
-        }
-
-        // final fallback: try fetching the entry as JSON directly
-        res = await fetch(entry, { cache: "no-store" });
-        if (res.ok) {
-          const data = await res.json();
-          return Array.isArray(data) ? data : [];
-        }
-      } catch (err) {
-        console.warn('Failed loading gallery:', err);
-      }
-      return [];
-    }
-
-    async function openGallery(galleryId) {
-      const entry = PROJECT_GALLERIES[galleryId];
-      if (!entry) {
-        console.warn("No gallery defined for", galleryId);
+    if (!modal) {
+        console.warn("gallery-modal not found — ensure the modal markup exists with id=gallery-modal");
         return;
-      }
-      const gallery = await loadGalleryData(entry);
-      if (!gallery || gallery.length === 0) {
-        console.warn("No images found for gallery", galleryId);
-        return;
-      }
-      currentGallery = gallery;
-      showImage(0);
-      modal.hidden = false;
-      document.body.style.overflow = "hidden";
     }
 
-    function closeGallery() {
-      modal.hidden = true;
-      document.body.style.overflow = "";
-      currentGallery = [];
-      currentIndex = 0;
-      imgEl.src = "";
-      titleEl.textContent = "";
-      descEl.textContent = "";
-      counterEl.textContent = "";
-    }
+    // Use Bootstrap's Modal object
+    const galleryModal = new bootstrap.Modal(modal);
 
-    // Attach handlers to all project thumb buttons
-    const thumbButtons = document.querySelectorAll(".js-open-gallery");
-    thumbButtons.forEach(btn => {
-      btn.addEventListener("click", () => {
-        const galleryId = btn.dataset.galleryId;
-        openGallery(galleryId);
-      });
+    // Event listener for opening the gallery
+    document.querySelectorAll(".js-open-gallery").forEach(btn => {
+        btn.addEventListener("click", async function() {
+            // Reset state
+            currentGallery = [];
+            currentIndex = 0;
+            
+            // Resolve the gallery content
+            const galleryContent = await resolveGallery(this);
+
+            if (galleryContent && galleryContent.length) {
+                currentGallery = galleryContent;
+                currentIndex = 0; // Always start at the first image
+                updateModalContent();
+                galleryModal.show();
+            } else {
+                alert("Could not load gallery images for this project.");
+            }
+        });
     });
 
-    btnPrev.addEventListener("click", () => {
-      showImage(currentIndex - 1);
+    // Navigation handlers
+    document.getElementById("gallery-prev").addEventListener("click", () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateModalContent();
+        }
     });
 
-    btnNext.addEventListener("click", () => {
-      showImage(currentIndex + 1);
+    document.getElementById("gallery-next").addEventListener("click", () => {
+        if (currentIndex < currentGallery.length - 1) {
+            currentIndex++;
+            updateModalContent();
+        }
     });
 
-    btnClose.addEventListener("click", closeGallery);
-    backdrop.addEventListener("click", closeGallery);
-
-    // Close on Escape key
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && !modal.hidden) {
-        closeGallery();
-      }
+    // Keyboard navigation (optional)
+    modal.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            document.getElementById("gallery-prev").click();
+        } else if (e.key === 'ArrowRight') {
+            document.getElementById("gallery-next").click();
+        }
     });
-  })();
+
+});
 </script>
 
-<!-- Bootstrap JS (once) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</div>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 </body>
 </html>

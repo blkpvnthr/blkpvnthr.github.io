@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>BLKPVNTHR - Media Gallery</title>
+  <title>Asmaa Abdul-Amin</title>
 
   <meta name="description" content="Just here learning 📚">
   <meta property="og:title" content="Asmaa Abdul-Amin">
@@ -13,7 +13,7 @@
   <!-- 1) Bootstrap first: grid + base styles -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
+<link rel="stylesheet" href="https://use.typekit.net/udv3dyu.css">
   <!-- 2) Your mirrored styles (override Bootstrap where needed) -->
   <link href="css/styles.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="css/bootstrap-icons.css">
@@ -395,12 +395,12 @@
     }
 
     /* Circular photo */
-    .about-backstory-photo img {
-      width: 320px;
-      height: 320px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
+   .about-backstory-photo img {
+    width: 300px;
+    height: 300px;
+    border-radius: 20%;
+    object-fit: cover;
+}
 
     /* Section styling */
     .about-backstory {
@@ -727,6 +727,36 @@
       height: 15px;
       margin-left: 0 !important;
     }
+
+.socials-footer {
+    background: #000;
+    color: #a152f5;
+    padding: 60px 0;
+    padding-top: 0 !important;
+}
+ .scroll-top-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: black;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 9999;
+}
+
+.scroll-top-btn.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+    
   </style>
 
   <section class="about-hero relative d-flex align-items-center justify-content-center text-center">
@@ -738,8 +768,8 @@
         style="background-color: transparent !important;border-bottom: 0.5px solid #ffffff">
         <div class="container" style="color: transparent !important;">
           <!-- Brand / Logo -->
-          <a class="navbar-brand fw-semibold" href="index.html" style="color: #ffffff;">
-            BLKPVNTHR
+          <a class="navbar-brand fw-semibold" href="index.html" style="color: #ffffff;font-size: 0.8rem;letter-spacing: 0.35em !important;text-transform: uppercase;font-weight: 200 !important;padding: 0.5rem 1rem !important;">
+            Asmaa Abdul-Amin
           </a>
 
           <!-- Hamburger Menu -->
@@ -793,47 +823,73 @@
       </div>
   </section>
 
-  <!-- Random Facts Section -->
-  <section class="random-facts relative overflow-hidden py-0 px-0">
+    <!-- Portfolio Gallery Section -->
+  <section class="my-2">
+    <section class="tumblr-gallery mt-1 mb-4">
 
-    <div class="random-facts-inner">
-
-      <!-- Left: photo -->
-      <div class="random-facts-media space-between mb-6 mb-md-0">
-        <img src="/assets/images/toot.PNG" alt="My cat supervising my desk" />
+      <div class="text-center">
+        <h2 class="about-nutshell-label" style="font-weight: 200; margin-bottom: 0.5rem;">
+          Web Development Portfolio
+        </h2>
       </div>
-
-      <!-- Right: heading + text -->
-      <div class="random-facts-copy" style="margin-left: 10%;margin-top: 15%;">
-        <h2 class="random-facts-title">Random Facts.</h2>
-
-        <p class="random-facts-text">
-          My name is Asmaa. I have a passion for building fish tanks. I have
-          two cats and two leopard geckos. My favorite number is 4. I love
-          to travel. I speak Arabic fluently. My favorite cartoon is Courage
-          the Cowardly Dog. I play guitar, piano, and bass. I love journaling /
-          scrapbooking. I enjoy going fishing and my favorite food is crab legs.
+      <div class="text-center">
+        <p class="text-center about-backstory-content my-2"
+          style="font-weight: 100; margin: 0 auto; max-width: 1040px;font-size: small;">
+          Some examples of work from my internship at JHU/APL.
         </p>
       </div>
+      <div class="tumblr-grid" id="portfolio-grid">
+        <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal" data-bs-target="#galleryModal"
+          data-img="/assets/images/ezie-images/ezie-1.png">
+          <img src="/assets/images/ezie-images/ezie-1.png" alt="Ezie site" class="gallery-img" alt="Ezie site re-development.">
+        </a>
 
+        <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal" data-bs-target="#galleryModal"
+          data-img="/assets/images/ezie-images/ezie-gallery-4.png">
+          <img src="/assets/images/ezie-images/ezie-gallery-4.png" alt="Ezie site" class="gallery-img"
+            alt="Ezie site re-development.">
+        </a>
 
-    </div>
-  </section>
+        <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal" data-bs-target="#galleryModal"
+          data-img="/assets/images/ice-giants/ice-giants-old.png">
+          <img src="/assets/images/ice-giants/ice-giants-old.png" class="gallery-img" alt="Ice Giants site">
+        </a>
 
+        <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal" data-bs-target="#galleryModal"
+          data-img="/assets/images/ice-giants/ice-giants-5.png">
+          <img src="/assets/images/ice-giants/ice-giants-5.png" class="gallery-img" alt="Ice Giants site">
+        </a>
 
-  <!-- Me in a nutshell section -->
-  <section class="about-nutshell">
-    <div class="container">
-      <div class="about-nutshell-inner">
-        <p class="about-nutshell-label">Overall</p>
-        <p class="about-nutshell-text">
-          I’m a data-driven engineer, cat person, artist, musician, quantum-curious
-          tinkerer, and quietly ambitious programmer.
-        </p>
+        <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal" data-bs-target="#galleryModal"
+          data-img="/assets/images/IMG/parker.png">
+          <img src="/assets/images/IMG/parker.png" class="gallery-img" alt="Parker Solar Probe site 1">
+        </a>
+
+        <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal" data-bs-target="#galleryModal"
+          data-img="/assets/images/IMG/parker2.png">
+          <img src="/assets/images/IMG/parker2.png" alt="Parker Solar Probe site 2">
+        </a>
+
+        <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal" data-bs-target="#galleryModal"
+          data-img="/assets/images/TIMED/TIMED-0.png">
+          <img src="/assets/images/TIMED/TIMED-0.png" alt="TIMED site re-development.">
+        </a>
+
+        <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal" data-bs-target="#galleryModal"
+          data-img="/assets/images/TIMED/TIMED.png">
+          <img src="/assets/images/TIMED/TIMED.png" alt="TIMED site re-development.">
+        </a>
       </div>
-    </div>
-  </section>
-  <!-- About Me Section -->
+        <div class="mt-4 col-12" 
+     style="border-bottom: none; display: flex; justify-content: center; width: 100%;">
+  
+  <a href="/images.html" rel="noopener" class="btn-ghost about-nutshell-label my-4" style="font-size: x-small;margin-left: 5%;">
+    View full gallery →
+  </a>
+</div>
+    </section>
+
+     <!-- About Me Section -->
 
   <!-- Title 
     <div class="about-backstory-title">
@@ -902,71 +958,46 @@
     </div>
   </section>
 
-  <!-- Portfolio Gallery Section -->
-  <section class="my-2">
-    <section class="tumblr-gallery mt-1 mb-4">
-
-      <div class="text-center">
-        <h2 class="about-nutshell-label" style="font-weight: 200; margin-bottom: 0.5rem;">
-          Web Development Portfolio
-        </h2>
-      </div>
-      <div class="text-center">
-        <p class="text-center about-backstory-content my-2"
-          style="font-weight: 100; margin: 0 auto; max-width: 1040px;font-size: small;">
-          Some examples of work from my internship at JHU/APL.
+  <!-- Me in a nutshell section -->
+  <section class="about-nutshell">
+    <div class="container">
+      <div class="about-nutshell-inner">
+        <p class="about-nutshell-label">Overall</p>
+        <p class="about-nutshell-text">
+          I’m a data-driven engineer, cat person, artist, musician, quantum-curious
+          tinkerer, and quietly ambitious programmer.
         </p>
       </div>
-      <div class="tumblr-grid" id="portfolio-grid">
-        <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal" data-bs-target="#galleryModal"
-          data-img="/assets/images/ezie-images/ezie-1.png">
-          <img src="/assets/images/ezie-images/ezie-1.png" alt="Ezie site" class="gallery-img" alt="Ezie site re-development.">
-        </a>
+    </div>
+  </section>
 
-        <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal" data-bs-target="#galleryModal"
-          data-img="/assets/images/ezie-images/ezie-gallery-4.png">
-          <img src="/assets/images/ezie-images/ezie-gallery-4.png" alt="Ezie site" class="gallery-img"
-            alt="Ezie site re-development.">
-        </a>
+  <!-- Random Facts Section -->
+  <section class="random-facts relative overflow-hidden py-0 px-0">
 
-        <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal" data-bs-target="#galleryModal"
-          data-img="/assets/images/ice-giants/ice-giants-old.png">
-          <img src="/assets/images/ice-giants/ice-giants-old.png" class="gallery-img" alt="Ice Giants site">
-        </a>
+    <div class="random-facts-inner">
 
-        <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal" data-bs-target="#galleryModal"
-          data-img="/assets/images/ice-giants/ice-giants-5.png">
-          <img src="/assets/images/ice-giants/ice-giants-5.png" class="gallery-img" alt="Ice Giants site">
-        </a>
-
-        <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal" data-bs-target="#galleryModal"
-          data-img="/assets/images/IMG/parker.png">
-          <img src="/assets/images/IMG/parker.png" class="gallery-img" alt="Parker Solar Probe site 1">
-        </a>
-
-        <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal" data-bs-target="#galleryModal"
-          data-img="/assets/images/IMG/parker2.png">
-          <img src="/assets/images/IMG/parker2.png" alt="Parker Solar Probe site 2">
-        </a>
-
-        <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal" data-bs-target="#galleryModal"
-          data-img="/assets/images/TIMED/TIMED-0.png">
-          <img src="/assets/images/TIMED/TIMED-0.png" alt="TIMED site re-development.">
-        </a>
-
-        <a href="#" class="gallery-modal-trigger" data-bs-toggle="modal" data-bs-target="#galleryModal"
-          data-img="/assets/images/TIMED/TIMED.png">
-          <img src="/assets/images/TIMED/TIMED.png" alt="TIMED site re-development.">
-        </a>
+      <!-- Left: photo -->
+      <div class="random-facts-media space-between mb-6 mb-md-0">
+        <img src="/assets/images/toot.PNG" alt="My cat supervising my desk" />
       </div>
 
-      <div class="text-center mt-4" style="border-bottom: none;">
-        <a href="/images.html" rel="noopener" class="btn-ghost about-nutshell-label" style="font-size: x-small;">
-          View full gallery →
-        </a>
-      </div>
-    </section>
+      <!-- Right: heading + text -->
+      <div class="random-facts-copy" style="margin-left: 10%;margin-top: 15%;">
+        <h2 class="random-facts-title">Random Facts.</h2>
 
+        <p class="random-facts-text">
+          My name is Asmaa. I have a passion for building fish tanks. I have
+          two cats and two leopard geckos. My favorite number is 4. I love
+          to travel. I speak Arabic fluently. My favorite cartoon is Courage
+          the Cowardly Dog. I play guitar, piano, and bass. I love journaling /
+          scrapbooking. I enjoy going fishing and my favorite food is crab legs.
+        </p>
+      </div>
+
+
+    </div>
+  </section>
+ 
 
 
     <!-- Me in a nutshell section -->
@@ -981,28 +1012,41 @@
           </p>
         </div>
       </div>
+<div class="mt-4 col-12" 
+     style="border-bottom: none; display: flex; justify-content: center; width: 100%;">
+
+  <a href="assets/Asmaa_Abdul-Amin.pdf" target="_blank" rel="noopener" class="btn-ghost my-4 about-nutshell-label" style="font-size: x-small;">
+    View resume <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</div>
     </section>
 
+ <section>
 
     <section class="socials-footer py-5">
       <div class="container d-flex justify-content-between align-items-center flex-wrap">
 
         <!-- Left Contact Info -->
         <div class="contact-info text-start mb-0">
-          <a href="https://blkpvnthr.dev" class="footer-initials mb-0" style="text-decoration: none !important;"><span
-              class="footer-initials mb-3" style="font-size: medium;">BLKPVNTHR</span></a>
-          <p style="text-decoration: none;"><a href="mailto:blkpvnthr@asmaa.dev"
+          <a class="navbar-brand fw-semibold" href="index.html" style="color: #ffffff;font-size: 0.8rem;letter-spacing: 0.35em !important;text-transform: uppercase;font-weight: 400 !important;">
+            Asmaa Abdul-Amin
+          </a>
+
+          <p style="text-decoration: none;">
+            <a href="mailto:blkpvnthr@asmaa.dev"
               class="about-text footer-link my-0 mb-0 mt-0"
-              style="font-size: small;text-decoration: none !important;"><span class="about-text my-0"><i
-                  class="fa-regular fa-envelope" style="text-decoration: none !important;"></i> Contact</span></a>
-            &nbsp;
-            | &nbsp;
-            <a href="tel:+12403082269" class="about-text my-0 mt-0 mb-0 "
-              style="font-size: small;text-decoration: none !important;"><span class="about-text my-0"
-                style="text-decoration: none;color: #a152f5;">(240) 308-2269</span></a>
+              style="font-size: small;text-decoration: none !important;">
+              <span class="about-text my-0"><i class="fa-regular fa-envelope"></i> Contact</span>
+            </a>
+
+            &nbsp; | &nbsp;
+
+            <a href="tel:+12403082269" class="about-text my-0 mt-0 mb-0"
+              style="font-size: small;text-decoration: none !important;">
+              <span class="about-text my-0" style="color: #a152f5;">(240) 308-2269</span>
+            </a>
           </p>
         </div>
-
 
         <!-- Right Social Icons -->
         <div class="social-icons mb-3">
@@ -1013,7 +1057,6 @@
             <i class="fa-brands fa-github"></i>
           </a>
           <a href="https://x.com/blkpvnthr" target="_blank" class="footer-icon">
-            <!--<i class="fa-brands fa-square-x-twitter"></i>-->
             <i class="fa-brands fa-x-twitter"></i>
           </a>
           <a href="https://www.linkedin.com/in/blkpvnthr/" target="_blank" class="footer-icon">
@@ -1022,26 +1065,11 @@
         </div>
 
       </div>
+
+      <!-- ⭐ Centered Scroll-to-Top Button -->
+      <button id="scrollTopBtn" class="scroll-top-btn">↑</button>
+
     </section>
-
-
-    <!-- Footer -->
-    <footer class="bg-black my-4 mt-0 text-center">
-      <div class="container bg-black py-4">
-
-        <!-- Divider -->
-        <div class="w-100 mb-4">
-          <div style="border-bottom:1px solid #434343;background-color: #000;"></div>
-        </div>
-
-        <!-- Text -->
-        <div class="text-center" style="color:#434343; font-weight:300;">
-          © <span id="year">2025</span> BLKPVNTHR — All rights
-          reserved.
-        </div>
-
-      </div>
-    </footer>
 
     <!-- Gallery Carousel Modal -->
     <div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
