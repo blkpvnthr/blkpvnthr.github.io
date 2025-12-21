@@ -364,6 +364,12 @@
         </li>
 
         <li class="nav-item">
+            <a class="nav-link" href="/assets/Asmaa_Abdul-Amin.pdf" target="_blank">
+              Resumé
+            </a>
+          </li>
+          
+        <li class="nav-item">
             <a class="nav-link" href="https://github.com/blkpvnthr" target="_blank">
               GitHub<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z"/>
             </svg>
@@ -396,8 +402,7 @@
       <button class="filter-pill active" data-filter="all">All</button>
       <button class="filter-pill" data-filter="web">Web</button>
       <button class="filter-pill" data-filter="graphics">Graphics</button>
-      <button class="filter-pill" data-filter="photos">Photos</button>
-      <button class="filter-pill" data-filter="video">Video / Animations</button>
+      <!--button class="filter-pill" data-filter="video">Video / Animations</button-->
     </div>
 
       <section class="gallery-grid">
@@ -406,13 +411,13 @@
         <article class="gallery-card" data-category="web">
           <button class="gallery-thumb-wrapper js-open-gallery"
           type="button"
-          data-gallery-dir="https://blkpvnthr.github.io/assets/images/ezie-images/"
+          data-gallery-dir="/assets/images/ezie-images/"
           data-gallery-id="ezie"
           aria-controls="gallery-modal"
           aria-expanded="false"
           aria-label="Open EZIE gallery">
         <img class="gallery-thumb"
-             src="https://blkpvnthr.github.io/assets/images/ezie-images/ezie-1.png"
+             src="assets/images/ezie-images/ezie-1.png"
              alt="EZIE mission thumbnail">
         <span class="gallery-badge">Web · APL</span>
           </button>
@@ -498,7 +503,7 @@
           </div>
         </article>
 
-        <article class="gallery-card" data-category="photos">
+        <article class="gallery-card" data-category="web">
           <button class="gallery-thumb-wrapper js-open-gallery"
           type="button"
           data-gallery-dir="/assets/images/parker-kit/"
@@ -570,13 +575,13 @@
         <article class="gallery-card" data-category="web">
           <button class="gallery-thumb-wrapper js-open-gallery"
           type="button"
-          data-gallery-dir="/assets/images/TIMED/"
+          data-gallery-dir="assets/images/TIMED/"
           data-gallery-id="timed"
           aria-controls="gallery-modal"
           aria-expanded="false"
           aria-label="Open TIMED gallery">
         <img class="gallery-thumb"
-             src="/assets/images/TIMED/TIMED.png"
+             src="assets/images/TIMED/TIMED-2.png"
              alt="TIMED project thumbnail">
         <span class="gallery-badge">Web · APL</span>
           </button>
@@ -799,33 +804,129 @@ async function parseDirectoryListing(dir) {
 
 /* Given either a gallery ID or directory, return array of gallery items or null */
 async function resolveGallery(targetBtn) {
-    const galleryId = targetBtn.dataset.galleryId;
-    const galleryDir = targetBtn.dataset.galleryDir;
-
-    // 1) If predefined gallery in PROJECT_GALLERIES, return it
-    if (galleryId && PROJECT_GALLERIES[galleryId]) {
-        return PROJECT_GALLERIES[galleryId];
-    }
-
-    // 2) If data-gallery-dir provided, attempt loading index.json then directory listing
-    if (galleryDir) {
-        const dir = galleryDir;
-        
-        // Try index.json
-        const fromJson = await loadIndexJson(dir);
-        if (fromJson && fromJson.length) return fromJson;
-
-        // Try directory listing parse (only works if the server is configured to allow it)
-        const fromDir = await parseDirectoryListing(dir);
-        if (fromDir && fromDir.length) return fromDir;
-
-        // If all else fails, log warning and return null
-        console.warn("Could not load gallery content. Ensure index.json exists or directory listing is enabled for:", dir);
-        return null;
-    }
-
+  
+  if (!targetBtn || !targetBtn.dataset) {
+    console.warn("resolveGallery: targetBtn missing or has no dataset:", targetBtn);
     return null;
+  }
+
+  const galleryId = targetBtn.dataset.galleryId?.trim();
+  const galleryDirRaw = targetBtn.dataset.galleryDir?.trim();
+  const galleryType = targetBtn.dataset.galleryType?.toLowerCase();
+
+  // Choose base path by gallery type
+  const BASE_GALLERY_PATH =
+    galleryType === "video" || galleryType === "animation"
+      ? "/assets/videos/"
+      : "/assets/images/";
+
+  // 1) Predefined gallery
+  if (galleryId && PROJECT_GALLERIES?.[galleryId]) {
+    return PROJECT_GALLERIES[galleryId];
+  }
+
+  // 2) Directory-based gallery
+  if (galleryDirRaw) {
+    const dir = normalizeGalleryDir(galleryDirRaw, BASE_GALLERY_PATH);
+
+    try {
+      // Try index.json
+      const fromJson = await loadIndexJson(dir);
+      if (Array.isArray(fromJson) && fromJson.length) return fromJson;
+
+      // Try directory listing (if enabled server-side)
+      const fromDir = await parseDirectoryListing(dir);
+      if (Array.isArray(fromDir) && fromDir.length) return fromDir;
+
+      console.warn(
+        "Could not load gallery content. Ensure index.json exists or directory listing is enabled for:",
+        dir
+      );
+      return null;
+    } catch (err) {
+      console.warn("resolveGallery failed for:", dir, err);
+      return null;
+    }
+  }
+
+  return null;
 }
+async function resolveVideoGallery() {
+  const BASE_VIDEOS_PATH = "/assets/videos/";
+
+  try {
+    // This will fetch "/assets/videos/index.json"
+    const items = await loadIndexJson(BASE_VIDEOS_PATH);
+
+    if (Array.isArray(items) && items.length) {
+      return items;
+    }
+
+    console.warn("Video index.json is empty:", BASE_VIDEOS_PATH + "index.json");
+    return null;
+  } catch (err) {
+    console.warn("resolveVideoGallery failed for:", BASE_VIDEOS_PATH, err);
+    return null;
+  }
+}
+
+// Global (or module-level) base path that the filter pills can switch
+let ACTIVE_GALLERY_BASE = "/assets/images/";
+
+async function loadIndexJson(dir) {
+  const res = await fetch(dir + "index.json", { cache: "no-store" });
+  if (!res.ok) return null;
+
+  const items = await res.json();
+  if (!Array.isArray(items)) return null;
+
+  // Normalize: if src is relative, make it absolute to the dir
+  return items.map(it => ({
+    ...it,
+    src:
+      (it.src && !it.src.startsWith("http") && !it.src.startsWith("/"))
+        ? (dir + it.src)
+        : it.src
+  }));
+}
+
+
+/**
+ * Accepts:
+ *  - "myGallery"
+ *  - "myGallery/"
+ *  - "/assets/images/myGallery"
+ *  - "assets/images/myGallery/"
+ *  - "/assets/videos/myGallery"
+ *  - "assets/videos/myGallery/"
+ * Returns:
+ *  - "<basePath>/myGallery/"
+ */
+function normalizeGalleryDir(input, basePath) {
+  let s = String(input).trim();
+
+  // Convert backslashes to slashes (Windows-y copy/paste)
+  s = s.replace(/\\/g, "/");
+
+  // Strip leading "./"
+  s = s.replace(/^\.\//, "");
+
+  // If someone passed "assets/images/..." or "/assets/images/..." or videos, strip that prefix
+  s = s.replace(/^\/?assets\/(images|videos)\/?/i, "");
+
+  // Strip any leading slash so we can join cleanly
+  s = s.replace(/^\/+/, "");
+
+  // Ensure basePath starts/ends with "/"
+  let base = String(basePath || "/").trim();
+  if (!base.startsWith("/")) base = "/" + base;
+  if (!base.endsWith("/")) base += "/";
+
+  // Build final dir and ensure trailing slash
+  const out = base + s;
+  return out.endsWith("/") ? out : out + "/";
+}
+
 
 /* Update Modal Content with current image */
 function updateModalContent() {

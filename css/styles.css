@@ -388,6 +388,9 @@ h1.lh-condensed {
   .about-hero-subtitle {
     font-size: 0.95rem;
   }
+  #gradient-overlay {
+      bottom:  4rem !important;
+    }
 }
 
 /* ---------------------------------------------------

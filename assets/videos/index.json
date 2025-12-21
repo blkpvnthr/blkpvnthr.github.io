@@ -1,0 +1,9 @@
+[
+  { "src": "3D-parker.mov", "type": "video", "title": "3D Parker" },
+  { "src": "ezie-aim.mov", "type": "video", "title": "Ezie Aim" },
+  { "src": "ezie-spacecraft.mov", "type": "video", "title": "Ezie Spacecraft" },
+  { "src": "ezie-zeeman-2.mov", "type": "video", "title": "Ezie Zeeman 2" },
+  { "src": "ezie-zeeman-3.mov", "type": "video", "title": "Ezie Zeeman 3" },
+  { "src": "parker-kit.mov", "type": "video", "title": "Parker Kit" },
+  { "src": "parker-main.mov", "type": "video", "title": "Parker Main" }
+]
