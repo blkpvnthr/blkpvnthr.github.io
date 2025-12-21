@@ -389,10 +389,31 @@ h1.lh-condensed {
     font-size: 0.95rem;
   }
   #gradient-overlay {
-      bottom:  4rem !important;
+      bottom:  95%;
+      top: -45%;
+      margin-bottom: 6em;
     }
 }
+/* Responsive gradient transition */
+.hero-gradient {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 
+  /* height scales with viewport */
+  height: clamp(64px, 12vw, 220px);
+
+  /* smooth fade from transparent to page background */
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.65) 55%,
+    rgba(0, 0, 0, 1) 100%
+  );
+
+  pointer-events: none; /* doesn't block clicks */
+}
 /* ---------------------------------------------------
    Split Section (image + text)
 --------------------------------------------------- */
