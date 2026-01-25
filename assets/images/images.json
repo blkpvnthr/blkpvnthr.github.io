@@ -1,0 +1,122 @@
+{
+  "qq": {
+    "title": "QuantumQuant",
+    "description": "Responsive mission portal layout for an interactive trading platform.",
+    "images": [
+      "assets/images/qq/img-1.png",
+      "assets/images/qq/img-2.png",
+      "assets/images/qq/img-3.png"
+    ]
+  },
+
+  "ezie": {
+    "title": "EZIE Mission",
+    "description": "Educational mission visuals and outreach materials.",
+    "images": [
+      "assets/images/ezie-images/ezie-1.png",
+      "assets/images/ezie-images/ezie-2.png",
+      "assets/images/ezie-images/ezie-3.png",
+      "assets/images/ezie-images/ezie-4.png",
+      "assets/images/ezie-images/ezie-atmosphere.png",
+      "assets/images/ezie-images/ezie-atmosphere-2.png",
+      "assets/images/ezie-images/ezie-citizen-science.png",
+      "assets/images/ezie-images/ezie-contact.png",
+      "assets/images/ezie-images/ezie-earth-space.png",
+      "assets/images/ezie-images/ezie-electrojets.png",
+      "assets/images/ezie-images/ezie-gallery-1.png",
+      "assets/images/ezie-images/ezie-gallery-2.png",
+      "assets/images/ezie-images/ezie-gallery-3.png",
+      "assets/images/ezie-images/ezie-gallery-4.png",
+      "assets/images/ezie-images/ezie-news.png",
+      "assets/images/ezie-images/ezie-outreach.png",
+      "assets/images/ezie-images/ezie-solar-wind.png",
+      "assets/images/ezie-images/ezie-spacecraft.png",
+      "assets/images/ezie-images/ezie-team.png",
+      "assets/images/ezie-images/ezie-workshops.png",
+      "assets/images/ezie-images/ezie-zeeman.png",
+      "assets/images/ezie-images/ezire-auroral-electrojets.png"
+    ]
+  },
+
+  "dgf": {
+    "title": "DGF Platform",
+    "description": "Digital collaboration and outreach platform visuals.",
+    "images": [
+      "assets/images/dgf/dgf.png",
+      "assets/images/dgf/dgf-2.png",
+      "assets/images/dgf/dgf-3.png",
+      "assets/images/dgf/dgf-4.png",
+      "assets/images/dgf/dgf-5.png",
+      "assets/images/dgf/dgf-6.png",
+      "assets/images/dgf/dgf-7.png",
+      "assets/images/dgf/dgf-8.png",
+      "assets/images/dgf/dgf-9.png",
+      "assets/images/dgf/dgf-10.png",
+      "assets/images/dgf/dgf-11.png",
+      "assets/images/dgf/dgf-acronyms.png",
+      "assets/images/dgf/dgf-collaborator.png",
+      "assets/images/dgf/dgf-events.png",
+      "assets/images/dgf/DGF-external.png",
+      "assets/images/dgf/DGF-external-map.png",
+      "assets/images/dgf/dgf-images.png",
+      "assets/images/dgf/dgf-meetings.png",
+      "assets/images/dgf/dgf-news.png",
+      "assets/images/dgf/dgf-outreach.png",
+      "assets/images/dgf/dgf-swag.png",
+      "assets/images/dgf/dgf-videos.png"
+    ]
+  },
+
+  "ice-giants": {
+    "title": "Ice Giants",
+    "description": "Mission concept visuals for ice giant exploration.",
+    "images": [
+      "assets/images/ice-giants/ice-giants-0.png",
+      "assets/images/ice-giants/ice-giants-1.png",
+      "assets/images/ice-giants/ice-giants-2.png",
+      "assets/images/ice-giants/ice-giants-3.png",
+      "assets/images/ice-giants/ice-giants-4.png",
+      "assets/images/ice-giants/ice-giants-5.png",
+      "assets/images/ice-giants/ice-giants-6.png",
+      "assets/images/ice-giants/ice-giants-7.png",
+      "assets/images/ice-giants/ice-giants-old.png"
+    ]
+  },
+
+  "parker-kit": {
+    "title": "Parker Kit",
+    "description": "Design system and UI components for Parker mission tools.",
+    "images": [
+      "assets/images/parker-kit/parker-1.png",
+      "assets/images/parker-kit/parker-2.png",
+      "assets/images/parker-kit/parker-3.png",
+      "assets/images/parker-kit/parker-4.png",
+      "assets/images/parker-kit/parker-5.png",
+      "assets/images/parker-kit/parker-6.png",
+      "assets/images/parker-kit/parker-7.png",
+      "assets/images/parker-kit/parker-8.png",
+      "assets/images/parker-kit/parker-kit.png"
+    ]
+  },
+
+  "logic": {
+    "title": "LOGIC",
+    "description": "Internal tools, lexicon, and clock management interfaces.",
+    "images": [
+      "assets/images/LOGIC/logic-lexicon.png",
+      "assets/images/LOGIC/logic-manage-clock-v1.png",
+      "assets/images/LOGIC/logic-manage-clock-v2.png"
+    ]
+  },
+
+  "lac": {
+    "title": "LAC",
+    "description": "Landing page and FAQ visuals.",
+    "images": [
+      "assets/images/LAC/LAC.png",
+      "assets/images/LAC/LAC-2.png",
+      "assets/images/LAC/LAC-3.png",
+      "assets/images/LAC/LAC-FAQ.png"
+    ]
+  }
+}

@@ -14,6 +14,10 @@
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="css/bootstrap-icons.css">
     <link rel="stylesheet" href="css/animate.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+  crossorigin="anonymous"></script>
+
     <script src="https://kit.fontawesome.com/aef4f8d92e.js" crossorigin="anonymous"></script>
 
   <style>
@@ -154,7 +158,74 @@
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
     }
+/* Make sure links are actually visible */
+    .site-navbar .navbar-nav .nav-link {
+      color: #ffffff;
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 0.5rem 1rem;
+    }
 
+    .nav-item {
+      color: #ffffff;
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 0.5rem 1rem;
+    }
+
+    .site-navbar .navbar-nav .nav-item:hover,
+    .site-navbar .navbar-nav .nav-item:focus,
+    .site-navbar .navbar-nav .nav-item.active {
+      color: #9eb5cf;
+    }
+
+    /* Optional: make the modal background dark and the caption more visible */
+    .gallery-modal-backdrop {
+      background: radial-gradient(circle at top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.95));
+      backdrop-filter: blur(8px);
+    }
+
+    #galleryModal .carousel-caption {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 0.5rem 1rem;
+      border-radius: 0.25rem;
+    }
+    svg {
+      width: 15px;
+      height: 15px;
+      margin-left: 0 !important;
+    }
+
+.socials-footer {
+    background: #000;
+    color: #a152f5;
+    padding: 60px 0;
+    padding-top: 0 !important;
+}
+ .scroll-top-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: black;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 9999;
+}
+
+.scroll-top-btn.show {
+  opacity: 1;
+  pointer-events: auto;
+}
     /* --- Card --- */
     .gallery-card {
       display: flex;
@@ -328,6 +399,118 @@
   color: #9eb5cf;
 }
   </style>
+<script>
+(() => {
+  // ---- config ----
+  const MANIFEST_URL = "assets/images/galleries.json";
+
+  // ---- state ----
+  let manifest = null;
+  let currentGallery = null;
+  let currentIndex = 0;
+  let bsModal = null;
+
+  // ---- dom helpers ----
+  const $ = (sel) => document.querySelector(sel);
+
+  function setNavButtons(total) {
+    $("#gallery-prev").style.display = currentIndex > 0 ? "block" : "none";
+    $("#gallery-next").style.display = currentIndex < total - 1 ? "block" : "none";
+  }
+
+  function renderModal() {
+    if (!currentGallery) return;
+
+    const total = currentGallery.images.length;
+    const src = currentGallery.images[currentIndex];
+
+    $("#gallery-modal-image").src = src;
+    $("#gallery-modal-image").alt = `${currentGallery.title} image ${currentIndex + 1}`;
+    $("#gallery-modal-title").textContent = currentGallery.title;
+    $("#gallery-modal-description").textContent = currentGallery.description || "";
+    $("#gallery-modal-counter").textContent = `(${currentIndex + 1} / ${total})`;
+
+    setNavButtons(total);
+  }
+
+  async function loadManifest() {
+    if (manifest) return manifest;
+    const res = await fetch(MANIFEST_URL, { cache: "no-store" });
+    if (!res.ok) throw new Error(`Failed to load manifest: ${MANIFEST_URL}`);
+    manifest = await res.json();
+    return manifest;
+  }
+
+  async function openGalleryById(galleryId) {
+    const data = await loadManifest();
+    const g = data[galleryId];
+
+    if (!g || !Array.isArray(g.images) || g.images.length === 0) {
+      console.warn("Gallery not found or empty:", galleryId, g);
+      alert("Could not load gallery images for this project.");
+      return;
+    }
+
+    currentGallery = g;
+    currentIndex = 0;
+    renderModal();
+    bsModal.show();
+  }
+
+  function clampIndex(nextIndex) {
+    if (!currentGallery) return 0;
+    const max = currentGallery.images.length - 1;
+    return Math.max(0, Math.min(max, nextIndex));
+  }
+
+  function prev() {
+    if (!currentGallery) return;
+    currentIndex = clampIndex(currentIndex - 1);
+    renderModal();
+  }
+
+  function next() {
+    if (!currentGallery) return;
+    currentIndex = clampIndex(currentIndex + 1);
+    renderModal();
+  }
+
+  document.addEventListener("DOMContentLoaded", async () => {
+    // bootstrap modal must exist
+    const modalEl = $("#gallery-modal");
+    if (!modalEl) {
+      console.warn("gallery-modal not found.");
+      return;
+    }
+
+    // bootstrap must be loaded already (we placed script after bundle)
+    bsModal = new bootstrap.Modal(modalEl);
+
+    // open buttons
+    document.querySelectorAll(".js-open-gallery").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const id = btn.dataset.galleryId;
+        if (!id) return;
+        openGalleryById(id);
+      });
+    });
+
+    // nav buttons
+    $("#gallery-prev").addEventListener("click", prev);
+    $("#gallery-next").addEventListener("click", next);
+
+    // keyboard nav when modal is shown
+    modalEl.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") prev();
+      if (e.key === "ArrowRight") next();
+    });
+
+    // optional: prefetch manifest early
+    try { await loadManifest(); } catch (err) { console.warn(err); }
+  });
+})();
+</script>
 
 </head>
 <body>
@@ -404,213 +587,205 @@
       <button class="filter-pill" data-filter="graphics">Graphics</button>
       <!--button class="filter-pill" data-filter="video">Video / Animations</button-->
     </div>
+<section class="gallery-grid">
 
-      <section class="gallery-grid">
+  <!-- QuantumQuant -->
+  <article class="gallery-card" data-category="web">
+    <button class="gallery-thumb-wrapper js-open-gallery"
+      type="button"
+      data-gallery-id="qq"
+      aria-controls="gallery-modal"
+      aria-expanded="false"
+      aria-label="Open QuantumQuant gallery">
+      <img class="gallery-thumb"
+        src="assets/images/qq/img-1.png"
+        alt="QuantumQuant mission thumbnail">
+      <span class="gallery-badge">Web · Quantitative Finance</span>
+    </button>
 
+    <div class="gallery-card-body">
+      <h3 class="gallery-card-title">QuantumQuant</h3>
+      <p class="gallery-card-text">
+        Responsive mission portal layout for an interactive trading platform.
+      </p>
+      <div class="gallery-card-meta">HTML / CSS / JS / PHP</div>
+      <div class="gallery-card-footer">
+        <a href="https://ezie.jhuapl.edu/" target="_blank" class="gallery-link" rel="noopener">
+          View site
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
+            <path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </article>
 
-        <article class="gallery-card" data-category="web">
-          <button class="gallery-thumb-wrapper js-open-gallery"
-          type="button"
-          data-gallery-dir="https://github.com/blkpvnthr/blkpvnthr.github.io/tree/main/assets/images/ezie-images/"
-          data-gallery-id="ezie"
-          aria-controls="gallery-modal"
-          aria-expanded="false"
-          aria-label="Open EZIE gallery">
-        <img class="gallery-thumb"
-             src="assets/images/ezie-images/ezie-1.png"
-             alt="EZIE mission thumbnail">
-        <span class="gallery-badge">Web · APL</span>
-          </button>
+  <!-- EZIE -->
+  <article class="gallery-card" data-category="web">
+    <button class="gallery-thumb-wrapper js-open-gallery"
+      type="button"
+      data-gallery-id="ezie"
+      aria-controls="gallery-modal"
+      aria-expanded="false"
+      aria-label="Open EZIE gallery">
+      <img class="gallery-thumb"
+        src="assets/images/ezie-images/ezie-1.png"
+        alt="EZIE mission thumbnail">
+      <span class="gallery-badge">Web · APL</span>
+    </button>
 
-          <div class="gallery-card-body">
-        <h3 class="gallery-card-title">EZIE – Electrojet Zeeman Imaging Explorer</h3>
-        <p class="gallery-card-text">
-          Responsive mission portal layout for NASA’s EZIE mission — hero, media gallery,
-          and internal tools wired into APL infrastructure.
-        </p>
-        <div class="gallery-card-meta">
-          HTML / CSS / JS / PHP
-        </div>
-        <div class="gallery-card-footer">
-          <a href="https://ezie.jhuapl.edu/" target="_blank" class="gallery-link" rel="noopener">
-            View site
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
-          <path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z"/>
-            </svg>
-          </a>
-        </div>
-          </div>
-        </article>
+    <div class="gallery-card-body">
+      <h3 class="gallery-card-title">EZIE – Electrojet Zeeman Imaging Explorer</h3>
+      <p class="gallery-card-text">
+        Responsive mission portal layout for NASA’s EZIE mission — hero, media gallery,
+        and internal tools wired into APL infrastructure.
+      </p>
+      <div class="gallery-card-meta">HTML / CSS / JS / PHP</div>
+      <div class="gallery-card-footer">
+        <a href="https://ezie.jhuapl.edu/" target="_blank" class="gallery-link" rel="noopener">
+          View site
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
+            <path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </article>
 
-        <article class="gallery-card" data-category="web">
-          <button class="gallery-thumb-wrapper js-open-gallery"
-          type="button"
-          data-gallery-dir="https://github.com/blkpvnthr/blkpvnthr.github.io/tree/main/assets/images/ice-giants/"
-          data-gallery-id="ice-giants"
-          aria-controls="gallery-modal"
-          aria-expanded="false"
-          aria-label="Open Ice Giants gallery">
-        <img class="gallery-thumb"
-             src="/assets/images/ice-giants/ice-giants-0.png"
-             alt="Ice Giants thumbnail">
-        <span class="gallery-badge">Web · APL</span>
-          </button>
+  <!-- Ice Giants -->
+  <article class="gallery-card" data-category="web">
+    <button class="gallery-thumb-wrapper js-open-gallery"
+      type="button"
+      data-gallery-id="ice-giants"
+      aria-controls="gallery-modal"
+      aria-expanded="false"
+      aria-label="Open Ice Giants gallery">
+      <img class="gallery-thumb"
+        src="assets/images/ice-giants/ice-giants-0.png"
+        alt="Ice Giants thumbnail">
+      <span class="gallery-badge">Web · APL</span>
+    </button>
 
-          <div class="gallery-card-body">
-        <h3 class="gallery-card-title">Ice Giants</h3>
-        <p class="gallery-card-text">
-          Responsive mission portal layout for the Uranus &amp; Neptune concept study —
-          immersive hero, science highlights, and internal tooling.
-        </p>
-        <div class="gallery-card-meta">
-          Design &amp; build · HTML / CSS / JS / PHP
-        </div>
-        <div class="gallery-card-footer">
-          <a href="https://icegiants.jhuapl.edu/" target="_blank" class="gallery-link" rel="noopener">
-            View site
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
-          <path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z"/>
-            </svg>
-          </a>
-        </div>
-          </div>
-        </article>
+    <div class="gallery-card-body">
+      <h3 class="gallery-card-title">Ice Giants</h3>
+      <p class="gallery-card-text">
+        Responsive mission portal layout for the Uranus &amp; Neptune concept study —
+        immersive hero, science highlights, and internal tooling.
+      </p>
+      <div class="gallery-card-meta">Design &amp; build · HTML / CSS / JS / PHP</div>
+      <div class="gallery-card-footer">
+        <a href="https://icegiants.jhuapl.edu/" target="_blank" class="gallery-link" rel="noopener">
+          View site
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
+            <path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </article>
 
+  <!-- Parker Kit -->
+  <article class="gallery-card" data-category="web">
+    <button class="gallery-thumb-wrapper js-open-gallery"
+      type="button"
+      data-gallery-id="parker-kit"
+      aria-controls="gallery-modal"
+      aria-expanded="false"
+      aria-label="Open Parker kit gallery">
+      <img class="gallery-thumb"
+        src="assets/images/parker-kit/parker-kit.png"
+        alt="Parker kit thumbnail">
+      <span class="gallery-badge">Web · APL</span>
+    </button>
 
-        <article class="gallery-card" data-category="graphics">
-          <button class="gallery-thumb-wrapper js-open-gallery"
-          type="button"
-          data-gallery-dir="https://github.com/blkpvnthr/blkpvnthr.github.io/tree/main/assets/images/ice-giants/ps-images/"
-          data-gallery-id="uranus-art"
-          aria-controls="gallery-modal"
-          aria-expanded="false"
-          aria-label="Open Ice Giants concept art gallery">
-        <img class="gallery-thumb"
-             src="/assets/images/ice-giants/ps-images/new-new-uranus.png"
-             alt="Ice Giants concept art thumbnail">
-        <span class="gallery-badge">Graphics · Space</span>
-          </button>
+    <div class="gallery-card-body">
+      <h3 class="gallery-card-title">PSP Closest Approach Celebration Kit</h3>
+      <p class="gallery-card-text">
+        Engineered a celebration kit for Parker Solar Probe’s closest approach —
+        custom graphics, prints, and desk setup.
+      </p>
+      <div class="gallery-card-meta">Design &amp; build · HTML / CSS / JS / PHP</div>
+      <div class="gallery-card-footer">
+        <a href="https://parkersolarprobe.jhuapl.edu/parker-kit/" target="_blank" class="gallery-link" rel="noopener">
+          View site
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
+            <path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </article>
 
-          <div class="gallery-card-body">
-        <h3 class="gallery-card-title">Ice Giants Concept Art</h3>
-        <p class="gallery-card-text">
-          Layered composite built from scratch: ring glow, cloud bands, and a
-          soft atmospheric halo tuned to match the mission visual style.
-        </p>
-        <div class="gallery-card-meta">
-          InDesign / Photoshop · 3840×2160
-        </div>
-          </div>
-        </article>
+  <!-- LAC -->
+  <article class="gallery-card" data-category="web">
+    <button class="gallery-thumb-wrapper js-open-gallery"
+      type="button"
+      data-gallery-id="lac"
+      aria-controls="gallery-modal"
+      aria-expanded="false"
+      aria-label="Open LAC gallery">
+      <img class="gallery-thumb"
+        src="assets/images/LAC/LAC-3.png"
+        alt="Lunar Autonomy Challenge thumbnail">
+      <span class="gallery-badge">Web · APL</span>
+    </button>
 
-        <article class="gallery-card" data-category="web">
-          <button class="gallery-thumb-wrapper js-open-gallery"
-          type="button"
-          data-gallery-dir="https://github.com/blkpvnthr/blkpvnthr.github.io/tree/main/assets/images/parker-kit/"
-          data-gallery-id="parker-kit"
-          aria-controls="gallery-modal"
-          aria-expanded="false"
-          aria-label="Open Parker kit gallery">
-        <img class="gallery-thumb"
-             src="/assets/images/parker-kit/parker-kit.png"
-             alt="Parker kit thumbnail">
-        <span class="gallery-badge">Web · APL</span>
-          </button>
+    <div class="gallery-card-body">
+      <h3 class="gallery-card-title">Lunar Autonomy Challenge</h3>
+      <p class="gallery-card-text">
+        Built an admin area to manage FAQs and a front-facing page using DataTables
+        for searchable, sortable Q&amp;A instead of a static list.
+      </p>
+      <div class="gallery-card-meta">HTML / CSS / JS · DataTables</div>
+      <div class="gallery-card-footer">
+        <a href="https://lac.jhuapl.edu/" target="_blank" class="gallery-link" rel="noopener">
+          View site
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
+            <path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </article>
 
-          <div class="gallery-card-body">
-        <h3 class="gallery-card-title">PSP Closest Approach Celebration Kit</h3>
-        <p class="gallery-card-text">
-          Engineered a celebration kit for Parker Solar Probe’s closest approach —
-          custom graphics, prints, and desk setup.
-        </p>
-        <div class="gallery-card-meta">
-          Design &amp; build · HTML / CSS / JS / PHP
-        </div>
-        <div class="gallery-card-footer">
-          <a href="https://parkersolarprobe.jhuapl.edu/parker-kit/" target="_blank" class="gallery-link" rel="noopener">
-            View site
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
-          <path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z"/>
-            </svg>
-          </a>
-        </div>
-          </div>
-        </article>
+  <!-- TIMED -->
+  <article class="gallery-card" data-category="web">
+    <button class="gallery-thumb-wrapper js-open-gallery"
+      type="button"
+      data-gallery-id="timed"
+      aria-controls="gallery-modal"
+      aria-expanded="false"
+      aria-label="Open TIMED gallery">
+      <img class="gallery-thumb"
+        src="assets/images/TIMED/TIMED-2.png"
+        alt="TIMED project thumbnail">
+      <span class="gallery-badge">Web · APL</span>
+    </button>
 
-        <article class="gallery-card" data-category="web">
-          <button class="gallery-thumb-wrapper js-open-gallery"
-          type="button"
-          data-gallery-dir="https://github.com/blkpvnthr/blkpvnthr.github.io/tree/main/assets/images/LAC/"
-          data-gallery-id="lac"
-          aria-controls="gallery-modal"
-          aria-expanded="false"
-          aria-label="Open LAC gallery">
-        <img class="gallery-thumb"
-             src="/assets/images/LAC/LAC-3.png"
-             alt="Lunar Autonomy Challenge thumbnail">
-        <span class="gallery-badge">Web · APL</span>
-          </button>
-
-          <div class="gallery-card-body">
-        <h3 class="gallery-card-title">Lunar Autonomy Challenge</h3>
-        <p class="gallery-card-text">
-          Built an admin area to manage FAQs and a front-facing page using DataTables
-          for searchable, sortable Q&amp;A instead of a static list.
-        </p>
-        <div class="gallery-card-meta">
-          HTML / CSS / JS · DataTables
-        </div>
-        <div class="gallery-card-footer">
-          <a href="https://lac.jhuapl.edu/" target="_blank" class="gallery-link" rel="noopener">
-            View site
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
-          <path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z"/>
-            </svg>
-          </a>
-        </div>
-          </div>
-        </article>
-
-
-        <article class="gallery-card" data-category="web">
-          <button class="gallery-thumb-wrapper js-open-gallery"
-          type="button"
-          data-gallery-dir="https://github.com/blkpvnthr/blkpvnthr.github.io/tree/main/assets/images/TIMED/"
-          data-gallery-id="timed"
-          aria-controls="gallery-modal"
-          aria-expanded="false"
-          aria-label="Open TIMED gallery">
-        <img class="gallery-thumb"
-             src="assets/images/TIMED/TIMED-2.png"
-             alt="TIMED project thumbnail">
-        <span class="gallery-badge">Web · APL</span>
-          </button>
-
-          <div class="gallery-card-body">
-        <h3 class="gallery-card-title">TIMED – Thermosphere • Ionosphere • Mesosphere • Energetics • Dynamics
-
-        </h3>
-        <p class="gallery-card-text">
-        Re-Designed an updated version of this mission site with a modern look and feel.
-        </p>
-        <div class="gallery-card-meta">
-          HTML / CSS / JS
-        </div>
+    <div class="gallery-card-body">
+      <h3 class="gallery-card-title">TIMED – Thermosphere • Ionosphere • Mesosphere • Energetics • Dynamics</h3>
+      <p class="gallery-card-text">Re-designed an updated version of this mission site with a modern look and feel.</p>
+      <div class="gallery-card-meta">HTML / CSS / JS</div>
+      <div class="gallery-card-footer">
         <a href="https://timedsds.jhuapl.edu/index.html" target="_blank" class="gallery-link" rel="noopener">
           View site
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
-          <path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z"/>
-            </svg>
+            <path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z"/>
+          </svg>
         </a>
-          </div>
-        </article>
-      </section>
+      </div>
+    </div>
+  </article>
+
+</section>
+
 <div class="text-center mt-4" style="border-bottom: none;">
           <a href="/portfolio.html" rel="noopener"
             class="btn-ghost about-nutshell-label" style="font-size: x-small;">
             View Portifolio →
           </a>
         </div>
+        
       <script>
         // Small helper: if any non-button wrappers are used later, forward clicks/keyboard to the gallery button.
         (function () {
@@ -632,6 +807,7 @@
         })();
       </script>
 </main>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
@@ -1005,8 +1181,241 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+  crossorigin="anonymous"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script>
+(() => {
+  const MANIFEST_URL = "assets/images/galleries.json";
+
+  let manifest = null;
+  let currentGallery = null;
+  let currentIndex = 0;
+  let bsModal = null;
+
+  const $ = (s) => document.querySelector(s);
+
+  async function loadManifest() {
+    if (manifest) return manifest;
+    const res = await fetch(MANIFEST_URL, { cache: "no-store" });
+    if (!res.ok) throw new Error("Could not load " + MANIFEST_URL);
+    manifest = await res.json();
+    return manifest;
+  }
+
+  function render() {
+    if (!currentGallery) return;
+    const total = currentGallery.images.length;
+
+    $("#gallery-modal-title").textContent = currentGallery.title || "Gallery";
+    $("#gallery-modal-description").textContent = currentGallery.description || "";
+    $("#gallery-modal-counter").textContent = `(${currentIndex + 1} / ${total})`;
+
+    const src = currentGallery.images[currentIndex];
+    $("#gallery-modal-image").src = src;
+    $("#gallery-modal-image").alt = `${currentGallery.title || "Gallery"} image ${currentIndex + 1}`;
+
+    $("#gallery-prev").style.display = currentIndex > 0 ? "block" : "none";
+    $("#gallery-next").style.display = currentIndex < total - 1 ? "block" : "none";
+  }
+
+  function prev() {
+    if (!currentGallery) return;
+    currentIndex = Math.max(0, currentIndex - 1);
+    render();
+  }
+
+  function next() {
+    if (!currentGallery) return;
+    currentIndex = Math.min(currentGallery.images.length - 1, currentIndex + 1);
+    render();
+  }
+
+  async function openById(id) {
+    const data = await loadManifest();
+    const g = data[id];
+
+    if (!g || !Array.isArray(g.images) || g.images.length === 0) {
+      console.warn("Missing gallery id in JSON:", id);
+      alert("Could not load gallery images for this project.");
+      return;
+    }
+
+    currentGallery = g;
+    currentIndex = 0;
+    render();
+    bsModal.show();
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const modalEl = $("#gallery-modal");
+    if (!modalEl) return;
+
+    bsModal = new bootstrap.Modal(modalEl);
+
+    document.querySelectorAll(".js-open-gallery").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const id = btn.dataset.galleryId;
+        if (id) openById(id);
+      });
+    });
+
+    $("#gallery-prev").addEventListener("click", prev);
+    $("#gallery-next").addEventListener("click", next);
+
+    modalEl.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") prev();
+      if (e.key === "ArrowRight") next();
+    });
+  });
+})();
+</script>
+<div class="modal fade" id="gallery-modal" tabindex="-1" aria-labelledby="gallery-modal-title" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content" style="background: var(--bg-card); border-color: var(--border-subtle);">
+      <div class="modal-header border-0">
+        <h5 class="modal-title">
+          <span id="gallery-modal-title">Gallery</span>
+          <span class="text-muted small ms-2" id="gallery-modal-counter"></span>
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body p-0">
+        <div class="position-relative">
+          <img id="gallery-modal-image" src="" alt="" class="img-fluid"
+               style="display:block;width:100%;border-radius:0.5rem;">
+          <button id="gallery-prev" type="button"
+            class="btn btn-outline-light position-absolute top-50 start-0 translate-middle-y ms-3"
+            style="z-index:10;">&lt;</button>
+          <button id="gallery-next" type="button"
+            class="btn btn-outline-light position-absolute top-50 end-0 translate-middle-y me-3"
+            style="z-index:10;">&gt;</button>
+        </div>
+      </div>
+
+      <div class="modal-footer d-block border-0 pt-0">
+        <p id="gallery-modal-description" class="text-muted small mb-0"></p>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+  crossorigin="anonymous"></script>
+
+<script>
+(() => {
+  // ✅ points to your real file name
+  const MANIFEST_URL = "assets/images/images.json";
+
+  let manifest = null;
+  let currentGallery = null;
+  let currentIndex = 0;
+  let bsModal = null;
+
+  const $ = (s) => document.querySelector(s);
+
+  async function loadManifest() {
+    if (manifest) return manifest;
+    const res = await fetch(MANIFEST_URL, { cache: "no-store" });
+    if (!res.ok) throw new Error("Could not load " + MANIFEST_URL);
+    manifest = await res.json();
+    return manifest;
+  }
+
+  function render() {
+    if (!currentGallery) return;
+
+    const total = currentGallery.images.length;
+    const src = currentGallery.images[currentIndex];
+
+    $("#gallery-modal-title").textContent = currentGallery.title || "Gallery";
+    $("#gallery-modal-description").textContent = currentGallery.description || "";
+    $("#gallery-modal-counter").textContent = `(${currentIndex + 1} / ${total})`;
+
+    const img = $("#gallery-modal-image");
+    img.src = src;
+    img.alt = `${currentGallery.title || "Gallery"} image ${currentIndex + 1}`;
+
+    $("#gallery-prev").style.display = currentIndex > 0 ? "block" : "none";
+    $("#gallery-next").style.display = currentIndex < total - 1 ? "block" : "none";
+  }
+
+  function prev() {
+    if (!currentGallery) return;
+    currentIndex = Math.max(0, currentIndex - 1);
+    render();
+  }
+
+  function next() {
+    if (!currentGallery) return;
+    currentIndex = Math.min(currentGallery.images.length - 1, currentIndex + 1);
+    render();
+  }
+
+  async function openById(id, openerBtn) {
+    const data = await loadManifest();
+    const g = data[id];
+
+    if (!g || !Array.isArray(g.images) || g.images.length === 0) {
+      console.warn("Missing gallery id in images.json:", id);
+      alert("Could not load gallery images for this project.");
+      return;
+    }
+
+    currentGallery = g;
+    currentIndex = 0;
+
+    // a11y: set aria-expanded on the opener
+    if (openerBtn) openerBtn.setAttribute("aria-expanded", "true");
+
+    render();
+    bsModal.show();
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const modalEl = $("#gallery-modal");
+    if (!modalEl) {
+      console.warn("gallery-modal not found in DOM.");
+      return;
+    }
+
+    // Bootstrap modal instance
+    bsModal = new bootstrap.Modal(modalEl);
+
+    // open handlers
+    document.querySelectorAll(".js-open-gallery").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const id = btn.dataset.galleryId;
+        if (id) openById(id, btn);
+      });
+    });
+
+    // nav
+    $("#gallery-prev")?.addEventListener("click", prev);
+    $("#gallery-next")?.addEventListener("click", next);
+
+    // keyboard nav (when modal has focus)
+    modalEl.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") prev();
+      if (e.key === "ArrowRight") next();
+    });
+
+    // reset aria-expanded when closed
+    modalEl.addEventListener("hidden.bs.modal", () => {
+      document.querySelectorAll(".js-open-gallery[aria-expanded='true']")
+        .forEach(b => b.setAttribute("aria-expanded", "false"));
+    });
+
+    // optional prefetch so first click feels instant
+    loadManifest().catch(err => console.warn(err));
+  });
+})();
+</script>
 
 </body>
 </html>

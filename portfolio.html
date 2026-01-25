@@ -404,6 +404,74 @@
       margin-left: 1px;
       color: #000000a9;
     }
+    /* Make sure links are actually visible */
+    .site-navbar .navbar-nav .nav-link {
+      color: #ffffff;
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 0.5rem 1rem;
+    }
+
+    .nav-item {
+      color: #ffffff;
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 0.5rem 1rem;
+    }
+
+    .site-navbar .navbar-nav .nav-item:hover,
+    .site-navbar .navbar-nav .nav-item:focus,
+    .site-navbar .navbar-nav .nav-item.active {
+      color: #9eb5cf;
+    }
+
+    /* Optional: make the modal background dark and the caption more visible */
+    .gallery-modal-backdrop {
+      background: radial-gradient(circle at top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.95));
+      backdrop-filter: blur(8px);
+    }
+
+    #galleryModal .carousel-caption {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 0.5rem 1rem;
+      border-radius: 0.25rem;
+    }
+    svg {
+      width: 15px;
+      height: 15px;
+      margin-left: 0 !important;
+    }
+
+.socials-footer {
+    background: #000;
+    color: #a152f5;
+    padding: 60px 0;
+    padding-top: 0 !important;
+}
+ .scroll-top-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: black;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 9999;
+}
+
+.scroll-top-btn.show {
+  opacity: 1;
+  pointer-events: auto;
+}
   </style>
 
   <!-- 4) Local JS -->
