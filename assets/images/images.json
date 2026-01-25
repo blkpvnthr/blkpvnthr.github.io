@@ -8,7 +8,6 @@
       "assets/images/qq/img-3.png"
     ]
   },
-
   "ezie": {
     "title": "EZIE Mission",
     "description": "Educational mission visuals and outreach materials.",
@@ -37,7 +36,6 @@
       "assets/images/ezie-images/ezire-auroral-electrojets.png"
     ]
   },
-
   "dgf": {
     "title": "DGF Platform",
     "description": "Digital collaboration and outreach platform visuals.",
@@ -66,7 +64,6 @@
       "assets/images/dgf/dgf-videos.png"
     ]
   },
-
   "ice-giants": {
     "title": "Ice Giants",
     "description": "Mission concept visuals for ice giant exploration.",
@@ -82,7 +79,23 @@
       "assets/images/ice-giants/ice-giants-old.png"
     ]
   },
-
+  "uranus-art": {
+    "title": "Ice Giants — Concept Art",
+    "description": "High-resolution concept art exploring Uranus and Neptune aesthetics, including atmospheric treatments, color studies, and stylistic variations developed in Photoshop.",
+    "images": [
+      "assets/images/ice-giants/ps-images/blue-new-main.png",
+      "assets/images/ice-giants/ps-images/muted-main.png",
+      "assets/images/ice-giants/ps-images/neptune-main.png",
+      "assets/images/ice-giants/ps-images/new-main2.png",
+      "assets/images/ice-giants/ps-images/new-neptune.png",
+      "assets/images/ice-giants/ps-images/new-new-8-bit.png",
+      "assets/images/ice-giants/ps-images/new-new-main.png",
+      "assets/images/ice-giants/ps-images/new-new-uranus.png",
+      "assets/images/ice-giants/ps-images/new-uranus.png",
+      "assets/images/ice-giants/ps-images/updated-main.png",
+      "assets/images/ice-giants/ps-images/updated-main2.png"
+    ]
+  },
   "parker-kit": {
     "title": "Parker Kit",
     "description": "Design system and UI components for Parker mission tools.",
@@ -98,7 +111,6 @@
       "assets/images/parker-kit/parker-kit.png"
     ]
   },
-
   "logic": {
     "title": "LOGIC",
     "description": "Internal tools, lexicon, and clock management interfaces.",
@@ -108,7 +120,6 @@
       "assets/images/LOGIC/logic-manage-clock-v2.png"
     ]
   },
-
   "lac": {
     "title": "LAC",
     "description": "Landing page and FAQ visuals.",
@@ -117,6 +128,20 @@
       "assets/images/LAC/LAC-2.png",
       "assets/images/LAC/LAC-3.png",
       "assets/images/LAC/LAC-FAQ.png"
+    ]
+  },
+  "timed": {
+    "title": "TIMED — Thermosphere • Ionosphere • Mesosphere • Energetics • Dynamics",
+    "description": "Re-designed an updated version of the TIMED mission site with a modern look and feel, improving visual hierarchy, readability, and overall UX.",
+    "images": [
+      "assets/images/timed/TIMED-0.png",
+      "assets/images/timed/TIMED-2.png",
+      "assets/images/timed/TIMED-3.png",
+      "assets/images/timed/TIMED-4.png",
+      "assets/images/timed/TIMED-5.png",
+      "assets/images/timed/TIMED-6.png",
+      "assets/images/timed/TIMED-7.png",
+      "assets/images/timed/TIMED-8.png"
     ]
   }
 }
