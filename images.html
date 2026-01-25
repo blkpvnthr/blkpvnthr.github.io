@@ -14,9 +14,6 @@
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="css/bootstrap-icons.css">
     <link rel="stylesheet" href="css/animate.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-  crossorigin="anonymous"></script>
 
     <script src="https://kit.fontawesome.com/aef4f8d92e.js" crossorigin="anonymous"></script>
 
@@ -585,12 +582,12 @@
       <button class="filter-pill active" data-filter="all">All</button>
       <button class="filter-pill" data-filter="web">Web</button>
       <button class="filter-pill" data-filter="graphics">Graphics</button>
-      <!--button class="filter-pill" data-filter="video">Video / Animations</button-->
+      <button class="filter-pill" data-filter="finance">Finance</button>
     </div>
 <section class="gallery-grid">
 
   <!-- QuantumQuant -->
-  <article class="gallery-card" data-category="web">
+  <article class="gallery-card" data-category="finance">
     <button class="gallery-thumb-wrapper js-open-gallery"
       type="button"
       data-gallery-id="qq"
@@ -933,276 +930,8 @@
     </div>
   </div>
 </div>
-<script>
-/* ------------- GLOBAL STATE (inside window scope for easy access) ------------- */
-let currentGallery = [];
-let currentIndex = 0;
-
-/* ------------- CONFIG: projects fallback (optional) ------------- */
-const PROJECT_GALLERIES = {
-    // Only keeping the dragonfly example. Delete this whole object if you only use data-gallery-dir
-    dragonfly: [
-        { src: "/assets/images/dgf/dgf.png", alt: "Dragonfly portal dashboard overview", title: "Dragonfly Internal Team Site (1/1)", description: "Main dashboard view..." },
-        { src: "/assets/images/dgf/dgf-1.png", alt: "Dragonfly portal resources page", title: "Dragonfly Internal Team Site (2/2)", description: "Resources and quick links..." }
-    ],
-    // Add other hardcoded galleries here if needed, otherwise rely on directory loading.
-};
-
-/* ------------- UTILS ------------- */
-function isImageHref(href) {
-    return /\.(jpe?g|png|gif|webp|avif|svg)$/i.test(href);
-}
-
-/* Try to load an index.json file from the directory. */
-async function loadIndexJson(dir) {
-    try {
-        const url = dir.replace(/\/+$/, "") + "/index.json";
-        const res = await fetch(url, { cache: "no-cache" });
-        if (!res.ok) return null;
-        const list = await res.json();
-        if (!Array.isArray(list)) return null;
-        return list.map(item => {
-            // item can be string or object
-            if (typeof item === "string") return { src: dir.replace(/\/+$/, "") + "/" + item, alt: "", title: "", description: "" };
-            return {
-                src: (item.src && item.src.startsWith("http")) ? item.src : dir.replace(/\/+$/, "") + "/" + (item.src || ""),
-                alt: item.alt || "",
-                title: item.title || "",
-                description: item.description || ""
-            };
-        });
-    } catch (e) {
-        return null;
-    }
-}
-
-/* Fallback: if directory listing is available, fetch dir and parse <a href="..."> links */
-async function parseDirectoryListing(dir) {
-    try {
-        const res = await fetch(dir, { cache: "no-cache" });
-        if (!res.ok) return null;
-        const html = await res.text();
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, "text/html");
-        const anchors = Array.from(doc.querySelectorAll("a"));
-        // Filter for common image extensions
-        const imgs = anchors
-            .map(a => a.getAttribute("href"))
-            .filter(href => href && isImageHref(href))
-            .map(href => {
-                // if href is absolute or starts with '/', use it; otherwise join with dir
-                const src = href.startsWith("http") || href.startsWith("/") ? href : dir.replace(/\/+$/, "") + "/" + href;
-                return { src, alt: "", title: "", description: "" };
-            });
-        return imgs.length ? imgs : null;
-    } catch (e) {
-        return null;
-    }
-}
-
-/* Given either a gallery ID or directory, return array of gallery items or null */
-async function resolveGallery(targetBtn) {
-  
-  if (!targetBtn || !targetBtn.dataset) {
-    console.warn("resolveGallery: targetBtn missing or has no dataset:", targetBtn);
-    return null;
-  }
-
-  const galleryId = targetBtn.dataset.galleryId?.trim();
-  const galleryDirRaw = targetBtn.dataset.galleryDir?.trim();
-  const galleryType = targetBtn.dataset.galleryType?.toLowerCase();
-
-  // Choose base path by gallery type
-  const BASE_GALLERY_PATH =
-    galleryType === "video" || galleryType === "animation"
-      ? "/assets/videos/"
-      : "/assets/images/";
-
-  // 1) Predefined gallery
-  if (galleryId && PROJECT_GALLERIES?.[galleryId]) {
-    return PROJECT_GALLERIES[galleryId];
-  }
-
-  // 2) Directory-based gallery
-  if (galleryDirRaw) {
-    const dir = normalizeGalleryDir(galleryDirRaw, BASE_GALLERY_PATH);
-
-    try {
-      // Try index.json
-      const fromJson = await loadIndexJson(dir);
-      if (Array.isArray(fromJson) && fromJson.length) return fromJson;
-
-      // Try directory listing (if enabled server-side)
-      const fromDir = await parseDirectoryListing(dir);
-      if (Array.isArray(fromDir) && fromDir.length) return fromDir;
-
-      console.warn(
-        "Could not load gallery content. Ensure index.json exists or directory listing is enabled for:",
-        dir
-      );
-      return null;
-    } catch (err) {
-      console.warn("resolveGallery failed for:", dir, err);
-      return null;
-    }
-  }
-
-  return null;
-}
-async function resolveVideoGallery() {
-  const BASE_VIDEOS_PATH = "/assets/videos/";
-
-  try {
-    // This will fetch "/assets/videos/index.json"
-    const items = await loadIndexJson(BASE_VIDEOS_PATH);
-
-    if (Array.isArray(items) && items.length) {
-      return items;
-    }
-
-    console.warn("Video index.json is empty:", BASE_VIDEOS_PATH + "index.json");
-    return null;
-  } catch (err) {
-    console.warn("resolveVideoGallery failed for:", BASE_VIDEOS_PATH, err);
-    return null;
-  }
-}
-
-// Global (or module-level) base path that the filter pills can switch
-let ACTIVE_GALLERY_BASE = "/assets/images/";
-
-async function loadIndexJson(dir) {
-  const res = await fetch(dir + "index.json", { cache: "no-store" });
-  if (!res.ok) return null;
-
-  const items = await res.json();
-  if (!Array.isArray(items)) return null;
-
-  // Normalize: if src is relative, make it absolute to the dir
-  return items.map(it => ({
-    ...it,
-    src:
-      (it.src && !it.src.startsWith("http") && !it.src.startsWith("/"))
-        ? (dir + it.src)
-        : it.src
-  }));
-}
 
 
-/**
- * Accepts:
- *  - "myGallery"
- *  - "myGallery/"
- *  - "/assets/images/myGallery"
- *  - "assets/images/myGallery/"
- *  - "/assets/videos/myGallery"
- *  - "assets/videos/myGallery/"
- * Returns:
- *  - "<basePath>/myGallery/"
- */
-function normalizeGalleryDir(input, basePath) {
-  let s = String(input).trim();
-
-  // Convert backslashes to slashes (Windows-y copy/paste)
-  s = s.replace(/\\/g, "/");
-
-  // Strip leading "./"
-  s = s.replace(/^\.\//, "");
-
-  // If someone passed "assets/images/..." or "/assets/images/..." or videos, strip that prefix
-  s = s.replace(/^\/?assets\/(images|videos)\/?/i, "");
-
-  // Strip any leading slash so we can join cleanly
-  s = s.replace(/^\/+/, "");
-
-  // Ensure basePath starts/ends with "/"
-  let base = String(basePath || "/").trim();
-  if (!base.startsWith("/")) base = "/" + base;
-  if (!base.endsWith("/")) base += "/";
-
-  // Build final dir and ensure trailing slash
-  const out = base + s;
-  return out.endsWith("/") ? out : out + "/";
-}
-
-
-/* Update Modal Content with current image */
-function updateModalContent() {
-    if (currentGallery.length === 0) return;
-
-    const item = currentGallery[currentIndex];
-    const total = currentGallery.length;
-
-    document.getElementById("gallery-modal-image").src = item.src;
-    document.getElementById("gallery-modal-image").alt = item.alt || item.title;
-    document.getElementById("gallery-modal-title").textContent = item.title || `Image ${currentIndex + 1}`;
-    document.getElementById("gallery-modal-description").textContent = item.description || "";
-    document.getElementById("gallery-modal-counter").textContent = `(${currentIndex + 1} / ${total})`;
-
-    // Toggle navigation buttons
-    document.getElementById("gallery-prev").style.display = currentIndex > 0 ? "block" : "none";
-    document.getElementById("gallery-next").style.display = currentIndex < total - 1 ? "block" : "none";
-}
-
-
-/* ------------- MODAL + GALLERY LOGIC ------------- */
-document.addEventListener("DOMContentLoaded", () => {
-    const modal = document.getElementById("gallery-modal");
-    if (!modal) {
-        console.warn("gallery-modal not found — ensure the modal markup exists with id=gallery-modal");
-        return;
-    }
-
-    // Use Bootstrap's Modal object
-    const galleryModal = new bootstrap.Modal(modal);
-
-    // Event listener for opening the gallery
-    document.querySelectorAll(".js-open-gallery").forEach(btn => {
-        btn.addEventListener("click", async function() {
-            // Reset state
-            currentGallery = [];
-            currentIndex = 0;
-            
-            // Resolve the gallery content
-            const galleryContent = await resolveGallery(this);
-
-            if (galleryContent && galleryContent.length) {
-                currentGallery = galleryContent;
-                currentIndex = 0; // Always start at the first image
-                updateModalContent();
-                galleryModal.show();
-            } else {
-                alert("Could not load gallery images for this project.");
-            }
-        });
-    });
-
-    // Navigation handlers
-    document.getElementById("gallery-prev").addEventListener("click", () => {
-        if (currentIndex > 0) {
-            currentIndex--;
-            updateModalContent();
-        }
-    });
-
-    document.getElementById("gallery-next").addEventListener("click", () => {
-        if (currentIndex < currentGallery.length - 1) {
-            currentIndex++;
-            updateModalContent();
-        }
-    });
-
-    // Keyboard navigation (optional)
-    modal.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft') {
-            document.getElementById("gallery-prev").click();
-        } else if (e.key === 'ArrowRight') {
-            document.getElementById("gallery-next").click();
-        }
-    });
-
-});
-</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
   crossorigin="anonymous"></script>
@@ -1294,36 +1023,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 })();
 </script>
-<div class="modal fade" id="gallery-modal" tabindex="-1" aria-labelledby="gallery-modal-title" aria-hidden="true">
-  <div class="modal-dialog modal-xl modal-dialog-centered">
-    <div class="modal-content" style="background: var(--bg-card); border-color: var(--border-subtle);">
-      <div class="modal-header border-0">
-        <h5 class="modal-title">
-          <span id="gallery-modal-title">Gallery</span>
-          <span class="text-muted small ms-2" id="gallery-modal-counter"></span>
-        </h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-
-      <div class="modal-body p-0">
-        <div class="position-relative">
-          <img id="gallery-modal-image" src="" alt="" class="img-fluid"
-               style="display:block;width:100%;border-radius:0.5rem;">
-          <button id="gallery-prev" type="button"
-            class="btn btn-outline-light position-absolute top-50 start-0 translate-middle-y ms-3"
-            style="z-index:10;">&lt;</button>
-          <button id="gallery-next" type="button"
-            class="btn btn-outline-light position-absolute top-50 end-0 translate-middle-y me-3"
-            style="z-index:10;">&gt;</button>
-        </div>
-      </div>
-
-      <div class="modal-footer d-block border-0 pt-0">
-        <p id="gallery-modal-description" class="text-muted small mb-0"></p>
-      </div>
-    </div>
-  </div>
-</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
   crossorigin="anonymous"></script>
