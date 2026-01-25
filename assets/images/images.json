@@ -143,5 +143,16 @@
       "assets/images/timed/TIMED-7.png",
       "assets/images/timed/TIMED-8.png"
     ]
+  },
+  "circuit": {
+    "title": "CIRCUIT 2023",
+    "description": "Images from my first summer at APL.",
+    "images": [
+      "assets/images/circuit/img_1.png",
+      "assets/images/circuit/img_2.png",
+      "assets/images/circuit/img_3.png",
+      "assets/images/circuit/img_4.png",
+      "assets/images/circuit/img_5.png"
+    ]
   }
 }
