@@ -1256,6 +1256,12 @@
       font-weight: 500;
     }
 
+    .contact-error {
+      margin-top: 1rem;
+      color: #ff5c7a;
+      font-weight: 500;
+    }
+
     .to-top-btn {
       position: fixed;
       right: 22px;
@@ -1647,10 +1653,11 @@
                 foundational knowledge in computer science, enhancing
                 software development skills.</p>
             </div>
-            <a href="/images.html" rel="noopener" class="btn-ghost about-nutshell-label my-4"
-              style="font-size: x-small;margin-left: 1%;">
-              View my Github →
-            </a>
+            <div class="experience-button">
+              <a href="/images.html" rel="noopener" class="btn-ghost about-nutshell-label">
+                View my GitHub →
+              </a>
+            </div>
       </section>
 
 
@@ -1777,7 +1784,7 @@
                   <div class="about-nutshell-label text-white">Location</div>
                   <a class="contact-link" href="https://maps.app.goo.gl/WDypdou2D6hSzKhY6" target="_blank"
                     rel="noopener noreferrer">
-                    Washington, D.C.
+                    Washington, D.C. area
                   </a>
                 </div>
               </div>
@@ -1804,6 +1811,7 @@
             <h3 class="contact-title">Send Me a Message</h3>
 
             <form class="contact-form" action="https://formspree.io/f/mzzeagbj" method="POST">
+              <input type="hidden" name="_subject" value="New message from your portfolio site">
               <div class="contact-field">
                 <label class="about-nutshell-label" for="contact-name">Your Name</label>
                 <input id="contact-name" name="name" type="text" placeholder="What's your name?" required>
@@ -1820,9 +1828,15 @@
                   required></textarea>
               </div>
 
-              <button class="contact-button" type="submit" href="https://formspree.io/f/mzzeagbj">
+              <button class="contact-button" type="submit">
                 <span>SEND MESSAGE</span>
               </button>
+
+              <p class="contact-success" role="status" hidden>
+                Thanks! Your message has been sent — I'll get back to you soon.
+              </p>
+
+              <p class="contact-error" role="alert" hidden></p>
             </form>
           </div>
 
@@ -1922,24 +1936,60 @@
       <script>
         const form = document.querySelector(".contact-form");
         const success = document.querySelector(".contact-success");
+        const errorBox = document.querySelector(".contact-error");
 
-        form.addEventListener("submit", async (e) => {
-          e.preventDefault();
+        if (form) {
+          const button = form.querySelector(".contact-button");
 
-          const data = new FormData(form);
-          const response = await fetch(form.action, {
-            method: "POST",
-            body: data,
-            headers: { Accept: "application/json" },
+          const showError = (message) => {
+            if (errorBox) {
+              errorBox.textContent = message;
+              errorBox.hidden = false;
+            } else {
+              alert(message);
+            }
+          };
+
+          form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            if (success) success.hidden = true;
+            if (errorBox) errorBox.hidden = true;
+
+            if (button) {
+              button.disabled = true;
+              button.style.opacity = "0.6";
+            }
+
+            try {
+              const data = new FormData(form);
+              const response = await fetch(form.action, {
+                method: "POST",
+                body: data,
+                headers: { Accept: "application/json" },
+              });
+
+              if (response.ok) {
+                form.reset();
+                if (success) success.hidden = false;
+              } else {
+                const result = await response.json().catch(() => ({}));
+                const message =
+                  result.errors && result.errors.length
+                    ? result.errors.map((err) => err.message).join(", ")
+                    : "Something went wrong. Please try again.";
+                showError(message);
+              }
+            } catch (err) {
+              showError("Network error — please check your connection and try again.");
+            } finally {
+              if (button) {
+                button.disabled = false;
+                button.style.opacity = "";
+              }
+            }
           });
-
-          if (response.ok) {
-            form.reset();
-            success.hidden = false;
-          } else {
-            alert("Something went wrong. Please try again.");
-          }
-        });
+        }
       </script>
 
       <script>
