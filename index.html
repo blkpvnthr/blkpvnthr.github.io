@@ -1190,6 +1190,13 @@
       cursor: not-allowed;
     }
 
+    .contact-button.is-sent {
+      border-color: rgba(52, 211, 153, 0.65);
+      background: rgba(52, 211, 153, 0.18);
+      color: #d1fae5;
+      opacity: 1;
+    }
+
     /* ONE combined bubble */
     .contact-bubble {
       border: 1px solid rgba(255, 255, 255, 0.10);
@@ -1948,6 +1955,9 @@
 
         if (form) {
           const button = form.querySelector(".contact-button");
+          const buttonLabel = button ? button.querySelector("span") : null;
+          const defaultLabel = buttonLabel ? buttonLabel.textContent : "";
+          let sentResetTimer;
           // Capture the success text, then blank it so the live region can
           // announce the message as a change once it's in the a11y tree.
           const successMsg = success ? success.textContent.trim() : "";
@@ -1962,6 +1972,16 @@
           };
 
           const showSuccess = () => {
+            if (button) {
+              button.classList.add("is-sent");
+              if (buttonLabel) buttonLabel.textContent = "MESSAGE SENT ✓";
+              clearTimeout(sentResetTimer);
+              sentResetTimer = setTimeout(() => {
+                button.classList.remove("is-sent");
+                if (buttonLabel) buttonLabel.textContent = defaultLabel;
+              }, 4000);
+            }
+
             if (!success) return;
             success.textContent = "";
             success.hidden = false;
@@ -1978,7 +1998,12 @@
             if (success) success.hidden = true;
             if (errorBox) errorBox.hidden = true;
 
-            if (button) button.disabled = true;
+            if (button) {
+              clearTimeout(sentResetTimer);
+              button.classList.remove("is-sent");
+              if (buttonLabel) buttonLabel.textContent = defaultLabel;
+              button.disabled = true;
+            }
 
             try {
               const response = await fetch(form.action, {
