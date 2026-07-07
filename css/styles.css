@@ -1109,3 +1109,15 @@ html, body {
 }
 
 
+.experience-button {
+    display: flex;
+    justify-content: center;
+    margin: 3rem 0 1rem;
+    margin-top: 5rem !important;
+    font-size: x-small !important;
+}
+
+.experience-button .btn-ghost {
+    font-size: 0.8rem;
+    font-size: x-small !important;
+}
