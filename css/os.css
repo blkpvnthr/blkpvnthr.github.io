@@ -1,0 +1,1112 @@
+/* ============================================================
+   BLKPVNTHR.OS product surfaces — asmaa.dev
+   Additive layer. Loaded AFTER styles.css.
+   The "dark bands" are the product's own world (black + purple +
+   monospace, matching os.blkpvnthr.com). The light sections remain
+   Asmaa's existing personal styling and are untouched.
+   ============================================================ */
+
+:root {
+  /* Product surfaces */
+  --os-ink: #08080c;
+  --os-ink-1: #0f0f16;
+  --os-ink-2: #16161f;
+  --os-line: #262633;
+  --os-line-brand: rgba(177, 75, 249, 0.28);
+
+  /* Brand — carried over from the existing site palette */
+  --os-brand: #b14bf9;
+  --os-brand-2: #a152f5;
+  --os-brand-soft: rgba(177, 75, 249, 0.12);
+  --os-glow: rgba(177, 75, 249, 0.35);
+
+  /* Live indicator */
+  --os-live: #3fb950;
+  --os-live-glow: rgba(63, 185, 80, 0.45);
+
+  /* Text on dark */
+  --os-text: #f2f2f7;
+  --os-text-2: #b8b8c6;
+  --os-text-3: #7c7c8c;
+
+  /* Type */
+  --os-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+  --os-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+
+  /* Rhythm */
+  --os-r1: 6px;
+  --os-r2: 12px;
+  --os-r3: 20px;
+  --os-maxw: 1120px;
+  --os-focus: 0 0 0 2px var(--os-ink), 0 0 0 5px var(--os-glow);
+}
+
+/* ---------- Global quality floor ---------- */
+
+:where(a, button, input, textarea, summary, [tabindex]):focus-visible {
+  outline: none;
+  box-shadow: var(--os-focus);
+  border-radius: var(--os-r1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prevent sideways scroll without hiding overflowing content vertically. */
+html,
+body {
+  overflow-x: clip;
+}
+
+.os-skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 200;
+  padding: 0.75rem 1.25rem;
+  background: var(--os-brand);
+  color: #fff;
+  font: 600 0.9rem/1 var(--os-sans);
+  border-radius: 0 0 var(--os-r1) 0;
+}
+.os-skip:focus {
+  left: 0;
+}
+
+.os-vh {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ============================================================
+   Site header — one dark bar across every page
+   ============================================================ */
+
+.os-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--os-ink);
+  border-bottom: 1px solid var(--os-line);
+}
+
+.os-nav {
+  max-width: var(--os-maxw);
+  margin: 0 auto;
+  padding: 0.6rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.os-nav__brand {
+  font: 300 0.72rem/1 var(--os-sans);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--os-text);
+  text-decoration: none;
+  white-space: nowrap;
+  margin-right: auto;
+}
+.os-nav__brand:hover {
+  color: #fff;
+}
+
+/* Mobile toggle */
+.os-nav__toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 1px solid var(--os-line);
+  border-radius: var(--os-r1);
+  color: var(--os-text);
+  cursor: pointer;
+}
+.os-nav__toggle svg {
+  width: 20px;
+  height: 20px;
+}
+.os-nav__toggle[aria-expanded="true"] .os-nav__icon-open,
+.os-nav__toggle[aria-expanded="false"] .os-nav__icon-close {
+  display: none;
+}
+
+.os-nav__menu {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.os-nav__link {
+  display: block;
+  padding: 0.5rem 0.7rem;
+  font: 400 0.85rem/1 var(--os-sans);
+  color: var(--os-text-2);
+  text-decoration: none;
+  border-radius: var(--os-r1);
+  white-space: nowrap;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+.os-nav__link:hover {
+  color: var(--os-text);
+  background: rgba(255, 255, 255, 0.05);
+}
+.os-nav__link[aria-current="page"] {
+  color: #fff;
+  background: var(--os-brand-soft);
+}
+
+/* The launch action — the only button in the bar */
+.os-nav__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-left: 0.6rem;
+  padding: 0.6rem 1.1rem;
+  font: 600 0.72rem/1 var(--os-sans);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--os-brand);
+  text-decoration: none;
+  white-space: nowrap;
+  background: transparent;
+  border: 1px solid var(--os-brand);
+  border-radius: 0;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+.os-nav__cta:hover {
+  color: #fff;
+  background: rgba(177, 75, 249, 0.16);
+}
+
+@media (max-width: 991px) {
+  .os-nav__menu {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0.5rem 1.25rem 1.1rem;
+    background: var(--os-ink);
+    border-bottom: 1px solid var(--os-line);
+  }
+  .os-nav__menu.is-open {
+    display: flex;
+  }
+  .os-nav__link {
+    padding: 0.8rem 0.5rem;
+    font-size: 1rem;
+    border-bottom: 1px solid var(--os-line);
+    border-radius: 0;
+  }
+  /* The launch action must never be hidden on mobile. */
+  .os-nav__cta {
+    margin: 0.9rem 0 0;
+    justify-content: center;
+    padding: 0.85rem 1rem;
+    font-size: 1rem;
+  }
+}
+@media (min-width: 992px) {
+  .os-nav__toggle {
+    display: none;
+  }
+}
+
+/* ============================================================
+   Dark product band + shared section furniture
+   ============================================================ */
+
+.os-band {
+  background: var(--os-ink);
+  color: var(--os-text);
+  padding: 5rem 0;
+  /* Cancel the global `section { padding: 4rem 0 }` in styles.css. */
+}
+.os-band--tight {
+  padding: 3.5rem 0;
+}
+
+.os-wrap {
+  max-width: var(--os-maxw);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* Signature: section eyebrows are shell prompts — the product's own
+   vernacular (root@blkpvnthr-os:~$). */
+.os-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font: 500 0.75rem/1 var(--os-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--os-brand);
+  margin: 0 0 1rem;
+}
+.os-eyebrow::before {
+  content: "$";
+  color: var(--os-live);
+  font-weight: 700;
+}
+
+.os-band h2,
+.os-band h3 {
+  color: var(--os-text);
+}
+
+.os-h2 {
+  font: 300 clamp(1.9rem, 3.6vw, 2.7rem) / 1.15 var(--os-sans);
+  letter-spacing: -0.02em;
+  margin: 0 0 1rem;
+  text-wrap: balance;
+}
+
+.os-lede {
+  font: 300 clamp(1rem, 1.4vw, 1.15rem) / 1.65 var(--os-sans);
+  color: var(--os-text-2);
+  max-width: 62ch;
+  margin: 0 0 2rem;
+}
+
+.os-note {
+  font: 400 0.85rem/1.6 var(--os-sans);
+  color: var(--os-text-3);
+  max-width: 70ch;
+}
+
+/* Buttons */
+.os-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 2rem 0 0;
+}
+
+/* Outlined, squared, letter-spaced. The purple rule is the button. */
+.os-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1rem 1.75rem;
+  font: 600 0.78rem/1 var(--os-sans);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 0;
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+
+.os-btn--primary {
+  color: var(--os-brand);
+  border-color: var(--os-brand);
+}
+.os-btn--primary:hover {
+  color: #fff;
+  background: rgba(177, 75, 249, 0.14);
+  border-color: var(--os-brand);
+}
+
+.os-btn--ghost {
+  color: var(--os-text-2);
+  border-color: var(--os-line);
+}
+.os-btn--ghost:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--os-text-3);
+}
+
+/* Live indicator — a link to the running product, not a health readout. */
+.os-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.4rem 0.85rem 0.4rem 0.7rem;
+  font: 500 0.78rem/1 var(--os-mono);
+  letter-spacing: 0.06em;
+  color: var(--os-text-2);
+  text-decoration: none;
+  background: rgba(63, 185, 80, 0.08);
+  border: 1px solid rgba(63, 185, 80, 0.3);
+  border-radius: 999px;
+}
+.os-live:hover {
+  color: #fff;
+  border-color: var(--os-live);
+}
+.os-live__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--os-live);
+  box-shadow: 0 0 0 0 var(--os-live-glow);
+  animation: os-pulse 2.4s ease-out infinite;
+  flex: none;
+}
+@keyframes os-pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--os-live-glow);
+  }
+  70% {
+    box-shadow: 0 0 0 7px rgba(63, 185, 80, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(63, 185, 80, 0);
+  }
+}
+
+/* ============================================================
+   Hero
+   ============================================================ */
+
+.os-hero {
+  background:
+    radial-gradient(1000px 500px at 78% 12%, rgba(177, 75, 249, 0.16), transparent 60%),
+    radial-gradient(700px 420px at 8% 92%, rgba(63, 185, 80, 0.06), transparent 60%),
+    var(--os-ink);
+  color: var(--os-text);
+  padding: 4.5rem 0 5rem;
+  border-bottom: 1px solid var(--os-line);
+}
+
+.os-hero__grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+@media (max-width: 900px) {
+  .os-hero__grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+.os-hero__title {
+  font: 300 clamp(2.1rem, 5vw, 3.5rem) / 1.1 var(--os-sans);
+  letter-spacing: -0.03em;
+  color: #fff;
+  margin: 1.25rem 0 1.25rem;
+  text-wrap: balance;
+}
+.os-hero__title em {
+  font-style: normal;
+  background: linear-gradient(100deg, var(--os-brand) 0%, #6ea8ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.os-hero__lede {
+  font: 300 clamp(1rem, 1.5vw, 1.15rem) / 1.7 var(--os-sans);
+  color: var(--os-text-2);
+  max-width: 54ch;
+  margin: 0;
+}
+.os-hero__lede strong {
+  color: var(--os-text);
+  font-weight: 500;
+}
+
+.os-hero__hint {
+  margin: 1rem 0 0;
+  font: 400 0.82rem/1.5 var(--os-mono);
+  color: var(--os-text-3);
+}
+
+/* ---------- Product frame: a browser chrome around the real UI ---------- */
+
+.os-frame {
+  border: 1px solid var(--os-line);
+  border-radius: var(--os-r2);
+  overflow: hidden;
+  background: var(--os-ink-1);
+  box-shadow: 0 30px 70px -30px rgba(0, 0, 0, 0.9), 0 0 0 1px var(--os-line-brand);
+}
+.os-frame__bar {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.6rem 0.85rem;
+  background: var(--os-ink-2);
+  border-bottom: 1px solid var(--os-line);
+}
+.os-frame__dots {
+  display: flex;
+  gap: 0.35rem;
+  flex: none;
+}
+.os-frame__dots i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #3a3a48;
+}
+.os-frame__url {
+  font: 400 0.72rem/1 var(--os-mono);
+  color: var(--os-text-3);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.os-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Live embed of the running product. Fixed aspect ratio so the frame reserves
+   its space before the iframe loads (no layout shift). */
+.os-frame__open {
+  margin-left: auto;
+  flex: none;
+  font: 500 0.72rem/1 var(--os-mono);
+  color: var(--os-text-3);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.os-frame__open:hover {
+  color: #fff;
+}
+
+.os-embed__viewport {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: var(--os-ink);
+}
+.os-embed__viewport iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+/* The OS is a desktop-shaped application. Below the breakpoint the embed gets
+   taller rather than shrinking its UI into illegibility. */
+@media (max-width: 700px) {
+  .os-embed__viewport {
+    aspect-ratio: 3 / 4;
+  }
+}
+
+figure.os-shot {
+  margin: 0;
+}
+.os-shot figcaption {
+  margin-top: 0.75rem;
+  font: 400 0.82rem/1.5 var(--os-sans);
+  color: var(--os-text-3);
+}
+
+/* ============================================================
+   Capability grid
+   ============================================================ */
+
+.os-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+  gap: 1rem;
+}
+
+.os-card {
+  padding: 1.4rem;
+  background: var(--os-ink-1);
+  border: 1px solid var(--os-line);
+  border-radius: var(--os-r2);
+}
+.os-card h3 {
+  font: 500 1.02rem/1.3 var(--os-sans);
+  color: var(--os-text);
+  margin: 0 0 0.5rem;
+}
+.os-card p {
+  font: 400 0.9rem/1.6 var(--os-sans);
+  color: var(--os-text-2);
+  margin: 0;
+}
+.os-card__tag {
+  display: inline-block;
+  margin-top: 0.85rem;
+  font: 400 0.72rem/1 var(--os-mono);
+  color: var(--os-text-3);
+}
+
+/* ============================================================
+   Carousel — CSS scroll-snap. Works with no JS at all (it is just a
+   scrollable list); JS only adds the arrow buttons and end-state.
+   ============================================================ */
+
+.os-carousel {
+  margin-top: 1.5rem;
+  /* Bound the nested horizontal scroller so its content extent can't inflate
+     the ancestors' reported scrollWidth. */
+  overflow-x: clip;
+}
+
+.os-carousel__hint {
+  margin: 0 0 1rem;
+  font: 400 0.85rem/1.5 var(--os-sans);
+  color: var(--os-text-3);
+}
+
+/* Track flanked by the two arrow buttons. */
+.os-carousel__stage {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.os-carousel__stage > .os-carousel__track {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.os-carousel__btn--prev,
+.os-carousel__btn--next {
+  flex: none;
+  align-self: center;
+}
+
+.os-carousel__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  color: var(--os-text);
+  background: var(--os-ink-1);
+  border: 1px solid var(--os-line);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease, opacity 0.15s ease;
+}
+.os-carousel__btn svg {
+  width: 18px;
+  height: 18px;
+}
+.os-carousel__btn:hover:not(:disabled) {
+  background: var(--os-ink-2);
+  border-color: var(--os-brand);
+}
+.os-carousel__btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+/* On narrow screens the flanking arrows would eat the card width, so swipe is
+   the primary control there and they collapse away. (Placed after the base
+   .os-carousel__btn rule so it wins.) */
+@media (max-width: 640px) {
+  .os-carousel__btn--prev,
+  .os-carousel__btn--next {
+    display: none;
+  }
+}
+
+.os-carousel__track {
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0 0 0.5rem;
+  list-style: none;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  /* NB: no `scroll-behavior: smooth` here. Combined with mandatory snap it
+     cancels programmatic scrolls (scrollLeft snaps straight back to 0).
+     js/site.js passes behavior: "smooth" per-call instead, and honours
+     prefers-reduced-motion itself. */
+  /* Hide the scrollbar without disabling the scrolling itself. */
+  scrollbar-width: none;
+}
+.os-carousel__track::-webkit-scrollbar {
+  display: none;
+}
+
+.os-carousel__track > .os-card {
+  flex: 0 0 clamp(260px, 30%, 340px);
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+}
+/* Push the route tag to the bottom so cards of unequal copy still line up. */
+.os-carousel__track > .os-card .os-card__tag {
+  margin-top: auto;
+  padding-top: 0.85rem;
+}
+
+/* Case-study carousel: the track is also .os-cases, but as a flex carousel the
+   grid rules must not apply. Reset display and give each case a fixed width. */
+.os-carousel__track.os-cases {
+  display: flex;
+  grid-template-columns: none;
+}
+.os-carousel__track > .os-case {
+  flex: 0 0 clamp(280px, 82%, 360px);
+  scroll-snap-align: start;
+}
+.os-carousel__track > .os-case .os-case__media img,
+.os-carousel__track > .os-case .os-case__media video {
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: left top;
+}
+
+/* Tech chips */
+.os-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.os-chips li {
+  padding: 0.4rem 0.7rem;
+  font: 400 0.78rem/1 var(--os-mono);
+  color: var(--os-text-2);
+  background: var(--os-ink-1);
+  border: 1px solid var(--os-line);
+  border-radius: var(--os-r1);
+}
+
+/* Key/value spec list */
+.os-spec {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem 2rem;
+  margin: 0;
+}
+.os-spec dt {
+  font: 500 0.72rem/1 var(--os-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--os-brand);
+  margin-bottom: 0.4rem;
+}
+.os-spec dd {
+  font: 400 0.92rem/1.55 var(--os-sans);
+  color: var(--os-text-2);
+  margin: 0;
+}
+
+/* ============================================================
+   Architecture — a real node/edge graph, not a picture of one
+   ============================================================ */
+
+.os-arch {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+}
+
+.os-arch__layer {
+  position: relative;
+  padding: 1.25rem 1.25rem 1.25rem 1.5rem;
+  background: var(--os-ink-1);
+  border: 1px solid var(--os-line);
+  border-radius: var(--os-r2);
+}
+/* The edge between layers. Decorative — the <ol> already encodes order. */
+.os-arch__layer:not(:last-child) {
+  margin-bottom: 2.25rem;
+}
+.os-arch__layer:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -2.25rem;
+  width: 1px;
+  height: 2.25rem;
+  background: linear-gradient(180deg, var(--os-brand) 0%, rgba(177, 75, 249, 0.15) 100%);
+}
+
+.os-arch__label {
+  font: 500 0.72rem/1 var(--os-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--os-brand);
+  margin: 0 0 0.9rem;
+}
+
+.os-arch__nodes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.6rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.os-arch__node {
+  padding: 0.7rem 0.85rem;
+  background: var(--os-ink-2);
+  border: 1px solid var(--os-line);
+  border-left: 2px solid var(--os-brand);
+  border-radius: var(--os-r1);
+  font: 500 0.88rem/1.3 var(--os-sans);
+  color: var(--os-text);
+}
+.os-arch__node span {
+  display: block;
+  margin-top: 0.25rem;
+  font: 400 0.72rem/1.4 var(--os-mono);
+  color: var(--os-text-3);
+}
+.os-arch__node--provider {
+  border-left-color: var(--os-live);
+}
+
+/* ============================================================
+   Case studies
+   ============================================================ */
+
+.os-cases {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.25rem;
+}
+
+.os-case {
+  display: flex;
+  flex-direction: column;
+  background: var(--os-ink-1);
+  border: 1px solid var(--os-line);
+  border-radius: var(--os-r2);
+  overflow: hidden;
+}
+.os-case--flagship {
+  grid-column: 1 / -1;
+  border-color: var(--os-line-brand);
+  box-shadow: 0 0 0 1px var(--os-line-brand), 0 24px 60px -40px var(--os-glow);
+}
+@media (min-width: 860px) {
+  .os-case--flagship {
+    flex-direction: row;
+    align-items: stretch;
+  }
+  .os-case--flagship .os-case__media {
+    flex: 1 1 46%;
+    min-width: 0;
+  }
+  .os-case--flagship .os-case__body {
+    flex: 1 1 54%;
+  }
+}
+
+.os-case__media {
+  background: var(--os-ink-2);
+  border-bottom: 1px solid var(--os-line);
+}
+.os-case__media img,
+.os-case__media video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+/* A disclaimer inside the media slot renders as a caption strip under the image. */
+.os-case__media .os-note {
+  margin: 0;
+  padding: 0.7rem 1rem;
+  border-top: 1px solid var(--os-line);
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+/* Only the side-by-side flagship needs the image to fill its column. */
+@media (min-width: 860px) {
+  .os-case--flagship .os-case__media img {
+    height: 100%;
+    object-fit: cover;
+    object-position: left top;
+  }
+}
+
+.os-case__body {
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.os-case__kicker {
+  font: 500 0.7rem/1 var(--os-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--os-text-3);
+}
+.os-case__kicker b {
+  color: var(--os-live);
+  font-weight: 600;
+}
+/* case-studies.html uses h2 here (its h1 is the page title); index.html uses h3. */
+.os-case h2,
+.os-case h3 {
+  font: 500 1.3rem/1.25 var(--os-sans);
+  color: #fff;
+  margin: 0;
+}
+.os-case p {
+  font: 400 0.92rem/1.65 var(--os-sans);
+  color: var(--os-text-2);
+  margin: 0;
+}
+.os-case dl {
+  margin: 0.25rem 0 0;
+  display: grid;
+  gap: 0.6rem;
+}
+.os-case dt {
+  font: 500 0.68rem/1 var(--os-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--os-brand);
+}
+.os-case dd {
+  margin: 0.2rem 0 0;
+  font: 400 0.88rem/1.6 var(--os-sans);
+  color: var(--os-text-2);
+}
+.os-case .os-actions {
+  margin-top: auto;
+  padding-top: 0.75rem;
+}
+
+/* ============================================================
+   Services
+   ============================================================ */
+
+.os-steps {
+  counter-reset: step;
+  list-style: none;
+  margin: 2.5rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+  gap: 1rem;
+}
+/* Numbering is used here because the engagement path really is a sequence. */
+.os-steps li {
+  counter-increment: step;
+  position: relative;
+  padding: 1.25rem 1.25rem 1.25rem 1.25rem;
+  background: var(--os-ink-1);
+  border: 1px solid var(--os-line);
+  border-top: 2px solid var(--os-brand);
+  border-radius: var(--os-r2);
+}
+.os-steps li::before {
+  content: counter(step, decimal-leading-zero);
+  display: block;
+  margin-bottom: 0.6rem;
+  font: 600 0.8rem/1 var(--os-mono);
+  color: var(--os-brand);
+}
+.os-steps h3 {
+  font: 500 0.98rem/1.3 var(--os-sans);
+  color: var(--os-text);
+  margin: 0 0 0.4rem;
+}
+.os-steps p {
+  font: 400 0.86rem/1.6 var(--os-sans);
+  color: var(--os-text-2);
+  margin: 0;
+}
+
+/* ============================================================
+   Gallery
+   ============================================================ */
+
+.os-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+.os-gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--os-r2);
+  border: 1px solid var(--os-line);
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+
+.os-footer {
+  background: var(--os-ink);
+  color: var(--os-text-2);
+  border-top: 1px solid var(--os-line);
+  padding: 3.5rem 0 2rem;
+}
+.os-footer__grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 2rem;
+}
+@media (max-width: 760px) {
+  .os-footer__grid {
+    grid-template-columns: 1fr;
+  }
+}
+.os-footer h2 {
+  font: 500 0.72rem/1 var(--os-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--os-text-3);
+  margin: 0 0 1rem;
+}
+.os-footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+.os-footer a {
+  color: var(--os-text-2);
+  text-decoration: none;
+  font: 400 0.9rem/1.4 var(--os-sans);
+}
+.os-footer a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+.os-footer__brand {
+  font: 300 0.78rem/1 var(--os-sans);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--os-text);
+  margin: 0 0 0.9rem;
+}
+.os-footer__blurb {
+  font: 400 0.9rem/1.65 var(--os-sans);
+  color: var(--os-text-3);
+  max-width: 40ch;
+  margin: 0;
+}
+.os-footer__legal {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--os-line);
+  font: 400 0.8rem/1.5 var(--os-sans);
+  color: var(--os-text-3);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  justify-content: space-between;
+}
+
+/* ============================================================
+   Legal pages — long-form prose, measured for reading
+   ============================================================ */
+
+.os-legal {
+  max-width: 76ch;
+}
+.os-legal h2 {
+  font: 500 1.25rem/1.35 var(--os-sans);
+  color: var(--os-text);
+  margin: 2.75rem 0 0.9rem;
+}
+.os-legal h3 {
+  font: 500 1rem/1.4 var(--os-sans);
+  color: var(--os-text);
+  margin: 1.75rem 0 0.6rem;
+}
+.os-legal p,
+.os-legal li {
+  font: 400 0.95rem/1.75 var(--os-sans);
+  color: var(--os-text-2);
+}
+.os-legal p {
+  margin: 0 0 1rem;
+}
+.os-legal ul,
+.os-legal ol {
+  margin: 0 0 1.25rem;
+  padding-left: 1.25rem;
+}
+.os-legal li {
+  margin-bottom: 0.5rem;
+}
+.os-legal a {
+  color: var(--os-brand);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.os-legal a:hover {
+  color: #fff;
+}
+.os-legal strong {
+  color: var(--os-text);
+  font-weight: 600;
+}
+/* A callout inside legal prose (the "short version", the paper-only box). */
+.os-legal .os-card {
+  margin: 1.5rem 0 2rem;
+  border-left: 2px solid var(--os-brand);
+}
+.os-legal .os-card p:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================================
+   Prose links inside dark sections
+   Content links (an employer, a school) must not fall back to the
+   browser's default blue on a black background. Buttons, nav items and
+   the live badge style themselves, so they are excluded.
+   ============================================================ */
+
+.os-band a:not(.os-btn):not(.os-nav__link):not(.os-nav__cta):not(.os-live):not(.os-carousel__btn),
+.os-hero a:not(.os-btn):not(.os-nav__link):not(.os-nav__cta):not(.os-live) {
+  color: var(--os-brand);
+  text-decoration: none;
+}
+.os-band a:not(.os-btn):not(.os-nav__link):not(.os-nav__cta):not(.os-live):not(.os-carousel__btn):hover,
+.os-hero a:not(.os-btn):not(.os-nav__link):not(.os-nav__cta):not(.os-live):hover {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* The card body prose in Experience/About carries a subheading link. */
+.os-card p a {
+  font-weight: 500;
+}

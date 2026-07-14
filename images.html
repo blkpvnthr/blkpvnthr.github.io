@@ -1,58 +1,38 @@
 <!DOCTYPE html>
-<html lang="en" class="min-height-full">
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>BLKPVNTHR - Media Gallery</title>
-
-    <meta name="description" content="Just here learning 📚">
-    <meta property="og:title" content="Asmaa Abdul-Amin">
-    <meta property="og:image" content="/assets/images/bck-stry.JPG">
-    <meta name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous">
-
-    <link href="css/styles.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="css/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/animate.min.css">
-
-    <script src="https://kit.fontawesome.com/aef4f8d92e.js"
-      crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gallery | Asmaa Abdul-Amin</title>
+    <meta name="description" content="Project and mission imagery from software and visualization work by Asmaa Abdul-Amin.">
+    <link rel="canonical" href="https://asmaa.dev/images.html">
+    <meta name="theme-color" content="#08080c">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Asmaa Abdul-Amin">
+    <meta property="og:url" content="https://asmaa.dev/images.html">
+    <meta property="og:title" content="Gallery | Asmaa Abdul-Amin">
+    <meta property="og:description" content="Project and mission imagery from software and visualization work by Asmaa Abdul-Amin.">
+    <meta property="og:image" content="https://asmaa.dev/assets/images/os/og-blkpvnthr-os.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="The BLKPVNTHR.OS AI Brain: a knowledge graph of engines, missions and data sources.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@blkpvnthr">
+    <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="/css/styles.css" rel="stylesheet">
+    <link href="/css/os.css?v=7" rel="stylesheet">
+    <script src="/js/site.js?v=7" defer></script>
 
     <style>
-    :root {
-      --accent: #b14bf9;
-      --accent-soft: rgba(177, 75, 249, 0.12);
-      --bg: #000;
-      --bg-card: #050508;
-      --text-main: #f5f5f5;
-      --text-muted: #9ca3af;
-      --border-subtle: #1f2933;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg);
-      color: var(--text-main);
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    /* --- Layout shell --- */
-    main.gallery-page {
-      min-height: 100vh;
+    /* Gallery-page-only styles: the filterable card grid + modal.
+       Everything else on this page uses /css/os.css. */
+    .gallery-page {
+      --gal-accent: #b14bf9;
+      --gal-accent-soft: rgba(177, 75, 249, 0.12);
+      --gal-card: #050508;
+      --gal-muted: #9ca3af;
+      --gal-border: #1f2933;
       padding-bottom: 4rem;
     }
 
@@ -62,39 +42,6 @@
       padding: 0 1.5rem;
     }
 
-    /* --- Hero bar --- */
-    .gallery-hero {
-      background: #050508;
-      border-bottom: 1px solid var(--border-subtle);
-      padding: 1.75rem 0;
-      margin-bottom: 2rem;
-    }
-
-    .gallery-hero-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .gallery-title {
-      font-size: clamp(2rem, 3vw, 2.6rem);
-      font-weight: 300;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
-
-    .gallery-subtitle {
-      max-width: 34rem;
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      font-weight: 100;
-    }
-
-    /* --- Filter pills --- */
     .gallery-filter-row {
       display: flex;
       flex-wrap: wrap;
@@ -107,43 +54,31 @@
       padding: 0.45rem 0.9rem;
       border-radius: 999px;
       border: 1px solid transparent;
-      color: var(--accent);
-      font-weight: 100;
+      color: var(--gal-accent);
+      font-weight: 300;
       background: transparent;
-      list-style: none;
       cursor: pointer;
-      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease,
-        transform 0.1s ease;
+      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
       display: inline-flex;
       align-items: center;
       gap: 0.35rem;
       white-space: nowrap;
     }
 
-    .filter-pill span.dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: currentColor;
-    }
-
     .filter-pill:hover {
-      background: var(--accent-soft);
-      background-color: #b04bf94f;
+      background: var(--gal-accent-soft);
       transform: translateY(-1px);
       color: #ffffff;
-      border-radius: 5px !important;
+      border-radius: 5px;
     }
 
     .filter-pill.active {
-      background: var(--accent-soft);
-      border-color: var(--accent);
-      border-radius: 5px !important;
-      border-width: 0.5px !important;
-      color: #9ca3af;
+      background: var(--gal-accent-soft);
+      border-color: var(--gal-accent);
+      border-radius: 5px;
+      color: #e5e7eb;
     }
 
-    /* --- Grid --- */
     .gallery-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -151,91 +86,19 @@
     }
 
     @media (min-width: 640px) {
-      .gallery-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
+      .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
     @media (min-width: 1024px) {
-      .gallery-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-    }
-/* Make sure links are actually visible */
-    .site-navbar .navbar-nav .nav-link {
-      color: #ffffff;
-      font-size: 0.8rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      padding: 0.5rem 1rem;
+      .gallery-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
 
-    .nav-item {
-      color: #ffffff;
-      font-size: 0.8rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      padding: 0.5rem 1rem;
-    }
-
-    .site-navbar .navbar-nav .nav-item:hover,
-    .site-navbar .navbar-nav .nav-item:focus,
-    .site-navbar .navbar-nav .nav-item.active {
-      color: #9eb5cf;
-    }
-
-    /* Optional: make the modal background dark and the caption more visible */
-    .gallery-modal-backdrop {
-      background: radial-gradient(circle at top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.95));
-      backdrop-filter: blur(8px);
-    }
-
-    #galleryModal .carousel-caption {
-      background-color: rgba(0, 0, 0, 0.5);
-      padding: 0.5rem 1rem;
-      border-radius: 0.25rem;
-    }
-    svg {
-      width: 15px;
-      height: 15px;
-      margin-left: 0 !important;
-    }
-
-.socials-footer {
-    background: #000;
-    color: #a152f5;
-    padding: 60px 0;
-    padding-top: 0 !important;
-}
- .scroll-top-btn {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: black;
-  color: white;
-  border: none;
-  padding: 10px 14px;
-  border-radius: 50%;
-  font-size: 18px;
-  cursor: pointer;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  z-index: 9999;
-}
-
-.scroll-top-btn.show {
-  opacity: 1;
-  pointer-events: auto;
-}
-    /* --- Card --- */
     .gallery-card {
       display: flex;
       flex-direction: column;
-      background: var(--bg-card);
+      background: var(--gal-card);
       border-radius: 10px;
-      border: 1px solid var(--border-subtle);
+      border: 1px solid var(--gal-border);
       padding: 0.75rem;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
       transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
@@ -249,25 +112,26 @@
 
     .gallery-thumb-wrapper {
       position: relative;
+      display: block;
+      width: 100%;
+      padding: 0;
+      border: 0;
       border-radius: 8px;
       overflow: hidden;
       aspect-ratio: 16 / 9;
       background: radial-gradient(circle at top, #1f2933, #020308);
+      cursor: pointer;
     }
 
     .gallery-thumb {
       width: 100%;
       height: 100%;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+      object-fit: cover;
       transform: scale(1.02);
       transition: transform 0.3s ease;
     }
 
-    .gallery-card:hover .gallery-thumb {
-      transform: scale(1.06);
-    }
+    .gallery-card:hover .gallery-thumb { transform: scale(1.06); }
 
     .gallery-badge {
       position: absolute;
@@ -293,15 +157,15 @@
 
     .gallery-card-title {
       font-size: 1rem;
-      font-weight: 300;
+      font-weight: 400;
       color: #f9fafb;
       margin-bottom: 0.15rem;
     }
 
     .gallery-card-text {
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       line-height: 1.6;
-      color: var(--text-muted);
+      color: var(--gal-muted);
       flex: 1;
     }
 
@@ -315,294 +179,101 @@
       justify-content: space-between;
       align-items: center;
       margin-top: 0.35rem;
-      font-size: 0.8rem;
     }
 
     .gallery-link {
       font-size: 0.8rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--gal-accent);
+      text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 0.25rem;
     }
-    .nav-link svg {
-      width: 15px;
-      height: 15px;
-      margin-left: 0 !important;
-    }
+
+    .gallery-link:hover { color: #e5d3ff; }
+
     .gallery-link svg {
       width: 11px;
       height: 11px;
     }
 
-    .gallery-link:hover {
-      color: #e5d3ff;
+    .gallery-card.is-hidden { display: none; }
+
+    #gallery-modal .modal-content {
+      background: var(--gal-card);
+      border-color: var(--gal-border);
     }
-
-    /* Hidden state for filtered cards */
-    .gallery-card.hidden {
-      display: none;
-    }
-
-    .about-hero {
-    position: relative;
-    width: 100%;
-    min-height: 25vh;
-    background-image: url(/assets/images/ezie_.png);
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    top: -30% !important;
-    color: #ffffff;
-}
-
-    .about-hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75));
-  }
-  .navbar-toggler {
-    border-color: rgba(255, 255, 255, 0.5) !important;
-    color: #ffffff !important;
-  }
-  .navbar-toggler-icon {
-    color: #ffffff !important
-  };
-
-
-  /* Sticky Navbar Styles */
-.site-navbar {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  z-index: 1030; /* Ensure it stays above other content */
-  background-color: transparent; /* Dark background for contrast */
-  border-bottom: 1px solid #ffffff; /* Subtle bottom border */
-}
-/* Make sure links are actually visible */
-.site-navbar .navbar-nav .nav-link {
-  color: #ffffff;
-  font-size: 0.8rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  padding: 0.5rem 1rem;
-}
-.nav-item {
-    color: #ffffff;
-    font-size: 0.8rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    padding: 0.5rem 1rem;
-}
-.site-navbar .navbar-nav .nav-item:hover,
-.site-navbar .navbar-nav .nav-item:focus,
-.site-navbar .navbar-nav .nav-item.active {
-  color: #9eb5cf;
-}
-  </style>
-    <script>
-(() => {
-  // ---- config ----
-  const MANIFEST_URL = "assets/images/galleries.json";
-
-  // ---- state ----
-  let manifest = null;
-  let currentGallery = null;
-  let currentIndex = 0;
-  let bsModal = null;
-
-  // ---- dom helpers ----
-  const $ = (sel) => document.querySelector(sel);
-
-  function setNavButtons(total) {
-    $("#gallery-prev").style.display = currentIndex > 0 ? "block" : "none";
-    $("#gallery-next").style.display = currentIndex < total - 1 ? "block" : "none";
-  }
-
-  function renderModal() {
-    if (!currentGallery) return;
-
-    const total = currentGallery.images.length;
-    const src = currentGallery.images[currentIndex];
-
-    $("#gallery-modal-image").src = src;
-    $("#gallery-modal-image").alt = `${currentGallery.title} image ${currentIndex + 1}`;
-    $("#gallery-modal-title").textContent = currentGallery.title;
-    $("#gallery-modal-description").textContent = currentGallery.description || "";
-    $("#gallery-modal-counter").textContent = `(${currentIndex + 1} / ${total})`;
-
-    setNavButtons(total);
-  }
-
-  async function loadManifest() {
-    if (manifest) return manifest;
-    const res = await fetch(MANIFEST_URL, { cache: "no-store" });
-    if (!res.ok) throw new Error(`Failed to load manifest: ${MANIFEST_URL}`);
-    manifest = await res.json();
-    return manifest;
-  }
-
-  async function openGalleryById(galleryId) {
-    const data = await loadManifest();
-    const g = data[galleryId];
-
-    if (!g || !Array.isArray(g.images) || g.images.length === 0) {
-      console.warn("Gallery not found or empty:", galleryId, g);
-      alert("Could not load gallery images for this project.");
-      return;
-    }
-
-    currentGallery = g;
-    currentIndex = 0;
-    renderModal();
-    bsModal.show();
-  }
-
-  function clampIndex(nextIndex) {
-    if (!currentGallery) return 0;
-    const max = currentGallery.images.length - 1;
-    return Math.max(0, Math.min(max, nextIndex));
-  }
-
-  function prev() {
-    if (!currentGallery) return;
-    currentIndex = clampIndex(currentIndex - 1);
-    renderModal();
-  }
-
-  function next() {
-    if (!currentGallery) return;
-    currentIndex = clampIndex(currentIndex + 1);
-    renderModal();
-  }
-
-  document.addEventListener("DOMContentLoaded", async () => {
-    // bootstrap modal must exist
-    const modalEl = $("#gallery-modal");
-    if (!modalEl) {
-      console.warn("gallery-modal not found.");
-      return;
-    }
-
-    // bootstrap must be loaded already (we placed script after bundle)
-    bsModal = new bootstrap.Modal(modalEl);
-
-    // open buttons
-    document.querySelectorAll(".js-open-gallery").forEach(btn => {
-      btn.addEventListener("click", (e) => {
-        e.preventDefault();
-        const id = btn.dataset.galleryId;
-        if (!id) return;
-        openGalleryById(id);
-      });
-    });
-
-    // nav buttons
-    $("#gallery-prev").addEventListener("click", prev);
-    $("#gallery-next").addEventListener("click", next);
-
-    // keyboard nav when modal is shown
-    modalEl.addEventListener("keydown", (e) => {
-      if (e.key === "ArrowLeft") prev();
-      if (e.key === "ArrowRight") next();
-    });
-
-    // optional: prefetch manifest early
-    try { await loadManifest(); } catch (err) { console.warn(err); }
-  });
-})();
-</script>
-
+    </style>
   </head>
   <body>
-    <section
-      class="about-hero d-flex align-items-center justify-content-center text-center">
-      <div class="about-hero-overlay">
-        <nav
-          class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky py-2"
-          style="background-color: transparent !important;border-bottom: 0.5px solid #ffffff">
-          <div class="container" style="color: transparent !important;">
-            <a class="navbar-brand fw-semibold" href="index.html"
-              style="color: #ffffff;font-size: 0.8rem;letter-spacing: 0.35em !important;text-transform: uppercase;font-weight: 200 !important;padding: 0.5rem 1rem !important;">
-              Asmaa Abdul-Amin
-            </a>
+<!-- @partial:nav start — CANONICAL SOURCE: includes/partials/nav.html
+     This block is duplicated verbatim into every page. If you change it here,
+     re-stamp the other pages (python3 tools/sync_partials.py). -->
+<a class="os-skip" href="#main">Skip to main content</a>
+<header class="os-header">
+  <nav class="os-nav" aria-label="Main">
+    <a class="os-nav__brand" href="/">Asmaa Abdul-Amin</a>
 
-            <button class="navbar-toggler" type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarContent"
-              aria-controls="navbarContent"
-              aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end"
-              id="navbarContent">
-              <ul class="navbar-nav mb-2 mb-lg-0">
+    <button class="os-nav__toggle" type="button" aria-expanded="false"
+      aria-controls="os-nav-menu" data-os-nav-toggle>
+      <span class="os-vh">Menu</span>
+      <svg class="os-nav__icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <path d="M3 6h18M3 12h18M3 18h18" />
+      </svg>
+      <svg class="os-nav__icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <path d="M6 6l12 12M18 6L6 18" />
+      </svg>
+    </button>
 
-                <li class="nav-item">
-                  <a class="nav-link" aria-current="page"
-                    href="index.html">Home</a>
-                </li>
+    <ul class="os-nav__menu" id="os-nav-menu">
+      <li><a class="os-nav__link" href="/" data-nav="/">Home</a></li>
+      <li><a class="os-nav__link" href="/blkpvnthr-os/" data-nav="/blkpvnthr-os/">BLKPVNTHR.OS</a></li>
+      <li><a class="os-nav__link" href="/case-studies.html" data-nav="/case-studies.html">Case Studies</a></li>
+      <li><a class="os-nav__link" href="/#experience">Experience</a></li>
+      <li><a class="os-nav__link" href="/#services">Services</a></li>
+      <li><a class="os-nav__link" href="/#about">About</a></li>
+      <li><a class="os-nav__link" href="/#contact">Contact</a></li>
+      <li>
+        <a class="os-nav__cta" href="https://os.blkpvnthr.com" target="_blank"
+          rel="noopener noreferrer">
+          Launch OS <span aria-hidden="true">&rarr;</span>
+          <span class="os-vh">(opens os.blkpvnthr.com in a new tab)</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+<!-- @partial:nav end -->
 
-                <li class="nav-item">
-                  <a class="nav-link active" href="images.html">Gallery</a>
-                </li>
+    <main id="main" class="gallery-page">
 
-                <li class="nav-item">
-                  <a class="nav-link" href="projects.html">Projects</a>
-                </li>
-
-                <li class="nav-item">
-                  <a class="nav-link" href="/assets/Asmaa_Abdul-Amin.pdf"
-                    target="_blank">
-                    Resumé
-                  </a>
-                </li>
-
-                <li class="nav-item">
-                  <a class="nav-link" href="https://github.com/blkpvnthr"
-                    target="_blank">
-                    GitHub<svg xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 16 16" aria-hidden="true"><path
-                        fill="currentColor"
-                        d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z" />
-                    </svg>
-                  </a>
-                </li>
-
-              </ul>
-            </div>
-
-          </div>
-        </nav>
-      </div>
-
-    </section>
-    <main class="gallery-page">
-
-      <section class="gallery-hero">
-        <div class="gallery-hero-inner">
-          <h1 class="gallery-title">Project Gallery</h1>
-          <p class="gallery-subtitle">
-            A mix of mission visuals, web experiments, concept art, and random
-            side projects.
-            Click any tile to open a project gallery. “View portfolio” goes to
-            the live site.
+      <section class="os-band os-band--tight">
+        <div class="os-wrap">
+          <p class="os-eyebrow">gallery</p>
+          <h1 class="os-h2">Project gallery</h1>
+          <p class="os-lede">
+            Mission portals, web experiments, concept art and project imagery from work at
+            the Johns Hopkins Applied Physics Laboratory and on personal builds.
+            Select a tile to open its image set.
           </p>
         </div>
       </section>
 
       <div class="gallery-container">
 
-        <div class="gallery-filter-row">
-          <button class="filter-pill active" data-filter="all">All</button>
-          <button class="filter-pill" data-filter="photos">Photos</button>
-          <button class="filter-pill" data-filter="web">Web</button>
-          <button class="filter-pill" data-filter="graphics">Graphics</button>
-          <button class="filter-pill" data-filter="finance">Finance</button>
+        <div class="gallery-filter-row" role="group" aria-label="Filter gallery by category">
+          <button class="filter-pill active" type="button" data-filter="all">All</button>
+          <button class="filter-pill" type="button" data-filter="photos">Photos</button>
+          <button class="filter-pill" type="button" data-filter="web">Web</button>
+          <button class="filter-pill" type="button" data-filter="graphics">Graphics</button>
+          <button class="filter-pill" type="button" data-filter="finance">Finance</button>
         </div>
-        <section class="gallery-grid">
+
+        <section class="gallery-grid" aria-label="Projects">
 
           <!-- QuantumQuant -->
           <article class="gallery-card" data-category="finance">
@@ -611,31 +282,21 @@
               data-gallery-id="qq"
               aria-controls="gallery-modal"
               aria-expanded="false"
-              aria-label="Open QuantumQuant gallery">
+              aria-label="Open the QuantumQuant image set">
               <img class="gallery-thumb"
-                src="assets/images/qq/img-1.png"
-                alt="QuantumQuant mission thumbnail">
-              <span class="gallery-badge">Web · Quantitative Finance</span>
+                src="/assets/images/qq/img-1.png"
+                alt="The QuantumQuant trading platform interface"
+                width="640" height="360" loading="lazy" decoding="async">
+              <span class="gallery-badge">Web &middot; Quantitative finance</span>
             </button>
 
             <div class="gallery-card-body">
-              <h3 class="gallery-card-title">QuantumQuant</h3>
+              <h2 class="gallery-card-title">QuantumQuant</h2>
               <p class="gallery-card-text">
-                Responsive layout for an interactive algorithmic trading
-                platform, featuring real-time data visualization and modular UI
-                components.
+                Responsive layout for an interactive algorithmic trading interface, with
+                data visualization and modular UI components.
               </p>
-              <div class="gallery-card-meta">Python / HTML / CSS / JS </div>
-              <div class="gallery-card-footer">
-                <a href target="_blank" class="gallery-link" rel="noopener">
-                  View site
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"
-                    aria-hidden="true">
-                    <path fill="currentColor"
-                      d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z" />
-                  </svg>
-                </a>
-              </div>
+              <div class="gallery-card-meta">Python / HTML / CSS / JS</div>
             </div>
           </article>
 
@@ -646,30 +307,26 @@
               data-gallery-id="ezie"
               aria-controls="gallery-modal"
               aria-expanded="false"
-              aria-label="Open EZIE gallery">
+              aria-label="Open the EZIE image set">
               <img class="gallery-thumb"
-                src="assets/images/ezie-images/ezie-1.png"
-                alt="EZIE mission thumbnail">
-              <span class="gallery-badge">Web · APL</span>
+                src="/assets/images/ezie-images/ezie-1.png"
+                alt="The EZIE mission portal home page"
+                width="640" height="360" loading="lazy" decoding="async">
+              <span class="gallery-badge">Web &middot; APL</span>
             </button>
 
             <div class="gallery-card-body">
-              <h3 class="gallery-card-title">EZIE – Electrojet Zeeman Imaging
-                Explorer</h3>
+              <h2 class="gallery-card-title">EZIE &ndash; Electrojet Zeeman Imaging Explorer</h2>
               <p class="gallery-card-text">
-                Responsive mission portal layout for NASA’s EZIE mission — hero,
-                media gallery,
-                and internal tools wired into APL infrastructure.
+                Responsive mission portal layout for NASA&rsquo;s EZIE mission: hero, media
+                gallery and internal tools wired into APL infrastructure.
               </p>
               <div class="gallery-card-meta">HTML / CSS / JS / PHP</div>
               <div class="gallery-card-footer">
-                <a href="https://ezie.jhuapl.edu/" target="_blank"
-                  class="gallery-link" rel="noopener">
+                <a href="https://ezie.jhuapl.edu/" target="_blank" rel="noopener noreferrer" class="gallery-link">
                   View site
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"
-                    aria-hidden="true">
-                    <path fill="currentColor"
-                      d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z" />
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
+                    <path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z" />
                   </svg>
                 </a>
               </div>
@@ -683,30 +340,26 @@
               data-gallery-id="ice-giants"
               aria-controls="gallery-modal"
               aria-expanded="false"
-              aria-label="Open Ice Giants gallery">
+              aria-label="Open the Ice Giants image set">
               <img class="gallery-thumb"
-                src="assets/images/ice-giants/ice-giants-0.png"
-                alt="Ice Giants thumbnail">
-              <span class="gallery-badge">Web · APL</span>
+                src="/assets/images/ice-giants/ice-giants-0.png"
+                alt="The Ice Giants research and event site home page"
+                width="640" height="360" loading="lazy" decoding="async">
+              <span class="gallery-badge">Web &middot; APL</span>
             </button>
 
             <div class="gallery-card-body">
-              <h3 class="gallery-card-title">Ice Giants</h3>
+              <h2 class="gallery-card-title">Ice Giants</h2>
               <p class="gallery-card-text">
-                Responsive mission portal layout for the Uranus &amp; Neptune
-                research &amp; event site —
-                immersive hero, science highlights, and internal tooling.
+                Responsive layout for the Uranus &amp; Neptune research and event site:
+                immersive hero, science highlights and internal tooling.
               </p>
-              <div class="gallery-card-meta">Design &amp; build · HTML / CSS /
-                JS / PHP</div>
+              <div class="gallery-card-meta">Design &amp; build &middot; HTML / CSS / JS / PHP</div>
               <div class="gallery-card-footer">
-                <a href="https://icegiants.jhuapl.edu/" target="_blank"
-                  class="gallery-link" rel="noopener">
+                <a href="https://icegiants.jhuapl.edu/" target="_blank" rel="noopener noreferrer" class="gallery-link">
                   View site
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"
-                    aria-hidden="true">
-                    <path fill="currentColor"
-                      d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z" />
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
+                    <path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z" />
                   </svg>
                 </a>
               </div>
@@ -720,93 +373,58 @@
               data-gallery-id="parker-kit"
               aria-controls="gallery-modal"
               aria-expanded="false"
-              aria-label="Open Parker kit gallery">
+              aria-label="Open the Parker Solar Probe celebration kit image set">
               <img class="gallery-thumb"
-                src="assets/images/parker-kit/parker-kit.png"
-                alt="Parker kit thumbnail">
-              <span class="gallery-badge">Web · APL</span>
+                src="/assets/images/parker-kit/parker-kit.png"
+                alt="The Parker Solar Probe closest approach celebration kit page"
+                width="640" height="360" loading="lazy" decoding="async">
+              <span class="gallery-badge">Web &middot; APL</span>
             </button>
 
             <div class="gallery-card-body">
-              <h3 class="gallery-card-title">PSP Closest Approach Celebration
-                Kit</h3>
+              <h2 class="gallery-card-title">PSP closest approach celebration kit</h2>
               <p class="gallery-card-text">
-                Engineered a celebration kit for Parker Solar Probe’s closest
-                approach —
-                custom graphics, prints, and desk setup.
+                A downloadable celebration kit for Parker Solar Probe&rsquo;s closest approach:
+                custom graphics, prints and desk setup.
               </p>
-              <div class="gallery-card-meta">Design &amp; build · HTML / CSS /
-                JS / PHP</div>
+              <div class="gallery-card-meta">Design &amp; build &middot; HTML / CSS / JS / PHP</div>
               <div class="gallery-card-footer">
-                <a href="https://parkersolarprobe.jhuapl.edu/parker-kit/"
-                  target="_blank" class="gallery-link" rel="noopener">
+                <a href="https://parkersolarprobe.jhuapl.edu/parker-kit/" target="_blank" rel="noopener noreferrer" class="gallery-link">
                   View site
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"
-                    aria-hidden="true">
-                    <path fill="currentColor"
-                      d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z" />
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
+                    <path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z" />
                   </svg>
                 </a>
               </div>
             </div>
           </article>
 
-          <!-- LAC 
-  <article class="gallery-card" data-category="web">
-    <button class="gallery-thumb-wrapper js-open-gallery"
-      type="button"
-      data-gallery-id="lac"
-      aria-controls="gallery-modal"
-      aria-expanded="false"
-      aria-label="Open LAC gallery">
-      <img class="gallery-thumb"
-        src="assets/images/LAC/LAC-3.png"
-        alt="Lunar Autonomy Challenge thumbnail">
-      <span class="gallery-badge">Web · APL</span>
-    </button>
-
-    <div class="gallery-card-body">
-      <h3 class="gallery-card-title">Lunar Autonomy Challenge</h3>
-      <p class="gallery-card-text">
-        Built an admin area to manage FAQs and a front-facing page using DataTables
-        for searchable, sortable Q&amp;A instead of a static list.
-      </p>
-      <div class="gallery-card-meta">HTML / CSS / JS · DataTables</div>
-      <div class="gallery-card-footer">
-        <a href="https://lac.jhuapl.edu/" target="_blank" class="gallery-link" rel="noopener">
-          View site
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
-            <path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-  </article>-->
-
-          <!-- Ice Giants Concept Art -->
+          <!-- Ice Giants concept art -->
           <article class="gallery-card" data-category="graphics">
-            <button class="gallery-thumb-wrapper js-open-gallery" type="button"
+            <button class="gallery-thumb-wrapper js-open-gallery"
+              type="button"
               data-gallery-id="uranus-art"
-              aria-controls="gallery-modal" aria-expanded="false"
-              aria-label="Open Ice Giants concept art gallery">
+              aria-controls="gallery-modal"
+              aria-expanded="false"
+              aria-label="Open the Ice Giants concept art image set">
               <img class="gallery-thumb"
-                src="assets/images/ice-giants/ps-images/new-new-uranus.png"
-                alt="Ice Giants concept art thumbnail" />
-              <span class="gallery-badge">Graphics · Space</span>
+                src="/assets/images/ice-giants/ps-images/new-new-uranus.png"
+                alt="Concept art of Uranus rendered for the Ice Giants site"
+                width="640" height="360" loading="lazy" decoding="async">
+              <span class="gallery-badge">Graphics &middot; Space</span>
             </button>
+
             <div class="gallery-card-body">
-              <h3 class="gallery-card-title">Ice Giants Concept Art</h3>
-              <p class="gallery-card-text">Concept art for the new APL Uranus
-                &amp; Neptune research site.</p>
+              <h2 class="gallery-card-title">Ice Giants concept art</h2>
+              <p class="gallery-card-text">
+                Concept art produced for the APL Uranus &amp; Neptune research site.
+              </p>
               <div class="gallery-card-meta">Adobe Photoshop</div>
               <div class="gallery-card-footer">
-                <a href="https://icegiants.jhuapl.edu/" target="_blank"
-                  rel="noopener" class="gallery-link">
+                <a href="https://icegiants.jhuapl.edu/" target="_blank" rel="noopener noreferrer" class="gallery-link">
                   View site
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"
-                    aria-hidden="true">
-                    <path fill="currentColor"
-                      d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z" />
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
+                    <path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z" />
                   </svg>
                 </a>
               </div>
@@ -820,477 +438,280 @@
               data-gallery-id="circuit"
               aria-controls="gallery-modal"
               aria-expanded="false"
-              aria-label="Open CIRCUIT gallery">
+              aria-label="Open the CIRCUIT 2023 image set">
               <img class="gallery-thumb"
-                src="assets/images/circuit/img_2.png"
-                alt="CIRCUIT 2023 thumbnail">
-              <span class="gallery-badge">Photos · APL</span>
+                src="/assets/images/circuit/img_2.png"
+                alt="Photograph from the CIRCUIT program at the Johns Hopkins Applied Physics Laboratory"
+                width="640" height="360" loading="lazy" decoding="async">
+              <span class="gallery-badge">Photos &middot; APL</span>
             </button>
 
             <div class="gallery-card-body">
-              <h3 class="gallery-card-title">CIRCUIT 2023</h3>
-              <p class="gallery-card-text">Images from my first summer at The
-                Johns Hopkins University Applied Physics Laboratory.</p>
-              <!--div class="gallery-card-meta">HTML / CSS / JS</div-->
-              <div class="gallery-card-footer">
-                <a href class="gallery-link" rel="noopener">
-                  View images
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"
-                    aria-hidden="true">
-                    <path fill="currentColor"
-                      d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z" />
-                  </svg>
-                </a>
-              </div>
+              <h2 class="gallery-card-title">CIRCUIT 2023</h2>
+              <p class="gallery-card-text">
+                Images from my first summer at the Johns Hopkins University Applied Physics
+                Laboratory.
+              </p>
             </div>
           </article>
-          <!-- DESCRIPT VIDEO -->
-          <article class="gallery-card" data-category="video">
-            <a
-              class="gallery-thumb-wrapper"
+
+          <!-- The Cost of Democracy walkthrough -->
+          <article class="gallery-card" data-category="web">
+            <a class="gallery-thumb-wrapper"
               href="https://share.descript.com/view/pJb7AY9qKMQ"
               target="_blank"
-              rel="noopener"
-              aria-label="Open Descript video">
-
+              rel="noopener noreferrer"
+              aria-label="Watch The Cost of Democracy project walkthrough video">
               <img class="gallery-thumb"
-                src="assets/images/tcod.png"
-                alt="Descript video thumbnail">
-
-              <span class="gallery-badge">Video · Descript</span>
+                src="/assets/images/tcod.png"
+                alt="Title frame of The Cost of Democracy project walkthrough video"
+                width="640" height="360" loading="lazy" decoding="async">
+              <span class="gallery-badge">Video &middot; Walkthrough</span>
             </a>
 
             <div class="gallery-card-body">
-              <h3 class="gallery-card-title">The Cost of Democracy – Project
-                Walkthrough</h3>
-
+              <h2 class="gallery-card-title">The Cost of Democracy &ndash; project walkthrough</h2>
               <p class="gallery-card-text">
-                Screen-recorded walkthrough created in Descript, highlighting
-                project structure,
-                features, and design decisions.
+                A recorded walkthrough of the project structure, features and design
+                decisions behind an NLP and time-series pipeline.
               </p>
-
               <div class="gallery-card-footer">
-                <a
-                  href="https://share.descript.com/view/pJb7AY9qKMQ"
-                  target="_blank"
-                  rel="noopener"
-                  class="gallery-link">
+                <a href="https://share.descript.com/view/pJb7AY9qKMQ" target="_blank" rel="noopener noreferrer" class="gallery-link">
                   Watch video
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"
-                    aria-hidden="true">
-                    <path fill="currentColor"
-                      d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z" />
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
+                    <path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z" />
                   </svg>
                 </a>
               </div>
             </div>
           </article>
 
-          <!-- TIMED 
-  <article class="gallery-card" data-category="web">
-    <button class="gallery-thumb-wrapper js-open-gallery"
-      type="button"
-      data-gallery-id="timed"
-      aria-controls="gallery-modal"
-      aria-expanded="false"
-      aria-label="Open TIMED gallery">
-      <img class="gallery-thumb"
-        src="assets/images/timed/TIMED-2.png"
-        alt="TIMED project thumbnail">
-      <span class="gallery-badge">Web · APL</span>
-    </button>
-
-    <div class="gallery-card-body">
-      <h3 class="gallery-card-title">TIMED – Thermosphere • Ionosphere • Mesosphere • Energetics • Dynamics</h3>
-      <p class="gallery-card-text">Re-designed an updated version of this mission site with a modern look and feel.</p>
-      <div class="gallery-card-meta">HTML / CSS / JS</div>
-      <div class="gallery-card-footer">
-        <a href="https://timedsds.jhuapl.edu/index.html" target="_blank" class="gallery-link" rel="noopener">
-          View site
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
-            <path fill="currentColor" d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-  </article>-->
-
         </section>
 
-        <div class="text-center mt-4" style="border-bottom: none;">
-          <div class="d-flex justify-content-center gap-3 mt-4">
-            <a href="index.html"
-              class="btn-ghost about-nutshell-label"
-              style="font-size: x-small;">
-              ← Previous
-            </a>
-
-            <a href="/projects.html" rel="noopener"
-              class="btn-ghost about-nutshell-label"
-              style="font-size: x-small;">
-              View Projects →
-            </a>
-          </div>
-
-          <script>
-        // Small helper: if any non-button wrappers are used later, forward clicks/keyboard to the gallery button.
-        (function () {
-          document.querySelectorAll('.gallery-thumb').forEach(thumb => {
-        thumb.addEventListener('click', (e) => {
-          const btn = thumb.closest('.js-open-gallery');
-          if (btn && btn.tagName !== 'BUTTON') {
-            btn.click();
-          }
-        });
-          });
-
-          // Defensive: prevent accidental form submission if buttons are inside forms
-          document.querySelectorAll('.js-open-gallery').forEach(b => {
-        b.addEventListener('click', (e) => {
-          e.preventDefault && e.preventDefault();
-        });
-          });
-        })();
-      </script>
-        </main>
-        <script
-          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-          integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-          crossorigin="anonymous"></script>
-
-        <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const pills = document.querySelectorAll(".filter-pill");
-    const cards = document.querySelectorAll(".gallery-card");
-
-    pills.forEach(pill => {
-      pill.addEventListener("click", () => {
-        const filter = pill.dataset.filter;
-
-        pills.forEach(p => p.classList.remove("active"));
-        pill.classList.add("active");
-
-        cards.forEach(card => {
-          const category = card.dataset.category;
-          if (filter === "all" || category === filter) {
-            card.classList.remove("hidden");
-          } else {
-            card.classList.add("hidden");
-          }
-        });
-      });
-    });
-  });
-</script>
-
-        <section class="socials-footer py-5">
-          <div
-            class="container d-flex justify-content-between align-items-center flex-wrap">
-
-            <div class="contact-info text-start mb-0">
-              <a class="navbar-brand fw-semibold" href="index.html"
-                style="color: #ffffff;font-size: 0.8rem;letter-spacing: 0.35em !important;text-transform: uppercase;font-weight: 400 !important;">
-                Asmaa Abdul-Amin
-              </a>
-              <p style="text-decoration: none;"><a
-                  href="mailto:blkpvnthr@asmaa.dev"
-                  class="about-text footer-link my-0 mb-0 mt-0"
-                  style="font-size: small;text-decoration: none !important;"><span
-                    class="about-text my-0"><i
-                      class="fa-regular fa-envelope"
-                      style="text-decoration: none !important;"></i>
-                    Contact</span></a>
-                &nbsp;
-                | &nbsp;
-                <a href="tel:+12403082269" class="about-text my-0 mt-0 mb-0 "
-                  style="font-size: small;text-decoration: none !important;"><span
-                    class="about-text my-0"
-                    style="text-decoration: none;color: #a152f5;">(240)
-                    308-2269</span></a>
-              </p>
-            </div>
-
-            <div class="social-icons mb-3">
-              <a href="https://www.instagram.com/blkpvnthr_/" target="_blank"
-                class="footer-icon">
-                <i class="fa-brands fa-instagram"></i>
-              </a>
-              <a href="https://github.com/blkpvnthr" target="_blank"
-                class="footer-icon">
-                <i class="fa-brands fa-github"></i>
-              </a>
-              <a href="https://x.com/blkpvnthr" target="_blank"
-                class="footer-icon">
-                <i class="fa-brands fa-x-twitter"></i>
-              </a>
-              <a href="https://www.linkedin.com/in/blkpvnthr/" target="_blank"
-                class="footer-icon">
-                <i class="fa-brands fa-linkedin-in"></i>
-              </a>
-            </div>
-
-          </div>
-        </section>
-
-        <footer class="bg-black my-4 mt-0 text-center">
-          <div class="container bg-black py-4">
-
-            <div class="w-100 mb-4">
-              <div
-                style="border-bottom:1px solid #434343;background-color: #000;"></div>
-            </div>
-
-            <div class="text-center"
-              style="color:#434343; font-weight:300;">
-              © <span id="year">2025</span> BLKPVNTHR — All rights
-              reserved.
-            </div>
-
-          </div>
-        </footer>
-
-        <div class="modal fade" id="gallery-modal" tabindex="-1"
-          aria-labelledby="galleryModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-xl modal-dialog-centered">
-            <div class="modal-content"
-              style="background: var(--bg-card); border-color: var(--border-subtle);">
-              <div class="modal-header border-0">
-                <h5 class="modal-title" id="galleryModalLabel">
-                  <span id="gallery-modal-title">Gallery Title</span>
-                  <span class="text-muted small ms-2"
-                    id="gallery-modal-counter"></span>
-                </h5>
-                <button type="button" class="btn-close btn-close-white"
-                  data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body p-0">
-                <div class="position-relative">
-                  <img id="gallery-modal-image" src alt="Gallery image"
-                    class="img-fluid"
-                    style="display: block; width: 100%; border-radius: 0.5rem;">
-                  <button id="gallery-prev"
-                    class="btn btn-outline-light position-absolute top-50 start-0 translate-middle-y ms-3"
-                    style="z-index: 10;">&lt;</button>
-                  <button id="gallery-next"
-                    class="btn btn-outline-light position-absolute top-50 end-0 translate-middle-y me-3"
-                    style="z-index: 10;">&gt;</button>
-                </div>
-              </div>
-              <div class="modal-footer d-block border-0 pt-0">
-                <p id="gallery-modal-description" class="text-muted small"></p>
-              </div>
-            </div>
-          </div>
+        <div class="os-actions" style="margin-top:2.5rem">
+          <a class="os-btn os-btn--primary" href="/case-studies.html">Read the case studies</a>
+          <a class="os-btn os-btn--ghost" href="/">Back to home</a>
         </div>
 
-        <script
-          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-          integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-          crossorigin="anonymous"></script>
+      </div>
+    </main>
 
-        <script>
-(() => {
-  const MANIFEST_URL = "assets/images/galleries.json";
+    <!-- Image-set modal -->
+    <div class="modal fade" id="gallery-modal" tabindex="-1"
+      aria-labelledby="gallery-modal-label" aria-hidden="true">
+      <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header border-0">
+            <h2 class="modal-title h5" id="gallery-modal-label">
+              <span id="gallery-modal-title">Gallery</span>
+              <span class="text-muted small ms-2" id="gallery-modal-counter"></span>
+            </h2>
+            <button type="button" class="btn-close btn-close-white"
+              data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body p-0">
+            <div class="position-relative">
+              <img id="gallery-modal-image" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="1600" height="900" alt="" class="img-fluid"
+                style="display:block; width:100%; border-radius:0.5rem;">
+              <button id="gallery-prev" type="button"
+                class="btn btn-outline-light position-absolute top-50 start-0 translate-middle-y ms-3"
+                style="z-index:10;" aria-label="Previous image">&lt;</button>
+              <button id="gallery-next" type="button"
+                class="btn btn-outline-light position-absolute top-50 end-0 translate-middle-y me-3"
+                style="z-index:10;" aria-label="Next image">&gt;</button>
+            </div>
+          </div>
+          <div class="modal-footer d-block border-0 pt-0">
+            <p id="gallery-modal-description" class="text-muted small"></p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  let manifest = null;
-  let currentGallery = null;
-  let currentIndex = 0;
-  let bsModal = null;
+<!-- @partial:footer start — CANONICAL SOURCE: includes/partials/footer.html
+     Duplicated verbatim into every page. Re-stamp with tools/sync_partials.py. -->
+<footer class="os-footer">
+  <div class="os-wrap">
+    <div class="os-footer__grid">
+      <div>
+        <p class="os-footer__brand">Asmaa Abdul-Amin</p>
+        <p class="os-footer__blurb">
+          Software engineer building AI-native systems for financial intelligence,
+          quantitative research, knowledge management, and workflow automation.
+          Creator of BLKPVNTHR.OS.
+        </p>
+        <p style="margin-top:1.25rem">
+          <a class="os-live" href="https://os.blkpvnthr.com" target="_blank" rel="noopener noreferrer">
+            <span class="os-live__dot" aria-hidden="true"></span>
+            BLKPVNTHR.OS Live
+            <span class="os-vh">(opens os.blkpvnthr.com in a new tab)</span>
+          </a>
+        </p>
+      </div>
 
-  const $ = (s) => document.querySelector(s);
+      <div>
+        <h2>Site</h2>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/blkpvnthr-os/">BLKPVNTHR.OS</a></li>
+          <li><a href="/case-studies.html">Case Studies</a></li>
+          <li><a href="/quant-research/">Quantitative Research</a></li>
+          <li><a href="/images.html">Gallery</a></li>
+          <li><a href="/#services">Services</a></li>
+          <li><a href="/#contact">Contact</a></li>
+          <li><a href="/assets/Asmaa_Abdul-Amin.pdf" target="_blank" rel="noopener noreferrer">Resum&eacute; (PDF)</a></li>
+        </ul>
+      </div>
 
-  async function loadManifest() {
-    if (manifest) return manifest;
-    const res = await fetch(MANIFEST_URL, { cache: "no-store" });
-    if (!res.ok) throw new Error("Could not load " + MANIFEST_URL);
-    manifest = await res.json();
-    return manifest;
-  }
+      <div>
+        <h2>Legal</h2>
+        <ul>
+          <li><a href="/privacy/">Privacy Policy</a></li>
+          <li><a href="/terms/">Terms of Use</a></li>
+          <li><a href="/disclaimer/">Financial Disclaimer</a></li>
+        </ul>
 
-  function render() {
-    if (!currentGallery) return;
-    const total = currentGallery.images.length;
+        <h2 style="margin-top:1.75rem">Elsewhere</h2>
+        <ul>
+          <li><a href="https://os.blkpvnthr.com" target="_blank" rel="noopener noreferrer">Launch BLKPVNTHR.OS &rarr;</a></li>
+          <li><a href="https://github.com/blkpvnthr" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/blkpvnthr/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="https://x.com/blkpvnthr" target="_blank" rel="noopener noreferrer">X</a></li>
+          <li><a href="mailto:blkpvnthr@asmaa.dev">blkpvnthr@asmaa.dev</a></li>
+          <li><a href="tel:+12025053854">+1 (202) 505-3854</a></li>
+        </ul>
+      </div>
+    </div>
 
-    $("#gallery-modal-title").textContent = currentGallery.title || "Gallery";
-    $("#gallery-modal-description").textContent = currentGallery.description || "";
-    $("#gallery-modal-counter").textContent = `(${currentIndex + 1} / ${total})`;
+    <div class="os-footer__legal">
+      <span>&copy; <span data-os-year>2026</span> BLKPVNTHR LLC. All rights reserved.</span>
+      <span>
+        BLKPVNTHR.OS is a separate software service and may be governed by its own terms and
+        privacy disclosures.
+      </span>
+    </div>
+  </div>
+</footer>
+<!-- @partial:footer end -->
 
-    const src = currentGallery.images[currentIndex];
-    $("#gallery-modal-image").src = src;
-    $("#gallery-modal-image").alt = `${currentGallery.title || "Gallery"} image ${currentIndex + 1}`;
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-    $("#gallery-prev").style.display = currentIndex > 0 ? "block" : "none";
-    $("#gallery-next").style.display = currentIndex < total - 1 ? "block" : "none";
-  }
+    <script>
+    /* Gallery: category filter + image-set modal, driven by assets/images/images.json. */
+    (() => {
+      const MANIFEST_URL = "/assets/images/images.json";
+      const $ = (s) => document.querySelector(s);
 
-  function prev() {
-    if (!currentGallery) return;
-    currentIndex = Math.max(0, currentIndex - 1);
-    render();
-  }
+      let manifest = null;
+      let currentGallery = null;
+      let currentIndex = 0;
+      let bsModal = null;
 
-  function next() {
-    if (!currentGallery) return;
-    currentIndex = Math.min(currentGallery.images.length - 1, currentIndex + 1);
-    render();
-  }
+      async function loadManifest() {
+        if (manifest) return manifest;
+        const res = await fetch(MANIFEST_URL, { cache: "no-store" });
+        if (!res.ok) throw new Error("Could not load " + MANIFEST_URL);
+        manifest = await res.json();
+        return manifest;
+      }
 
-  async function openById(id) {
-    const data = await loadManifest();
-    const g = data[id];
+      function render() {
+        if (!currentGallery) return;
+        const total = currentGallery.images.length;
+        const title = currentGallery.title || "Gallery";
 
-    if (!g || !Array.isArray(g.images) || g.images.length === 0) {
-      console.warn("Missing gallery id in JSON:", id);
-      alert("Could not load gallery images for this project.");
-      return;
-    }
+        $("#gallery-modal-title").textContent = title;
+        $("#gallery-modal-description").textContent = currentGallery.description || "";
+        $("#gallery-modal-counter").textContent = `(${currentIndex + 1} / ${total})`;
 
-    currentGallery = g;
-    currentIndex = 0;
-    render();
-    bsModal.show();
-  }
+        const img = $("#gallery-modal-image");
+        img.src = currentGallery.images[currentIndex];
+        img.alt = `${title}, image ${currentIndex + 1} of ${total}`;
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const modalEl = $("#gallery-modal");
-    if (!modalEl) return;
+        $("#gallery-prev").style.display = currentIndex > 0 ? "block" : "none";
+        $("#gallery-next").style.display = currentIndex < total - 1 ? "block" : "none";
+      }
 
-    bsModal = new bootstrap.Modal(modalEl);
+      function prev() {
+        if (!currentGallery) return;
+        currentIndex = Math.max(0, currentIndex - 1);
+        render();
+      }
 
-    document.querySelectorAll(".js-open-gallery").forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        e.preventDefault();
-        const id = btn.dataset.galleryId;
-        if (id) openById(id);
+      function next() {
+        if (!currentGallery) return;
+        currentIndex = Math.min(currentGallery.images.length - 1, currentIndex + 1);
+        render();
+      }
+
+      async function openById(id, opener) {
+        let data;
+        try {
+          data = await loadManifest();
+        } catch (err) {
+          console.warn(err);
+          return;
+        }
+
+        const g = data[id];
+        if (!g || !Array.isArray(g.images) || g.images.length === 0) {
+          console.warn("No images for gallery id:", id);
+          return;
+        }
+
+        currentGallery = g;
+        currentIndex = 0;
+        if (opener) opener.setAttribute("aria-expanded", "true");
+        render();
+        bsModal.show();
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        // --- category filter ---
+        const pills = document.querySelectorAll(".filter-pill");
+        const cards = document.querySelectorAll(".gallery-card");
+
+        pills.forEach((pill) => {
+          pill.addEventListener("click", () => {
+            const filter = pill.dataset.filter;
+            pills.forEach((p) => p.classList.remove("active"));
+            pill.classList.add("active");
+
+            cards.forEach((card) => {
+              const match = filter === "all" || card.dataset.category === filter;
+              card.classList.toggle("is-hidden", !match);
+            });
+          });
+        });
+
+        // --- modal ---
+        const modalEl = $("#gallery-modal");
+        if (!modalEl || typeof bootstrap === "undefined") return;
+
+        bsModal = new bootstrap.Modal(modalEl);
+
+        document.querySelectorAll(".js-open-gallery").forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            const id = btn.dataset.galleryId;
+            if (id) openById(id, btn);
+          });
+        });
+
+        $("#gallery-prev").addEventListener("click", prev);
+        $("#gallery-next").addEventListener("click", next);
+
+        modalEl.addEventListener("keydown", (e) => {
+          if (e.key === "ArrowLeft") prev();
+          if (e.key === "ArrowRight") next();
+        });
+
+        modalEl.addEventListener("hidden.bs.modal", () => {
+          document.querySelectorAll(".js-open-gallery[aria-expanded='true']")
+            .forEach((b) => b.setAttribute("aria-expanded", "false"));
+        });
       });
-    });
-
-    $("#gallery-prev").addEventListener("click", prev);
-    $("#gallery-next").addEventListener("click", next);
-
-    modalEl.addEventListener("keydown", (e) => {
-      if (e.key === "ArrowLeft") prev();
-      if (e.key === "ArrowRight") next();
-    });
-  });
-})();
-</script>
-        <script
-          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-          integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-          crossorigin="anonymous"></script>
-
-        <script>
-(() => {
-  // ✅ points to your real file name
-  const MANIFEST_URL = "assets/images/images.json";
-
-  let manifest = null;
-  let currentGallery = null;
-  let currentIndex = 0;
-  let bsModal = null;
-
-  const $ = (s) => document.querySelector(s);
-
-  async function loadManifest() {
-    if (manifest) return manifest;
-    const res = await fetch(MANIFEST_URL, { cache: "no-store" });
-    if (!res.ok) throw new Error("Could not load " + MANIFEST_URL);
-    manifest = await res.json();
-    return manifest;
-  }
-
-  function render() {
-    if (!currentGallery) return;
-
-    const total = currentGallery.images.length;
-    const src = currentGallery.images[currentIndex];
-
-    $("#gallery-modal-title").textContent = currentGallery.title || "Gallery";
-    $("#gallery-modal-description").textContent = currentGallery.description || "";
-    $("#gallery-modal-counter").textContent = `(${currentIndex + 1} / ${total})`;
-
-    const img = $("#gallery-modal-image");
-    img.src = src;
-    img.alt = `${currentGallery.title || "Gallery"} image ${currentIndex + 1}`;
-
-    $("#gallery-prev").style.display = currentIndex > 0 ? "block" : "none";
-    $("#gallery-next").style.display = currentIndex < total - 1 ? "block" : "none";
-  }
-
-  function prev() {
-    if (!currentGallery) return;
-    currentIndex = Math.max(0, currentIndex - 1);
-    render();
-  }
-
-  function next() {
-    if (!currentGallery) return;
-    currentIndex = Math.min(currentGallery.images.length - 1, currentIndex + 1);
-    render();
-  }
-
-  async function openById(id, openerBtn) {
-    const data = await loadManifest();
-    const g = data[id];
-
-    if (!g || !Array.isArray(g.images) || g.images.length === 0) {
-      console.warn("Missing gallery id in images.json:", id);
-      alert("Could not load gallery images for this project.");
-      return;
-    }
-
-    currentGallery = g;
-    currentIndex = 0;
-
-    // a11y: set aria-expanded on the opener
-    if (openerBtn) openerBtn.setAttribute("aria-expanded", "true");
-
-    render();
-    bsModal.show();
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const modalEl = $("#gallery-modal");
-    if (!modalEl) {
-      console.warn("gallery-modal not found in DOM.");
-      return;
-    }
-
-    // Bootstrap modal instance
-    bsModal = new bootstrap.Modal(modalEl);
-
-    // open handlers
-    document.querySelectorAll(".js-open-gallery").forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        e.preventDefault();
-        const id = btn.dataset.galleryId;
-        if (id) openById(id, btn);
-      });
-    });
-
-    // nav
-    $("#gallery-prev")?.addEventListener("click", prev);
-    $("#gallery-next")?.addEventListener("click", next);
-
-    // keyboard nav (when modal has focus)
-    modalEl.addEventListener("keydown", (e) => {
-      if (e.key === "ArrowLeft") prev();
-      if (e.key === "ArrowRight") next();
-    });
-
-    // reset aria-expanded when closed
-    modalEl.addEventListener("hidden.bs.modal", () => {
-      document.querySelectorAll(".js-open-gallery[aria-expanded='true']")
-        .forEach(b => b.setAttribute("aria-expanded", "false"));
-    });
-
-    // optional prefetch so first click feels instant
-    loadManifest().catch(err => console.warn(err));
-  });
-})();
-</script>
-
-      </body>
-    </html>
+    })();
+    </script>
+  </body>
+</html>

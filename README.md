@@ -1,100 +1,85 @@
-# Asmaa Abdul-Amin – Data Science & Computer Engineering Intern
+# asmaa.dev
 
-**Live Portfolio:** [blkpvnthr.github.io](https://blkpvnthr.github.io/)    
- **LinkedIn:** [https://www.linkedin.com/in/blkpvnthr/](https://www.linkedin.com/in/blkpvnthr/) <br>
- **Email:** [asmaaabdulamin@gmail.com](mailto:asmaaabdulamin@gmail.com)  
-**Location:** Clarksburg, MD  
+The personal site of Asmaa Abdul-Amin — software engineer building AI-native systems for
+financial intelligence, quantitative research, knowledge management, and workflow automation.
 
----
-
-## 👋🏽 About Me
-
-I’m a **Data Science and Computer Engineering intern** passionate about transforming complex data into actionable insights through applied machine learning, automation, and quantitative modeling.  
-My work spans **research**, **mission-critical web systems**, and **quantum-inspired optimization**, with a focus on efficiency, reproducibility, and secure software design.
-
-Currently interning at **The Johns Hopkins University Applied Physics Laboratory (JHU/APL)** in the **Space Exploration Sector**, where I develop mission critical infrastructure supporting NASA missions.
+- **Live:** <https://asmaa.dev> (custom domain via `CNAME`, served by GitHub Pages from the
+  root of `main`)
+- **Flagship product:** [BLKPVNTHR.OS](https://os.blkpvnthr.com) — opens in Guest mode, no sign-up.
 
 ---
 
-## Featured Projects
+## There is no build step
 
-### 🔹 AlphaGoat 
-GAN-driven market simulator + reinforcement-learning trader. Generates realistic 1-minute stock data with a conditional **Wasserstein GAN** and trains a DQN agent to trade long/flat/short on live Alpaca feeds, complete with rich technical-indicator conditioning and buy/sell visualizations.
+This is a plain static site: HTML, CSS, and a little vanilla JavaScript. No framework, no
+bundler, no preprocessor, no CI build. What is committed is exactly what the browser receives.
 
-### 🔹 algo-bot 
-A **Flask + WebSocket**-based algorithmic trading system integrating Alpaca API for live portfolio execution and monitoring.  
-**Features:** real-time signal processing, RSI/MACD-based triggers, statistical arbitrage models.
+- **CSS:** hand-written, in `css/`. `css/styles.css` is the base; `css/os.css` holds the
+  design system used by the current pages and must load **after** `styles.css`.
+  [Bootstrap 5.3](https://getbootstrap.com/) is pulled from a CDN for the grid, modal and a
+  few utilities. (There is no Tailwind here.)
+- **JS:** `js/site.js` — mobile nav toggle, active-nav highlighting, and the `©` year.
+  Page-specific behaviour (e.g. the gallery filter and modal) is inline in the page that
+  needs it.
+- **Fonts / icons / images:** all local, under `fonts/` and `assets/`.
 
-### 🔹  deepstock 
-A deep learning framework for stock price prediction and forecasting with **LSTMs**, featuring evaluation metrics, residual analysis, volatility indicators, and visualization tools.
+## Pages
 
-### 🔹 CryoET Object Identification  
-Trained **PyTorch** CNN models for 3D protein structure detection in cryo-electron tomography images, improving recall on high-dimensional biomedical data.
+| Path | What it is |
+| --- | --- |
+| `index.html` | Home. |
+| `blkpvnthr-os/index.html` | The BLKPVNTHR.OS product page. |
+| `case-studies.html` | Case studies. |
+| `images.html` | Project gallery — a filterable card grid whose image sets are driven by `assets/images/images.json`. |
+| `projects.html` | A `noindex` redirect stub kept only so old links do not 404. |
+| `robots.txt`, `sitemap.xml` | SEO. `projects.html` is deliberately absent from the sitemap. |
 
-### 🔹 The Cost of Democracy  
-Built a Python **NLP + time-series** pipeline combining SerpAPI, FRED, and Hugging Face models to study links between consumer costs and macroeconomic factors.
+## Partials workflow
 
----
+Because there is no build step and no server-side includes, the site header/nav and the
+footer are **duplicated verbatim into every page**. The duplication is intentional; drift is
+not.
 
-## 🛰️ Experience
+The canonical copies live in:
 
-**Computer Science / Computer Engineering Intern – Pathways Program**  
-*Johns Hopkins Applied Physics Laboratory – Space Exploration Sector (SES)*  
-*May 2025 – Present*  
-- Fortified Space Sector web infrastructure, boosting reliability by ~30% across 15+ NASA mission platforms.  
-- Automated Python + SQL data pipelines, cutting processing time by 40%.  
-- Partnered with engineering, compliance, and comms teams to deliver scalable, secure systems.
+- `includes/partials/nav.html`
+- `includes/partials/footer.html`
 
-**Software & Web Infrastructure Intern – ATLAS Program**  
-*Johns Hopkins APL – SES*  
-*May 2024 – May 2025*  
-- Enhanced web security and backend performance across enterprise mission platforms.  
-- Built RESTful APIs and automated ETL pipelines increasing dataset accessibility for 100+ engineers.  
+Each page wraps its copy in sentinel comments (`<!-- @partial:nav start -->` …
+`<!-- @partial:nav end -->`). To change the nav or footer, edit the file in
+`includes/partials/` and then re-stamp every page:
 
-**Undergraduate Research Intern – CIRCUIT Program**  
-*Johns Hopkins APL – Research & Exploratory Development Department*  
-*Mar 2023 – May 2024*  
-- Designed and deployed internal NASA Dragonfly mission web tools improving collaboration efficiency.  
-- Conducted public policy data analysis using machine learning to interpret COVID-19 outcomes.
+```bash
+python3 tools/sync_partials.py          # rewrite the pages in place
+python3 tools/sync_partials.py --check  # exit 1 if any page has drifted
+```
 
----
+`tools/sync_partials.py` is Python 3 stdlib only — no dependencies to install.
 
-## 🎓 Education
+## Product imagery
 
-**A.A. Computer Science** – *Montgomery College*  
-*Expected Dec 2025*  
-Relevant Coursework: Data Structures, Algorithms, Machine Learning, Computer Systems  
+The screenshots under `assets/images/os/` (`ai-brain`, `research-division`, `trading-engine`,
+`integrations`, plus the `og-` social image) and `assets/blkpvnthr-os-main.gif` were captured
+from the live BLKPVNTHR.OS app at <https://os.blkpvnthr.com>. They show the product's own
+demo/seed state — **no number in any screenshot represents real finances or a track record.**
+BLKPVNTHR.OS is paper-only; nothing on this site is investment advice.
 
-**Certifications** 
-- Johns Hopkins Applied Physics Laboratory*Advanced Python Programming II* (2025) 
-- University of Chicago – *Quantum Computing Systems Design I* (2024)  
-- IBM – *Machine Learning with Python* (2023)  
-- Harvard – *CS50: Introduction to Computer Science* (2022)
+## Preview locally
 
----
+No install, no toolchain:
 
-## Skills
+```bash
+python3 -m http.server 8000
+# then open http://localhost:8000
+```
 
-**Languages:** Python (primary), SQL, JavaScript, PHP, C++, Java  
-**Libraries & Tools:** NumPy, Pandas, Scikit-learn, TensorFlow, PyTorch, Flask, Docker, Git  
-**Methods:** Time Series Forecasting, Portfolio Optimization, Anomaly Detection, Monte Carlo Simulation  
-**Other:** REST APIs, Linux, HPC/Cluster Computing  
-**Languages:** English, Arabic (C1 – Advanced)  
-**Security Clearance:** Active Secret  
+Serve from the repo root so that the root-absolute paths (`/css/…`, `/assets/…`,
+`/js/site.js`) resolve exactly as they do in production.
 
----
+## Deploy
 
-## 🖥️ Tech Stack (for this portfolio)
-
-- **Frontend:** HTML5, CSS3, Bootstrap 5, TailwindCSS  
-- **Dynamic Data:** JavaScript + jQuery (GitHub REST API v3)  
-- **Automation:** Institution badge recognition, language color parsing, responsive project cards  
-- **Deployment:** GitHub Pages with custom domain ([asmaa.dev](https://asmaa.dev))
+Push to `main`. GitHub Pages serves the repo root at <https://asmaa.dev>.
 
 ---
 
-🪪 License
-
-© 2025 Asmaa Abdul-Amin.
-This project is open source under the MIT License
-.
+© 2026 Asmaa Abdul-Amin. Source released under the MIT License.
