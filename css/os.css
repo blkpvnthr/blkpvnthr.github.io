@@ -696,6 +696,71 @@ figure.os-shot {
   color: var(--os-text-3);
 }
 
+/* Click-to-expand. site.js wraps each slide image in this button. */
+.os-lightbox-trigger {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+  border-radius: var(--os-r2);
+}
+.os-lightbox-trigger:focus-visible {
+  box-shadow: var(--os-focus);
+}
+
+.os-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.1rem;
+  padding: 5vmin;
+  background: rgba(4, 4, 8, 0.92);
+}
+.os-lightbox[hidden] {
+  display: none;
+}
+.os-lightbox__img {
+  max-width: min(1400px, 96vw);
+  max-height: 82vh;
+  width: auto;
+  height: auto;
+  border-radius: var(--os-r2);
+  border: 1px solid var(--os-line);
+}
+.os-lightbox__cap {
+  margin: 0;
+  max-width: 72ch;
+  text-align: center;
+  font: 400 0.9rem/1.6 var(--os-sans);
+  color: var(--os-text-2);
+}
+.os-lightbox__close {
+  position: absolute;
+  top: 1.1rem;
+  right: 1.1rem;
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--os-text);
+  background: var(--os-ink-1);
+  border: 1px solid var(--os-line);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.os-lightbox__close:hover {
+  color: #fff;
+  border-color: var(--os-brand);
+}
+
 /* Case-study carousel: the track is also .os-cases, but as a flex carousel the
    grid rules must not apply. Reset display and give each case a fixed width. */
 .os-carousel__track.os-cases {

@@ -59,6 +59,75 @@
     });
   }
 
+  // Gallery lightbox: wrap each slide image in a button and open it full-size
+  // in an overlay on click. Progressive enhancement -- without JS the images
+  // simply show inline.
+  (function () {
+    var figures = document.querySelectorAll(".os-slide figure");
+    var triggers = [];
+    figures.forEach(function (fig) {
+      var img = fig.querySelector("img");
+      if (!img || img.closest(".os-lightbox-trigger")) return;
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "os-lightbox-trigger";
+      btn.setAttribute("aria-label", "Expand image");
+      img.parentNode.insertBefore(btn, img);
+      btn.appendChild(img);
+      var cap = fig.querySelector("figcaption");
+      btn.dataset.cap = cap ? cap.textContent.replace(/\s+/g, " ").trim() : "";
+      triggers.push(btn);
+    });
+    if (!triggers.length) return;
+
+    var box = document.createElement("div");
+    box.className = "os-lightbox";
+    box.hidden = true;
+    box.setAttribute("role", "dialog");
+    box.setAttribute("aria-modal", "true");
+    box.setAttribute("aria-label", "Expanded image");
+    box.innerHTML =
+      '<button type="button" class="os-lightbox__close" aria-label="Close">' +
+      '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>' +
+      "</button>" +
+      '<img class="os-lightbox__img" alt="">' +
+      '<p class="os-lightbox__cap"></p>';
+    document.body.appendChild(box);
+
+    var boxImg = box.querySelector(".os-lightbox__img");
+    var boxCap = box.querySelector(".os-lightbox__cap");
+    var closeBtn = box.querySelector(".os-lightbox__close");
+    var lastFocus = null;
+
+    function onKey(e) {
+      if (e.key === "Escape") closeBox();
+    }
+    function openBox(btn) {
+      var img = btn.querySelector("img");
+      boxImg.src = img.currentSrc || img.src;
+      boxImg.alt = img.alt || "";
+      boxCap.textContent = btn.dataset.cap || "";
+      lastFocus = btn;
+      box.hidden = false;
+      document.addEventListener("keydown", onKey);
+      closeBtn.focus();
+    }
+    function closeBox() {
+      box.hidden = true;
+      document.removeEventListener("keydown", onKey);
+      if (lastFocus) lastFocus.focus();
+    }
+    triggers.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        openBox(btn);
+      });
+    });
+    closeBtn.addEventListener("click", closeBox);
+    box.addEventListener("click", function (e) {
+      if (e.target === box) closeBox();
+    });
+  })();
+
   // Carousels. The track is a scrollable list on its own; this only wires the
   // arrow buttons and disables them at the ends.
   document.querySelectorAll("[data-os-carousel]").forEach(function (root) {
