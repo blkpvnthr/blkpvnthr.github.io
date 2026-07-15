@@ -53,3 +53,9 @@ dist/
 *.log
 *.pid
 *.seed
+# Raw video sources (optimized .mp4 committed instead)
+*.mov
+
+# Raw full-res video sources (optimized card videos committed instead)
+assets/blkpvnthr-os.mp4
+assets/ezie.mp4

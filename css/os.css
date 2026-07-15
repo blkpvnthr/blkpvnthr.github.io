@@ -851,7 +851,8 @@ figure.os-shot {
 }
 /* Only the side-by-side flagship needs the image to fill its column. */
 @media (min-width: 860px) {
-  .os-case--flagship .os-case__media img {
+  .os-case--flagship .os-case__media img,
+  .os-case--flagship .os-case__media video {
     height: 100%;
     object-fit: cover;
     object-position: left top;
