@@ -313,6 +313,9 @@ body {
   gap: 0.75rem;
   margin: 2rem 0 0;
 }
+.os-actions--center {
+  justify-content: center;
+}
 
 /* Outlined, squared, letter-spaced. The purple rule is the button. */
 .os-btn {
@@ -483,7 +486,8 @@ body {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.os-frame img {
+.os-frame img,
+.os-frame video {
   display: block;
   width: 100%;
   height: auto;
@@ -668,6 +672,28 @@ figure.os-shot {
 .os-carousel__track > .os-card .os-card__tag {
   margin-top: auto;
   padding-top: 0.85rem;
+}
+
+/* Gallery carousel: one large captioned screenshot per view, next one peeking. */
+.os-carousel__track > .os-slide {
+  flex: 0 0 clamp(280px, 86%, 720px);
+  scroll-snap-align: start;
+  margin: 0;
+}
+.os-slide figure {
+  margin: 0;
+}
+.os-slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--os-r2);
+  border: 1px solid var(--os-line);
+}
+.os-slide figcaption {
+  margin-top: 0.85rem;
+  font: 400 0.88rem/1.6 var(--os-sans);
+  color: var(--os-text-3);
 }
 
 /* Case-study carousel: the track is also .os-cases, but as a flex carousel the
