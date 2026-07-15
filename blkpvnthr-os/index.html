@@ -165,21 +165,27 @@
         </div>
 
         <div>
-          <figure class="os-shot">
+          <figure class="os-shot os-embed">
             <div class="os-frame">
               <div class="os-frame__bar">
                 <span class="os-frame__dots" aria-hidden="true"><i></i><i></i><i></i></span>
                 <span class="os-frame__url">os.blkpvnthr.com/os</span>
+                <a class="os-frame__open" href="https://os.blkpvnthr.com/os" target="_blank"
+                  rel="noopener noreferrer">
+                  Open full size <span aria-hidden="true">&nearr;</span>
+                  <span class="os-vh">(opens os.blkpvnthr.com in a new tab)</span>
+                </a>
               </div>
-              <img src="/assets/images/os/ai-brain.jpg"
-                srcset="/assets/images/os/ai-brain.jpg 1512w, /assets/images/os/ai-brain@2x.jpg 2400w"
-                sizes="(max-width: 900px) 100vw, 560px"
-                width="1512" height="950" fetchpriority="high" decoding="async"
-                alt="The AI Brain view: a force-directed knowledge graph in which engines, missions, workflows and data sources appear as connected nodes.">
+              <div class="os-embed__viewport">
+                <iframe src="https://os.blkpvnthr.com/os"
+                  title="BLKPVNTHR.OS — the AI Brain, live. Click a node to open the Inspector."
+                  loading="lazy" referrerpolicy="no-referrer"
+                  sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+              </div>
             </div>
             <figcaption>
-              The AI Brain. Typing <code>start</code> at the terminal opens the graph; selecting any node
-              opens the Inspector.
+              The AI Brain, live in guest mode. Click any node to open the Inspector. Any figures shown are the
+              product&rsquo;s own demo state, not real finances and not a track record.
             </figcaption>
           </figure>
         </div>
