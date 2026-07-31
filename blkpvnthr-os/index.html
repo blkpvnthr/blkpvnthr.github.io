@@ -4,15 +4,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BLKPVNTHR.OS | AI-Native Financial and Research Operating System</title>
-<meta name="description" content="Explore BLKPVNTHR.OS, an AI-native operating system for financial intelligence, quantitative research, knowledge management, workflow automation, and paper-trading infrastructure.">
+<title>BLKPVNTHR.OS | Decision Intelligence Infrastructure</title>
+<meta name="description" content="BLKPVNTHR.OS is decision intelligence infrastructure — it connects data, evidence, analytical engines, workflows, and human review into systems designed to support traceable, data-backed decisions, modeled as a connected knowledge graph. The current live implementation includes finance-oriented engines.">
 <link rel="canonical" href="https://asmaa.dev/blkpvnthr-os/">
 <meta name="theme-color" content="#08080c">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Asmaa Abdul-Amin">
 <meta property="og:url" content="https://asmaa.dev/blkpvnthr-os/">
-<meta property="og:title" content="BLKPVNTHR.OS | AI-Native Financial and Research Operating System">
-<meta property="og:description" content="Explore BLKPVNTHR.OS, an AI-native operating system for financial intelligence, quantitative research, knowledge management, workflow automation, and paper-trading infrastructure.">
+<meta property="og:title" content="BLKPVNTHR.OS | Decision Intelligence Infrastructure">
+<meta property="og:description" content="BLKPVNTHR.OS is decision intelligence infrastructure — it connects data, evidence, analytical engines, workflows, and human review into systems designed to support traceable, data-backed decisions, modeled as a connected knowledge graph. The current live implementation includes finance-oriented engines.">
 <meta property="og:image" content="https://asmaa.dev/assets/images/os/og-blkpvnthr-os.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -30,10 +30,10 @@
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "BLKPVNTHR.OS",
-  "applicationCategory": "FinanceApplication",
+  "applicationCategory": "BusinessApplication",
   "operatingSystem": "Web",
   "url": "https://os.blkpvnthr.com",
-  "description": "An AI-native operating system for financial intelligence, quantitative research, knowledge management, and operational automation. Applications, workflows, integrations, research experiments, financial resources, and system capabilities are represented as connected resources inside an interactive knowledge graph.",
+  "description": "Decision intelligence infrastructure that connects data, evidence, analytical engines, workflows, and human review into systems designed to support traceable, data-backed decisions. Applications, workflows, integrations, experiments, data sources, and system capabilities are represented as connected resources inside an interactive knowledge graph, so a conclusion can be linked back toward the evidence and the steps that produced it. The current live implementation includes finance-oriented engines and workflows.",
   "screenshot": "https://asmaa.dev/assets/images/os/ai-brain.jpg",
   "author": {
     "@type": "Person",
@@ -146,10 +146,11 @@
           </p>
 
           <p class="os-hero__lede">
-            BLKPVNTHR.OS is an AI-native operating system for financial intelligence, quantitative research,
-            knowledge management, and operational automation. The platform represents applications, workflows,
-            integrations, research experiments, financial resources, and system capabilities as connected
-            resources inside an interactive knowledge graph.
+            BLKPVNTHR.OS is decision intelligence infrastructure: it connects fragmented data, evidence,
+            analytical engines, workflows and human review into systems designed to support traceable,
+            data-backed decisions. Applications, workflows, integrations, experiments, data sources, and system
+            capabilities are modeled as connected resources on an interactive knowledge graph &mdash; so a
+            conclusion can be linked back toward the evidence and the steps that produced it.
           </p>
 
           <p class="os-hero__hint">Live at os.blkpvnthr.com &mdash; opens in guest mode, no sign-up.</p>
@@ -209,13 +210,13 @@
         <dd>React 19, TypeScript, Vite, Tailwind v4, React Flow, Zustand, React Router 7.</dd>
 
         <dt>Services</dt>
-        <dd>Supabase (auth + 6 Edge Functions), FastAPI research engine (Python).</dd>
+        <dd>Managed backend (auth + 6 edge functions), FastAPI research engine (Python).</dd>
 
         <dt>Integrations</dt>
-        <dd>Plaid (read-only bank links), Alpaca (paper), Supabase.</dd>
+        <dd>Read-only bank links, paper-only brokerage, managed backend.</dd>
 
         <dt>Infrastructure</dt>
-        <dd>nginx on an Oracle Cloud VM; research engine on 127.0.0.1:8010 behind <code>/research-api</code>.</dd>
+        <dd>A reverse proxy fronts the system; the research engine binds to loopback and is not exposed directly.</dd>
 
         <dt>Quality</dt>
         <dd>Vitest, oxlint.</dd>
@@ -230,14 +231,14 @@
       <h2 class="os-h2">Context is lost at every boundary</h2>
 
       <p class="os-lede">
-        Financial tools, research systems, automation, knowledge, and operational workflows are typically
-        fragmented across disconnected applications. The accounts live in one place, the research in another,
-        the notes in a third, and the automation nowhere at all.
+        Data sources, research systems, automation, knowledge, and operational workflows are typically
+        fragmented across disconnected applications. The data lives in one place, the analysis in another,
+        the notes in a third, and the decision nowhere at all.
       </p>
 
       <p class="os-lede">
         Each boundary between those applications is a place where context disappears. A hypothesis loses its
-        link to the data that produced it. A balance loses its link to the goal it was supposed to serve. A
+        link to the data that produced it. A metric loses its link to the decision it was meant to inform. A
         workflow loses its link to the engine it was meant to trigger. The work of holding the whole picture
         together falls back on the person, every single time.
       </p>
@@ -253,7 +254,7 @@
   <section class="os-band">
     <div class="os-wrap">
       <p class="os-eyebrow">the approach</p>
-      <h2 class="os-h2">A connected operating-system model</h2>
+      <h2 class="os-h2">A connected decision-intelligence model</h2>
 
       <p class="os-lede">
         Rather than another dashboard, BLKPVNTHR.OS models everything it knows about as a resource, and every
@@ -272,10 +273,11 @@
         </article>
 
         <article class="os-card">
-          <h3>Specialized engines</h3>
+          <h3>Extensible across data-intensive domains</h3>
           <p>
-            Finance, research, knowledge, trading, and automation are separate engines with their own routes and
-            their own boundaries, so a change in one does not silently reach into another.
+            Domain-specific engines connect specialized data, models, tools, and workflows to the shared decision
+            infrastructure. New systems can be introduced with their own routes and operational boundaries without
+            rebuilding the platform around each use case.
           </p>
           <p class="os-card__tag">/engines/*</p>
         </article>
@@ -290,10 +292,11 @@
         </article>
 
         <article class="os-card">
-          <h3>Source-backed intelligence</h3>
+          <h3>Evidence and provenance</h3>
           <p>
-            Analysis is tied back to the resources it came from. Evidence and provenance are modelled explicitly
-            so a conclusion can be traced to the data and the experiment that produced it.
+            Evidence and provenance are modelled explicitly. The architecture is designed so conclusions can be
+            linked to their supporting data, experiments, assumptions, and processing steps, and so outputs
+            distinguish sourced values, calculations, assumptions, and generated interpretation.
           </p>
           <p class="os-card__tag">evidence_fusion</p>
         </article>
@@ -310,8 +313,9 @@
         <article class="os-card">
           <h3>Personal and organizational modes</h3>
           <p>
-            The same operating model serves an individual tracking their own finances and goals, and a research
-            operation running laboratories, schedules, and a strategy pipeline.
+            The same operating model is designed to serve an individual tracking a single domain, and can extend
+            to an organization running many &mdash; laboratories, schedules, and pipelines &mdash; on one
+            connected graph.
           </p>
           <p class="os-card__tag">Guest mode available</p>
         </article>
@@ -326,107 +330,50 @@
       <h2 class="os-h2">What the system actually does</h2>
 
       <p class="os-lede">
-        BLKPVNTHR.OS is an AI-assisted wealth-building platform: an autonomous quantitative research pipeline
-        with investment account integration, a Personal Accounting Agent with live bank account integrations,
-        a career goal tracker, an emailing assistant, and a day-to-day personal assistant &mdash; designed to
-        help everyday people learn how to build their wealth, keep track of their finances, and work toward
-        their financial goals.
+        BLKPVNTHR.OS gives a decision system the parts it needs: connecting fragmented data and context,
+        evaluating evidence and assumptions, running analytical and scenario-based workflows, preserving
+        provenance and decision history, comparing possible actions, and producing reviewable outputs for the
+        people who make the call. Each domain can define its own data sources, analytical engines, evidence
+        requirements, workflows, and review boundaries on the shared graph-based architecture.
       </p>
 
-      <h3>Financial intelligence</h3>
+      <p class="os-eyebrow" style="margin-top:2.5rem">current implementation</p>
+      <p class="os-lede">
+        The current live deployment uses financial analysis, quantitative research, and paper-trading workflows
+        as a working implementation of the broader decision-intelligence architecture. These modules demonstrate
+        how the platform connects source data, analytical processes, evidence, review boundaries, and recorded
+        actions within one navigable system.
+      </p>
+
       <div class="os-grid">
         <article class="os-card">
-          <h4>Net worth</h4>
-          <p>The Finance engine presents itself as an accounting department that closes the books each month and
-            tracks long-term net worth across linked accounts.</p>
-        </article>
-        <article class="os-card">
-          <h4>Personal Accounting Agent</h4>
-          <p>An agent sits over the connected accounts and keeps the picture current, so goals and progress are read
-            off the account data rather than maintained by hand.</p>
-        </article>
-        <article class="os-card">
-          <h4>Account aggregation</h4>
-          <p>Bank accounts are connected through Plaid, and brokerage data through the Alpaca proxy.</p>
-        </article>
-        <article class="os-card">
-          <h4>Reporting and read-only workflows</h4>
-          <p>Financial reporting is built on read-only data workflows. Balances only: no transfers, no trading.</p>
+          <h4>Financial analysis</h4>
+          <p>Connected account data supports reporting, goal tracking, and reviewable financial insights through
+            read-only workflows.</p>
           <p class="os-card__tag">/engines/finance</p>
         </article>
-      </div>
-
-      <h3>Quantitative research</h3>
-      <p class="os-lede">
-        The Research Division runs 18 laboratories against an explicit research lifecycle. A candidate has to
-        survive the whole chain before anything downstream will look at it:
-      </p>
-      <ol class="os-steps">
-        <li>
-          <h4>Observe and detect</h4>
-          <p>Observation &rarr; phenomenon detection &rarr; hypothesis generation &rarr; counter-hypothesis.</p>
-        </li>
-        <li>
-          <h4>Design and validate</h4>
-          <p>Experimental design &rarr; statistical validation &rarr; economic validation.</p>
-        </li>
-        <li>
-          <h4>Stress and replicate</h4>
-          <p>Historical robustness &rarr; paper trading validation &rarr; replication.</p>
-        </li>
-        <li>
-          <h4>Publish</h4>
-          <p>Publication &rarr; market law &rarr; deployable strategy. The division states plainly: paper / research only.</p>
-        </li>
-      </ol>
-      <div class="os-grid">
         <article class="os-card">
-          <h4>Hypothesis and experiment tracking</h4>
-          <p>Hypotheses, counter-hypotheses, and experiments are tracked as resources, not as scattered notebooks.</p>
-        </article>
-        <article class="os-card">
-          <h4>Strategy validation</h4>
-          <p>Walk-forward analysis and regime-aware research sit inside the validation stages of the lifecycle.</p>
-        </article>
-        <article class="os-card">
-          <h4>Evidence and provenance</h4>
-          <p>Results carry their sources, so a claim can be traced back to the run and the data behind it.</p>
-        </article>
-        <article class="os-card">
-          <h4>Python research engine</h4>
-          <p>research_engine (FastAPI, stdlib-first), pattern_engine, alpha_discovery, evidence_fusion, strategy_lab.</p>
+          <h4>Research and validation</h4>
+          <p>Hypotheses, experiments, evidence, and validation stages are modeled as connected resources so
+            findings remain tied to the work that produced them.</p>
           <p class="os-card__tag">/research-division</p>
         </article>
-      </div>
-
-      <h3>Trading infrastructure</h3>
-      <p class="os-lede">
-        Trading is <strong>paper-first</strong>: a strategy runs as paper-trading research, and
-        <strong>live orders stay disabled until it clears the platform&rsquo;s paper-trading threshold</strong>.
-        Execution is kept separate from analysis &mdash; the research side proposes, and nothing it produces
-        reaches a live venue on its own.
-      </p>
-      <div class="os-grid">
         <article class="os-card">
-          <h4>Paper-first execution</h4>
-          <p>The trading page states the bar directly: live orders are disabled until a strategy consistently
-            averages $100/day net in paper.</p>
-        </article>
-        <article class="os-card">
-          <h4>Risk gates</h4>
-          <p>A trading discipline layer applies risk limits to a strategy before it is allowed to progress.</p>
-        </article>
-        <article class="os-card">
-          <h4>Trade journaling and monitoring</h4>
-          <p>A trading discipline module and strategy monitoring keep a record of what was done and why.</p>
-        </article>
-        <article class="os-card">
-          <h4>Portfolio and allocation research</h4>
-          <p>Portfolio construction and allocation are studied as research questions, separately from execution.</p>
+          <h4>Controlled action workflows</h4>
+          <p>Research, risk review, and execution remain separated, demonstrating how the architecture can place
+            explicit controls between analysis and consequential action.</p>
           <p class="os-card__tag">/engines/trading</p>
         </article>
       </div>
 
+      <p class="os-note" style="margin-top:1.75rem">
+        The same architecture can support additional decision systems in areas such as operations, workforce
+        planning, technical research, program management, risk analysis, and other data-intensive environments.
+        Each implementation can define its own data sources, analytical engines, evidence standards, workflows,
+        permissions, and human-review requirements without rebuilding the underlying platform.
+      </p>
+
+      <p class="os-eyebrow" style="margin-top:2.5rem">platform capabilities</p>
       <h3>Knowledge and operations</h3>
       <div class="os-grid">
         <article class="os-card">
@@ -454,17 +401,16 @@
   <section class="os-band" id="architecture">
     <div class="os-wrap">
       <p class="os-eyebrow">architecture</p>
-      <h2 class="os-h2">Four layers</h2>
+      <h2 class="os-h2">Three layers</h2>
 
       <p class="os-lede">
-        The interface talks to orchestration, orchestration composes the engines, and the engines are the only
-        things that talk to providers. Nothing in the browser holds a provider secret.
+        The interface talks to orchestration, and orchestration composes the engines. Credentials stay
+        server-side &mdash; nothing in the browser holds a provider secret.
       </p>
 
       <p class="os-vh">
-        The following diagram describes four layers. Each layer is built on the layer below it: the interface
-        layer is built on the orchestration layer, the orchestration layer is built on the engines layer, and
-        the engines layer is built on the providers and persistence layer.
+        The following diagram describes three layers. Each layer is built on the layer below it: the interface
+        layer is built on the orchestration layer, and the orchestration layer is built on the engines layer.
       </p>
 
       <ol class="os-arch">
@@ -491,31 +437,14 @@
         <li class="os-arch__layer">
           <h3 class="os-arch__label">Engines</h3>
           <ul class="os-arch__nodes">
-            <li class="os-arch__node">Finance <span>/engines/finance</span></li>
+            <li class="os-arch__node">Live data <span>sources &amp; ingestion</span></li>
             <li class="os-arch__node">Research <span>/research-division</span></li>
             <li class="os-arch__node">Knowledge <span>Knowledge Base</span></li>
-            <li class="os-arch__node">Trading <span>/engines/trading &middot; paper</span></li>
+            <li class="os-arch__node">Action <span>controlled execution</span></li>
             <li class="os-arch__node">Automation</li>
           </ul>
         </li>
-
-        <li class="os-arch__layer">
-          <h3 class="os-arch__label">Providers &amp; persistence</h3>
-          <ul class="os-arch__nodes">
-            <li class="os-arch__node os-arch__node--provider">Supabase <span>auth + 6 edge functions</span></li>
-            <li class="os-arch__node os-arch__node--provider">Plaid <span>read-only bank links</span></li>
-            <li class="os-arch__node os-arch__node--provider">Alpaca <span>paper trading</span></li>
-            <li class="os-arch__node os-arch__node--provider">FastAPI research engine <span>127.0.0.1:8010 &rarr; /research-api</span></li>
-            <li class="os-arch__node os-arch__node--provider">Local persistence</li>
-          </ul>
-        </li>
       </ol>
-
-      <p class="os-note">
-        The six Supabase Edge Functions are alpaca-proxy, plaid-link, brokerage-connect, email-classify,
-        email-sync, and email-provider-token. nginx on an Oracle Cloud VM fronts the whole system and
-        reverse-proxies the research engine, which binds to loopback and is never exposed directly.
-      </p>
     </div>
   </section>
 
@@ -537,13 +466,12 @@
         <li>Framer Motion</li>
         <li>Recharts</li>
         <li>Radix UI</li>
-        <li>react-plaid-link</li>
       </ul>
 
       <h3>Services</h3>
       <ul class="os-chips">
-        <li>Supabase auth</li>
-        <li>Supabase Edge Functions &times; 6</li>
+        <li>Authentication and access control</li>
+        <li>Serverless edge functions &times; 6</li>
         <li>FastAPI research engine</li>
         <li>Python (stdlib-first)</li>
         <li>research_engine</li>
@@ -555,17 +483,15 @@
 
       <h3>Data &amp; integrations</h3>
       <ul class="os-chips">
-        <li>Plaid (read-only bank links)</li>
-        <li>Alpaca (paper-api)</li>
-        <li>Supabase</li>
+        <li>Read-only financial data integration</li>
+        <li>Brokerage connectivity (demo)</li>
+        <li>Managed application database</li>
       </ul>
 
       <h3>Infrastructure</h3>
       <ul class="os-chips">
-        <li>nginx</li>
-        <li>Oracle Cloud VM</li>
-        <li>127.0.0.1:8010</li>
-        <li>/research-api reverse proxy</li>
+        <li>Reverse proxy</li>
+        <li>Loopback-bound research engine</li>
       </ul>
 
       <h3>Quality</h3>
@@ -610,8 +536,8 @@
         <article class="os-card">
           <h3>Source-backed analysis</h3>
           <p>
-            The system does not invent financial values. Figures are traced to the account data or the
-            research run they came from.
+            The system is designed not to fabricate financial values, and to trace figures back to the account
+            data or the research run they came from.
           </p>
         </article>
 
@@ -643,8 +569,14 @@
       <p class="os-eyebrow">the system</p>
       <h2 class="os-h2">Inside BLKPVNTHR.OS</h2>
 
+      <p class="os-lede">
+        The current live implementation includes finance-oriented engines and workflows. These screens
+        demonstrate how domain-specific data, analytical tools, evidence, and actions can be organized through
+        the shared decision-intelligence architecture.
+      </p>
+
       <div class="os-carousel os-carousel--gallery" data-os-carousel>
-        <p class="os-carousel__hint">Eight screens from inside the OS. Scroll, swipe, or use the arrows.</p>
+        <p class="os-carousel__hint">Eight screens from the current live implementation. Scroll, swipe, or use the arrows.</p>
         <div class="os-carousel__stage">
           <button class="os-carousel__btn os-carousel__btn--prev" type="button" data-os-carousel-prev
             aria-label="Previous screen">

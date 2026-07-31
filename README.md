@@ -5,7 +5,8 @@ financial intelligence, quantitative research, knowledge management, and workflo
 
 - **Live:** <https://asmaa.dev> (custom domain via `CNAME`, served by GitHub Pages from the
   root of `main`)
-- **Flagship product:** [BLKPVNTHR.OS](https://os.blkpvnthr.com) — opens in Guest mode, no sign-up.
+- **Flagship product:** [BLKPVNTHR.OS](https://os.blkpvnthr.com) — decision intelligence infrastructure;
+  the current live implementation is finance-oriented. Opens in Guest mode, no sign-up.
 
 ---
 

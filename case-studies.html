@@ -95,19 +95,21 @@
               <p class="os-case__kicker">Flagship product &middot; <b>Live</b></p>
               <h2>BLKPVNTHR.OS</h2>
               <p>
-                An AI-assisted wealth-building platform. It opens on a terminal; typing
+                Decision intelligence infrastructure &mdash; a platform for turning fragmented data into
+                traceable decisions. It opens on a terminal; typing
                 <code>start</code> loads the AI Brain, a knowledge graph where the graph is the
-                application &mdash; every node is clickable and opens the Inspector. Behind the graph
-                sit a quantitative research pipeline, a Personal Accounting Agent with bank
-                integrations, a career goal tracker, an emailing assistant, and a day-to-day
-                personal assistant.
+                application &mdash; every node is clickable and opens the Inspector. Its first implemented
+                domain is personal finance: behind the graph sit a quantitative research pipeline, a Personal
+                Accounting Agent with bank integrations, a career goal tracker, an emailing assistant, and a
+                day-to-day personal assistant &mdash; one worked example of the same model that extends to
+                research, operations, and other decision systems.
               </p>
               <dl>
                 <dt>Problem</dt>
                 <dd>
-                  Everyday people have no single place to learn how wealth gets built, see their
-                  finances honestly, and work a plan toward a goal. The tools that do exist are
-                  split across a dozen apps and assume you already speak finance.
+                  In the finance domain the platform tackles first: everyday people have no single place to
+                  learn how wealth gets built, see their finances honestly, and work a plan toward a goal. The
+                  tools that do exist are split across a dozen apps and assume you already speak finance.
                 </dd>
 
                 <dt>Constraints</dt>
@@ -123,26 +125,25 @@
                   A React 19 single-page app built around a React Flow knowledge graph, with real
                   modules behind each node: the AI Brain (<code>/os</code>), a finance engine, a
                   trading engine, a research division, integrations, workflows, missions, Graphify,
-                  a vault, email, and memory. Banks connect through Plaid&rsquo;s own secure widget
-                  &mdash; the app never sees bank credentials and the Plaid secret stays
-                  server-side. Balances only: no transfers, no trading. The Alpaca proxy targets
-                  the paper API, and live orders stay disabled until a strategy clears the
+                  a vault, email, and memory. Bank connections use a secure third-party widget
+                  &mdash; the app never sees bank credentials and the provider secret stays
+                  server-side. Balances only: no transfers, no trading. The brokerage integration
+                  targets a paper-only API, and live orders stay disabled until a strategy clears the
                   paper-trading threshold.
                 </dd>
 
                 <dt>Responsibilities</dt>
                 <dd>
                   Sole engineer and designer. Product, information architecture, front end, Python
-                  research services, Supabase Edge Functions, and the nginx deployment on an Oracle
-                  Cloud VM.
+                  research services, serverless edge functions, and deployment.
                 </dd>
 
                 <dt>Technology</dt>
                 <dd>
                   React 19, TypeScript, Vite, Tailwind v4, React Flow (@xyflow/react), Zustand,
-                  React Router 7, Framer Motion, Recharts, Radix UI, react-plaid-link. Python
-                  (FastAPI) research services. Supabase auth plus six Edge Functions. Plaid and
-                  Alpaca. Vitest and oxlint. nginx on an Oracle Cloud VM.
+                  React Router 7, Framer Motion, Recharts, Radix UI. Python
+                  (FastAPI) research services. Managed database with authentication and six edge
+                  functions. Read-only financial-data and brokerage integrations. Vitest and oxlint.
                 </dd>
 
                 <dt>Status</dt>
@@ -279,8 +280,7 @@
                 <dt>Technology</dt>
                 <dd>
                   Python and FastAPI, stdlib-first, across research_engine, pattern_engine,
-                  alpha_discovery, evidence_fusion, and strategy_lab. Served on 127.0.0.1:8010 and
-                  reverse-proxied by nginx at <code>/research-api</code>. React and TypeScript front
+                  alpha_discovery, evidence_fusion, and strategy_lab. React and TypeScript front
                   end.
                 </dd>
 
