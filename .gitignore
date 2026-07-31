@@ -66,3 +66,7 @@ assets/AI-CFO.png
 assets/balance-sheet.png
 assets/financial-review.png
 assets/integrations.png
+
+# macOS metadata
+.DS_Store
+**/.DS_Store
