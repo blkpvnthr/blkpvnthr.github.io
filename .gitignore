@@ -70,3 +70,7 @@ assets/integrations.png
 # macOS metadata
 .DS_Store
 **/.DS_Store
+
+# Local image drafts
+assets/asmaa.dev-hero.png
+assets/repository-open-graph-template.png
