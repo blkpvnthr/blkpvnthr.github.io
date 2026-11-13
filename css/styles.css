@@ -357,6 +357,15 @@ h1.lh-condensed {
   visibility: hidden;
 }
 
+/* The navbar's inline border-bottom is meant as a hairline under the slim
+   collapsed bar — drop it once the mobile menu is open, since the panel now
+   fades out on its own and the hard white line just cuts across it. */
+.about-hero-overlay .navbar:has(.navbar-collapse.show) {
+  /* overrides the element's inline border-bottom, which otherwise wins over any
+     non-!important rule */
+  border-bottom-color: transparent !important;
+}
+
 .about-hero-content {
   position: relative;
   z-index: 1;
@@ -399,8 +408,10 @@ h1.lh-condensed {
     backdrop-filter: blur(14px) saturate(120%);
     -webkit-backdrop-filter: blur(14px) saturate(120%);
     margin: 0.5rem -1rem 0;
-    padding: 0.5rem 1rem 1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem 2.5rem;
+    /* fade the whole panel (color + blur) out at the bottom instead of a hard edge */
+    mask-image: linear-gradient(to bottom, #000 75%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, #000 75%, transparent 100%);
   }
 }
 
