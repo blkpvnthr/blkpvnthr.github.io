@@ -404,12 +404,12 @@ h1.lh-condensed {
   /* height scales with viewport */
   height: clamp(64px, 12vw, 220px);
 
-  /* smooth fade from transparent to page background */
+  /* smooth fade from transparent into the section that follows (Case Studies / .os-band) */
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.65) 55%,
-    rgba(0, 0, 0, 1) 100%
+    rgba(8, 8, 12, 0) 0%,
+    rgba(8, 8, 12, 0.65) 55%,
+    rgba(8, 8, 12, 1) 100%
   );
 
   pointer-events: none; /* doesn't block clicks */

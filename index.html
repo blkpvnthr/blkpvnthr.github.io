@@ -55,254 +55,78 @@
 </head>
 
 <body>
-  <!-- @partial:nav start — CANONICAL SOURCE: includes/partials/nav.html
-     This block is duplicated verbatim into every page. If you change it here,
-     re-stamp the other pages (python3 tools/sync_partials.py). -->
 <a class="os-skip" href="#main">Skip to main content</a>
-<header class="os-header">
-  <nav class="os-nav" aria-label="Main">
-    <a class="os-nav__brand" href="/">Asmaa Abdul-Amin</a>
+<a id="top"></a>
 
-    <button class="os-nav__toggle" type="button" aria-expanded="false"
-      aria-controls="os-nav-menu" data-os-nav-toggle>
-      <span class="os-vh">Menu</span>
-      <svg class="os-nav__icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-        stroke-width="2" stroke-linecap="round" aria-hidden="true">
-        <path d="M3 6h18M3 12h18M3 18h18" />
-      </svg>
-      <svg class="os-nav__icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-        stroke-width="2" stroke-linecap="round" aria-hidden="true">
-        <path d="M6 6l12 12M18 6L6 18" />
-      </svg>
-    </button>
+<section class="about-hero relative d-flex align-items-center justify-content-center text-center">
 
-    <ul class="os-nav__menu" id="os-nav-menu">
-      <li><a class="os-nav__link" href="/" data-nav="/">Home</a></li>
-      <li><a class="os-nav__link" href="/blkpvnthr-os/" data-nav="/blkpvnthr-os/">BLKPVNTHR.OS</a></li>
-      <li><a class="os-nav__link" href="/case-studies.html" data-nav="/case-studies.html">Case Studies</a></li>
-      <li><a class="os-nav__link" href="/#experience">Experience</a></li>
-      <li><a class="os-nav__link" href="/#services">Services</a></li>
-      <li><a class="os-nav__link" href="/#about">About</a></li>
-      <li><a class="os-nav__link" href="/#contact">Contact</a></li>
-      <li>
-        <a class="os-nav__cta" href="https://os.blkpvnthr.com" target="_blank"
-          rel="noopener noreferrer">
-          Launch OS <span aria-hidden="true">&rarr;</span>
-          <span class="os-vh">(opens os.blkpvnthr.com in a new tab)</span>
+  <div class="about-hero-overlay">
+
+    <!-- 🌐 Sticky Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky py-2"
+      style="background-color: transparent !important;border-bottom: 0.5px solid #ffffff">
+      <div class="container" style="color: transparent !important;">
+        <!-- Brand / Logo -->
+        <a class="navbar-brand fw-semibold" href="index.html"
+          style="color: #ffffff;font-size: 0.8rem;letter-spacing: 0.35em !important;text-transform: uppercase;font-weight: 200 !important;padding: 0.5rem 1rem !important;">
+          Asmaa Abdul-Amin
         </a>
-      </li>
-    </ul>
-  </nav>
-</header>
-<!-- @partial:nav end -->
+
+        <!-- Hamburger Menu -->
+        <button class="navbar-toggler" type="button"
+          data-bs-toggle="collapse" data-bs-target="#navbarContent"
+          aria-controls="navbarContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
+          <ul class="navbar-nav mb-2 mb-lg-0">
+
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="images.html">Gallery</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="projects.html">Projects</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/assets/Asmaa_Abdul-Amin.pdf" target="_blank">
+                Resumé
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/blkpvnthr" target="_blank">
+                GitHub<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true"><path
+                    fill="currentColor"
+                    d="M10.5 3h-5a.75.75 0 0 0 0 1.5h2.69L4.22 8.47a.75.75 0 1 0 1.06 1.06L9.25 5.56v2.69a.75.75 0 0 0 1.5 0v-5A.75.75 0 0 0 10.5 3Z" />
+                </svg>
+              </a>
+            </li>
+
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+  </div>
+
+  <div class="about-hero-content position-relative">
+    <h1 class="about-hero-title no-wrap">Defined by Detail</h1>
+    <!--<p class="about-hero-subtitle mt-4">
+    – building things at the intersection of data, automation, and curiosity.
+    </p>-->
+  </div>
+  <div class="hero-gradient"></div>
+
+</section>
 
   <main id="main">
-
-    <!-- ============================================================
-         1. HERO
-         ============================================================ -->
-    <section class="os-hero">
-      <div class="os-wrap">
-        <div class="os-hero__grid">
-
-          <div>
-            <h1 class="os-hero__title">
-              Building intelligent systems that turn <em>data into decisions.</em>
-            </h1>
-
-            <p class="os-hero__lede">
-              I'm Asmaa Abdul-Amin, a software engineer and creator of <strong>BLKPVNTHR.OS</strong> —
-              decision intelligence infrastructure that connects data, evidence, analytical engines and
-              workflows into systems designed to support traceable, data-backed decisions.
-            </p>
-
-            <p class="os-hero__hint">Opens in guest mode — no sign-up.</p>
-
-            <div class="os-actions">
-              <a class="os-btn os-btn--primary" href="https://os.blkpvnthr.com" target="_blank"
-                rel="noopener noreferrer">
-                Launch BLKPVNTHR.OS <span aria-hidden="true">&rarr;</span>
-                <span class="os-vh">(opens os.blkpvnthr.com in a new tab)</span>
-              </a>
-              <a class="os-btn os-btn--ghost" href="/blkpvnthr-os/">Explore the product</a>
-              <a class="os-btn os-btn--ghost" href="#services">Work with me</a>
-            </div>
-          </div>
-
-          <figure class="os-shot">
-            <div class="os-frame">
-              <div class="os-frame__bar">
-                <span class="os-frame__dots" aria-hidden="true"><i></i><i></i><i></i></span>
-                <span class="os-frame__url">os.blkpvnthr.com</span>
-              </div>
-              <img src="/assets/blkpvnthr-os-main.gif" width="1280" height="720" fetchpriority="high"
-                decoding="async"
-                alt="The BLKPVNTHR.OS boot sequence: a terminal prompt reading root@blkpvnthr-os that accepts the start command and expands into the AI Brain knowledge graph.">
-            </div>
-            <figcaption>
-              The boot sequence. The landing page is a terminal — <code>root@blkpvnthr-os:~$</code> — and typing
-              <code>start</code> opens the AI Brain.
-            </figcaption>
-          </figure>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         2. FEATURED PRODUCT
-         ============================================================ -->
-    <section class="os-band" aria-labelledby="product-h">
-      <div class="os-wrap">
-        <p class="os-eyebrow">featured product</p>
-        <h2 class="os-h2" id="product-h">BLKPVNTHR.OS</h2>
-
-        <p class="os-lede">
-          BLKPVNTHR.OS connects data, evidence, analytical engines, workflows and human review into one
-          graph-based system for making traceable, data-backed decisions. Every data source, engine, workflow
-          and experiment is a connected resource, and the architecture is designed so a conclusion can be linked
-          back toward the evidence behind it. The current live implementation includes finance-oriented engines
-          and workflows.
-        </p>
-
-        <blockquote class="os-lede">
-          <p>&ldquo;The graph is the application — every node is clickable, opens the Inspector.&rdquo;</p>
-        </blockquote>
-
-        <figure class="os-shot os-embed" style="margin-top:2.5rem">
-          <div class="os-frame">
-            <div class="os-frame__bar">
-              <span class="os-frame__dots" aria-hidden="true"><i></i><i></i><i></i></span>
-              <span class="os-frame__url">os.blkpvnthr.com/os</span>
-              <a class="os-frame__open" href="https://os.blkpvnthr.com/os" target="_blank"
-                rel="noopener noreferrer">
-                Open full size <span aria-hidden="true">&nearr;</span>
-                <span class="os-vh">(opens os.blkpvnthr.com in a new tab)</span>
-              </a>
-            </div>
-            <div class="os-embed__viewport">
-              <iframe src="https://os.blkpvnthr.com/os" title="BLKPVNTHR.OS — the AI Brain, live. Click a node to open the Inspector."
-                loading="lazy" referrerpolicy="no-referrer"
-                sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
-            </div>
-          </div>
-          <figcaption>
-            This is the live product, not a picture of it — running in guest mode. Click any node to open the
-            Inspector. Any figures shown are the product's own demo state, not real finances and not a track
-            record.
-          </figcaption>
-        </figure>
-
-        <div class="os-carousel" data-os-carousel>
-          <p class="os-carousel__hint">Six capabilities behind the graph — the decision lifecycle, from connected data to reviewable outcomes. Scroll, swipe, or use the arrows.</p>
-          <div class="os-carousel__stage">
-            <button class="os-carousel__btn os-carousel__btn--prev" type="button" data-os-carousel-prev
-              aria-label="Previous capabilities">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6" /></svg>
-            </button>
-
-          <ul class="os-carousel__track" data-os-carousel-track tabindex="0" role="group"
-            aria-label="BLKPVNTHR.OS capabilities">
-          <li class="os-card">
-            <h3>Graph-based navigation</h3>
-            <p>
-              Every engine, agent, workflow and data source is a node on one live graph. Selecting a node opens
-              the Inspector, so you navigate the system by exploring the graph rather than hunting through menus.
-            </p>
-            <span class="os-card__tag">/os</span>
-          </li>
-
-          <li class="os-card">
-            <h3>Connected data &amp; knowledge</h3>
-            <p>
-              Fragmented data, documents and context are pulled into one connected model. A vault holds documents
-              and notes; a Graphify pipeline turns arbitrary input into a knowledge graph the whole system can
-              query.
-            </p>
-            <span class="os-card__tag">/vault, /graphify</span>
-          </li>
-
-          <li class="os-card">
-            <h3>Evidence &amp; provenance</h3>
-            <p>
-              The architecture is designed so conclusions can be linked to their supporting data, experiments,
-              assumptions and processing steps — so a result can be followed back toward its source and the
-              reasoning behind it.
-            </p>
-            <span class="os-card__tag">evidence, provenance</span>
-          </li>
-
-          <li class="os-card">
-            <h3>Analytical &amp; scenario engines</h3>
-            <p>
-              Domain-specific engines run analysis and scenario evaluation over connected, read-only data,
-              comparing possible actions. Each engine can define its own data sources, evidence requirements and
-              review boundaries without changing the underlying graph-based architecture.
-            </p>
-            <span class="os-card__tag">/engines</span>
-          </li>
-
-          <li class="os-card">
-            <h3>Repeatable workflows &amp; automation</h3>
-            <p>
-              Workflows and missions chain steps into repeatable operations, so recurring analysis and handoffs
-              are assembled from parts that already exist rather than rebuilt each time.
-            </p>
-            <span class="os-card__tag">/workflows</span>
-          </li>
-
-          <li class="os-card">
-            <h3>Decision records, review &amp; memory</h3>
-            <p>
-              Decisions, their evidence and the steps behind them are recorded and reviewable. A memory layer
-              preserves context across runs, and consequential actions are designed to route through human review
-              rather than fire on their own.
-            </p>
-            <span class="os-card__tag">/memory</span>
-          </li>
-          </ul>
-
-            <button class="os-carousel__btn os-carousel__btn--next" type="button" data-os-carousel-next
-              aria-label="Next capabilities">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6" /></svg>
-            </button>
-          </div>
-        </div>
-
-        <ul class="os-chips" style="margin-top:2.5rem">
-          <li>React 19</li>
-          <li>TypeScript</li>
-          <li>Vite</li>
-          <li>Tailwind v4</li>
-          <li>React Flow</li>
-          <li>Zustand</li>
-          <li>React Router 7</li>
-          <li>Framer Motion</li>
-          <li>Recharts</li>
-          <li>Radix UI</li>
-          <li>Vitest</li>
-          <li>oxlint</li>
-          <li>Python</li>
-          <li>FastAPI</li>
-        </ul>
-
-        <p class="os-note" style="margin-top:1.5rem">
-          Trading is paper-first — live orders stay disabled until a strategy clears the platform&rsquo;s paper-trading threshold. Bank connections are
-          read-only; the app never sees your bank credentials. Nothing here is investment advice.
-        </p>
-
-        <div class="os-actions">
-          <a class="os-btn os-btn--primary" href="https://os.blkpvnthr.com" target="_blank"
-            rel="noopener noreferrer">
-            Launch the OS <span aria-hidden="true">&rarr;</span>
-            <span class="os-vh">(opens os.blkpvnthr.com in a new tab)</span>
-          </a>
-          <a class="os-btn os-btn--ghost" href="/blkpvnthr-os/">View technical case study</a>
-        </div>
-      </div>
-    </section>
 
     <!-- ============================================================
          3. SELECTED WORK
@@ -904,6 +728,9 @@
       });
     })();
   </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
 </html>
