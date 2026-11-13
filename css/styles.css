@@ -342,8 +342,24 @@ h1.lh-condensed {
   );
 }
 
+/* Nav (and its expanded mobile panel) must stack above the hero title,
+   not the other way around — otherwise "Defined by Detail" shows through
+   the open dropdown. */
+.about-hero-overlay .navbar {
+  position: relative;
+  z-index: 2;
+}
+
+/* The dropdown panel is only as tall as its link list, so on short viewports
+   the title can still peek out underneath it — hide it outright while the
+   mobile menu is open instead of relying on the panel to fully cover it. */
+.about-hero:has(.navbar-collapse.show) .about-hero-content {
+  visibility: hidden;
+}
+
 .about-hero-content {
   position: relative;
+  z-index: 1;
   max-width: 1420px;
   margin: 0 auto;
   padding: 3rem 1.5rem;
@@ -374,6 +390,20 @@ h1.lh-condensed {
   }
 }
 
+/* Mobile nav dropdown needs its own backing — the navbar itself is
+   transparent over the hero photo, which made the expanded menu unreadable.
+   Smoked-glass treatment: translucent, not a flat opaque panel. */
+@media (max-width: 991.98px) {
+  .about-hero .navbar-collapse {
+    background: rgba(8, 8, 12, 0.6);
+    backdrop-filter: blur(14px) saturate(120%);
+    -webkit-backdrop-filter: blur(14px) saturate(120%);
+    margin: 0.5rem -1rem 0;
+    padding: 0.5rem 1rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
 @media (max-width: 768px) {
   .about-hero {
     min-height: 60vh;
@@ -401,14 +431,17 @@ h1.lh-condensed {
   bottom: 0;
   width: 100%;
 
-  /* height scales with viewport */
-  height: clamp(64px, 12vw, 220px);
+  /* taller fade zone so the hand-off into the next section reads as gradual, not a hard cut */
+  height: clamp(160px, 28vw, 440px);
 
-  /* smooth fade from transparent into the section that follows (Case Studies / .os-band) */
+  /* eased fade from transparent into the section that follows (Case Studies / .os-band) —
+     extra stops slow the ramp down near the top so it doesn't look like a sudden line */
   background: linear-gradient(
     to bottom,
     rgba(8, 8, 12, 0) 0%,
-    rgba(8, 8, 12, 0.65) 55%,
+    rgba(8, 8, 12, 0.06) 30%,
+    rgba(8, 8, 12, 0.22) 55%,
+    rgba(8, 8, 12, 0.55) 75%,
     rgba(8, 8, 12, 1) 100%
   );
 
